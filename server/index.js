@@ -16,10 +16,8 @@ app.get('/products', (req, res) => {
     headers: {
       authorization: process.env.API_TOKEN,
     },
-  })
-    .then((results) => {
-      res.json(results.data);
-    });
+  }).then((results) => res.json(results.data))
+  .catch((err) => console.error('There was a problem in the server retrieving product data: ', err))
 });
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
