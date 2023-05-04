@@ -1,5 +1,6 @@
 require('dotenv').config();
 const path = require('path');
+const axios = require('axios');
 
 const express = require('express');
 const morgan = require('morgan');
@@ -9,6 +10,17 @@ app.use(morgan('dev'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.get('/products', (req, res) => {
+  axios.get(`${process.env.ATELIER_API}/products`, {
+    headers: {
+      authorization: process.env.API_TOKEN,
+    },
+  })
+    .then((results) => {
+      res.json(results.data);
+    });
+});
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
