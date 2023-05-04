@@ -22,6 +22,31 @@ app.get('/products', (req, res) => {
     });
 });
 
+app.get('/questions', (req, res) => {
+  // console.log('req is', req.query.id);
+
+  axios.get(`${process.env.ATELIER_API}/qa/questions`, {
+    params: {
+      product_id: req.query.id,
+    },
+    headers: {
+      authorization: process.env.API_TOKEN,
+    },
+  })
+    .then((results) => {
+      res.status(200).send(results);
+      console.log('success');
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+      console.log('failure');
+    });
+});
+
+// app.get('/answers', (req, res) => {
+
+// });
+
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const PORT = process.env.PORT || 3000;
