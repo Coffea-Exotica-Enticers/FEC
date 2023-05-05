@@ -17,22 +17,22 @@ export default function App() {
       });
   }
 
-  function getAnswers() {
-    axios.get('/answers')
-      .then((answers) => {
-        console.log(answers);
-      })
-      .catch((err) => {
-        console.log('Error in getAnswers of client/App.jsx', err);
-      });
-  }
+  // function getAnswers() {
+  //   axios.get('/answers')
+  //     .then((answers) => {
+  //       console.log(answers);
+  //     })
+  //     .catch((err) => {
+  //       console.log('Error in getAnswers of client/App.jsx', err);
+  //     });
+  // }
 
   useEffect(() => {
     axios.get('/products')
       .then((products) => {
         setProduct(products.data[0]);
         getQuestions(products.data[0].id);
-        console.log(products.data[0].id);
+        console.log('id is', products.data[0].id);
       });
   }, []);
 

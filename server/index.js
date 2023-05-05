@@ -23,7 +23,7 @@ app.get('/products', (req, res) => {
 });
 
 app.get('/questions', (req, res) => {
-  // console.log('req is', req.query.id);
+  console.log('req is', req.query.id);
 
   axios.get(`${process.env.ATELIER_API}/qa/questions`, {
     params: {
@@ -34,7 +34,7 @@ app.get('/questions', (req, res) => {
     },
   })
     .then((results) => {
-      res.status(200).send(results);
+      res.status(200).send(results.data);
       console.log('success');
     })
     .catch((err) => {
