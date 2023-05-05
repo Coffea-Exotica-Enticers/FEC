@@ -1,8 +1,6 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RelatedProductsList from './related-products/RelatedProductsList';
-
-const { useState, useEffect } = React;
 
 export default function App() {
   const [product, setProduct] = useState(null);
