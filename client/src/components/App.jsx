@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 
 const { useState, useEffect } = React;
 
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <div id="App">
       <p>Hello, world!</p>
+      <RatingsAndReviews product={product} />
     </div>
   );
 }
