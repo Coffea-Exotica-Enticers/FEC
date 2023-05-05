@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedProductCard from './RelatedProductCard';
 
-function RelatedProductsList({product}) {
+function RelatedProductsList({ product }) {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  useEffect(() => {
-    axios.get('/products')
-      .then(({ data }) => setRelatedProducts(data))
-      .catch((err) => console.error('There was a problem retrieving related product data: ', err));
-  }, []);
+  const getRelated = () => {
+    axios.get(`/products/${product.id}/related`)
+      .then((results) => setRelatedProducts(results));
+  };
+
+  if (product) {
+    getRelated();
+  }
 
   return (
     <div>
