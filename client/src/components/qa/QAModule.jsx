@@ -1,7 +1,14 @@
 import React from 'react';
+import SearchBar from './SearchBar';
+import QuestionList from './QuestionList';
+import AddQuestion from './AddQuestion';
 
 export default function QAModule() {
   return (
-    <div>QA Module here</div>
+    <>
+      <SearchBar />
+      <QuestionList />
+      <AddQuestion />
+    </>
   );
 }
