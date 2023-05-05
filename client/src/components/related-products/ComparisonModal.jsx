@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const ComparisonModal = () => {
-
+function ComparisonModal() {
   return (
     <div>Comparison Modal</div>
-  )
+  );
 }
 
 export default ComparisonModal;

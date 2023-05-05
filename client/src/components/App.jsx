@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import RelatedProductsList from './related-products/RelatedProductsList';
 
 const { useState, useEffect } = React;
 
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <div id="App">
+      <RelatedProductsList product={product} />
       <p>Hello, world!</p>
     </div>
   );
