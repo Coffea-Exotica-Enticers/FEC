@@ -9,6 +9,10 @@ module.exports = {
         authorization: API_TOKEN,
       },
     })
-      .then(({ data }) => res.json(data));
+      .then(({ data }) => res.json(data))
+      .catch((err) => {
+        console.error('There was a problem in the server retrieving product data: ', err);
+        res.sendStatus(404);
+      });
   },
 };
