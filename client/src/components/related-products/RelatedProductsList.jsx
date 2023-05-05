@@ -9,7 +9,7 @@ function RelatedProductsList({product}) {
     axios.get('/products')
       .then(({ data }) => setRelatedProducts(data))
       .catch((err) => console.error('There was a problem retrieving related product data: ', err));
-  });
+  }, []);
 
   return (
     <div>
