@@ -6,34 +6,22 @@ const { useState, useEffect } = React;
 
 export default function App() {
   const [product, setProduct] = useState(null);
-
-  function getQuestions(productId) {
-    axios.get('/questions', { params: { id: productId } })
-      .then((questions) => {
-        console.log(questions);
-      })
-      .catch((err) => {
-        console.log('Error in getQuestions of client/App.jsx', err);
-      });
-  }
-
-  // function getAnswers() {
-  //   axios.get('/answers')
-  //     .then((answers) => {
-  //       console.log(answers);
-  //     })
-  //     .catch((err) => {
-  //       console.log('Error in getAnswers of client/App.jsx', err);
-  //     });
-  // }
+  const [questionList, setQuestionList] = useState([]);
 
   useEffect(() => {
     axios.get('/products')
       .then((products) => {
         setProduct(products.data[0]);
-        getQuestions(products.data[0].id);
-        console.log('id is', products.data[0].id);
-      });
+        return products.data[0];
+      })
+      .then((productData) => {
+        axios.get('/qa/questions', { params: { id: productData.id } })
+          .then((questionData) => {
+            // console.log(questionData);
+            setQuestionList(questionData);
+          });
+      })
+      .catch((err) => console.error('There was a problem retrieving product data: ', err));
   }, []);
 
   return (
