@@ -7,6 +7,7 @@ const { useState, useEffect } = React;
 export default function App() {
   const [product, setProduct] = useState(null);
   const [questionList, setQuestionList] = useState([]);
+  const [showQuestions, setShowQuestions] = useState([]);
 
   useEffect(() => {
     axios.get('/products')
@@ -17,8 +18,9 @@ export default function App() {
       .then((productData) => {
         axios.get('/qa/questions', { params: { id: productData.id } })
           .then((questionData) => {
-            // console.log(questionData);
-            setQuestionList(questionData);
+            console.log(questionData.data.results);
+            setQuestionList(questionData.data.results);
+            setShowQuestions(questionData.data.results);
           });
       })
       .catch((err) => console.error('There was a problem retrieving product data: ', err));
@@ -26,8 +28,7 @@ export default function App() {
 
   return (
     <div id="App">
-      <p>Hello, world!</p>
-      <QAModule />
+      <QAModule showQuestions={showQuestions} />
     </div>
   );
 }

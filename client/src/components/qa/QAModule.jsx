@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import QuestionList from './QuestionList';
 import AddQuestion from './AddQuestion';
 
-export default function QAModule() {
+// eslint-disable-next-line react/prop-types
+export default function QAModule({ showQuestions }) {
   return (
     <>
-      <SearchBar />
-      <QuestionList />
+      <SearchBar
+        showQuestions={showQuestions}
+      />
+      <QuestionList qArray={showQuestions} />
       <AddQuestion />
     </>
   );
