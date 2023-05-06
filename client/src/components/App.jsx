@@ -18,7 +18,7 @@ export default function App() {
       .then((productData) => {
         axios.get('/qa/questions', { params: { id: productData.id } })
           .then((questionData) => {
-            console.log(questionData.data.results);
+            // console.log(questionData.data.results);
             setQuestionList(questionData.data.results);
             setShowQuestions(questionData.data.results);
           });

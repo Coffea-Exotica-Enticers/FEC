@@ -21,5 +21,23 @@ module.exports = {
       });
   },
 
-  postQuestion(req, res) {},
+  getAnswers(req, res) {
+    axios.get(`${ATELIER_API}/qa/questions/${req.query.id}/answers`, {
+      params: {
+        page: 1,
+        count: 2,
+      },
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then((results) => {
+        res.status(200).send(results.data);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+
+  // postQuestion(req, res) {},
 };

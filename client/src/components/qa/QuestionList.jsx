@@ -7,11 +7,12 @@ export default function QuestionList({ qArray }) {
   return (
     <>
       {
+        // eslint-disable-next-line react/prop-types
         qArray.map((q) => (
-          <>
-            <QuestionListEntry question={q} key={q.question_id} />
-            <AnswerList answers={q.answers} />
-          </>
+          <div key={q.question_id}>
+            <QuestionListEntry question={q} />
+            <AnswerList id={q.question_id} />
+          </div>
         ))
       }
     </>
