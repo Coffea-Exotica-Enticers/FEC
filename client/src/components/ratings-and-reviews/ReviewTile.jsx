@@ -26,7 +26,7 @@ export default function ReviewTile({ review }) {
         </div>
       </div>
       <div className="review-summary">
-        {review.summary}
+        {review.summary ? review.summary : 'Untitled...'}
       </div>
       <div className="review-body">
         {review.body}
