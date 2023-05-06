@@ -1,0 +1,38 @@
+#App{
+  margin: 0 auto;
+  max-width: 75%;
+}
+.reviews-list{
+  max-width: 66%;
+  margin: 0 auto;
+}
+.review-tile {
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+}
+.top-row {
+  display: flex;
+  justify-content: space-between;
+}
+.review-summary {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.review-body {
+  margin: 10px 0;
+}
+.review-response {
+  background-color: #777;
+}
+.review-bottom-row {
+  margin: 10px;
+}
+button.review-helpful {
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: 1rem;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
