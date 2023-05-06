@@ -12,10 +12,6 @@ function RelatedProductsList({ product }) {
       .catch((err) => console.error('Error retrieving item data', err));
   };
 
-  // if (product) {
-  //   getRelated();
-  // }
-
   useEffect(() => {
     if (product) {
       getRelated();
