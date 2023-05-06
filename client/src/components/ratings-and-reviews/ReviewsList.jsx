@@ -19,7 +19,11 @@ export default function ReviewsList({ product }) {
 
   return (
     <div className="reviews-list">
-      <ReviewTile review={reviews[0]} />
+      {
+        reviews.length > 0
+          ? reviews.map((review) => <ReviewTile review={review} />)
+          : 'Loading...'
+        }
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import StarRatings from './StarRatings';
 
 export default function ReviewTile({ review }) {
   return (
@@ -7,10 +8,7 @@ export default function ReviewTile({ review }) {
         review
           ? (
             <div>
-              <div>
-                Rating:
-                {review.rating}
-              </div>
+              <StarRatings rating={review.rating} />
               <div>
                 Date:
                 {new Date(review.date).toDateString()}
