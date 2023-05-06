@@ -19,6 +19,17 @@ module.exports = {
       });
   },
   post(req, res) {},
-  putHelpful(req, res) {},
+  putHelpful(req, res) {
+    axios.put(`${ATELIER_API}/reviews/${req.params.review_id}/helpful`, {}, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(() => res.sendStatus(204))
+      .catch((err) => {
+        console.log('ERROR UPDATING HELPFUL', err);
+        res.sendStatus(400);
+      });
+  },
   putReport(req, res) {},
 };

@@ -1,7 +1,19 @@
+import axios from 'axios';
 import React from 'react';
 import StarRatings from '../shared/StarRatings';
 
+const { useState, useRef } = React;
+
 export default function ReviewTile({ review }) {
+  const [helpfulness, setHelpfulness] = useState(review.helpfulness);
+  const clickedHelpful = useRef(false);
+  const handleHelpful = () => {
+    if (!clickedHelpful.current) {
+      axios.put(`/reviews/${review.review_id}/helpful`);
+      setHelpfulness(helpfulness + 1);
+      clickedHelpful.current = true;
+    }
+  };
   return (
     <div className="review-tile">
       <div className="top-row">
@@ -36,10 +48,10 @@ export default function ReviewTile({ review }) {
       }
       <div className="review-bottom-row">
         Helpful?
-        <button type="button" className="review-helpful">Yes</button>
+        <button type="button" className="review-helpful" onClick={handleHelpful}>Yes</button>
         <span className="review-helpfulness-display">
           (
-          {review.helpfulness}
+          {helpfulness}
           )
         </span>
       </div>
