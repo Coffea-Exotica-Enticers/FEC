@@ -23,11 +23,20 @@ module.exports = {
         const newArr = Promise.all(data.map((id) => axios.get(`${ATELIER_API}/products/${id}`, { headers: { authorization: API_TOKEN } }).then((prod) => prod.data)));
         return newArr;
       })
-      .then((result) => res.status(201).send(result))
+      .then((result) => res.status(200).send(result))
       .catch((err) => {
         console.error('Unable to retrieve Item data: ', err);
         res.status(404);
       });
   },
 
+  getStyles: (req, res) => {
+    const productId = req.params.product_id;
+    axios.get(`${ATELIER_API}/products/${productId}/styles`, { headers: { authorization: API_TOKEN } })
+      .then(({ data }) => res.status(200).send(data))
+      .catch((err) => {
+        console.error('Unable to retrieve item style: ', err);
+        res.status(404);
+      });
+  },
 };
