@@ -1,7 +1,6 @@
 import axios from 'axios';
-import React from 'react';
-
-const { useState, useEffect } = React;
+import React, { useState, useEffect } from 'react';
+import RelatedProductsList from './related-products/RelatedProductsList';
 
 export default function App() {
   const [product, setProduct] = useState(null);
@@ -14,6 +13,7 @@ export default function App() {
 
   return (
     <div id="App">
+      <RelatedProductsList product={product} />
       <p>Hello, world!</p>
     </div>
   );
