@@ -6,6 +6,8 @@ module.exports = {
   get(req, res) {
     axios.get(`${ATELIER_API}/reviews`, {
       params: {
+        page: req.query.page,
+        count: 2,
         product_id: req.query.product_id,
       },
       headers: {
