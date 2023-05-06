@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRatings from './StarRatings';
+import StarRatings from '../shared/StarRatings';
 
 export default function ReviewTile({ review }) {
   return (
