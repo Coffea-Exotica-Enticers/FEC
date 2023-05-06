@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React from 'react';
-import QAModule from './qa/QAModule';
 import React, { useState, useEffect } from 'react';
+import QAModule from './qa/QAModule';
 import RelatedProductsList from './related-products/RelatedProductsList';
+import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 
 export default function App() {
   const [product, setProduct] = useState(null);
