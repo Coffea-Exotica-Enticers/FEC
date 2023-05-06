@@ -1,22 +1,21 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-export default function QuestionListEntry({ question }) {
+export default function AnswerListEntry({ answer }) {
   return (
     <>
       <div>
-        Q:
+        A:
         {' '}
-        {question.question_body}
+        {answer.body}
       </div>
       <div>
         by
         {' '}
-        {question.asker_name}
+        {answer.answerer_name}
       </div>
       <div>
-        {' '}
-        {question.question_date}
+        {answer.date}
       </div>
       <div>
         Helpful?
@@ -24,7 +23,7 @@ export default function QuestionListEntry({ question }) {
         <button type="button">
           Yes
           {' '}
-          {question.question_helpfulness}
+          {answer.helpfulness}
         </button>
       </div>
       <button type="button">
