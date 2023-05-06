@@ -23,8 +23,11 @@ module.exports = {
         const newArr = Promise.all(data.map((id) => axios.get(`${ATELIER_API}/products/${id}`, { headers: { authorization: API_TOKEN } }).then((prod) => prod.data)));
         return newArr;
       })
-      .then((result) => res.send(result))
-      .catch((err) => console.error('Unable to retrieve Item data: ', err));
+      .then((result) => res.status(201).send(result))
+      .catch((err) => {
+        console.error('Unable to retrieve Item data: ', err);
+        res.status(404);
+      });
   },
 
 };
