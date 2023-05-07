@@ -23,14 +23,12 @@ export default function ReviewsList({ product }) {
     setPage(page + 1);
   };
 
-  return (
-    <div className="reviews-list">
-      {
-        reviews.length > 0
-          ? reviews.map((review) => <ReviewTile key={review.review_id} review={review} />)
-          : 'Loading...'
-        }
-      <button type="button" className="more-reviews" onClick={showMore}>More Reviews</button>
-    </div>
-  );
+  return reviews.length > 0
+    ? (
+      <div className="reviews-list">
+        {reviews.map((review) => <ReviewTile key={review.review_id} review={review} />)}
+        <button type="button" className="more-reviews" onClick={showMore}>More Reviews</button>
+      </div>
+    )
+    : <div className="reviews-list">Loading...</div>;
 }
