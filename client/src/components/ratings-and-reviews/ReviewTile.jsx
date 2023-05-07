@@ -8,6 +8,11 @@ const { useState, useEffect } = React;
 export default function ReviewTile({ review }) {
   const [body, setBody] = useState('');
   const [showMore, setShowMore] = useState(false);
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
   useEffect(() => {
     if (review.body.length > 250) {
       setBody(`${review.body.slice(0, 251)}...`);
@@ -27,7 +32,7 @@ export default function ReviewTile({ review }) {
         <div className="top-row-left"><StarRatings rating={review.rating} /></div>
         <div className="top-row-right">
           {`${review.reviewer_name}, `}
-          {new Date(review.date).toDateString()}
+          {new Date(review.date).toLocaleDateString('en-us', dateOptions)}
         </div>
       </div>
       <div className="review-summary">{review.summary}</div>
