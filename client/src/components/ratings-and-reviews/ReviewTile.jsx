@@ -20,33 +20,18 @@ export default function ReviewTile({ review }) {
     setShowMore(false);
     setBody(review.body);
   };
-  let title;
-  let summaryRemainder;
-  if (review.summary.length > 60) {
-    title = `${review.summary.slice(0, 61)}...`;
-    summaryRemainder = `...${review.summary.slice(61)}`;
-  } else {
-    title = review.summary;
-  }
 
   return (
     <div className="review-tile">
       <div className="top-row">
-        <div className="top-row-left">
-          <StarRatings rating={review.rating} />
-        </div>
+        <div className="top-row-left"><StarRatings rating={review.rating} /></div>
         <div className="top-row-right">
           {`${review.reviewer_name}, `}
           {new Date(review.date).toDateString()}
         </div>
       </div>
-      <div className="review-summary">
-        {title}
-      </div>
-      <div className="review-body">
-        {summaryRemainder}
-        {body}
-      </div>
+      <div className="review-summary">{review.summary}</div>
+      <div className="review-body">{body}</div>
       {showMore
         ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
         : null}
