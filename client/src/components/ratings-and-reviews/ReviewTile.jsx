@@ -6,12 +6,19 @@ const { useState, useRef } = React;
 
 export default function ReviewTile({ review }) {
   const [helpfulness, setHelpfulness] = useState(review.helpfulness);
+  const [reported, setReported] = useState(false);
   const clickedHelpful = useRef(false);
   const handleHelpful = () => {
     if (!clickedHelpful.current) {
       axios.put(`/reviews/${review.review_id}/helpful`);
       setHelpfulness(helpfulness + 1);
       clickedHelpful.current = true;
+    }
+  };
+  const handleReport = () => {
+    if (!reported) {
+      axios.put(`/reviews/${review.review_id}/report`);
+      setReported(true);
     }
   };
   return (
@@ -54,6 +61,10 @@ export default function ReviewTile({ review }) {
           {helpfulness}
           )
         </span>
+        |
+        <button type="button" className="report-review" onClick={handleReport}>
+          {reported ? 'Reported' : 'Report'}
+        </button>
       </div>
     </div>
   );

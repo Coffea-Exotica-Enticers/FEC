@@ -33,5 +33,16 @@ module.exports = {
         res.sendStatus(400);
       });
   },
-  putReport(req, res) {},
+  putReport(req, res) {
+    axios.put(`${ATELIER_API}/reviews/${req.params.review_id}/report`, {}, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(() => res.sendStatus(204))
+      .catch((err) => {
+        console.error('ERROR REPORTING REVIEW', err);
+        res.sendStatus(400);
+      });
+  },
 };
