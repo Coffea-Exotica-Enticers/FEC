@@ -4,10 +4,14 @@ const { ATELIER_API, API_TOKEN } = process.env;
 
 module.exports = {
   getQuestions(req, res) {
+    console.log('count: ', req.query.count, 'page: ', req.query.page);
+
     axios.get(`${ATELIER_API}/qa/questions`, {
       params: {
         // product_id: req.query.id,
         product_id: 40320,
+        page: req.query.page,
+        count: req.query.count,
       },
       headers: {
         authorization: API_TOKEN,
