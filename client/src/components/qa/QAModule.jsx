@@ -44,7 +44,7 @@ export default function QAModule({ product }) {
 
   useEffect(() => {
     if (product) {
-      getAllQuestions(1);
+      getAllQuestions();
     }
   }, [product]);
 

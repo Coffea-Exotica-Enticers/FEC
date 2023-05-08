@@ -43,5 +43,62 @@ module.exports = {
       });
   },
 
+  reportQuestion(req, res) {
+    console.log(req.body.id);
+    axios.put(`${ATELIER_API}/qa/questions/${req.body.id}/report`, {}, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(() => {
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+
+  reportAnswer(req, res) {
+    axios.put(`${ATELIER_API}/qa/answers/${req.body.id}/report`, {}, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(() => {
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+
+  markQuestion(req, res) {
+    axios.put(`${ATELIER_API}/qa/answers/${req.body.id}/helpful`, {}, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(() => {
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+
+  markAnswer(req, res) {
+    axios.put(`${ATELIER_API}/qa/answers/${req.body.id}/helpful`, {}, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(() => {
+        res.sendStatus(204);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+
   // postQuestion(req, res) {},
 };
