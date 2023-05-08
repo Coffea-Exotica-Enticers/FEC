@@ -6,7 +6,7 @@ export default function SearchBar({ showQuestions, setQuestionList }) {
 
   return (
     <form>
-      <input placeholder="Have a question? Search for answers..." onChange={(event) => setEntry(event.target.value)} />
+      <input placeholder="Have a question? Search for answers..." onChange={(e) => setEntry(e.target.value)} />
       <pre>{entry}</pre>
     </form>
   );
