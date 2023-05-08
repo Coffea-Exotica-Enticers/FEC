@@ -6,24 +6,29 @@ const { useState, useEffect } = React;
 
 export default function ReviewsList({ product }) {
   const [reviews, setReviews] = useState([]);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     if (product) {
       axios.get('/reviews', {
         params: {
+          page,
           product_id: product.id,
         },
       })
-        .then(({ data }) => setReviews(data));
+        .then(({ data }) => setReviews([...reviews, ...data]));
     }
-  }, [product]);
+  }, [page, product]);
 
-  return (
-    <div className="reviews-list">
-      {
-        reviews.length > 0
-          ? reviews.map((review) => <ReviewTile review={review} />)
-          : 'Loading...'
-        }
-    </div>
-  );
+  const showMore = () => {
+    setPage(page + 1);
+  };
+
+  return reviews.length > 0
+    ? (
+      <div className="reviews-list">
+        {reviews.map((review) => <ReviewTile key={review.review_id} review={review} />)}
+        <button type="button" className="more-reviews" onClick={showMore}>More Reviews</button>
+      </div>
+    )
+    : <div className="reviews-list">Loading...</div>;
 }
