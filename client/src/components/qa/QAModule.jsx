@@ -32,7 +32,8 @@ export default function QAModule({ product }) {
             setQuestionList(dataArray);
             setShowQuestions(dataArray.slice(0, 2));
           }
-        });
+        })
+        .catch((err) => console.error('There was an error retrieving question data', err));
     }
     getQuestionLoop(1);
   }

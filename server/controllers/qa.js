@@ -28,8 +28,8 @@ module.exports = {
   getAnswers(req, res) {
     axios.get(`${ATELIER_API}/qa/questions/${req.query.id}/answers`, {
       params: {
-        page: 1,
-        count: 2,
+        page: req.query.page,
+        count: req.query.count,
       },
       headers: {
         authorization: API_TOKEN,
