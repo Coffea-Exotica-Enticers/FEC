@@ -19,14 +19,16 @@ module.exports = {
       });
   },
   getMeta(req, res) {
-    const productId = req.params.product_id;
-    console.log('HEREHREHR', productId)
-    axios.get(`${ATELIER_API}/reviews/meta?product_id=${productId}`, {
+    const productId = req.query.product_id;
+    axios.get(`${ATELIER_API}/reviews/meta`, {
+      params: {
+        product_id: productId,
+      },
       headers: {
         authorization: API_TOKEN,
       },
     })
-      .then(({ data }) => res.json(data.characteristics))
+      .then(({ data }) => res.json(data.ratings))
       .catch((err) => {
         console.log('ERROR GETTING META DATA', err);
         res.status(404).json(err);
