@@ -19,10 +19,9 @@ module.exports = {
       });
   },
   getMeta(req, res) {
-    axios.get(`${ATELIER_API}/reviews/meta`, {
-      params: {
-        product_id: req.query.product_id,
-      },
+    const productId = req.params.product_id;
+    console.log('HEREHREHR', productId)
+    axios.get(`${ATELIER_API}/reviews/meta?product_id=${productId}`, {
       headers: {
         authorization: API_TOKEN,
       },
