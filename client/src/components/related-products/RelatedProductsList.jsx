@@ -16,7 +16,7 @@ function RelatedProductsList({ product }) {
   return (
     <div>
       <h1>Related Products List</h1>
-      <div className="rp-list">
+      <div className="rp-list" style={{ display: 'flex', flexDirection: 'row' }}>
         {
           relatedProducts.length
             ? relatedProducts.map((item) => <RelatedProductCard key={item.id} item={item} />)
