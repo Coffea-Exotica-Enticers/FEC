@@ -60,6 +60,6 @@ describe('Properly render a review tile', () => {
   test('renders seller reponse', () => {
     render(<ReviewTile review={testReview} />);
     const sellerResponse = screen.getByText(/response from the seller/i);
-    expect(sellerResponse).toBeTruthy;
+    expect(sellerResponse).toBeTruthy();
   });
 });
