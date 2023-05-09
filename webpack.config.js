@@ -15,7 +15,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        AUTH_SECRET: JSON.stringify(process.env.AUTH_SECRET),
+        ATELIER_API: JSON.stringify(process.env.ATELIER_API),
       },
     }),
   ],
