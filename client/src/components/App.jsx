@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import QAModule from './qa/QAModule';
 import RelatedProductsList from './related-products/RelatedProductsList';
+import RelatedProductCard from './related-products/RelatedProductCard';
 import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 import StarTemplate from './shared/StarTemplate';
 
