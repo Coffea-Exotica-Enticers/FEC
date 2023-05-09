@@ -14,7 +14,7 @@ export default function App() {
   useEffect(() => {
     axios.get('/products')
       .then((products) => {
-        setProduct(products.data[0]);
+        setProduct(products.data[5]);
         return products.data[0];
       })
       .then((productData) => {
@@ -33,7 +33,6 @@ export default function App() {
       <StarTemplate />
       {/* <QAModule showQuestions={showQuestions} /> */}
       <RelatedProductsList product={product} />
-      <p>Hello, world!</p>
       {/* <RatingsAndReviews product={product} /> */}
     </div>
   );
