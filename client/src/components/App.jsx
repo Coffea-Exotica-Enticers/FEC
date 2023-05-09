@@ -21,8 +21,8 @@ export default function App() {
     <div id="App">
       <StarTemplate />
       <QAModule product={product} />
-      {/* <RelatedProductsList product={product} /> */}
-      {/* <RatingsAndReviews product={product} /> */}
+      <RelatedProductsList product={product} />
+      <RatingsAndReviews product={product} />
     </div>
   );
 }
