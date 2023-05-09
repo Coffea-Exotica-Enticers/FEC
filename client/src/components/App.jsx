@@ -34,7 +34,7 @@ export default function App() {
       {/* <QAModule showQuestions={showQuestions} /> */}
       <RelatedProductsList product={product} />
       <p>Hello, world!</p>
-      <RatingsAndReviews product={product} />
+      {/* <RatingsAndReviews product={product} /> */}
     </div>
   );
 }
