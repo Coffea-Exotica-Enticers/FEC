@@ -2,71 +2,70 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 // eslint-disable-next-line react/prop-types
-export default function QuestionListEntry({ question }) {
+export default function AnswerListEntry({ answer }) {
   const [marked, setMarked] = useState(false);
-  const [helpful, setHelpful] = useState(question.question_helpfulness);
-  const [reported, setReported] = useState(question.reported);
+  const [helpful, setHelpful] = useState(answer.helpfulness);
+  const [reported, setReported] = useState(answer.reported);
 
-  function markQuestionHelpful() {
-    axios.put('/qa/questions/helpful', { id: question.question_id })
+  function markAnswerHelpful() {
+    axios.put('/qa/answers/helpful', { id: answer.answer_id })
       .then(() => {
         setMarked(true);
         setHelpful(helpful + 1);
-        console.log('Report question successful');
+        console.log('Report answer successful');
       })
       .catch((err) => {
-        console.log('Error in reporting question:', err);
+        console.log('Error in reporting answer:', err);
       });
   }
 
-  function reportQuestion() {
-    axios.put('/qa/questions/report', { id: question.question_id })
+  function reportAnswer() {
+    axios.put('/qa/answers/report', { id: answer.answer_id })
       .then(() => {
         setReported(true);
-        console.log('Report question successful');
+        console.log('Report answer successful');
       })
       .catch((err) => {
-        console.log('Error in reporting question:', err);
+        console.log('Error in reporting answer:', err);
       });
   }
 
   return (
     <>
       <div>
-        Q:
+        A:
         {' '}
-        {question.question_body}
+        {answer.body}
       </div>
       <div>
         by
         {' '}
-        {question.asker_name}
+        {answer.answerer_name}
       </div>
       <div>
-        {' '}
-        {question.question_date}
+        {answer.date}
       </div>
       <form onSubmit={(e) => {
         e.preventDefault();
-        markQuestionHelpful();
+        markAnswerHelpful();
       }}
       >
         <div>
           {helpful}
           {' '}
-          people found this question helpful.
+          people found this answer helpful.
         </div>
         {
           marked
             ? (
-              <div>You marked this question as helpful.</div>
+              <div>You marked this answer as helpful.</div>
             )
-            : <button type="submit">Mark This Question as Helpful</button>
+            : <button type="submit">Mark This Answer as Helpful</button>
         }
       </form>
       <form onSubmit={(e) => {
         e.preventDefault();
-        reportQuestion();
+        reportAnswer();
       }}
       >
         {

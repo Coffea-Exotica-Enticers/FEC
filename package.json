@@ -26,7 +26,9 @@
     "file-loader": "^6.2.0",
     "morgan": "^1.10.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
@@ -38,9 +40,11 @@
     "eslint": "^8.39.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.10.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "nodemon": "^2.0.22",
