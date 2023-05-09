@@ -24,6 +24,7 @@ export default function Style({ styleList }) {
       {styleList ? (
         <div>
           <p>{styleList[0].name}</p>
+          
         </div>
       ) : (<h1>Style not available</h1>)}
     </div>
