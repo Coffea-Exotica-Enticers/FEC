@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Style({ styleList }) {
-
-/**
+  /**
  * 1. Display style name;  appears above the thumbnail list
  * 2. Display thumbnails in rows of 4
  *    2.1  the user should be presented all the styles of the product
@@ -17,6 +16,16 @@ export default function Style({ styleList }) {
  * the overlay of a checkmark on top of the thumbnail for that style
  */
 
-
-
+  return (
+    <div>
+      <i>
+        <h2>Select Style</h2>
+      </i>
+      {styleList ? (
+        <div>
+          <p>{styleList[0].name}</p>
+        </div>
+      ) : (<h1>Style not available</h1>)}
+    </div>
+  );
 }

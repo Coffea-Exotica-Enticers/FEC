@@ -1,0 +1,48 @@
+/* .Top_left-pane{
+
+display: flex;
+width: 60%;
+
+} */
+
+.product-images-grid{
+  display: flex;
+
+}
+/* .ProductPage{
+  display: flex;
+
+} */
+
+.main-image{
+
+  width: 60%;
+  list-style-type: none;
+
+}
+
+.titles-container{
+
+  display: flex;
+
+}
+.product-images-grid{
+
+  width: 80%;
+}
+
+
+.TopContent{
+
+  display: flex;
+}
+
+.product-Name-Header{
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
