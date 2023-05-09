@@ -24,8 +24,8 @@ function RelatedProductCard({ item }) {
     return averageRating.toFixed(1);
   }
 
-  function setImages(productStyles) {
-    const styles = productStyles.results;
+  function setImages(prodStyles) {
+    const styles = prodStyles.results;
     const defaultImgs = [];
 
     for (let i = 0; i < styles.length; i += 1) {
@@ -52,8 +52,8 @@ function RelatedProductCard({ item }) {
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
   }, []);
 
-console.log('product styles', productStyles)
-console.log('items', item)
+// console.log('product styles', productStyles)
+// console.log('items', item)
 
   return (
     <div className="rp-card" style={{ minWidth: 300, maxWidth: 300, minHeight: 300, margin: 10, border: 'solid', borderRadius: 8 }}>
