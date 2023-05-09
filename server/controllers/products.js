@@ -33,7 +33,7 @@ module.exports = {
   getStyles: (req, res) => {
     const productId = req.params.product_id;
     axios.get(`${ATELIER_API}/products/${productId}/styles`, { headers: { authorization: API_TOKEN } })
-      .then(({ data }) => res.status(200).send(data))
+      .then(({ data }) => res.status(200).json(data))
       .catch((err) => {
         console.error('Unable to retrieve item style: ', err);
         res.status(404);
