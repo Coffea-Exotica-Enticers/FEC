@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRatings from '../shared/StarRatings';
+import StarRatings from '../../shared/StarRatings';
 import HelpfulnessDisplay from './HelpfulnessDisplay';
 import ReportButton from './ReportButton';
 import ReviewPhoto from './ReviewPhoto';
