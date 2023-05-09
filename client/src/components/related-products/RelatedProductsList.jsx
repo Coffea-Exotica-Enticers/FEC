@@ -14,14 +14,12 @@ function RelatedProductsList({ product }) {
   }, [product]);
 
   return (
-    <div>
-      <h1>Related Products List</h1>
-      <div className="rp-list" style={{ display: 'flex', flexDirection: 'row' }}>
-        {
-          relatedProducts.length
-            ? relatedProducts.map((item) => <RelatedProductCard key={item.id} item={item} />)
-            : 'Loading...'
-        }
+    <div style={{ position: 'relative', overflow: 'hidden', padding: 26 }}>
+      <h2>Related Products List</h2>
+      <div className="rp-list" style={{ display: 'flex', overflowX: 'hidden', scrollBehavior: 'smooth' }}>
+        {relatedProducts.length
+          ? relatedProducts.map((item) => <RelatedProductCard key={item.id} item={item} />)
+          : 'Loading...'}
       </div>
     </div>
   );
