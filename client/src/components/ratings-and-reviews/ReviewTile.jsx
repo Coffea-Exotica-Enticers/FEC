@@ -2,6 +2,7 @@ import React from 'react';
 import StarRatings from '../shared/StarRatings';
 import HelpfulnessDisplay from './HelpfulnessDisplay';
 import ReportButton from './ReportButton';
+import ReviewPhoto from './ReviewPhoto';
 
 const { useState, useEffect } = React;
 
@@ -20,7 +21,7 @@ export default function ReviewTile({ review }) {
     } else {
       setBody(review.body);
     }
-  }, []);
+  }, [review.body]);
   const handleShowMore = () => {
     setShowMore(false);
     setBody(review.body);
@@ -36,7 +37,9 @@ export default function ReviewTile({ review }) {
         </div>
       </div>
       <div className="review-summary">{review.summary}</div>
-      <div className="review-body">{body}</div>
+      <div className="review-body">
+        <p>{body}</p>
+      </div>
       {showMore
         ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
         : null}
@@ -51,9 +54,14 @@ export default function ReviewTile({ review }) {
           </div>
         )
         : null}
+      <div className="review-photos">
+        {review.photos.length
+          ? review.photos.map((photo) => <ReviewPhoto key={photo.id} url={photo.url} />)
+          : null}
+      </div>
       <div className="review-bottom-row">
         <HelpfulnessDisplay id={review.review_id} helpfulness={review.helpfulness} />
-        |
+        {' |'}
         <ReportButton id={review.review_id} />
       </div>
     </div>
