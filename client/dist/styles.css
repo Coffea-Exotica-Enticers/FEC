@@ -1,3 +1,4 @@
+ productDetail-skeleton
 /* .Top_left-pane{
 
 display: flex;
@@ -55,4 +56,60 @@ width: 60%;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+  
+#App{
+  margin: 0 auto;
+  max-width: 75%;
+}
+.reviews-list{
+  max-width: 66%;
+  margin: 0 auto;
+}
+.review-tile {
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+}
+.top-row {
+  display: flex;
+  justify-content: space-between;
+}
+.review-summary {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.review-body {
+  margin: 10px 0;
+}
+.review-response {
+  background-color: #777;
+}
+.review-bottom-row {
+  margin: 10px;
+}
+button.review-helpful, button.report-review, button.show-more {
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: 1rem;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+button.more-reviews, button.add-review {
+  border: 1px solid black;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px 10px;
+}
+button.more-reviews {
+  margin-right: 20px;
+}
+p {
+  word-wrap: break-word;
+}
+.reviews-container {
+  max-height: 700px;
+  overflow: auto;
 }
