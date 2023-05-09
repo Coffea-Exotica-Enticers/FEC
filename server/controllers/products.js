@@ -30,7 +30,7 @@ module.exports = {
       });
   },
 
-  getProductStyles(req, res) {
+  getStyles(req, res) {
     axios.get(`${ATELIER_API}/products/${req.params.product_id}/styles`, {
       headers: {
         authorization: API_TOKEN,
