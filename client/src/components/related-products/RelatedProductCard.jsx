@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ComparisonModal from './ComparisonModal';
+import StarRatings from '../shared/StarRatings';
 
 function RelatedProductCard({ item }) {
   const [productStyles, setProductStyles] = useState({});
@@ -51,7 +52,7 @@ function RelatedProductCard({ item }) {
       </div>
 
       <div className="rating">
-        <p>Star Rating: {rating}</p>
+        <p>Star Rating: </p><StarRatings rating={rating}/>
       </div>
 
     </div>
