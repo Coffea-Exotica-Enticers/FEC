@@ -14,6 +14,16 @@ width: 60%;
 
 } */
 
+.ProductPage{
+
+  margin: 1.5rem auto;
+  width: 90rem;
+}
+
+.RightPane{
+  width: 34%;
+  margin-left: 6%;
+}
 .main-image{
 
   width: 60%;
