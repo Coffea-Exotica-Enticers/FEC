@@ -45,4 +45,17 @@ module.exports = {
         res.sendStatus(400);
       });
   },
+  getMetaData(req, res) {
+    console.log('INSIDE GET META');
+    axios.get(`${ATELIER_API}/reviews/meta`, {
+      params: {
+        product_id: req.query.product_id,
+      },
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then(({ data }) => res.json(data))
+      .catch(() => res.sendStatus(404));
+  },
 };

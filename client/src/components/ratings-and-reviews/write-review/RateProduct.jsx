@@ -2,8 +2,7 @@ import React from 'react';
 
 const { useState, useEffect } = React;
 
-export default function RateProduct(props) {
-  const [rating, setRating] = useState(0);
+export default function RateProduct({ rating, setRating }) {
   const [starsArray, setStarsArray] = useState([0, 0, 0, 0, 0]);
   const [ratingDescription, setRatingDescription] = useState('Please rate this item');
   useEffect(() => {
@@ -29,10 +28,10 @@ export default function RateProduct(props) {
   }, [rating]);
 
   return (
-    <span className="write-reviews-rating">
+    <span className="write-review-rating">
       {
         starsArray.map((percent, index) => (
-          <svg className="write-review-star" width="1.5em" height="1.5em" onClick={() => setRating(index + 1)}>
+          <svg className="write-review-star" width="2em" height="2em" onClick={() => setRating(index + 1)}>
             <use href="#star-template" fill={`url(#fill-${percent})`} stroke="#fece3c" />
           </svg>
         ))
