@@ -26,7 +26,7 @@ module.exports = {
       .then((result) => res.status(200).send(result))
       .catch((err) => {
         console.error('Unable to retrieve Item data: ', err);
-        res.status(404);
+        res.sendStatus(404);
       });
   },
 
@@ -36,7 +36,7 @@ module.exports = {
       .then(({ data }) => res.status(200).json(data))
       .catch((err) => {
         console.error('Unable to retrieve item style: ', err);
-        res.status(404);
+        res.sendStatus(404);
       });
   },
 };
