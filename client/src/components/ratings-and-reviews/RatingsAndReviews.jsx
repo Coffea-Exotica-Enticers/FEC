@@ -5,7 +5,7 @@ import WriteReview from './write-review/WriteReview';
 export default function RatingsAndReviews({ product }) {
   return (
     <div className="ratings-and-reviews">
-      <ReviewsList product={product} />
+      {/* <ReviewsList product={product} /> */}
       <WriteReview product={product} />
     </div>
   );

@@ -4,5 +4,9 @@ import RateProduct from './RateProduct';
 const { useState, useEffect } = React;
 
 export default function WriteReview({ product }) {
-
+  return (
+    <div>
+      <RateProduct />
+    </div>
+  );
 }
