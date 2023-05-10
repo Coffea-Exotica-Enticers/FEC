@@ -14,7 +14,6 @@ export default function Style({ styleList }) {
  *   4.1 The title for that style should appear typed out in full above the thumbnail list.
  **/
 
-  // const [isSelected, setIsSelected] = useState(true);
   const [selection, setSelection] = useState(null);
   const [price, setPrice] = useState(null);
   const [salePrice, setsalePrice] = useState(null);

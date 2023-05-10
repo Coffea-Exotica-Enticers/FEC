@@ -7,6 +7,7 @@ import Style from './Style';
 function Product({ product }) {
   const [styleList, setStyleList] = useState(null);
   const [productObj, setProductObj] = useState(null);
+  const [selectedStyle, setSelectedStyle ] = useState(null);
 
   function getSpecificProduct() {
     if (product) {
