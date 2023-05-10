@@ -23,10 +23,10 @@ export default function App() {
   return (
     <div id="App">
       <Product product={product} setProduct={setProduct} />
-      {/* <StarTemplate />
+      <StarTemplate />
       <QAModule product={product} />
       <RelatedProductsList product={product} />
-      <RatingsAndReviews product={product} /> */}
+      <RatingsAndReviews product={product} />
     </div>
   );
 }
