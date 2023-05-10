@@ -8,7 +8,6 @@ function Product({ product }) {
   const [styleList, setStyleList] = useState(null);
   const [productObj, setProductObj] = useState(null);
 
-  // trying for one product for now
   function getSpecificProduct() {
     if (product) {
       axios.get(`/products/${product.id}`, {

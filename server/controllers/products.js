@@ -36,7 +36,7 @@ module.exports = {
         authorization: API_TOKEN,
       },
     })
-      .then(({ data }) => res.json(data))
+      .then(({ data }) => res.status(200).json(data))
       .catch((err) => {
         console.log('There was a problem in the server retrieving product styles: ', err);
         res.sendStatus(404);
@@ -55,15 +55,5 @@ module.exports = {
         console.error('Unable to retrieve Item data: ', err);
         res.sendStatus(404);
       });
-  },
-
-  getStyles: (req, res) => {
-    const productId = req.params.product_id;
-    axios.get(`${ATELIER_API}/products/${productId}/styles`, { headers: { authorization: API_TOKEN } })
-      .then(({ data }) => res.status(200).json(data))
-      .catch((err) => {
-        console.error('Unable to retrieve item style: ', err);
-        res.sendStatus(404);
-      });
-  },
-};
+  }
+}

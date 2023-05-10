@@ -53,14 +53,14 @@ color: red;
 
 }
 .style-thumbnails{
-  height: 50px;
+  height: 60px;
   min-height: 50px;
   min-width: 50px;
   border-radius: 50%;
   border: 1px solid #888888;
   position: relative;
   margin: initial;
-  width: 50px;
+  width: 60px;
   cursor: pointer;
 }
 
