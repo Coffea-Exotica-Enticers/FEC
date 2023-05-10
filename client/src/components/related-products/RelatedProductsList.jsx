@@ -16,7 +16,7 @@ function RelatedProductsList({ product }) {
   return (
     <div style={{ position: 'relative', overflow: 'hidden', padding: 26 }}>
       <h2>Related Products List</h2>
-      <div className="rp-list" style={{ display: 'flex', overflowX: 'hidden', scrollBehavior: 'smooth' }}>
+      <div className="rp-list" style={{ display: 'flex', overflowX: 'scroll', scrollBehavior: 'smooth' }}>
         {relatedProducts.length
           ? relatedProducts.map((item) => <RelatedProductCard key={item.id} item={item} />)
           : 'Loading...'}
