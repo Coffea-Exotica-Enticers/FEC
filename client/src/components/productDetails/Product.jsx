@@ -59,6 +59,7 @@ function Product({ product }) {
                   {productObj ? (
                     <p>
                       {productObj.features[0].feature}
+                      &nbsp;
                       {productObj.features[0].value}
                     </p>
                   ) : (<p>Feature not available</p>)}
@@ -70,9 +71,6 @@ function Product({ product }) {
                   {product.description}
                 </p>
                 <p>{product.slogan}</p>
-                <span className="product-price">
-                  {styleList[0].original_price}
-                </span>
               </div>
             </div>
             <Style styleList={styleList} />
