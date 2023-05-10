@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import QuestionList from './questionList/QuestionList';
-import AddQuestion from './AddQuestion';
+import AddQuestion from './addQuestion/AddQuestion';
 
 // eslint-disable-next-line react/prop-types
 export default function QAModule({ product }) {
