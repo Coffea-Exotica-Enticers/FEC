@@ -29,7 +29,6 @@ module.exports = {
         res.sendStatus(404);
       });
   },
-
   getStyles(req, res) {
     axios.get(`${ATELIER_API}/products/${req.params.product_id}/styles`, {
       headers: {
@@ -42,7 +41,6 @@ module.exports = {
         res.sendStatus(404);
       });
   },
-
   getRelated: (req, res) => {
     const productId = req.params.product_id;
     axios.get(`${ATELIER_API}/products/${productId}/related`, { headers: { authorization: API_TOKEN } })
@@ -50,7 +48,7 @@ module.exports = {
         const newArr = Promise.all(data.map((id) => axios.get(`${ATELIER_API}/products/${id}`, { headers: { authorization: API_TOKEN } }).then((prod) => prod.data)));
         return newArr;
       })
-      .then((result) => res.status(200).send(result))
+      .then((result) => res.status(200).json(result))
       .catch((err) => {
         console.error('Unable to retrieve Item data: ', err);
         res.sendStatus(404);
