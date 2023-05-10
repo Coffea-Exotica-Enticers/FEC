@@ -42,8 +42,8 @@ export default function QAModule({ product }) {
   }
 
   function showMoreQuestions() {
+    setShow(sortList.slice(0, showQuestions.length + 2));
     setQLength(qLength + 2);
-    setShow(sortList.slice(0, qLength));
   }
 
   useEffect(() => {
