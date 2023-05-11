@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import ReviewsList from './reviews/ReviewsList';
 import WriteReviewModal from './write-review/WriteReviewModal';
+import RatingsBreakdown from './ratings/RatingsBreakdown';
 
 const { useState, useEffect } = React;
 
@@ -23,6 +24,10 @@ export default function RatingsAndReviews({ product }) {
   if (product && metaData) {
     return (
       <div className="ratings-and-reviews">
+        <div className="breakdowns">
+          <RatingsBreakdown ratings={metaData.ratings} recommended={metaData.recommended} />
+          {/* TODO: Characteristics breakdown component */}
+        </div>
         <ReviewsList product={product} />
         <button type="button" className="add-review" onClick={() => setShowModal(true)}>Add A Review</button>
         {
