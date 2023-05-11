@@ -1,10 +1,8 @@
 import axios from 'axios';
-import Product from './productDetails/Product';
 import React, { useState, useEffect } from 'react';
+import Product from './productDetails/Product';
 import QAModule from './qa/QAModule';
 import RelatedProductsList from './related-products/related/RelatedProductsList';
-import RelatedProductCard from './related-products/related/RelatedProductCard';
-import ComparisonModal from './related-products/related/ComparisonModal';
 import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 import StarTemplate from './shared/StarTemplate';
 
