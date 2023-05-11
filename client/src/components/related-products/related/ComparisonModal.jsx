@@ -13,19 +13,25 @@ function ComparisonModal({ modalToggle, item, product }) {
   useEffect(() => {
     const view = {};
     const compare = {};
-    const feature = {};
+    const feature = [];
 
     const featureArr = [...product.features, ...item.features];
 
     product.features.forEach((featObj) => {
-      view[featObj.feature] = featObj.value;
-    })
+      if (view[featObj.feature] === undefined) {
+        view[featObj.feature] = featObj.value;
+      }
+    });
+
     item.features.forEach((featObj) => {
-      compare[featObj.feature] = featObj.value;
-    })
+      if (compare[featObj.feature] === undefined) {
+        compare[featObj.feature] = featObj.value;
+      }
+    });
+
     featureArr.forEach((featObj) => {
-      if (feature[featObj.feature] === undefined) {
-        feature[featObj.feature] = featObj.value;
+      if (!feature.includes(featObj.feature)) {
+        feature.push(featObj.feature);
       }
     })
 
@@ -37,29 +43,38 @@ function ComparisonModal({ modalToggle, item, product }) {
   function sameCategory(feature) {
     return (
       <div className="cm-same">
-        {viewItem[feature.feature] ? <div><p>{checkMark}</p></div> : <div><p>{xMark}</p></div>}
-        <h3>{feature.feature}</h3>
-        {compareItem[feature.feature] ? <div><p>{checkMark}</p></div> : <div><p>{xMark}</p></div>}
+        {viewItem[feature]
+        ? <div><p>{viewItem[feature]}</p></div>
+        : <div><p>{xMark}</p></div>}
+
+        <h3>{feature}</h3>
+
+        {compareItem[feature]
+        ? <div><p>{compareItem[feature]}</p></div>
+        : <div><p>{xMark}</p></div>}
       </div>
     )
   }
+
   function diffCategory(feature) {
     console.log('herehrere', feature)
     return (
       <div className="cm-diff">
-        {viewItem[feature.feature]
-        ? <h4>{viewItem[feature.feature]}</h4>
+        {viewItem[feature]
+        ? <h4>{viewItem[feature]}</h4>
         : <h4><p>{xMark}</p></h4>}
 
-        <h3>{feature.feature}</h3>
+        <h3>{feature}</h3>
 
-        {compareItem[feature.feature]
-        ? <h4>{compareItem[feature.feature]}</h4>
+        {compareItem[feature]
+        ? <h4>{compareItem[feature]}</h4>
         : <h4><p>{xMark}</p></h4>}
       </div>
     )
   }
 
+  console.log('viewItem', viewItem)
+  console.log('compare', compareItem)
   console.log('FEATURES', features)
   return (
     <div className="compare-modal">
@@ -73,9 +88,11 @@ function ComparisonModal({ modalToggle, item, product }) {
         <div className="cm-header">
           <h2>Comparing</h2>
           <div className="cm-products">
-            <h3><strong>{product.name}</strong></h3>
+            <h3><strong>{product.name}</strong>
+            <p>({product.category})</p></h3>
             <h4></h4>
-            <h3><strong>{item.name}</strong></h3>
+            <h3><strong>{item.name}</strong>
+            <p>({item.category})</p></h3>
           </div>
         </div>
 

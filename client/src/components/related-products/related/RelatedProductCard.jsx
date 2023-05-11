@@ -55,7 +55,7 @@ function RelatedProductCard({ item, product }) {
     axios.all([styles, starRating]).then(axios.spread((prod, star) => {
       setImages(prod.data);
       setProductStyles(prod.data);
-      setRating(getAverageRating(star.data));
+      setRating(getAverageRating(star.data.ratings));
     }))
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
   }, []);
