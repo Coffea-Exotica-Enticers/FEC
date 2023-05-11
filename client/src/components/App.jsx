@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Product from './productDetails/Product';
 import QAModule from './qa/QAModule';
 import RelatedProductsList from './related-products/related/RelatedProductsList';
+import ClosetList from './related-products/outfit/ClosetList';
 import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 import StarTemplate from './shared/StarTemplate';
 
@@ -25,6 +26,7 @@ export default function App() {
       <StarTemplate />
       <QAModule product={product} />
       <RelatedProductsList product={product} />
+      <ClosetList />
       <RatingsAndReviews product={product} />
     </div>
   );
