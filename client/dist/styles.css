@@ -144,6 +144,18 @@ p {
   display: flex;
   justify-content: flex-end;
 }
+.rp-modal button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.rp-modal svg {
+  width: 20px;
+  height: 20px;
+  border: none;
+  padding-top: 10px;
+  padding-right: 10px;
+}
 .rp-preview {
   display: flex;
   justify-content: space-around;
@@ -154,6 +166,7 @@ p {
   max-width: 260px;
   min-height: 200px;
   max-height: 200px;
+  border-radius: 5px;
 }
 .rp-category {
   display: flex;
@@ -182,4 +195,90 @@ p {
 }
 .rp-star {
   display: flex;
+}
+
+/* COMPARISON MODAL */
+.compare-modal h3, h4{
+  width: 200px;
+  padding: 20px;
+  margin: 0;
+}
+.compare-modal, .rp-overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.rp-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+.cm-header {
+  text-align: center;
+}
+.cm-products {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  white-space: pre-line;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+}
+.cm-body {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+.cm-body h4 {
+  font-style: italic;
+  width: 200px;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.cm-diff {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border-bottom: 1px solid #d8d8d8;
+}
+.cm-diff p {
+  width: 20px;
+  height: 20px;
+}
+.cm-same {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border-bottom: 1px solid #d8d8d8;
+}
+.cm-same p {
+  width: 20px;
+  height: 20px;
+}
+.cm-same div {
+  width: 200px;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.cm-btn {
+  display: flex;
+  justify-content: end;
+}
+.cm-close {
+  border: none;
+  cursor: pointer;
 }
