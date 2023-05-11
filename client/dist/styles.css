@@ -4,7 +4,18 @@ display: flex;
 width: 60%;
 
 } */
+/* .ProductPage{
+  display: flex;
 
+} */
+
+/*****************************************/
+/*********  Fox's Stuff Below  ***********/
+/*****************************************/
+.qa-container {
+  max-height: 700px;
+  overflow: auto;
+}
 .modal {
   position: fixed;
   left: 0;
@@ -32,16 +43,15 @@ width: 60%;
   border-bottom: 1px solid #eee;
 }
 
+/*****************************************/
+/*********  Fox's Stuff Above  ***********/
+/*****************************************/
+
 
 .product-images-grid{
   display: flex;
 
 }
-/* .ProductPage{
-  display: flex;
-
-} */
-
 .ProductPage{
 
   margin: 1.5rem auto;
