@@ -62,7 +62,7 @@ function RelatedProductCard({ item }) {
       </div>
 
       <div className="preview" style={{ display: 'flex', justifyContent: 'space-around', margin: 10 }}>
-        {defaultImg.length ? <img src={defaultImg[0]} alt="default" style={{ minWidth: 260, maxWidth: 260, minHeight: 200, maxHeight: 200 }} /> : <img src="https://www.freeiconspng.com/uploads/no-image-icon-15.png" alt="No Img Found" />}
+        {defaultImg.length ? <img src={defaultImg[0] || "https://www.freeiconspng.com/uploads/no-image-icon-15.png"} alt="default" style={{ minWidth: 260, maxWidth: 260, minHeight: 200, maxHeight: 200 }} /> : <img src="https://www.freeiconspng.com/uploads/no-image-icon-15.png" alt="No Img Found" />}
       </div>
 
       <div className="category" style={{ display: 'flex', marginLeft: 20 }}>
