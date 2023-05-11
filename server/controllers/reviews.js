@@ -8,6 +8,7 @@ module.exports = {
       params: {
         page: req.query.page,
         count: 2,
+        sort: 'newest',
         product_id: req.query.product_id,
       },
       headers: {
@@ -30,13 +31,27 @@ module.exports = {
         authorization: API_TOKEN,
       },
     })
-      .then(({ data }) => res.json(data.ratings))
+      .then(({ data }) => res.json(data))
       .catch((err) => {
         console.log('ERROR GETTING META DATA', err);
         res.status(404).json(err);
       });
   },
-  post(req, res) {},
+  post(req, res) {
+    axios.post(`${ATELIER_API}/reviews`, req.body, {
+      headers: {
+        authorization: API_TOKEN,
+      },
+    })
+      .then((results) => {
+        console.log('SUCCESS', results);
+        res.sendStatus(201);
+      })
+      .catch(() => {
+        console.log('ERROR POSTING REVIEW');
+        res.sendStatus(400);
+      });
+  },
   putHelpful(req, res) {
     axios.put(`${ATELIER_API}/reviews/${req.params.review_id}/helpful`, {}, {
       headers: {

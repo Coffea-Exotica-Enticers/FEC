@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import QuestionList from './questionList/QuestionList';
-import AddQuestion from './AddQuestion';
+import AddQuestion from './addQuestion/AddQuestion';
 
 // eslint-disable-next-line react/prop-types
 export default function QAModule({ product }) {
@@ -42,8 +42,8 @@ export default function QAModule({ product }) {
   }
 
   function showMoreQuestions() {
+    setShow(sortList.slice(0, showQuestions.length + 2));
     setQLength(qLength + 2);
-    setShow(sortList.slice(0, qLength));
   }
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function QAModule({ product }) {
         )
         : 'No More Questions'
       }
-      <AddQuestion />
+      <AddQuestion product={product} />
 
     </div>
   );
