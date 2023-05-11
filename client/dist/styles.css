@@ -53,6 +53,24 @@ img.default-image {
   height: fit-content;
 }
 
+.image.withPlaceholder {
+  display: table;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image.withPlaceholder img{
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.image img.isLoaded {
+  opacity: 100%;
+  aspect-ratio: 2/2;
+}
+
 .ThumbnailContainer{
     display: flex;
     position: relative;
@@ -63,9 +81,26 @@ img.default-image {
     min-width: 60px;
     max-width: 60px;
     height: 100%;
-    overflow-x: scroll;
+    /* overflow-y: scroll; */
 
 }
+
+.VerticalSlider{
+
+  width: 3.4375rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.Thumbnail{
+  position: relative;
+    height: 60px;
+    width: 60px;
+}
+
+
 
 .titles-container{
 
@@ -101,7 +136,7 @@ color: red;
   width: 60px;
   cursor: pointer;
 }
-
+/**Thumbnail container for Style Selector*/
 .thumbnail-container{
   padding: 1px;
   --num-cols: 4;
