@@ -143,6 +143,7 @@ color: red;
 .top-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .review-summary {
   font-weight: bold;
@@ -183,4 +184,34 @@ p {
 .reviews-container {
   max-height: 700px;
   overflow: auto;
+}
+.write-review-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.write-review-modal-content {
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+}
+.write-review-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.write-review-rating {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.write-review-stars {
+  display: flex;
+  align-items: center;
 }
