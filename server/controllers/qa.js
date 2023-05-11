@@ -100,5 +100,46 @@ module.exports = {
       });
   },
 
-  // postQuestion(req, res) {},
+  postQuestion(req, res) {
+    console.log('req is', req.body);
+    axios.post(`${ATELIER_API}/qa/questions`, {
+        body: req.body.question,
+        name: req.body.user_name,
+        email: req.body.email,
+        product_id: req.body.id,
+      },
+      {
+        headers: {
+          authorization: API_TOKEN,
+        },
+      },
+    )
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send(err);
+      })
+  },
+
+  postAnswer(req, res) {
+    axios.post(`${ATELIER_API}/qa/questions/${req.body.id}/answers`, {
+        body: req.body.answer,
+        name: req.body.user_name,
+        email: req.body.email,
+      },
+      {
+        headers: {
+          authorization: API_TOKEN,
+        },
+      },
+    )
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      })
+  }
 };
