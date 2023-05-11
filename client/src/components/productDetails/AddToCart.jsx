@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, { useContext, useState } from 'react';
+// eslint-disable-next-line import/no-cycle
+import { ProductContext } from './Product';
 
 export default function Cart() {
+  const { selectedStyle } = useContext(ProductContext);
 
   //  /cart
-/*
+  /*
  * [
     {
         "sku_id": 1,
@@ -16,5 +19,4 @@ export default function Cart() {
     ....
 ]
  */
-
 }

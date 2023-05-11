@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ImageGrid({ image }) {
+export default function ImageGrid({ selectedStyle }) {
   // to display particular product images in a gallery
 
   /** Props example coming
@@ -13,7 +13,7 @@ export default function ImageGrid({ image }) {
     <div className="Top_left-pane">
       <ul className="product-images-grid">
         <li className="main-image">
-          <img alt="Expand gallery" sizes="width:60%" src={image.thumbnail_url} />
+          <img className="default-image" alt="Default gallery" src={selectedStyle.photos[0].thumbnail_url} />
         </li>
       </ul>
     </div>

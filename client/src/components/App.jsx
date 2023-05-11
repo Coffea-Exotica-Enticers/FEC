@@ -1,6 +1,6 @@
 import axios from 'axios';
-import Product from './productDetails/Product';
 import React, { useState, useEffect } from 'react';
+import Product from './productDetails/Product';
 import QAModule from './qa/QAModule';
 import RelatedProductsList from './related-products/RelatedProductsList';
 import RelatedProductCard from './related-products/RelatedProductCard';
@@ -23,10 +23,10 @@ export default function App() {
   return (
     <div id="App">
       <Product product={product} setProduct={setProduct} />
-      <StarTemplate />
+      {/* <StarTemplate />
       <QAModule product={product} />
       <RelatedProductsList product={product} />
-      <RatingsAndReviews product={product} />
+      <RatingsAndReviews product={product} /> */}
     </div>
   );
 }

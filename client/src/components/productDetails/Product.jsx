@@ -1,13 +1,26 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable import/no-cycle */
+import React, {
+  useState, useMemo, createContext, useEffect,
+} from 'react';
 import axios from 'axios';
 import Image from './Image';
 import AddToCart from './AddToCart';
 import Style from './Style';
 
+export const ProductContext = createContext();
+
 function Product({ product }) {
   const [styleList, setStyleList] = useState(null);
   const [productObj, setProductObj] = useState(null);
-  const [selectedStyle, setSelectedStyle ] = useState(null);
+  const [selectedStyle, setSelectedStyle] = useState({});
+
+  const productMemo = useMemo(() => ({
+
+    styleList,
+    selectedStyle,
+    setSelectedStyle,
+
+  }), [styleList, selectedStyle, setSelectedStyle]);
 
   function getSpecificProduct() {
     if (product) {
@@ -30,6 +43,7 @@ function Product({ product }) {
         .then(({ data }) => {
           console.log('Product Styles available', data.results);
           setStyleList(data.results);
+          setSelectedStyle(data.results[0]);
         })
         .catch((err) => {
           console.log('There was a problem in the server retrieving specific product styles: ', err);
@@ -45,39 +59,41 @@ function Product({ product }) {
   return product && styleList ? (
     <div className="ProductPage">
       <div className="TopContent">
-        <Image styleList={styleList} />
-        <div className="RightPane">
-          <div className="RightColumn-ProductDetails">
-            <div className="titles-container">
-              <div className="product-details">
-                <h1 className="product-Name-Header">
-                  <span className="product-name">
-                    {product.name}
-                  </span>
-                </h1>
-                <div className="product-features">
-                  {productObj ? (
-                    <p>
-                      {productObj.features[0].feature}
+        <ProductContext.Provider value={productMemo}>
+          <Image />
+          <div className="RightPane">
+            <div className="RightColumn-ProductDetails">
+              <div className="titles-container">
+                <div className="product-details">
+                  <h1 className="product-Name-Header">
+                    <span className="product-name">
+                      {product.name}
+                    </span>
+                  </h1>
+                  <div className="product-features">
+                    {productObj ? (
+                      <p>
+                        {productObj.features[0].feature}
                       &nbsp;
-                      {productObj.features[0].value}
-                    </p>
-                  ) : (<p>Feature not available</p>)}
+                        {productObj.features[0].value}
+                      </p>
+                    ) : (<p>Feature not available</p>)}
+                  </div>
+                  <span className="product-category">
+                    {product.category}
+                  </span>
+                  <p className="product-description">
+                    {product.description}
+                  </p>
+                  <p>{product.slogan}</p>
                 </div>
-                <span className="product-category">
-                  {product.category}
-                </span>
-                <p className="product-description">
-                  {product.description}
-                </p>
-                <p>{product.slogan}</p>
               </div>
+              <Style />
             </div>
-            <Style styleList={styleList} />
           </div>
-        </div>
+          <AddToCart />
+        </ProductContext.Provider>
       </div>
-      <AddToCart setStyleList={setStyleList} styleList={styleList} />
     </div>
   )
     : <div className="product-list"> Product is loading</div>;
