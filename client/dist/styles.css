@@ -280,6 +280,10 @@ body.active-compare-modal {
 .cm-header {
   text-align: center;
 }
+.cm-header p {
+  margin: 0;
+  font-size: 12px;
+}
 .cm-products {
   display: flex;
   flex-direction: row;
@@ -300,6 +304,8 @@ body.active-compare-modal {
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
+  max-height: 600px;
+  overflow-y: scroll;
 }
 .cm-body h4 {
   font-style: italic;
