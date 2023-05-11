@@ -15,7 +15,8 @@ export default function RatingsAndReviews({ product }) {
           product_id: product.id,
         },
       })
-        .then(({ data }) => setMetaData(data));
+        .then(({ data }) => setMetaData(data))
+        .catch((err) => console.error('PROBLEM GETTING METADATA', err));
     }
   }, [product]);
 

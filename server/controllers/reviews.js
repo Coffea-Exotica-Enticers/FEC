@@ -46,6 +46,10 @@ module.exports = {
       .then((results) => {
         console.log('SUCCESS', results);
         res.sendStatus(201);
+      })
+      .catch(() => {
+        console.log('ERROR POSTING REVIEW');
+        res.sendStatus(400);
       });
   },
   putHelpful(req, res) {
