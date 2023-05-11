@@ -1,6 +1,4 @@
 import axios from 'axios';
-productDetail-skeleton
-import React from 'react';
 import Product from './productDetails/Product';
 import React, { useState, useEffect } from 'react';
 import QAModule from './qa/QAModule';
@@ -8,7 +6,6 @@ import RelatedProductsList from './related-products/RelatedProductsList';
 import RelatedProductCard from './related-products/RelatedProductCard';
 import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 import StarTemplate from './shared/StarTemplate';
- main
 
 // note: if App parent re-renders child components will render too
 export default function App() {
@@ -17,7 +14,6 @@ export default function App() {
   useEffect(() => {
     axios.get('/products')
       .then((products) => {
-productDetail-skeleton
         setProduct(products.data[0]);
         return products.data[0];
       })
