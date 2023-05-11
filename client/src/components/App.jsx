@@ -2,8 +2,9 @@ import axios from 'axios';
 import Product from './productDetails/Product';
 import React, { useState, useEffect } from 'react';
 import QAModule from './qa/QAModule';
-import RelatedProductsList from './related-products/RelatedProductsList';
-import RelatedProductCard from './related-products/RelatedProductCard';
+import RelatedProductsList from './related-products/related/RelatedProductsList';
+import RelatedProductCard from './related-products/related/RelatedProductCard';
+import ComparisonModal from './related-products/related/ComparisonModal';
 import RatingsAndReviews from './ratings-and-reviews/RatingsAndReviews';
 import StarTemplate from './shared/StarTemplate';
 
@@ -12,7 +13,7 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('/products')
+    axios.get('/products/')
       .then((products) => {
         setProduct(products.data[0]);
         return products.data[0];
