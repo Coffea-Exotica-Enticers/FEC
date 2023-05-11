@@ -1,4 +1,3 @@
- productDetail-skeleton
 /* .Top_left-pane{
 
 display: flex;
@@ -56,7 +55,7 @@ width: 60%;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-  
+}
 #App{
   margin: 0 auto;
   max-width: 75%;
@@ -72,6 +71,7 @@ width: 60%;
 .top-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .review-summary {
   font-weight: bold;
@@ -112,4 +112,34 @@ p {
 .reviews-container {
   max-height: 700px;
   overflow: auto;
+}
+.write-review-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.write-review-modal-content {
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+}
+.write-review-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.write-review-rating {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.write-review-stars {
+  display: flex;
+  align-items: center;
 }

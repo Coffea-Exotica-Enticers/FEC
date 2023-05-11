@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import ReviewsList from './reviews/ReviewsList';
-import WriteReview from './write-review/WriteReview';
+import WriteReviewModal from './write-review/WriteReviewModal';
 
 const { useState, useEffect } = React;
 
 export default function RatingsAndReviews({ product }) {
   const [metaData, setMetaData] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     if (product) {
       axios.get('/reviews/meta', {
@@ -21,8 +22,19 @@ export default function RatingsAndReviews({ product }) {
   if (product && metaData) {
     return (
       <div className="ratings-and-reviews">
-        {/* <ReviewsList product={product} /> */}
-        <WriteReview product={product} characteristics={metaData.characteristics} />
+        <ReviewsList product={product} />
+        <button type="button" className="add-review" onClick={() => setShowModal(true)}>Add A Review</button>
+        {
+        showModal
+          ? (
+            <WriteReviewModal
+              product={product}
+              characteristics={metaData.characteristics}
+              setShowModal={setShowModal}
+            />
+          )
+          : null
+        }
       </div>
     );
   }

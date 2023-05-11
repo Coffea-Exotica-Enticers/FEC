@@ -1,7 +1,5 @@
 import React from 'react';
 
-const {useState, useEffect} = React;
-
 export default function RateCharacteristics({ charName, charId, rateChar }) {
   let descriptors;
   if (charName === 'Size') {
@@ -21,24 +19,11 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
     <div className={`characteristic-${charName}`}>
       <span>{charName}</span>
       <span>
-        <label htmlFor={descriptors[0]}>
+        <label htmlFor={`${descriptors[0]}-${charName}`}>
           {descriptors[0]}
           <input
             type="radio"
-            id={descriptors[0]}
-            name={charName}
-            value="0"
-            onClick={(e) => rateChar(charId, e.target.value)}
-            required
-          />
-        </label>
-      </span>
-      <span>
-        <label htmlFor={descriptors[1]}>
-          {descriptors[1]}
-          <input
-            type="radio"
-            id={descriptors[1]}
+            id={`${descriptors[0]}-${charName}`}
             name={charName}
             value="1"
             onClick={(e) => rateChar(charId, e.target.value)}
@@ -47,41 +32,50 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
         </label>
       </span>
       <span>
-        <label htmlFor={descriptors[2]}>
-          {descriptors[2]}
+        <label htmlFor={`${descriptors[1]}-${charName}`}>
+          {descriptors[1]}
           <input
             type="radio"
-            id={descriptors[2]}
+            id={`${descriptors[1]}-${charName}`}
             name={charName}
             value="2"
             onClick={(e) => rateChar(charId, e.target.value)}
-            required
           />
         </label>
       </span>
       <span>
-        <label htmlFor={descriptors[3]}>
-          {descriptors[3]}
+        <label htmlFor={`${descriptors[2]}-${charName}`}>
+          {descriptors[2]}
           <input
             type="radio"
-            id={descriptors[3]}
+            id={`${descriptors[2]}-${charName}`}
             name={charName}
             value="3"
             onClick={(e) => rateChar(charId, e.target.value)}
-            required
           />
         </label>
       </span>
       <span>
-        <label htmlFor={descriptors[4]}>
-          {descriptors[4]}
+        <label htmlFor={`${descriptors[3]}-${charName}`}>
+          {descriptors[3]}
           <input
             type="radio"
-            id={descriptors[4]}
+            id={`${descriptors[3]}-${charName}`}
             name={charName}
             value="4"
             onClick={(e) => rateChar(charId, e.target.value)}
-            required
+          />
+        </label>
+      </span>
+      <span>
+        <label htmlFor={`${descriptors[4]}-${charName}`}>
+          {descriptors[4]}
+          <input
+            type="radio"
+            id={`${descriptors[4]}-${charName}`}
+            name={charName}
+            value="5"
+            onClick={(e) => rateChar(charId, e.target.value)}
           />
         </label>
       </span>

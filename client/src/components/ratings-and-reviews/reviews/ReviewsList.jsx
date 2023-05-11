@@ -49,17 +49,15 @@ export default function ReviewsList({ product }) {
         <div className="reviews-container">
           {reviews.map((review) => <ReviewTile key={review.review_id} review={review} />)}
         </div>
-        <div className="review-buttons">
-          {
-            nextPage.length
-              ? (
-                <button type="button" className="more-reviews" onClick={showMore}>
-                  More Reviews
-                </button>
-              )
-              : null
-          }
-        </div>
+        {
+          nextPage.length
+            ? (
+              <button type="button" className="more-reviews" onClick={showMore}>
+                More Reviews
+              </button>
+            )
+            : null
+        }
       </div>
     );
   }

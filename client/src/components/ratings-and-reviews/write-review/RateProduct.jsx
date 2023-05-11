@@ -28,15 +28,17 @@ export default function RateProduct({ rating, setRating }) {
   }, [rating]);
 
   return (
-    <span className="write-review-rating">
-      {
-        starsArray.map((percent, index) => (
-          <svg className="write-review-star" width="2em" height="2em" onClick={() => setRating(index + 1)}>
-            <use href="#star-template" fill={`url(#fill-${percent})`} stroke="#fece3c" />
-          </svg>
-        ))
-      }
+    <div className="write-review-rating">
+      <span className="write-review-stars">
+        {
+          starsArray.map((percent, index) => (
+            <svg className="write-review-star" width="2em" height="2em" onClick={() => setRating(index + 1)}>
+              <use href="#star-template" fill={`url(#fill-${percent})`} stroke="#fece3c" />
+            </svg>
+          ))
+        }
+      </span>
       <span className="rating-description">{ratingDescription}</span>
-    </span>
+    </div>
   );
 }
