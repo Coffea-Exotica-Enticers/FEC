@@ -6,6 +6,11 @@ export default function AnswerListEntry({ answer }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(answer.helpfulness);
   const [reported, setReported] = useState(answer.reported);
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
 
   function markAnswerHelpful() {
     axios.put('/qa/answers/helpful', { id: answer.answer_id })
@@ -38,12 +43,9 @@ export default function AnswerListEntry({ answer }) {
         {answer.body}
       </div>
       <div>
-        by
-        {' '}
         {answer.answerer_name}
-      </div>
-      <div>
-        {answer.date}
+        {', '}
+        {new Date(answer.date).toLocaleDateString('en-us', dateOptions)}
       </div>
       <form onSubmit={(e) => {
         e.preventDefault();

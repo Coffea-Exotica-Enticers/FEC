@@ -6,9 +6,8 @@ import AddAnswer from '../addAnswer/AddAnswer';
 // eslint-disable-next-line react/prop-types
 export default function QuestionList({ qArray }) {
   return (
-    <>
+    <div className="qa-container">
       {
-        // eslint-disable-next-line react/prop-types
         qArray.map((q) => (
           <div key={q.question_id}>
             <QuestionListEntry question={q} />
@@ -17,6 +16,6 @@ export default function QuestionList({ qArray }) {
           </div>
         ))
       }
-    </>
+    </div>
   );
 }

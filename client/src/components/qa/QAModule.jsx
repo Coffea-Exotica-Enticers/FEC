@@ -53,10 +53,9 @@ export default function QAModule({ product }) {
   }, [product]);
 
   return (
-    <div className="qa list">
-
+    <div>
       <SearchBar qList={questionList} setShowQs={setShow} qLen={qLength} setSort={setSort} />
-      <QuestionList className="qa-container" qArray={showQuestions} />
+      <QuestionList qArray={showQuestions} />
       {
       showQuestions.length < sortList.length
         ? (
@@ -71,7 +70,6 @@ export default function QAModule({ product }) {
         : 'No More Questions'
       }
       <AddQuestion product={product} />
-
     </div>
   );
 }

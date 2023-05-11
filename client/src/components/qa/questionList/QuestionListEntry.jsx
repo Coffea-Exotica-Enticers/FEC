@@ -6,6 +6,11 @@ export default function QuestionListEntry({ question }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(question.question_helpfulness);
   const [reported, setReported] = useState(question.reported);
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
 
   function markQuestionHelpful() {
     axios.put('/qa/questions/helpful', { id: question.question_id })
@@ -38,13 +43,9 @@ export default function QuestionListEntry({ question }) {
         {question.question_body}
       </div>
       <div>
-        by
-        {' '}
         {question.asker_name}
-      </div>
-      <div>
-        {' '}
-        {question.question_date}
+        {', '}
+        {new Date(question.question_date).toLocaleDateString('en-us', dateOptions)}
       </div>
       <form onSubmit={(e) => {
         e.preventDefault();

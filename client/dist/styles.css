@@ -12,10 +12,6 @@ width: 60%;
 /*****************************************/
 /*********  Fox's Stuff Below  ***********/
 /*****************************************/
-.qa-container {
-  max-height: 700px;
-  overflow: auto;
-}
 .modal {
   position: fixed;
   left: 0;
@@ -42,6 +38,11 @@ width: 60%;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
+.qa-container {
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
 /*****************************************/
 /*********  Fox's Stuff Above  ***********/
@@ -54,28 +55,20 @@ width: 60%;
 
 }
 .ProductPage{
-
   margin: 1.5rem auto;
   width: 90rem;
 }
-
 .RightPane{
   width: 34%;
   margin-left: 6%;
 }
 .main-image{
-
   width: 60%;
   list-style-type: none;
-
 }
-
 .titles-container{
-
   display: flex;
-
 }
-
 .product-price-container{
   margin: 0;
   padding: 0;
@@ -83,12 +76,9 @@ width: 60%;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-
 }
-
 .sales-price{
 color: red;
-
 }
 .style-thumbnails{
   height: 60px;
@@ -101,7 +91,6 @@ color: red;
   width: 60px;
   cursor: pointer;
 }
-
 .thumbnail-container{
   padding: 1px;
   --num-cols: 4;
@@ -110,14 +99,10 @@ color: red;
   grid-row-gap: 10px;
   width: fit-content;
   column-gap: 1em;
-
 }
-
 .TopContent{
-
   display: flex;
 }
-
 .product-Name-Header{
     display: block;
     font-size: 2em;
