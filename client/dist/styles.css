@@ -114,3 +114,72 @@ p {
   max-height: 700px;
   overflow: auto;
 }
+
+
+
+/* ==================== RELATED PRODUCTS ==================== */
+
+/* RELATED PRODUCTS LIST */
+.rp-list {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+}
+.rp-container {
+  display: flex;
+  overFlow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+/* RELATED PRODUCT CARD */
+.rp-card {
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 300px;
+  border: solid;
+  border-radius: 8px;
+  margin: 10px;
+}
+.rp-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+.rp-preview {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.rp-preview img{
+  min-width: 260px;
+  max-width: 260px;
+  min-height: 200px;
+  max-height: 200px;
+}
+.rp-category {
+  display: flex;
+  margin-left: 20px;
+}
+.rp-description {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.rp-desc-head {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.rp-desc-content {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.rp-rating {
+  display: flex;
+  margin-left: 21px;
+}
+.rp-star {
+  display: flex;
+}
