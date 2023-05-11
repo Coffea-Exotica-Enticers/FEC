@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../../shared/Modal';
+import axios from 'axios';
 
 export default function AddAnsModal({ show, setShow, id }) {
   const [ansEntry, setAnsEntry] = useState('');
@@ -8,18 +9,18 @@ export default function AddAnsModal({ show, setShow, id }) {
 
   function postAnswer() {
     axios.post('/qa/answers', {
-      id: id,
+      id,
       answer: ansEntry,
       user_name: nameEntry,
-      email: emailEntry
+      email: emailEntry,
     })
-    .then(() => {
-      console.log('Answer post successful');
-      setShow(false);
-    })
-    .catch((err) => {
-      console.log('Error in posting answer: ', err);
-    })
+      .then(() => {
+        console.log('Answer post successful');
+        setShow(false);
+      })
+      .catch((err) => {
+        console.log('Error in posting answer: ', err);
+      });
   }
 
   if (id) {

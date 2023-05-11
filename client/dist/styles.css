@@ -43,6 +43,27 @@ width: 60%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.searchBar {
+  width: 99%;
+}
+.question-entry, .answer-entry {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  margin: 5px 0px;
+}
+.answer-entry {
+  padding-left: 2%;
+}
+.qa-body-asker {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.helpful-report, .answer-buttons, .question-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
 
 /*****************************************/
 /*********  Fox's Stuff Above  ***********/

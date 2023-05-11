@@ -22,6 +22,6 @@ export default function SearchBar({ qList, setShowQs, qLen, setSort }) {
   }, [entry]);
 
   return (
-    <input placeholder="Have a question? Search for answers..." onChange={(e) => setEntry(e.target.value)} />
+    <input className="searchBar" placeholder="Have a question? Search for answers..." onChange={(e) => setEntry(e.target.value)} />
   );
 }

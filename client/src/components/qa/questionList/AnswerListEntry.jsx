@@ -36,48 +36,56 @@ export default function AnswerListEntry({ answer }) {
   }
 
   return (
-    <>
-      <div>
-        A:
-        {' '}
-        {answer.body}
-      </div>
-      <div>
-        {answer.answerer_name}
-        {', '}
-        {new Date(answer.date).toLocaleDateString('en-us', dateOptions)}
-      </div>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        markAnswerHelpful();
-      }}
-      >
+    <div className="answer-entry">
+      <div className="qa-body-asker">
         <div>
+          A:
+          {' '}
+          {answer.body}
+        </div>
+        <div>
+          {answer.answerer_name}
+          {', '}
+          {new Date(answer.date).toLocaleDateString('en-us', dateOptions)}
+        </div>
+      </div>
+      <div className="helpful-report">
+        <div>
+          Helpful?
+          {' '}
+        </div>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          markAnswerHelpful();
+        }}
+        >
+          {
+            marked
+              ? (
+                <div>Thanks!</div>
+              )
+              : <button type="submit">Yes</button>
+          }
+        </form>
+        <div>
+          {' '}
           {helpful}
           {' '}
-          people found this answer helpful.
         </div>
-        {
-          marked
-            ? (
-              <div>You marked this answer as helpful.</div>
-            )
-            : <button type="submit">Mark This Answer as Helpful</button>
-        }
-      </form>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        reportAnswer();
-      }}
-      >
-        {
-          reported
-            ? (
-              <div>Reported</div>
-            )
-            : <button type="submit">Report</button>
-        }
-      </form>
-    </>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          reportAnswer();
+        }}
+        >
+          {
+            reported
+              ? (
+                <div>Reported</div>
+              )
+              : <button type="submit">Report</button>
+          }
+        </form>
+      </div>
+    </div>
   );
 }
