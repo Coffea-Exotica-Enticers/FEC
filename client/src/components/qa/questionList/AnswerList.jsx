@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerListEntry from './AnswerListEntry';
+import AddAnswer from '../addAnswer/AddAnswer';
 
 // eslint-disable-next-line react/prop-types
 export default function AnswerList({ id }) {
@@ -54,19 +55,22 @@ export default function AnswerList({ id }) {
             {
               showAnswers.map((a) => <AnswerListEntry answer={a} key={a.answer_id} />)
             }
-            {
-              showAnswers.length < answers.length
-                ? (
-                  <form onSubmit={(e) => {
-                    e.preventDefault();
-                    showMoreAnswers();
-                  }}
-                  >
-                    <button type="submit">More Answers</button>
-                  </form>
-                )
-                : 'No More Answers'
-            }
+            <div className="answer-buttons">
+              {
+                showAnswers.length < answers.length
+                  ? (
+                    <form onSubmit={(e) => {
+                      e.preventDefault();
+                      showMoreAnswers();
+                    }}
+                    >
+                      <button type="submit">More Answers</button>
+                    </form>
+                  )
+                  : 'No More Answers'
+              }
+              <AddAnswer id={id} />
+            </div>
           </>
         )
         : 'Answers Loading'}

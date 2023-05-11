@@ -53,25 +53,26 @@ export default function QAModule({ product }) {
   }, [product]);
 
   return (
-    <div className="qa list">
-
+    <div>
+      <h2>Questions & Answers</h2>
       <SearchBar qList={questionList} setShowQs={setShow} qLen={qLength} setSort={setSort} />
       <QuestionList qArray={showQuestions} />
-      {
-      showQuestions.length < sortList.length
-        ? (
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            showMoreQuestions();
-          }}
-          >
-            <button type="submit">More Questions</button>
-          </form>
-        )
-        : 'No More Questions'
-      }
-      <AddQuestion product={product} />
-
+      <div className="question-buttons">
+        {
+        showQuestions.length < sortList.length
+          ? (
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              showMoreQuestions();
+            }}
+            >
+              <button type="submit">More Questions</button>
+            </form>
+          )
+          : 'No More Questions'
+        }
+        <AddQuestion product={product} />
+      </div>
     </div>
   );
 }

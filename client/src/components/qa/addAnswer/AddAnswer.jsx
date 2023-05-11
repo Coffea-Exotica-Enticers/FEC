@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddAnsModel from './AddAnsModal';
+import AddAnsModal from './AddAnsModal';
 
 export default function AddAnswer({ id }) {
   const [show, setShow] = useState(false);
@@ -7,7 +7,7 @@ export default function AddAnswer({ id }) {
   return (
     <>
       <button type="button" onClick={() => setShow(true)}>Add Your Answer</button>
-      <AddAnsModel show={show} setShow={setShow} id={id} />
-  </>
-  )
+      <AddAnsModal show={show} setShow={setShow} id={id} />
+    </>
+  );
 }

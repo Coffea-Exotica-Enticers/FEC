@@ -4,7 +4,14 @@ display: flex;
 width: 60%;
 
 } */
+/* .ProductPage{
+  display: flex;
 
+} */
+
+/*****************************************/
+/*********  Fox's Stuff Below  ***********/
+/*****************************************/
 .modal {
   position: fixed;
   left: 0;
@@ -31,6 +38,36 @@ width: 60%;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
+.qa-container {
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.searchBar {
+  width: 99%;
+}
+.question-entry, .answer-entry {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  margin: 5px 0px;
+}
+.answer-entry {
+  padding-left: 2%;
+}
+.qa-body-asker {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.helpful-report, .answer-buttons, .question-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+/*****************************************/
+/*********  Fox's Stuff Above  ***********/
+/*****************************************/
 
 
 .product-images-grid{
@@ -38,34 +75,21 @@ width: 60%;
   width: 80%;
 
 }
-/* .ProductPage{
-  display: flex;
-
-} */
-
 .ProductPage{
-
   margin: 1.5rem auto;
   width: 90rem;
 }
-
 .RightPane{
   width: 34%;
   margin-left: 6%;
 }
 .main-image{
-
   width: 60%;
   list-style-type: none;
-
 }
-
 .titles-container{
-
   display: flex;
-
 }
-
 .product-price-container{
   margin: 0;
   padding: 0;
@@ -73,12 +97,9 @@ width: 60%;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-
 }
-
 .sales-price{
 color: red;
-
 }
 .style-thumbnails{
   height: 60px;
@@ -91,7 +112,6 @@ color: red;
   width: 60px;
   cursor: pointer;
 }
-
 .thumbnail-container{
   padding: 1px;
   --num-cols: 4;
@@ -100,14 +120,10 @@ color: red;
   grid-row-gap: 10px;
   width: fit-content;
   column-gap: 1em;
-
 }
-
 .TopContent{
-
   display: flex;
 }
-
 .product-Name-Header{
     display: block;
     font-size: 2em;
