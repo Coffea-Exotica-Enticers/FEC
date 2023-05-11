@@ -198,6 +198,9 @@ p {
 }
 
 /* COMPARISON MODAL */
+body.active-compare-modal {
+  overflow-y: hidden;
+}
 .compare-modal h3, h4{
   width: 200px;
   padding: 20px;

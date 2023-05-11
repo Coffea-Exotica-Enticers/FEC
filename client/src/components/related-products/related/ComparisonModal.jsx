@@ -13,6 +13,9 @@ function ComparisonModal({ modalToggle, item, product }) {
   useEffect(() => {
     const view = {};
     const compare = {};
+    const feature = {};
+
+    const featureArr = [...product.features, ...item.features];
 
     product.features.forEach((featObj) => {
       view[featObj.feature] = featObj.value;
@@ -20,10 +23,15 @@ function ComparisonModal({ modalToggle, item, product }) {
     item.features.forEach((featObj) => {
       compare[featObj.feature] = featObj.value;
     })
+    featureArr.forEach((featObj) => {
+      if (feature[featObj.feature] === undefined) {
+        feature[featObj.feature] = featObj.value;
+      }
+    })
 
     setViewItem(view);
     setCompareItem(compare);
-    setFeatures([...product.features, ...item.features]);
+    setFeatures(feature);
   }, [])
 
   function sameCategory(feature) {
@@ -52,6 +60,7 @@ function ComparisonModal({ modalToggle, item, product }) {
     )
   }
 
+  console.log('FEATURES', features)
   return (
     <div className="compare-modal">
       <div className="rp-overlay"></div>
