@@ -14,6 +14,7 @@ function RelatedProductsList({ product }) {
     }
   }, [product]);
 
+  console.log('RELATED PRODUCTS ', relatedProducts)
   return (
     <div className="rp-list">
       <h2>Related Products List</h2>

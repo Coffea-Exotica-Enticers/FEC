@@ -44,30 +44,29 @@ function ComparisonModal({ modalToggle, item, product }) {
     return (
       <div className="cm-same">
         {viewItem[feature]
-        ? <div><p>{viewItem[feature]}</p></div>
-        : <div><p>{xMark}</p></div>}
-
-        <h3>{feature}</h3>
-
-        {compareItem[feature]
-        ? <div><p>{compareItem[feature]}</p></div>
-        : <div><p>{xMark}</p></div>}
-      </div>
-    )
-  }
-
-  function diffCategory(feature) {
-    console.log('herehrere', feature)
-    return (
-      <div className="cm-diff">
-        {viewItem[feature]
-        ? <h4>{viewItem[feature]}</h4>
+        ? <h4>{viewItem[feature] || checkMark}</h4>
         : <h4><p>{xMark}</p></h4>}
 
         <h3>{feature}</h3>
 
         {compareItem[feature]
-        ? <h4>{compareItem[feature]}</h4>
+        ? <h4>{compareItem[feature] || checkMark}</h4>
+        : <h4><p>{xMark}</p></h4>}
+      </div>
+    )
+  }
+
+  function diffCategory(feature) {
+    return (
+      <div className="cm-diff">
+        {viewItem[feature]
+        ? <h4>{viewItem[feature] || checkMark}</h4>
+        : <h4><p>{xMark}</p></h4>}
+
+        <h3>{feature}</h3>
+
+        {compareItem[feature]
+        ? <h4>{compareItem[feature] || checkMark}</h4>
         : <h4><p>{xMark}</p></h4>}
       </div>
     )
