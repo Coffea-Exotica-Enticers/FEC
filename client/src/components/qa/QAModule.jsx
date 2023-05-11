@@ -70,7 +70,7 @@ export default function QAModule({ product }) {
         )
         : 'No More Questions'
       }
-      <AddQuestion />
+      <AddQuestion product={product} />
 
     </div>
   );
