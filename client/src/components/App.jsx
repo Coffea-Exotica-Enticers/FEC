@@ -13,10 +13,10 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/')
+    axios.get('/products/40344')
       .then((products) => {
-        setProduct(products.data[0]);
-        return products.data[0];
+        setProduct(products.data);
+        return products.data;
       })
       .catch((err) => console.error('There was a problem retrieving product data: ', err));
   }, []);
