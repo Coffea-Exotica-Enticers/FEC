@@ -21,7 +21,8 @@ export default function ReviewsList({ product }) {
         .then(({ data }) => {
           setShownReviews(data.slice(0, 2));
           setReviewsCache(data);
-        });
+        })
+        .catch((err) => console.error('ERROR GETTING REVIEWS', err));
     }
   }, [product]);
 
@@ -41,7 +42,8 @@ export default function ReviewsList({ product }) {
       .then(({ data }) => {
         setShownReviews(data.slice(0, shownReviews.length));
         setReviewsCache(data);
-      });
+      })
+      .catch((err) => console.error('ERROR GETTING & SORTING REVIEWS', err));
   };
 
   if (!product) return <div className="reviews-list">Loading...</div>;
