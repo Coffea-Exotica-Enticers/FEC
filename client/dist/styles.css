@@ -472,3 +472,22 @@ body.active-compare-modal {
   font-size: 4rem;
   font-weight: bold;
 }
+.characteristic {
+  width: 300px;
+}
+.characteristic-meter {
+  height: 15px;
+  width: 100%;
+  background: #aaa;
+}
+.characteristic-meter-pointer {
+  position: relative;
+  display: block;
+  width: 5%;
+  height: 100%;
+  background: black;
+}
+.characteristic > .scale {
+  display: flex;
+  justify-content: space-between;
+}
