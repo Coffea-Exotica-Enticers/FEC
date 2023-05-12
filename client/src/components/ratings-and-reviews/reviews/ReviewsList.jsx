@@ -6,7 +6,7 @@ const { useState, useEffect } = React;
 
 export default function ReviewsList({ product }) {
   const [shownReviews, setShownReviews] = useState([]);
-  const [showCount, setShowCount] = useState(4);
+  const [showCount, setShowCount] = useState(2);
   const [reviewsCache, setReviewsCache] = useState([]);
 
   useEffect(() => {
@@ -27,8 +27,8 @@ export default function ReviewsList({ product }) {
   }, [product]);
 
   const showMoreReviews = () => {
-    setShownReviews(reviewsCache.slice(0, showCount));
     setShowCount(showCount + 2);
+    setShownReviews(reviewsCache.slice(0, showCount + 2));
   };
 
   const sort = (e) => {
@@ -46,11 +46,26 @@ export default function ReviewsList({ product }) {
       .catch((err) => console.error('ERROR GETTING & SORTING REVIEWS', err));
   };
 
+  const searchReviews = (e) => {
+    const search = e.target.value;
+    if (search.length < 3) {
+      setShownReviews(reviewsCache.slice(0, showCount));
+    } else {
+      setShownReviews(
+        reviewsCache.filter((review) => review.summary.toLowerCase().includes(search.toLowerCase())
+        || review.body.toLowerCase().includes(search.toLowerCase())).slice(0, showCount),
+      );
+    }
+  };
+
   if (!product) return <div className="reviews-list">Loading...</div>;
   if (product && !shownReviews.length) return <div className="reviews-list">Add a review!</div>;
   if (product && shownReviews.length) {
     return (
       <div className="reviews-list">
+        <div className="reviews-search">
+          <input type="text" className="reviews-search-bar" placeholder="Search reviews..." onChange={searchReviews} />
+        </div>
         <div className="reviews-sort">
           {`${reviewsCache.length} reviews, sorted by`}
           <select name="sort" id="reviews-sort-selector" onChange={sort}>
