@@ -6,6 +6,7 @@ import StarRatings from '../../shared/StarRatings';
 function RelatedProductCard({ item, product, removeOutfit }) {
   const [productStyles, setProductStyles] = useState({});
   const [rating, setRating] = useState(null);
+  const [numOfRatings, setNumOfRatings] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
   const [defaultImg, setDefaultImg] = useState([]);
   const [salePrice, setSalePrice] = useState(null);
@@ -22,6 +23,7 @@ function RelatedProductCard({ item, product, removeOutfit }) {
       sumOfRatings += starRatings[i] * i + 1;
       totalNumOfRatings += Number(starRatings[i]);
     }
+    setNumOfRatings(totalNumOfRatings);
     const averageRating = sumOfRatings / totalNumOfRatings;
     return averageRating.toFixed(1);
   }
@@ -120,6 +122,7 @@ function RelatedProductCard({ item, product, removeOutfit }) {
           <div className="rp-star">
             Star Rating:
             <StarRatings rating={rating} />
+            ({numOfRatings})
           </div>
         </div>
       </div>
