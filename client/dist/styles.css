@@ -59,10 +59,18 @@ width: 60%;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.helpful-report, .answer-buttons, .question-buttons {
+.helpful-report, .answer-buttons, .question-buttons, .imgList {
   display: flex;
   flex-direction: row;
   justify-content: end;
+}
+.imgList {
+  height: 100px;
+  margin: 5px 0px;
+}
+.answerImg {
+  max-height: 100%;
+  width: auto;
 }
 
 /*****************************************/
