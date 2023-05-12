@@ -17,6 +17,12 @@ function ComparisonModal({ modalToggle, item, product }) {
 
     const featureArr = [...product.features, ...item.features];
 
+    featureArr.forEach((featObj) => {
+      if (!feature.includes(featObj.feature)) {
+        feature.push(featObj.feature);
+      }
+    });
+
     product.features.forEach((featObj) => {
       if (view[featObj.feature] === undefined) {
         view[featObj.feature] = featObj.value;
@@ -29,11 +35,6 @@ function ComparisonModal({ modalToggle, item, product }) {
       }
     });
 
-    featureArr.forEach((featObj) => {
-      if (!feature.includes(featObj.feature)) {
-        feature.push(featObj.feature);
-      }
-    });
 
     setViewItem(view);
     setCompareItem(compare);
@@ -72,9 +73,9 @@ function ComparisonModal({ modalToggle, item, product }) {
     );
   }
 
-  console.log('viewItem', viewItem)
-  console.log('compare', compareItem)
-  console.log('FEATURES', features)
+  // console.log('viewItem', viewItem)
+  // console.log('compare', compareItem)
+  // console.log('FEATURES', features)
   return (
     <div className="compare-modal">
       <div className="rp-overlay" />
