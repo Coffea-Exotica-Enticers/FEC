@@ -35,6 +35,10 @@
   list-style-type: none;
 
 }
+
+img.default-image {
+  cursor: zoom-in;
+}
 .main-image-pane{
 
     position: sticky;
