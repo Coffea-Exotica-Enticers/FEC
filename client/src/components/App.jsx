@@ -12,7 +12,7 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/40349')
+    axios.get('/products/40344')
       .then((products) => {
         setProduct(products.data);
         return products.data;

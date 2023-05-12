@@ -8,6 +8,9 @@ width: 60%;
   display: flex;
 
 } */
+body {
+  background-color: #fdfcfa;
+}
 
 /*****************************************/
 /*********  Fox's Stuff Below  ***********/
@@ -254,6 +257,14 @@ p {
 .rp-category {
   display: flex;
   margin-left: 20px;
+}
+.rp-defaultPrice {
+  text-decoration: line-through;
+  margin: 0;
+}
+.rp-salePrice {
+  color: red;
+  margin: 0;
 }
 .rp-description {
   display: flex;
