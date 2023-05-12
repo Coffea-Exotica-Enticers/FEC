@@ -48,6 +48,47 @@
     gap: 16px;
 }
 
+
+
+.left-button-image{
+    position: absolute;
+    overflow: auto;
+    height: 40px;
+    width: 40px;
+    bottom: 300px;
+    left: 185px;
+    display: inline-table;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: none;
+    border-radius: 999px;
+}
+
+
+
+.right-button-image{
+    position: absolute;
+    overflow: auto;
+    height: 40px;
+    width: 40px;
+    bottom: 300px;
+    right: 24px;
+    display: inline-table;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 999px;
+    border: none;
+}
+
+
+svg {
+  height: 12px;
+  width: 12px;
+  fill: rgb(0, 0, 0);
+  align-items: center;
+}
+
+
 .thumbnail-button{
   border: none;
 }
@@ -73,6 +114,7 @@ img.default-image {
 .image img.isLoaded {
   opacity: 100%;
   aspect-ratio: 2/2;
+  cursor: pointer;
 }
 
 .ThumbnailContainer{

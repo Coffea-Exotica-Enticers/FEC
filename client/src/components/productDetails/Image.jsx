@@ -8,9 +8,9 @@ function Image() {
   const {
     selectedStyle, setSelectedStyle, selectedPhoto, setSelectedPhoto,
     isSelectorActive, setIsSelectorActive,
+    index, setIndex,
   } = useContext(ProductContext);
 
-  console.log('setSelectedPhoto inside Image.jsx', selectedPhoto);
   return (
     <div className="main-image-pane">
       <ImageThumbnail
@@ -19,11 +19,16 @@ function Image() {
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}
         setIsSelectorActive={setIsSelectorActive}
+        setIndex={setIndex}
       />
       <ImageGrid
         selectedPhoto={selectedPhoto}
         selectedStyle={selectedStyle}
+        thumbnails={selectedStyle.photos}
         isSelectorActive={isSelectorActive}
+        index={index}
+        setSelectedPhoto={setSelectedPhoto}
+        setIndex={setIndex}
       />
     </div>
   );

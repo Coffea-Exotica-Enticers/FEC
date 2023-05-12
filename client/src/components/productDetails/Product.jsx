@@ -14,6 +14,7 @@ function Product({ product }) {
   const [selectedStyle, setSelectedStyle] = useState({});
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [isSelectorActive, setIsSelectorActive] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const productMemo = useMemo(() => ({
 
@@ -24,9 +25,12 @@ function Product({ product }) {
     setSelectedPhoto,
     isSelectorActive,
     setIsSelectorActive,
+    index,
+    setIndex,
 
   }), [styleList, selectedStyle, setSelectedStyle, selectedPhoto, setSelectedPhoto,
-    isSelectorActive, setIsSelectorActive]);
+    isSelectorActive, setIsSelectorActive, index,
+    setIndex]);
 
   function getProductStyles() {
     if (product) {

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ImageThumbnail({ selectedStyle, setSelectedPhoto, setIsSelectorActive }) {
+export default function ImageThumbnail({
+  selectedStyle, setSelectedPhoto, selectedPhoto, setIndex,
+}) {
   const thumbnails = selectedStyle.photos;
 
   return (
     <div className="ThumbnailContainer">
       <div className="Thumbnail">
-        {thumbnails.map((thumbnail) => (
+        {thumbnails.map((thumbnail, index) => (
           <ul key={thumbnail.thumbnail_url} className="VerticalSlider">
             <li className="thumb-gallery">
               <button
@@ -14,11 +16,11 @@ export default function ImageThumbnail({ selectedStyle, setSelectedPhoto, setIsS
                 className="thumbnail-button"
                 onClick={() => {
                   setSelectedPhoto(thumbnail.thumbnail_url);
-                  setIsSelectorActive(false);
+                  setIndex(index);
                 }}
               >
                 <div className="image withPlaceholder">
-                  <img className="isLoaded" src={thumbnail.thumbnail_url} alt="gallery" />
+                  <img className="isLoaded" src={thumbnail.thumbnail_url} alt="thumbnails" />
                 </div>
               </button>
             </li>

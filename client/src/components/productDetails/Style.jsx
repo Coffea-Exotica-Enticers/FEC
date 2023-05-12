@@ -19,7 +19,8 @@ export default function Style() {
  * */
 
   const {
-    styleList, selectedStyle, setSelectedStyle, setIsSelectorActive,
+    styleList, selectedStyle, setSelectedStyle, setIndex,
+    setSelectedPhoto,
   } = useContext(ProductContext);
 
   return (
@@ -68,7 +69,8 @@ export default function Style() {
                     alt={style.name}
                     onClick={() => {
                       setSelectedStyle(style);
-                      setIsSelectorActive(true);
+                      // setIndex(0);
+                      setSelectedPhoto(style.photos[0].thumbnail_url);
                     }}
                   />
                 </div>

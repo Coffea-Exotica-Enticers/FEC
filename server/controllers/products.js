@@ -5,7 +5,7 @@ const { ATELIER_API, API_TOKEN } = process.env;
 
 module.exports = {
   get: (req, res) => {
-    axios.get(`${ATELIER_API}/products`, {
+    axios.get(`${ATELIER_API}/products/40344`, {
       headers: {
         authorization: API_TOKEN,
       },
@@ -17,18 +17,6 @@ module.exports = {
       });
   },
 
-  getSpecificProduct(req, res) {
-    axios.get(`${ATELIER_API}/products/${req.params.product_id}`, {
-      headers: {
-        authorization: API_TOKEN,
-      },
-    })
-      .then(({ data }) => res.json(data))
-      .catch((err) => {
-        console.log('There was a problem in the server retrieving specific product data: ', err);
-        res.sendStatus(404);
-      });
-  },
   getStyles(req, res) {
     axios.get(`${ATELIER_API}/products/${req.params.product_id}/styles`, {
       headers: {
