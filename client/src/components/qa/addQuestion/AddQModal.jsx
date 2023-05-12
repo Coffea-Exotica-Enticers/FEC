@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Modal from '../../shared/Modal';
 import axios from 'axios';
+import Modal from '../../shared/Modal';
 
 export default function AddQModal({ show, setShow, product }) {
   const [qEntry, setQEntry] = useState('');
@@ -12,15 +12,15 @@ export default function AddQModal({ show, setShow, product }) {
       id: product.id,
       question: qEntry,
       user_name: nameEntry,
-      email: emailEntry
+      email: emailEntry,
     })
-    .then(() => {
-      console.log('Question post successful');
-      setShow(false);
-    })
-    .catch((err) => {
-      console.log('Error in posting question: ', err);
-    })
+      .then(() => {
+        console.log('Question post successful');
+        setShow(false);
+      })
+      .catch((err) => {
+        console.log('Error in posting question: ', err);
+      });
   }
 
   if (product) {
@@ -28,26 +28,26 @@ export default function AddQModal({ show, setShow, product }) {
       <Modal
         show={show}
         onClose={() => setShow(false)}
-        title={"Ask About " + product.name}
-        children={
-          <>
-            <form onSubmit={(e) => {
+        title={`Ask About ${product.name}`}
+        // eslint-disable-next-line react/no-children-prop
+        children={(
+          <form
+            className="modalInput"
+            onSubmit={(e) => {
               e.preventDefault();
               postQuestion();
             }}
-            >
-              <textarea placeholder="Write Your Question Here..." onChange={(e) => setQEntry(e.target.value)}></textarea>
-              <input placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)}></input>
-              <input placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)}></input>
-              <button type="submit">Submit</button>
-            </form>
-          </>
-        }
+          >
+            <textarea className="modalText" placeholder="Write Your Question Here..." onChange={(e) => setQEntry(e.target.value)} required minLength="1" maxLength="1000" />
+            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="12" />
+            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required />
+            <button type="submit">Submit</button>
+          </form>
+        )}
       />
-    )
-  } else {
-    return (
-      <div>Product Has Not Loaded Yet</div>
-    )
+    );
   }
+  return (
+    <div>Product Has Not Loaded Yet</div>
+  );
 }
