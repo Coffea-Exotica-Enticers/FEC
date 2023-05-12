@@ -26,7 +26,7 @@ export default function App() {
       <StarTemplate />
       <QAModule product={product} />
       <RelatedProductsList product={product} />
-      <ClosetList />
+      <ClosetList product={product} />
       <RatingsAndReviews product={product} />
     </div>
   );
