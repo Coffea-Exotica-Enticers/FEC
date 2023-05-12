@@ -18,7 +18,9 @@ export default function Style() {
  *   4.1 The title for that style should appear typed out in full above the thumbnail list.
  * */
 
-  const { styleList, selectedStyle, setSelectedStyle } = useContext(ProductContext);
+  const {
+    styleList, selectedStyle, setSelectedStyle, setIsSelectorActive,
+  } = useContext(ProductContext);
 
   return (
     <>
@@ -66,6 +68,7 @@ export default function Style() {
                     alt={style.name}
                     onClick={() => {
                       setSelectedStyle(style);
+                      setIsSelectorActive(true);
                     }}
                   />
                 </div>

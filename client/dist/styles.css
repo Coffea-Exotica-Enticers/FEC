@@ -48,6 +48,10 @@
     gap: 16px;
 }
 
+.thumbnail-button{
+  border: none;
+}
+
 img.default-image {
   width: 467px;
   height: fit-content;
@@ -99,8 +103,6 @@ img.default-image {
     height: 60px;
     width: 60px;
 }
-
-
 
 .titles-container{
 

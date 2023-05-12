@@ -53,5 +53,5 @@ module.exports = {
         console.error('Unable to retrieve Item data: ', err);
         res.sendStatus(404);
       });
-  }
-}
+  },
+};

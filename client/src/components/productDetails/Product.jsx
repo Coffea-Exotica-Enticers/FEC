@@ -11,30 +11,22 @@ export const ProductContext = createContext();
 
 function Product({ product }) {
   const [styleList, setStyleList] = useState(null);
-  const [productObj, setProductObj] = useState(null);
   const [selectedStyle, setSelectedStyle] = useState({});
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [isSelectorActive, setIsSelectorActive] = useState(false);
 
   const productMemo = useMemo(() => ({
 
     styleList,
     selectedStyle,
     setSelectedStyle,
+    selectedPhoto,
+    setSelectedPhoto,
+    isSelectorActive,
+    setIsSelectorActive,
 
-  }), [styleList, selectedStyle, setSelectedStyle]);
-
-  function getSpecificProduct() {
-    if (product) {
-      axios.get(`/products/${product.id}`, {
-      })
-        .then(({ data }) => {
-          console.log('Product info', data);
-          setProductObj(data);
-        })
-        .catch((err) => {
-          console.log('There was a problem in the server retrieving specific product data: ', err);
-        });
-    }
-  }
+  }), [styleList, selectedStyle, setSelectedStyle, selectedPhoto, setSelectedPhoto,
+    isSelectorActive, setIsSelectorActive]);
 
   function getProductStyles() {
     if (product) {
@@ -52,7 +44,6 @@ function Product({ product }) {
   }
 
   useEffect(() => {
-    getSpecificProduct();
     getProductStyles();
   }, [product]);
 
@@ -71,11 +62,11 @@ function Product({ product }) {
                     </span>
                   </h1>
                   <div className="product-features">
-                    {productObj ? (
+                    {product ? (
                       <p>
-                        {productObj.features[0].feature}
+                        {product.features[0].feature}
                       &nbsp;
-                        {productObj.features[0].value}
+                        {product.features[0].value}
                       </p>
                     ) : (<p>Feature not available</p>)}
                   </div>
