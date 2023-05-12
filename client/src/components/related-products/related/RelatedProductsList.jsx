@@ -14,7 +14,7 @@ function RelatedProductsList({ product }) {
           const relatedIds = [];
           const relatedArr = [];
           data.forEach((prod) => {
-            if (!relatedIds.includes(prod.id) && prod.id !== product.id) {
+            if (!relatedIds.includes(prod.id)) {
               relatedIds.push(prod.id);
               relatedArr.push(prod);
             }

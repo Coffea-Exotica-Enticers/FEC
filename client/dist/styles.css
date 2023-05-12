@@ -222,7 +222,7 @@ p {
   min-width: 300px;
   max-width: 300px;
   min-height: 300px;
-  border: solid;
+  /* border: solid; */
   border-radius: 8px;
   margin: 10px;
 }
@@ -252,7 +252,7 @@ p {
   max-width: 260px;
   min-height: 200px;
   max-height: 200px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 .rp-category {
   display: flex;

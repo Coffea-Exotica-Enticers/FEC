@@ -34,7 +34,7 @@ function RelatedProductCard({ item, product, removeOutfit }) {
     const defaultImgs = [];
     for (let i = 0; i < styles.length; i += 1) {
       if (styles[i]['default?']) {
-        setSalePrice(styles[i]['sale_price']);
+        setSalePrice(styles[i].sale_price);
         styles[i].photos.forEach((img) => {
           defaultImgs.push(img.thumbnail_url);
         });
@@ -62,7 +62,7 @@ function RelatedProductCard({ item, product, removeOutfit }) {
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
   }, []);
 
-  console.log('product styles', productStyles)
+  // console.log('product styles', productStyles)
 
   return (
     <div>
@@ -98,12 +98,12 @@ function RelatedProductCard({ item, product, removeOutfit }) {
               ? (
                 <div className="rp-sale">
                   <p className="rp-defaultPrice">
-                    Price: {item.default_price}
+                    Price: ${item.default_price}
                   </p>
-                  <p className="rp-salePrice">Sale: {salePrice}</p>
+                  <p className="rp-salePrice">Sale: ${salePrice}</p>
                 </div>
               )
-              : (<p>Price: {item.default_price}</p>)}
+              : (<p>Price: ${item.default_price}</p>)}
             {/* <p>
               Price:
               {salePrice || item.default_price}
