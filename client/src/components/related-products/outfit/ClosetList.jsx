@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import RelatedProductCard from '../related/RelatedProductCard';
 
 function ClosetList({ product }) {
@@ -26,13 +25,11 @@ function ClosetList({ product }) {
   }, []);
 
   useEffect(() => {
-    // const userCloset = JSON.parse(window.localStorage.userCloset);
-    // if (userCloset.filter((obj) => obj.id === product.id).length < 1) {
     window.localStorage.setItem('userCloset', JSON.stringify(closet));
     // }
   }, [closet]);
 
-  console.log('closet', closet)
+  // console.log('closet', closet)
 
   return (
     <div className="closet-list">

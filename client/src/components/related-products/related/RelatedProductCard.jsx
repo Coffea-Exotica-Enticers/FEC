@@ -8,6 +8,7 @@ function RelatedProductCard({ item, product, removeOutfit }) {
   const [rating, setRating] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
   const [defaultImg, setDefaultImg] = useState([]);
+  const [salePrice, setSalePrice] = useState(null);
   const [modalWindow, setModalWindow] = useState(false);
   const defaultImgURL = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
 
@@ -26,11 +27,12 @@ function RelatedProductCard({ item, product, removeOutfit }) {
   }
 
   // Function to set the default image
-  function setImages(prodStyles) {
+  function findDefault(prodStyles) {
     const styles = prodStyles.results;
     const defaultImgs = [];
     for (let i = 0; i < styles.length; i += 1) {
       if (styles[i]['default?']) {
+        setSalePrice(styles[i]['sale_price']);
         styles[i].photos.forEach((img) => {
           defaultImgs.push(img.thumbnail_url);
         });
@@ -51,14 +53,14 @@ function RelatedProductCard({ item, product, removeOutfit }) {
   // Sends a GET request for item styles and star rating on render
   useEffect(() => {
     axios.all([styles, starRating]).then(axios.spread((prod, star) => {
-      setImages(prod.data);
+      findDefault(prod.data);
       setProductStyles(prod.data);
       setRating(getAverageRating(star.data.ratings));
     }))
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
   }, []);
 
-  // console.log('product styles', productStyles)
+  console.log('product styles', productStyles)
 
   return (
     <div>
@@ -90,10 +92,20 @@ function RelatedProductCard({ item, product, removeOutfit }) {
         <div className="rp-description" onClick={() => setShowDescription(!showDescription)}>
           <div className="rp-desc-head">
             <p><strong>{item.name}</strong></p>
-            <p>
+            {salePrice
+              ? (
+                <div className="rp-sale">
+                  <p className="rp-defaultPrice">
+                    Price: {item.default_price}
+                  </p>
+                  <p className="rp-salePrice">Sale: {salePrice}</p>
+                </div>
+              )
+              : (<p>Price: {item.default_price}</p>)}
+            {/* <p>
               Price:
-              {item.default_price}
-            </p>
+              {salePrice || item.default_price}
+            </p> */}
           </div>
           {showDescription
             ? (
