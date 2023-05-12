@@ -3,6 +3,7 @@ import React from 'react';
 import ReviewsList from './reviews/ReviewsList';
 import WriteReviewModal from './write-review/WriteReviewModal';
 import RatingsBreakdown from './ratings/RatingsBreakdown';
+import CharacteristicsBreakdown from './characteristics/CharacteristicsBreakdown';
 
 const { useState, useEffect } = React;
 
@@ -26,7 +27,7 @@ export default function RatingsAndReviews({ product }) {
       <div className="ratings-and-reviews">
         <div className="breakdowns">
           <RatingsBreakdown ratings={metaData.ratings} recommended={metaData.recommended} />
-          {/* TODO: Characteristics breakdown component */}
+          <CharacteristicsBreakdown characteristics={metaData.characteristics} />
         </div>
         <ReviewsList product={product} />
         <button type="button" className="add-review" onClick={() => setShowModal(true)}>Add A Review</button>
