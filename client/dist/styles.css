@@ -350,6 +350,57 @@ body.active-compare-modal {
   border: none;
   cursor: pointer;
 }
+
+/* RELATED PRODUCT CARD */
+.closet-list {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+}
+.closet-container {
+  display: flex;
+  overFlow-x: scroll;
+  scroll-behavior: smooth;
+}
+.closet-add {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+.closet-add button {
+  width: 50px;
+  height: 50px;
+  border: solid;
+  background: none;
+  cursor: pointer;
+}
+.closet-add svg {
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.closet-close {
+  display: flex;
+  justify-content: end;
+}
+.closet-close button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 10px;
+}
+
+
+/* ================================ */
+
+
+
+
+
+
+
+
+
 .write-review-modal {
   position: fixed;
   left: 0;
