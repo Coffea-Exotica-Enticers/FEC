@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Modal from '../../shared/Modal';
 import axios from 'axios';
+import Modal from '../../shared/Modal';
 
 export default function AddAnsModal({ show, setShow, id }) {
   const [ansEntry, setAnsEntry] = useState('');
@@ -28,28 +28,28 @@ export default function AddAnsModal({ show, setShow, id }) {
       <Modal
         show={show}
         onClose={() => setShow(false)}
-        title={"Submit Your Answer"}
-        children={
-          <>
-            <form onSubmit={(e) => {
+        title="Submit Your Answer"
+        // eslint-disable-next-line react/no-children-prop
+        children={(
+          <form
+            className="modalInput"
+            onSubmit={(e) => {
               e.preventDefault();
               setShow(false);
               postAnswer();
             }}
-            >
-              <textarea placeholder="Write Your Answer Here..." onChange={(e) => setAnsEntry(e.target.value)}></textarea>
-              <input placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)}></input>
-              <input placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)}></input>
-              <div>PUT UPLOAD PHOTOS HERE LATER!</div>
-              <button type="submit">Submit</button>
-            </form>
-          </>
-        }
+          >
+            <textarea className="modalText" placeholder="Write Your Answer Here..." onChange={(e) => setAnsEntry(e.target.value)} required minLength="1" maxLength="1000" />
+            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="12" />
+            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required />
+            <div>PUT UPLOAD PHOTOS HERE LATER!</div>
+            <button type="submit">Submit</button>
+          </form>
+          )}
       />
-    )
-  } else {
-    return (
-      <div>Product Has Not Loaded Yet</div>
-    )
+    );
   }
+  return (
+    <div>Product Has Not Loaded Yet</div>
+  );
 }

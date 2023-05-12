@@ -72,6 +72,24 @@ width: 60%;
   max-height: 100%;
   width: auto;
 }
+.modalInput {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.modalUserInfo {
+  width: 33%;
+}
+.modalText {
+  width: 99%;
+  height: 250px;
+}
+.modalUserInfo:invalid, .modalText:invalid {
+  border: 2px dashed red;
+}
+.modalUserInfo:valid, .modalText:valid {
+  border: 2px solid black;
+}
 
 /*****************************************/
 /*********  Fox's Stuff Above  ***********/
