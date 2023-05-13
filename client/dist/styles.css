@@ -167,13 +167,14 @@ color: red;
   margin: 0 auto;
   max-width: 75%;
 }
-.reviews-list{
+.reviews-container{
   max-width: 66%;
   margin: 0 auto;
 }
 .review-tile {
   border-bottom: 1px solid black;
   margin-bottom: 2rem;
+  word-wrap: break-word;
 }
 .top-row {
   display: flex;
@@ -213,10 +214,7 @@ button.more-reviews, button.add-review {
 button.more-reviews {
   margin-right: 20px;
 }
-p {
-  word-wrap: break-word;
-}
-.reviews-container {
+.reviews-list {
   max-height: 700px;
   overflow: auto;
 }

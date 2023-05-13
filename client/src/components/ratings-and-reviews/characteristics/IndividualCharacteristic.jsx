@@ -6,7 +6,7 @@ export default function IndividualCharacteristic({ charName, characteristic }) {
   const percentage = Math.floor((characteristic.value / 5) * 100);
   let descriptors;
   if (charName === 'Size') {
-    descriptors = ['A size too small', '1/2 a size too small ', 'Perfect', '1/2 a size too big', 'A size too big'];
+    descriptors = ['A size too small', 'Perfect', 'A size too big'];
   } else if (charName === 'Width') {
     descriptors = ['Too narrow', 'Perfect', 'Too wide'];
   } else if (charName === 'Comfort') {
