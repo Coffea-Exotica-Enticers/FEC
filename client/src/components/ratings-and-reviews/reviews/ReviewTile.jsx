@@ -3,10 +3,11 @@ import StarRatings from '../../shared/StarRatings';
 import HelpfulnessDisplay from './HelpfulnessDisplay';
 import ReportButton from './ReportButton';
 import ReviewPhoto from './ReviewPhoto';
+import TextHighlight from '../../shared/TextHighlight';
 
 const { useState, useEffect } = React;
 
-export default function ReviewTile({ review }) {
+export default function ReviewTile({ review, search }) {
   const [summary, setSummary] = useState('');
   const [body, setBody] = useState('');
   const [showMore, setShowMore] = useState(false);
@@ -44,8 +45,8 @@ export default function ReviewTile({ review }) {
           {new Date(review.date).toLocaleDateString('en-us', dateOptions)}
         </div>
       </div>
-      <div className="review-summary">{summary}</div>
-      <div className="review-body">{body}</div>
+      <div className="review-summary"><TextHighlight text={summary} search={search} /></div>
+      <div className="review-body"><TextHighlight text={body} search={search} /></div>
       {showMore
         ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
         : null}
