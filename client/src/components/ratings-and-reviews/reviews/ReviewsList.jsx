@@ -4,13 +4,12 @@ import ReviewTile from './ReviewTile';
 
 const { useState, useEffect } = React;
 
-export default function ReviewsList({ product }) {
+export default function ReviewsList({ product, ratingsFilter }) {
   const [shownReviews, setShownReviews] = useState([]);
   const [showCount, setShowCount] = useState(2);
   const [reviewsCache, setReviewsCache] = useState([]);
   const [search, setSearch] = useState('');
   const [sortState, setSortState] = useState('relevant');
-
   useEffect(() => {
     if (product) {
       axios.get('/reviews', {
@@ -26,17 +25,21 @@ export default function ReviewsList({ product }) {
   }, [product, sortState]);
 
   useEffect(() => {
+    const filtered = ratingsFilter.length
+      ? reviewsCache.filter((review) => ratingsFilter.includes(review.rating))
+      : reviewsCache;
     if (search.length < 3) {
-      setShownReviews(reviewsCache.slice(0, showCount));
+      setShownReviews(filtered.slice(0, showCount));
     } else {
       setShownReviews(
-        reviewsCache.filter((review) => review.summary.toLowerCase().includes(search.toLowerCase())
+        filtered.filter((review) => review.summary.toLowerCase().includes(search.toLowerCase())
         || review.body.toLowerCase().includes(search.toLowerCase())).slice(0, showCount),
       );
     }
-  }, [showCount, reviewsCache, search]);
+  }, [showCount, reviewsCache, search, ratingsFilter]);
 
   if (!product) return <div className="reviews-list">Loading...</div>;
+
   return (
     <div className="reviews-container">
       <div className="reviews-search">
