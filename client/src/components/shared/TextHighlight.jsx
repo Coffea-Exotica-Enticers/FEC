@@ -6,7 +6,7 @@ export default function TextHighlight({ text, search }) {
     const split = text.split(pattern);
     const highlighted = text.match(pattern);
     return split.map((section, index) => (
-      <span>
+      <span key={section}>
         {section}
         {index !== split.length - 1 ? <mark>{highlighted[index]}</mark> : null}
       </span>

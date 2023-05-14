@@ -67,7 +67,7 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
       <div className="write-review-modal-content">
         <div className="write-review-modal-header">
           <h1>Write a Review</h1>
-          <button type="button" className="close-modal" onClick={() => setShowModal(false)}>X</button>
+          <button type="button" className="close-modal" onClick={() => setShowModal(false)}>&times;</button>
         </div>
         <div className="write-review-modal-body">
           <form onSubmit={handleSubmit}>

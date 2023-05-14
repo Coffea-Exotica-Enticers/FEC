@@ -167,57 +167,6 @@ color: red;
   margin: 0 auto;
   max-width: 75%;
 }
-.reviews-container{
-  max-width: 66%;
-  margin: 0 auto;
-}
-.review-tile {
-  border-bottom: 1px solid black;
-  margin-bottom: 2rem;
-  word-wrap: break-word;
-}
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.review-summary {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-.review-body {
-  margin: 10px 0;
-}
-.review-response {
-  background-color: #777;
-}
-.review-bottom-row {
-  margin: 10px;
-}
-button.review-helpful, button.report-review, button.show-more {
-  text-decoration: underline;
-  font-family: inherit;
-  font-size: 1rem;
-	text-align: left;
-	background: none;
-	border: none;
-	cursor: pointer;
-}
-button.more-reviews, button.add-review {
-  border: 1px solid black;
-  background: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 15px 10px;
-}
-button.more-reviews {
-  margin-right: 20px;
-}
-.reviews-list {
-  max-height: 700px;
-  overflow: auto;
-}
 
 /* ==================== RELATED PRODUCTS ==================== */
 
@@ -442,16 +391,147 @@ body.active-compare-modal {
 }
 
 
-/* ================================ */
+/* ============================== RATINGS & REVIEWS =========================================== */
+.ratings-and-reviews {
+  display: flex;
+  justify-content: space-around;
+  max-height: 95vh;
+}
+.breakdowns {
+  flex-grow: 1;
+}
 
 
+/* =================================== RATINGS ================================================ */
+.rating-meter {
+  height: 10px;
+  width: 100px;
+  background: #aaa;
+}
+.rating-meter-fill {
+  display: block;
+  height: 100%;
+  background-color: rgb(43,194,83);
+}
+.average-rating-display {
+  font-size: 4rem;
+  font-weight: bold;
+}
+.star-rating-meter {
+  display: flex;
+}
 
 
+/* =============================== CHARACTERISTICS ============================================ */
+.characteristic {
+  width: 300px;
+}
+.characteristic-meter {
+  height: 15px;
+  width: 100%;
+  background: #aaa;
+}
+.characteristic-meter-pointer {
+  position: relative;
+  display: block;
+  width: 5%;
+  height: 100%;
+  background: black;
+}
+.characteristic > .scale {
+  display: flex;
+  justify-content: space-between;
+}
 
+/* =================================== REVIEWS ================================================ */
+.reviews {
+  max-width: 75%;
+  margin-left: 10px;
+  flex-grow: 3;
+}
+.reviews-list {
+  max-height: 90%;
+  overflow: auto;
+}
+.review-tile {
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+  word-wrap: break-word;
+}
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-summary {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.review-body {
+  margin: 10px 0;
+}
+.review-response {
+  background-color: #777;
+}
+.review-bottom-row {
+  margin: 10px;
+}
+button.review-helpful, button.report-review, button.show-more {
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: 1rem;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+button.more-reviews, button.add-review {
+  border: 1px solid black;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px 10px;
+}
+button.more-reviews {
+  margin-right: 20px;
+}
+.reviews-filters{
+  display: flex;
+  justify-content: space-between;
+}
 
+/* ============================= REVIEW PHOTO MODAL ========================================== */
+.review-photo-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+button.review-photo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+button.close-photo-modal {
+  color: #ffffff;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-
-
+/* ============================= WRITE REVIEWS MODAL ========================================== */
 .write-review-modal {
   position: fixed;
   left: 0;
@@ -481,40 +561,4 @@ body.active-compare-modal {
 .write-review-stars {
   display: flex;
   align-items: center;
-}
-.star-rating-meter {
-  display: flex;
-}
-.rating-meter {
-  height: 10px;
-  width: 100px;
-  background: #aaa;
-}
-.rating-meter-fill {
-  display: block;
-  height: 100%;
-  background-color: rgb(43,194,83);
-}
-.average-rating-display {
-  font-size: 4rem;
-  font-weight: bold;
-}
-.characteristic {
-  width: 300px;
-}
-.characteristic-meter {
-  height: 15px;
-  width: 100%;
-  background: #aaa;
-}
-.characteristic-meter-pointer {
-  position: relative;
-  display: block;
-  width: 5%;
-  height: 100%;
-  background: black;
-}
-.characteristic > .scale {
-  display: flex;
-  justify-content: space-between;
 }

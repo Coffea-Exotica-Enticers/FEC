@@ -14,9 +14,9 @@ export default function RatingsBreakdown(props) {
     (Number(recommended.true) / (Number(recommended.true) + Number(recommended.false))) * 100,
   );
   const ratingsValues = Object.keys(ratings);
-  const averageRatings = (ratingsValues.reduce(
-    (total, value) => total + (Number(ratings[value]) * Number(value)), 0)
-    / totalRatings).toFixed(1);
+  const averageRatings = (ratingsValues
+    .reduce((total, value) => total + (Number(ratings[value]) * Number(value)), 0) / totalRatings)
+    .toFixed(1);
 
   const clearFilter = (num) => {
     if (num) {
@@ -38,6 +38,7 @@ export default function RatingsBreakdown(props) {
       {ratingsValues.map(
         (star) => (
           <IndividualRating
+            key={star}
             rating={star}
             ratingCount={ratings[star]}
             totalRatings={totalRatings}
@@ -46,14 +47,20 @@ export default function RatingsBreakdown(props) {
           />
         ),
       )}
-      <div className="ratings-filter-display">
-        <button type="button" onClick={() => clearFilter()}>Clear All</button>
-        {
-          ratingsFilter.map((num) => (
-            <button type="button" onClick={() => clearFilter(num)}>{num}</button>
-          ))
-        }
-      </div>
+      {
+        ratingsFilter.length
+          ? (
+            <div className="ratings-filter-display">
+              <button type="button" onClick={() => clearFilter()}>Clear All</button>
+              {
+                ratingsFilter.map((num) => (
+                  <button type="button" onClick={() => clearFilter(num)}>{num}</button>
+                ))
+              }
+            </div>
+          )
+          : null
+      }
     </div>
   );
 }
