@@ -13,7 +13,11 @@ export default function ReviewPhotos({ url }) {
         showModal
           ? (
             <div className="review-photo-modal">
-              <button type="button" className="close-photo-modal" onClick={() => setShowModal(false)}>
+              <button
+                type="button"
+                className="close-photo-modal"
+                onClick={() => setShowModal(false)}
+              >
                 &times;
               </button>
               <img className="review-photo-expanded" src={url} alt="" />

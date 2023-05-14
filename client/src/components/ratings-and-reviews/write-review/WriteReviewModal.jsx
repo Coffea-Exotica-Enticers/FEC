@@ -6,6 +6,7 @@ import RateCharacteristic from './RateCharacteristic';
 import SummaryInput from './SummaryInput';
 import BodyInput from './BodyInput';
 import PhotoUpload from './PhotoUpload';
+import DisplayErrors from './DisplayErrors';
 
 const { useState } = React;
 
@@ -18,19 +19,25 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
   const [photos, setPhotos] = useState([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [showErrors, setShowErrors] = useState(false);
   const relevantChars = Object.keys(characteristics);
   const rateChar = (charId, value) => {
     setCharRatings({ ...charRatings, [charId]: Number(value) });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      rating > 0
-      && recommend !== null
-      && Object.keys(charRatings).length === relevantChars.length
-      && body.length >= 50
-      && name.length > 0
-      && email.length > 0) {
+    let errorCount = 0;
+
+    if (rating === 0) {
+      errorCount += 1;
+      setShowErrors(true);
+    }
+    if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
+      errorCount += 1;
+      setShowErrors(true);
+    }
+
+    if (errorCount === 0) {
       const newReview = {
         product_id: product.id,
         rating,
@@ -50,15 +57,6 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
         .catch((err) => {
           console.error('ERROR SUBMITTING REVIEW', err);
         });
-    } else {
-      // TODO: Show error text when mandatory fields are not filled properly
-      // console.log('OH NO');
-      // console.log('RATING ', rating);
-      // console.log('RECOMMEND ', recommend);
-      // console.log('CHARACTERISTICS ', charRatings);
-      // console.log('BODY ', body);
-      // console.log('NAME ', name);
-      // console.log('EMAIL ', email);
     }
   };
 
@@ -66,38 +64,56 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
     <div className="write-review-modal">
       <div className="write-review-modal-content">
         <div className="write-review-modal-header">
-          <h1>Write a Review</h1>
-          <button type="button" className="close-modal" onClick={() => setShowModal(false)}>&times;</button>
+          <div className="title-container">
+            <div className="title">Write Your Review</div>
+            <div className="subtitle">
+              About the
+              <span className="product-name">{` ${product.name}`}</span>
+            </div>
+          </div>
+          <button type="button" className="close-write-review-modal" onClick={() => setShowModal(false)}>
+            &times;
+          </button>
         </div>
+
         <div className="write-review-modal-body">
           <form onSubmit={handleSubmit}>
             <RateProduct rating={rating} setRating={setRating} />
             <Recommend setRecommend={setRecommend} />
-            <label htmlFor="name">
-              Name:
-              <br />
-              <input
-                type="text"
-                maxLength="60"
-                id="name"
-                placeholder="Example: jackson11!"
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </label>
-            <br />
-            <label htmlFor="email">
-              Email:
-              <br />
-              <input
-                type="email"
-                maxLength="60"
-                id="email"
-                placeholder="Example: jackson11@gmail.com"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </label>
+            <div className="write-review-name-input">
+              <label htmlFor="name">
+                Name:
+                <br />
+                <input
+                  type="text"
+                  maxLength="60"
+                  id="name"
+                  placeholder="Example: jackson11!"
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </label>
+              <div className="disclaimer">
+                For privacy reasons, do not use your full name or email address.
+              </div>
+            </div>
+            <div className="write-review-email-input">
+              <label htmlFor="email">
+                Email:
+                <br />
+                <input
+                  type="email"
+                  maxLength="60"
+                  id="email"
+                  placeholder="Example: jackson11@gmail.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </label>
+              <div className="disclaimer">
+                For authentication reasons, you will not be emailed.
+              </div>
+            </div>
             <PhotoUpload photos={photos} setPhotos={setPhotos} />
             <SummaryInput setSummary={setSummary} />
             <BodyInput setBody={setBody} />
@@ -112,6 +128,16 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
             </div>
             <button type="submit" id="write-review-submit">Submit Review</button>
           </form>
+          {
+            showErrors
+              ? (
+                <DisplayErrors
+                  rating={rating}
+                  email={email}
+                />
+              )
+              : null
+          }
         </div>
       </div>
     </div>

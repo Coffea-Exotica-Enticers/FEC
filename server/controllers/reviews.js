@@ -43,12 +43,9 @@ module.exports = {
         authorization: API_TOKEN,
       },
     })
-      .then((results) => {
-        console.log('SUCCESS', results);
-        res.sendStatus(201);
-      })
-      .catch(() => {
-        console.log('ERROR POSTING REVIEW');
+      .then(() => res.sendStatus(201))
+      .catch((err) => {
+        console.log('ERROR POSTING REVIEW', err);
         res.sendStatus(400);
       });
   },

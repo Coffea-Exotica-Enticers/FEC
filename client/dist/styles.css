@@ -532,6 +532,10 @@ button.close-photo-modal {
   border: none;
   cursor: pointer;
 }
+.review-photo-expanded {
+  max-width: 95vw;
+  max-height: 95vh;
+}
 
 /* ============================= WRITE REVIEWS MODAL ========================================== */
 .write-review-modal {
@@ -549,18 +553,98 @@ button.close-photo-modal {
   width: 50%;
   background-color: #fff;
   padding: 10px;
+  position: relative;
 }
 .write-review-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+}
+.close-write-review-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.title-container > .title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 5px;
 }
 .write-review-rating {
   display: flex;
   align-items: center;
-  width: 50%;
+  margin-bottom: 10px;
 }
 .write-review-stars {
   display: flex;
   align-items: center;
+  margin-right: 10px;
+}
+.write-review-star {
+  cursor: pointer;
+}
+.write-review-errors {
+  margin: 10px;
+  border: 1px dashed red;
+  color: red;
+  width: 50%;
+}
+.write-review-errors > .error-header {
+  text-decoration: underline;
+  margin: 5px;
+}
+.upload-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.photo-upload-button {
+  background-color: #fff;
+  border: 1px dashed black;
+  border-radius: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  margin: 10px;
+}
+.upload-error {
+  color: red;
+}
+.thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+.thumbnail-photo {
+  max-width:100%;
+  max-height:100%;
+}
+button.remove-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border: none;
+  font-size: 3rem;
+  opacity: 0;
+  padding: 0;
+}
+button.remove-photo:hover {
+  color: white;
+  opacity: 100%;
 }
