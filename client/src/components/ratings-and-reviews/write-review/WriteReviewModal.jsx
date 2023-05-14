@@ -77,12 +77,13 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
         </div>
 
         <div className="write-review-modal-body">
+          <div>Mandatory fields are marked with an asterisk (*)</div>
           <form onSubmit={handleSubmit}>
             <RateProduct rating={rating} setRating={setRating} />
             <Recommend setRecommend={setRecommend} />
             <div className="write-review-name-input">
               <label htmlFor="name">
-                Name:
+                Name:*
                 <br />
                 <input
                   type="text"
@@ -99,7 +100,7 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
             </div>
             <div className="write-review-email-input">
               <label htmlFor="email">
-                Email:
+                Email:*
                 <br />
                 <input
                   type="email"
