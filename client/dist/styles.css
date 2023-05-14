@@ -29,6 +29,129 @@
   width: 34%;
   margin-left: 6%;
 }
+
+  .AddToCart-Container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .main-container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .size-container{
+    height: 60px;
+    margin:0;
+    width: 220px;
+  }
+
+  /* .select-size{
+
+    height: 5%;
+
+  } */
+  .size-dropdown{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    background-color: rgb(44, 172, 237);
+    border: 1px solid salmon;
+    border-radius: 3px;
+    color: antiquewhite;
+    transition: 0.5 ease;
+    padding-left: 10px;
+    font-size: 20px;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: #888888;
+  }
+  .size-dropdown:hover{
+
+    background-color: palevioletred;
+  }
+
+  .dropdown-list{
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid slategray;
+    display: inline-block;
+  }
+
+  /**/
+  .quantity-dropdown-list{
+   position: relative;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid slategray;
+    display: inline-block;
+
+  }
+  .dropdown-list:hover .dropdown-item{
+
+    display: block;
+  }
+
+  /* .dropdown-item{
+    display: none;
+
+  } */
+.quantity-container{
+  margin:auto;
+  padding-bottom: 8%;
+}
+
+.quantity-label{
+
+  padding-bottom: 11px;
+  display: flex;
+}
+
+.quantity-dropdown-item{
+
+     display: block;
+     font-size: 15px;
+}
+
+.quantity-selector{
+  font-family: "Kors Sans Book", Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #000;
+  letter-spacing: 0.1rem;
+  display: inline-block;
+  height: 40px;
+}
+
+.select-quantity{
+
+  display: inline-block;
+  /* width: 75px; */
+  /* float: left; */
+}
+
+.quantity-dropdown{
+  box-sizing:border-box;
+  /* position: relative; */
+  display: flex;
+  height: 3.5em;
+  width: 7em;
+  border: 0.0625rem solid #757575;
+
+  }
+  .product-quantity{
+
+    overflow: visible;
+
+  }
+
+  /** PRODUCT DETAILS IMAGE COMPONENT*/
 .main-image{
 
   width: 60%;
@@ -39,6 +162,11 @@
 img.default-image {
   cursor: zoom-in;
 }
+
+img.expanded-image {
+cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
+}
+
 .main-image-pane{
 
     position: sticky;
@@ -51,8 +179,6 @@ img.default-image {
     flex-direction: row;
     gap: 16px;
 }
-
-
 
 .left-button-image{
     position: absolute;
@@ -67,7 +193,6 @@ img.default-image {
     border: none;
     border-radius: 999px;
 }
-
 
 
 .right-button-image{
@@ -159,6 +284,60 @@ img.default-image {
 .thumb-gallery{
   list-style-type: none;
 }
+
+.Expanded-View-Modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.expanded-image {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+.left-button-expanded{
+
+  position: absolute;
+  overflow: auto;
+  height: 40px;
+  width: 40px;
+  bottom: 750px;
+  left: 300px;
+  display: inline-table;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+
+
+
+}
+.right-button-expanded{
+  position: absolute;
+    overflow: auto;
+    height: 40px;
+    width: 40px;
+    bottom: 750px;
+    right: 150px;
+    display: inline-table;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 999px;
+    border: none;
+
+}
+
 .product-price-container{
   margin: 0;
   padding: 0;
@@ -179,7 +358,7 @@ color: red;
   min-width: 50px;
   border-radius: 50%;
   border: 1px solid #888888;
-  position: relative;
+  /* position: relative; fixing issue regarding thumbnail appearing on the expanded view */
   margin: initial;
   width: 60px;
   cursor: pointer;

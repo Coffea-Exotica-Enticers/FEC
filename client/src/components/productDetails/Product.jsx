@@ -12,8 +12,8 @@ export const ProductContext = createContext();
 function Product({ product }) {
   const [styleList, setStyleList] = useState(null);
   const [selectedStyle, setSelectedStyle] = useState({});
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [isSelectorActive, setIsSelectorActive] = useState(false);
+  // const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [isExpandedActive, setIsExpandedActive] = useState(false);
   const [index, setIndex] = useState(0);
 
   const productMemo = useMemo(() => ({
@@ -21,15 +21,13 @@ function Product({ product }) {
     styleList,
     selectedStyle,
     setSelectedStyle,
-    selectedPhoto,
-    setSelectedPhoto,
-    isSelectorActive,
-    setIsSelectorActive,
+    isExpandedActive,
+    setIsExpandedActive,
     index,
     setIndex,
 
-  }), [styleList, selectedStyle, setSelectedStyle, selectedPhoto, setSelectedPhoto,
-    isSelectorActive, setIsSelectorActive, index,
+  }), [styleList, selectedStyle, setSelectedStyle,
+    isExpandedActive, setIsExpandedActive, index,
     setIndex]);
 
   function getProductStyles() {
@@ -85,8 +83,8 @@ function Product({ product }) {
               </div>
               <Style />
             </div>
+            <AddToCart selectedStyle={selectedStyle} />
           </div>
-          <AddToCart />
         </ProductContext.Provider>
       </div>
     </div>

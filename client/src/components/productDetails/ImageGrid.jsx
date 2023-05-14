@@ -1,18 +1,22 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
+import ExpandedView from './ExpandedView';
 
 export default function ImageGrid({
-  selectedStyle, selectedPhoto, isSelectorActive, thumbnails, index, setSelectedPhoto, setIndex,
+  selectedStyle, setIsExpandedActive,
+  thumbnails, index, setSelectedPhoto, setIndex,
 }) {
   // to display particular product image in a gallery
   /** Customers should also be able to
    * change to the next or previous image in the set using forward and backwards arrow buttons
    */
+  const [show, setShow] = useState(false);
 
   function goToPrevious(e) {
     e.preventDefault();
     if (index > 0 && index <= thumbnails.length - 1) {
       setIndex(index - 1);
-      console.log('Index previous', index);
       setSelectedPhoto(selectedStyle.photos[index].thumbnail_url);
     }
   }
@@ -21,7 +25,6 @@ export default function ImageGrid({
     e.preventDefault();
     if (index >= 0 && index < thumbnails.length - 1) {
       setIndex(index + 1);
-      console.log('Index next', index);
       setSelectedPhoto(selectedStyle.photos[index].thumbnail_url);
     }
   }
@@ -44,7 +47,21 @@ export default function ImageGrid({
             className="default-image"
             alt="Default gallery"
             src={selectedStyle.photos[index].thumbnail_url}
-          // {isSelectorActive ? selectedStyle.photos[0].thumbnail_url : (thumbnails[index].thumbnail_url || selectedStyle.photos[0].thumbnail_url)}
+            onClick={() => {
+              setIsExpandedActive(true);
+              setShow(true);
+            }}
+          />
+          <ExpandedView
+            onClose={() => {
+              setShow(false);
+              setIsExpandedActive(false);
+            }}
+            show={show}
+            photos={thumbnails}
+            index={index}
+            setSelectedPhoto={setSelectedPhoto}
+            setIndex={setIndex}
           />
         </li>
       </ul>

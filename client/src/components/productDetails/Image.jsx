@@ -6,11 +6,12 @@ import { ProductContext } from './Product';
 
 function Image() {
   const {
-    selectedStyle, setSelectedStyle, selectedPhoto, setSelectedPhoto,
-    isSelectorActive, setIsSelectorActive,
+    selectedStyle, setSelectedStyle,
+    setIsExpandedActive,
     index, setIndex,
   } = useContext(ProductContext);
 
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   return (
     <div className="main-image-pane">
       <ImageThumbnail
@@ -18,14 +19,14 @@ function Image() {
         setSelectedStyle={setSelectedStyle}
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}
-        setIsSelectorActive={setIsSelectorActive}
+        // setIsSelectorActive={setIsSelectorActive}
         setIndex={setIndex}
       />
       <ImageGrid
         selectedPhoto={selectedPhoto}
         selectedStyle={selectedStyle}
         thumbnails={selectedStyle.photos}
-        isSelectorActive={isSelectorActive}
+        setIsExpandedActive={setIsExpandedActive}
         index={index}
         setSelectedPhoto={setSelectedPhoto}
         setIndex={setIndex}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function ImageThumbnail({
-  selectedStyle, setSelectedPhoto, selectedPhoto, setIndex,
+  selectedStyle, setSelectedPhoto, setIndex,
 }) {
   const thumbnails = selectedStyle.photos;
 
