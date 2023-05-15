@@ -212,19 +212,62 @@ p {
   padding: 26px;
 }
 .rp-container {
-  display: flex;
-  overFlow-x: scroll;
-  scroll-behavior: smooth;
+  /* display: flex; */
+  /* overflow-x: hidden; */
+  /* overFlow-x: scroll; */
+  /* scroll-behavior: smooth; */
+  /* justify-content: flex-start; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) );
+  grid-auto-flow: column;
+  transition-duration: 1s;
+}
+.rp-Lbtn {
+  position: absolute;
+  /* top: 50%;
+  left: 0; */
+  border: none;
+  background: none;
+  z-index: 10;
+  top: 29%;
+  right: 88%;
+}
+.rp-Lbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.rp-Lbtn button:hover {
+  transform: scale(1.5) perspective(1px);
+}
+.rp-Rbtn {
+  position: absolute;
+  /* top: 50%;
+  right: 0; */
+  border: none;
+  background: none;
+  z-index: 10;
+  bottom: 69%;
+  left: 88%;
+}
+.rp-Rbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.rp-Rbtn button:hover {
+  transform: scale(1.5) perspective(1px);
 }
 
 /* RELATED PRODUCT CARD */
 .rp-card {
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 250px;
+  max-width: 250px;
   min-height: 300px;
   /* border: solid; */
   border-radius: 8px;
-  margin: 10px;
+  margin: 25px;
+  /* cursor: pointer; */
 }
 .rp-modal {
   display: flex;
@@ -253,10 +296,11 @@ p {
   min-height: 200px;
   max-height: 200px;
   /* border-radius: 5px; */
+  object-fit: cover;
 }
 .rp-category {
-  display: flex;
-  margin-left: 20px;
+  /* display: flex;
+  margin-left: 20px; */
 }
 .rp-defaultPrice {
   text-decoration: line-through;
@@ -272,10 +316,18 @@ p {
   margin: 10px;
 }
 .rp-desc-head {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 20px; */
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: end;
+}
+.rp-name {
+  cursor: pointer;
 }
 .rp-desc-content {
   display: flex;
@@ -284,11 +336,12 @@ p {
   margin-bottom: 15px;
 }
 .rp-rating {
-  display: flex;
-  margin-left: 21px;
 }
 .rp-star {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: pre;
 }
 
 /* COMPARISON MODAL */
@@ -387,15 +440,17 @@ body.active-compare-modal {
 }
 
 /* RELATED PRODUCT CARD */
-.closet-list {
+.closet-container {
   position: relative;
   overflow: hidden;
   padding: 26px;
 }
+.closet-list {
+  padding: 26px;
+  transition-duration: 1s;
+}
 .closet-container {
   display: flex;
-  overFlow-x: scroll;
-  scroll-behavior: smooth;
 }
 .closet-add {
   display: flex;
@@ -423,6 +478,38 @@ body.active-compare-modal {
   cursor: pointer;
   background: none;
   padding: 10px;
+}
+.closet-Lbtn {
+  position: absolute;
+  border: none;
+  background: none;
+  z-index: 10;
+  bottom: 6%;
+  left:10%;
+}
+.closet-Lbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closet-Lbtn button:hover {
+  transform: scale(1.5) perspective(1px);
+}
+.closet-Rbtn {
+  position: absolute;
+  border: none;
+  background: none;
+  z-index: 10;
+  right: 11%;
+  top: 92%;
+}
+.closet-Rbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closet-Rbtn button:hover {
+  transform: scale(1.5) perspective(1px);
 }
 
 

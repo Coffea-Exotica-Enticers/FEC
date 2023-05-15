@@ -12,7 +12,7 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/40349')
+    axios.get('/products/41010')
       .then((products) => {
         setProduct(products.data);
         return products.data;
@@ -20,14 +20,19 @@ export default function App() {
       .catch((err) => console.error('There was a problem retrieving product data: ', err));
   }, []);
 
+  function updateProduct(newProd) {
+    console.log('HERHEHREHRHE')
+    setProduct(newProd);
+  }
+
   return (
     <div id="App">
-      <Product product={product} setProduct={setProduct} />
+      {/* <Product product={product} setProduct={setProduct} /> */}
       <StarTemplate />
-      <QAModule product={product} />
-      <RelatedProductsList product={product} />
+      {/* <QAModule product={product} /> */}
+      <RelatedProductsList product={product} updateProduct={updateProduct} />
       <ClosetList product={product} />
-      <RatingsAndReviews product={product} />
+      {/* <RatingsAndReviews product={product} /> */}
     </div>
   );
 }

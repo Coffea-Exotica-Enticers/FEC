@@ -3,7 +3,7 @@ import axios from 'axios';
 import ComparisonModal from './ComparisonModal';
 import StarRatings from '../../shared/StarRatings';
 
-function RelatedProductCard({ item, product, removeOutfit }) {
+function RelatedProductCard({ item, product, removeOutfit, updateProduct }) {
   const [productStyles, setProductStyles] = useState({});
   const [rating, setRating] = useState(null);
   const [numOfRatings, setNumOfRatings] = useState(null);
@@ -88,12 +88,12 @@ function RelatedProductCard({ item, product, removeOutfit }) {
         <div className="rp-preview">
           {defaultImg.length ? <img src={defaultImg[0] || defaultImgURL} alt="default" /> : <img src={defaultImgURL} alt="No Img Found" />}
         </div>
-        <div className="rp-category">
+        <div className="rp-category" onClick={() => setShowDescription(!showDescription)}>
           {item.category}
         </div>
-        <div className="rp-description" onClick={() => setShowDescription(!showDescription)}>
+        <div className="rp-description">
           <div className="rp-desc-head">
-            <p><strong>{item.name}</strong></p>
+            <p className="rp-name" onClick={() => updateProduct(item)}><strong>{item.name}</strong></p>
             {salePrice
               ? (
                 <div className="rp-sale">
@@ -122,7 +122,7 @@ function RelatedProductCard({ item, product, removeOutfit }) {
           <div className="rp-star">
             Star Rating:
             <StarRatings rating={rating} />
-            ({numOfRatings})
+            <p>({numOfRatings})</p>
           </div>
         </div>
       </div>
