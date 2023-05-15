@@ -62,7 +62,9 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct }) {
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
   }, []);
 
-  // console.log('product styles', productStyles)
+  // if (modalWindow) {
+  //   return (<ComparisonModal modalToggle={modalToggle} item={item} product={product} />);
+  // }
 
   return (
     <div>
@@ -104,10 +106,6 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct }) {
                 </div>
               )
               : (<p>Price: ${item.default_price}</p>)}
-            {/* <p>
-              Price:
-              {salePrice || item.default_price}
-            </p> */}
           </div>
           {showDescription
             ? (

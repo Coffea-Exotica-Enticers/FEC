@@ -45,9 +45,6 @@ function RelatedProductsList({ product, updateProduct }) {
       setWidth((width + 300));
     }
   }
-  console.log('index', index);
-  console.log('width', width);
-  console.log('length', listLength);
 
   return (
     <div className="related-products">
@@ -71,9 +68,7 @@ function RelatedProductsList({ product, updateProduct }) {
           <button type="button">&#5171;</button>
         </div>
       )}
-
     </div>
-
   );
 }
 
