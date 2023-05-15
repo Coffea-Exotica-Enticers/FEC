@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RelatedProductCard from './RelatedProductCard';
+import ComparisonModal from './ComparisonModal';
 
 function RelatedProductsList({ product, updateProduct }) {
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [compareItem, setCompareItem] = useState(false);
+  const [showModal, setShowModal] = useState(null);
   const [index, setIndex] = useState(1);
   const [width, setWidth] = useState(0);
   const listLength = relatedProducts.length;
@@ -34,7 +37,7 @@ function RelatedProductsList({ product, updateProduct }) {
   }, [product]);
 
   function moveRight() {
-    if (index <= listLength - 4) {
+    if (index <= listLength - 3) {
       setIndex(index + 1);
       setWidth(-((index) * 300));
     }
@@ -45,8 +48,21 @@ function RelatedProductsList({ product, updateProduct }) {
       setWidth((width + 300));
     }
   }
+  function closeModal() {
+    setCompareItem(false);
+  }
+
+  function openModal(item, product) {
+    setCompareItem(!compareItem);
+    setShowModal(<ComparisonModal closeModal={closeModal} item={item} product={product} />);
+  }
 
   return (
+    <>
+      {compareItem && (
+        showModal
+      )}
+
     <div className="related-products">
       {index !== 1 && (
         <div className="rp-Lbtn" onClick={() => moveLeft()}>
@@ -58,17 +74,18 @@ function RelatedProductsList({ product, updateProduct }) {
         <div className="rp-container" style={styles}>
           {listLength
             ? relatedProducts.map((item) =>
-              <RelatedProductCard key={item.id} item={item} product={product} updateProduct={updateProduct}/>)
+              <RelatedProductCard key={item.id} openModal={openModal} closeModal={closeModal} item={item} product={product} updateProduct={updateProduct}/>)
             : 'Loading...'}
         </div>
       </div>
 
-      {index <= listLength - 4 && listLength >= 5 && (
+      {index <= listLength - 3 && listLength >= 5 && (
         <div className="rp-Rbtn" onClick={() => moveRight()}>
           <button type="button">&#5171;</button>
         </div>
       )}
     </div>
+    </>
   );
 }
 

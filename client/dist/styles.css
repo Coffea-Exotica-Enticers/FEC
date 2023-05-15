@@ -339,7 +339,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  /* position: fixed; */
+  position: fixed;
 }
 .rp-overlay {
   background: rgba(0, 0, 0, 0.5);
@@ -418,7 +418,7 @@ p {
   cursor: pointer;
 }
 
-/* RELATED PRODUCT CARD */
+/* YOUR OUTFIT */
 .outfit {
   display: flex;
 }

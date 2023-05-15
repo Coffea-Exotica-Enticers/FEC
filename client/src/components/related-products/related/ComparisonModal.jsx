@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function ComparisonModal({ modalToggle, item, product }) {
+function ComparisonModal({ closeModal, item, product }) {
   const [features, setFeatures] = useState([]);
   const [viewItem, setViewItem] = useState(null);
   const [compareItem, setCompareItem] = useState(null);
@@ -77,7 +77,7 @@ function ComparisonModal({ modalToggle, item, product }) {
       <div className="cm-body">
 
         <div className="cm-btn">
-          <button className="cm-close" type="button" onClick={() => modalToggle()}>X</button>
+          <button className="cm-close" type="button" onClick={() => closeModal()}>X</button>
         </div>
 
         <div className="cm-header">
