@@ -3,7 +3,7 @@ import React from 'react';
 export default function Recommend({ setRecommend }) {
   return (
     <div className="write-review-recommend">
-      Do you recommend this product?
+      Do you recommend this product?*
       <label htmlFor="recommend-yes">
         <input
           type="radio"

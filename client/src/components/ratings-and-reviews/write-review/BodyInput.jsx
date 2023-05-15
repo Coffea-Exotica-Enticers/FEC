@@ -17,7 +17,7 @@ export default function BodyInput({ setBody }) {
   return (
     <div className="write-review-body">
       <label htmlFor="body">
-        Review:
+        Review:*
         <br />
         <textarea
           minLength="50"

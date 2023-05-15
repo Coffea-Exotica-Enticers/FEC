@@ -167,59 +167,6 @@ color: red;
   margin: 0 auto;
   max-width: 75%;
 }
-.reviews-list{
-  max-width: 66%;
-  margin: 0 auto;
-}
-.review-tile {
-  border-bottom: 1px solid black;
-  margin-bottom: 2rem;
-}
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.review-summary {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-.review-body {
-  margin: 10px 0;
-}
-.review-response {
-  background-color: #777;
-}
-.review-bottom-row {
-  margin: 10px;
-}
-button.review-helpful, button.report-review, button.show-more {
-  text-decoration: underline;
-  font-family: inherit;
-  font-size: 1rem;
-	text-align: left;
-	background: none;
-	border: none;
-	cursor: pointer;
-}
-button.more-reviews, button.add-review {
-  border: 1px solid black;
-  background: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 15px 10px;
-}
-button.more-reviews {
-  margin-right: 20px;
-}
-p {
-  word-wrap: break-word;
-}
-.reviews-container {
-  max-height: 700px;
-  overflow: auto;
-}
 
 /* ==================== RELATED PRODUCTS ==================== */
 
@@ -444,49 +391,18 @@ body.active-compare-modal {
 }
 
 
-/* ================================ */
-
-
-
-
-
-
-
-
-
-.write-review-modal {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+/* ============================== RATINGS & REVIEWS =========================================== */
+.ratings-and-reviews {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  max-height: 95vh;
 }
-.write-review-modal-content {
-  width: 50%;
-  background-color: #fff;
-  padding: 10px;
+.breakdowns {
+  flex-grow: 1;
 }
-.write-review-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.write-review-rating {
-  display: flex;
-  align-items: center;
-  width: 50%;
-}
-.write-review-stars {
-  display: flex;
-  align-items: center;
-}
-.star-rating-meter {
-  display: flex;
-}
+
+
+/* =================================== RATINGS ================================================ */
 .rating-meter {
   height: 10px;
   width: 100px;
@@ -501,6 +417,12 @@ body.active-compare-modal {
   font-size: 4rem;
   font-weight: bold;
 }
+.star-rating-meter {
+  display: flex;
+}
+
+
+/* =============================== CHARACTERISTICS ============================================ */
 .characteristic {
   width: 300px;
 }
@@ -519,4 +441,210 @@ body.active-compare-modal {
 .characteristic > .scale {
   display: flex;
   justify-content: space-between;
+}
+
+/* =================================== REVIEWS ================================================ */
+.reviews {
+  max-width: 75%;
+  margin-left: 10px;
+  flex-grow: 3;
+}
+.reviews-list {
+  max-height: 90%;
+  overflow: auto;
+}
+.review-tile {
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+  word-wrap: break-word;
+}
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-summary {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.review-body {
+  margin: 10px 0;
+}
+.review-response {
+  background-color: #777;
+}
+.review-bottom-row {
+  margin: 10px;
+}
+button.review-helpful, button.report-review, button.show-more {
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: 1rem;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+button.more-reviews, button.add-review {
+  border: 1px solid black;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 15px 10px;
+}
+button.more-reviews {
+  margin-right: 20px;
+}
+.reviews-filters{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ============================= REVIEW PHOTO MODAL ========================================== */
+.review-photo-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+button.review-photo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 10px 10px 0;
+  padding: 0;
+}
+button.close-photo-modal {
+  color: #ffffff;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.review-photo-expanded {
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+/* ============================= WRITE REVIEWS MODAL ========================================== */
+.write-review-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.write-review-modal-content {
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+  position: relative;
+}
+.write-review-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.close-write-review-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.title-container > .title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 5px;
+}
+.write-review-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.write-review-stars {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.write-review-star {
+  cursor: pointer;
+}
+.write-review-errors {
+  margin: 10px;
+  border: 1px dashed red;
+  color: red;
+  width: 50%;
+}
+.write-review-errors > .error-header {
+  text-decoration: underline;
+  margin: 5px;
+}
+.upload-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.photo-upload-button {
+  background-color: #fff;
+  border: 1px dashed black;
+  border-radius: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  margin: 10px;
+}
+.upload-error {
+  color: red;
+}
+.thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+.thumbnail-photo {
+  max-width:100%;
+  max-height:100%;
+}
+button.remove-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border: none;
+  font-size: 3rem;
+  opacity: 0;
+  padding: 0;
+}
+button.remove-photo:hover {
+  color: white;
+  opacity: 100%;
 }

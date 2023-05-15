@@ -17,7 +17,10 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
   }
   return (
     <div className={`characteristic-${charName}`}>
-      <span>{charName}</span>
+      <span>
+        {charName}
+        *
+      </span>
       <span>
         <label htmlFor={`${descriptors[0]}-${charName}`}>
           {descriptors[0]}
