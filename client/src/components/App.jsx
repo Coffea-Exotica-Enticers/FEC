@@ -12,7 +12,7 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/41010')
+    axios.get('/products/40344')
       .then((products) => {
         setProduct(products.data);
         return products.data;
@@ -21,18 +21,17 @@ export default function App() {
   }, []);
 
   function updateProduct(newProd) {
-    console.log('HERHEHREHRHE')
     setProduct(newProd);
   }
 
   return (
     <div id="App">
-      {/* <Product product={product} setProduct={setProduct} /> */}
+      <Product product={product} setProduct={setProduct} />
       <StarTemplate />
-      {/* <QAModule product={product} /> */}
+      <QAModule product={product} />
       <RelatedProductsList product={product} updateProduct={updateProduct} />
       <ClosetList product={product} />
-      {/* <RatingsAndReviews product={product} /> */}
+      <RatingsAndReviews product={product} />
     </div>
   );
 }
