@@ -1,19 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from '../../App';
+import QAModule from '../QAModule';
+import AnswerList from '../questionList/AnswerList';
 import QuestionListEntry from '../questionList/QuestionListEntry';
 import AnswerListEntry from '../questionList/AnswerListEntry';
+import ImageListEntry from '../imageList/ImageListEntry';
+import AddQuestion from '../addQuestion/AddQuestion';
+import AddAnswer from '../addAnswer/AddAnswer';
 
-describe('search bar functionality', () => {
+describe('module renders its own components properly', () => {
   it('should render the search bar', () => {
-    render(<App />);
-    expect(screen.getByPlaceholderText('Have a question? Search for answers...')).toBeTruthy();
+    render(<QAModule />);
+    expect(screen.getByPlaceholderText('Search your question...')).toBeTruthy();
   });
-});
-
-describe('add question functionality', () => {
   it('should render the Ask Your Question button', () => {
-    render(<App />);
+    render(<QAModule />);
     expect(screen.getByRole('button', { name: 'Ask Your Question' })).toBeTruthy();
   });
 });
@@ -27,7 +28,7 @@ const testQuestion = {
   reported: false,
 };
 
-describe('properly renders a question', () => {
+describe('properly renders a question list entry', () => {
   test('renders question body', () => {
     render(<QuestionListEntry question={testQuestion} />);
     const body = screen.getByText(/Quia eum/);
@@ -55,12 +56,20 @@ describe('properly renders a question', () => {
   });
 });
 
+describe('renders answer list', () => {
+  test('renders Add Answer button', () => {
+    render(<AnswerList id={40349} />);
+    expect(screen.getByRole('button', { name: 'Add Your Answer' })).toBeTruthy();
+  });
+});
+
 const testAnswer = {
   answer_id: 5990787,
   body: 'hello world',
   date: '2023-02-11T00:00:00.000Z',
   answerer_name: 'answerdemo',
-  helpfulness: 0,
+  helpfulness: 12,
+  reported: false,
   photos: [
     {
       id: 5347675,
@@ -73,7 +82,7 @@ const testAnswer = {
   ],
 };
 
-describe('properly renders an answer', () => {
+describe('properly renders an answer list entry', () => {
   test('renders answer body', () => {
     render(<AnswerListEntry answer={testAnswer} />);
     const body = screen.getByText(/hello world/);
@@ -90,13 +99,39 @@ describe('properly renders an answer', () => {
     expect(date).toBeTruthy();
   });
   test('renders helpfulness count', () => {
-    render(<AnswerListEntry question={testAnswer} />);
-    const helpfulness = screen.getByText(/0/);
+    render(<AnswerListEntry answer={testAnswer} />);
+    const helpfulness = screen.getByText(/12/);
     expect(helpfulness).toBeTruthy();
   });
   test('renders report button', () => {
-    render(<AnswerListEntry question={testAnswer} />);
-    const report = screen.getByText(/Report/);
+    render(<AnswerListEntry answer={testAnswer} />);
+    const report = screen.getByRole('button', { name: 'Report' });
     expect(report).toBeTruthy();
+  });
+});
+
+const testPhoto = {
+  id: 5347675,
+  url: 'http://res.cloudinary.com/fec-cars/image/upload/v1676073715/eaokljdt8oimivi0rk1b.jpg',
+};
+
+describe('properly renders an image list entry', () => {
+  test('it renders a photo', () => {
+    render(<ImageListEntry photo={testPhoto} />);
+    const getPhoto = screen.getByAltText('5347675');
+    expect(getPhoto).toBeTruthy();
+  });
+});
+
+describe('buttons for modal windows properly render', () => {
+  test('Add question button renders', () => {
+    render(<AddQuestion product={40349} />);
+    const button = screen.getByRole('button', { name: 'Ask Your Question' });
+    expect(button).toBeTruthy();
+  });
+  test('Add answer button renders', () => {
+    render(<AddAnswer id={328752} />);
+    const button = screen.getByRole('button', { name: 'Add Your Answer' });
+    expect(button).toBeTruthy();
   });
 });
