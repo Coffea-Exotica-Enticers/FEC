@@ -206,6 +206,9 @@ p {
 /* ==================== RELATED PRODUCTS ==================== */
 
 /* RELATED PRODUCTS LIST */
+.related-products {
+  display: flex;
+}
 .rp-list {
   position: relative;
   overflow: hidden;
@@ -223,14 +226,13 @@ p {
   transition-duration: 1s;
 }
 .rp-Lbtn {
-  position: absolute;
+  position: relative;
   /* top: 50%;
   left: 0; */
   border: none;
   background: none;
   z-index: 10;
-  top: 29%;
-  right: 88%;
+  margin: auto;
 }
 .rp-Lbtn button {
   background: none;
@@ -241,14 +243,11 @@ p {
   transform: scale(1.5) perspective(1px);
 }
 .rp-Rbtn {
-  position: absolute;
-  /* top: 50%;
-  right: 0; */
+  position: relative;
   border: none;
   background: none;
   z-index: 10;
-  bottom: 69%;
-  left: 88%;
+  margin: auto;
 }
 .rp-Rbtn button {
   background: none;
@@ -277,13 +276,12 @@ p {
   border: none;
   background: none;
   cursor: pointer;
+  padding: 0;
 }
 .rp-modal svg {
   width: 20px;
   height: 20px;
   border: none;
-  padding-top: 10px;
-  padding-right: 10px;
 }
 .rp-preview {
   display: flex;
@@ -291,12 +289,12 @@ p {
   margin: 10px;
 }
 .rp-preview img{
-  min-width: 260px;
-  max-width: 260px;
+  min-width: 250px;
+  max-width: 250px;
   min-height: 200px;
   max-height: 200px;
   /* border-radius: 5px; */
-  object-fit: cover;
+  object-fit: scale-down;
 }
 .rp-category {
   /* display: flex;
@@ -440,6 +438,9 @@ body.active-compare-modal {
 }
 
 /* RELATED PRODUCT CARD */
+.outfit {
+  display: flex;
+}
 .closet-container {
   position: relative;
   overflow: hidden;
@@ -477,15 +478,14 @@ body.active-compare-modal {
   border: none;
   cursor: pointer;
   background: none;
-  padding: 10px;
+  padding: 0;
 }
 .closet-Lbtn {
-  position: absolute;
+  position: relative;
   border: none;
   background: none;
   z-index: 10;
-  bottom: 6%;
-  left:10%;
+  margin: auto;
 }
 .closet-Lbtn button {
   background: none;
@@ -496,12 +496,11 @@ body.active-compare-modal {
   transform: scale(1.5) perspective(1px);
 }
 .closet-Rbtn {
-  position: absolute;
+  position: relative;
   border: none;
   background: none;
   z-index: 10;
-  right: 11%;
-  top: 92%;
+  margin: auto;
 }
 .closet-Rbtn button {
   background: none;

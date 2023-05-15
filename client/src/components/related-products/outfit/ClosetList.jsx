@@ -46,7 +46,7 @@ function ClosetList({ product }) {
   }
 
   return (
-    <div>
+    <div className="outfit">
       {index !== 1 && (
         <div className="closet-Lbtn" onClick={() => moveLeft()}>
           <button type="button">&#5176;</button>
@@ -54,7 +54,7 @@ function ClosetList({ product }) {
       )}
       <div className="closet-container">
         <div className="closet-list" style={styles}>
-          <h2>Your Closet</h2>
+          <h2>Your Outfit</h2>
           <div className="closet-container">
             <div className="closet-add">
               <button type="button" onClick={() => addOutfit()}>

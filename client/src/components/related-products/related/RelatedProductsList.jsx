@@ -50,7 +50,7 @@ function RelatedProductsList({ product, updateProduct }) {
   console.log('length', listLength);
 
   return (
-    <div>
+    <div className="related-products">
       {index !== 1 && (
         <div className="rp-Lbtn" onClick={() => moveLeft()}>
           <button type="button">&#5176;</button>
