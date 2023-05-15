@@ -83,7 +83,7 @@ function Product({ product }) {
               </div>
               <Style />
             </div>
-            <AddToCart selectedStyle={selectedStyle} />
+            <AddToCart />
           </div>
         </ProductContext.Provider>
       </div>

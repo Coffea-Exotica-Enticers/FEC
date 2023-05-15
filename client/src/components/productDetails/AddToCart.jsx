@@ -4,7 +4,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable import/no-unresolved */
 import React, {
-  useContext, useState, useEffect, useRef,
+  useContext, useState, useEffect,
 } from 'react';
 import * as _ from 'underscore';
 import axios from 'axios';
@@ -15,54 +15,18 @@ import { ProductContext } from './Product';
 export default function Cart() {
   const { selectedStyle } = useContext(ProductContext);
   const [isInStock, setIsInStock] = useState(false);
-  // const [skus, setSkus] = useState(null);
   const [skuID, setSkuID] = useState('');
-  // const [sizes, setSizes] = useState([]);
   const [sizeShow, setSizeShow] = useState(false);
-  const [sizeTitle, setSizeTitle] = useState(true);
+  const [sizeTitle, setSizeTitle] = useState(null);
   const [size, setSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [quantityShow, setQuantityShow] = useState(false);
-
-  //  /cart
-  /* "skus": {
-                "1394769": {
-                    "quantity": 8,
-                    "size": "XS"
-                },
-                "1394770": {
-                    "quantity": 16,
-                    "size": "S"
-                },
-                "1394771": {
-                    "quantity": 17,
-                    "size": "M"
-                },
-                "1394772": {
-                    "quantity": 10,
-                    "size": "L"
-                },
- * [
-    {
-        "sku_id": 1,
-        "count": 2
-    },
-    {
-        "sku_id": 3,
-        "count": 1
-    }
-    ....
-]
- */
-
-  const limit = useRef(0);
   console.log('quantity', quantity);
 
   const skus = Object.entries(selectedStyle.skus)
     .map((item) => ({ sku_id: item[0], quantity: item[1].quantity, size: item[1].size }));
 
   const res = function getQuantityLimit() {
-    // setSizes([]);
     skus.forEach((sku) => {
       if (sku.sku_id === skuID) {
         setQuantity(sku.quantity);
@@ -70,19 +34,29 @@ export default function Cart() {
     });
   };
 
-  // console.log('qqq', res());
+  function handleAddToCartClick() {
+    if (!sizeShow) {
+      setSizeTitle('Please select size');
+    } else {
+      axios.post('/cart', {
+        sku_id: skuID,
+      }).then(({ data }) => {
+        console.log('Cart post data', data);
+      }).catch((err) => {
+        console.log('Error when posting to cart API', err);
+      });
+    }
+  }
+
   console.log('skuID', skuID);
   console.log('skus', skus);
-  // console.log('ress', res[0]);
+
   useEffect(() => {
-    // setSizes([]);
     skus.forEach((sku) => {
       if (sku.quantity > 0) {
         setIsInStock(true);
       }
     });
-
-    console.log('skus', skus);
   }, [selectedStyle.sku_id]);
 
   return (
@@ -90,6 +64,7 @@ export default function Cart() {
     <div className="AddToCart-Container">
       <div className="main-container">
         <div className="size-container">
+          {sizeTitle ? <span className="please-select-size">{sizeTitle}</span> : null}
           <button
             type="button"
             label="size"
@@ -100,10 +75,10 @@ export default function Cart() {
               setSizeShow(!sizeShow);
             }}
           >
-            { sizeTitle && (
-            <div className="select-size" style={{ textAlign: 'center' }}>
-              <span>Select Size</span>
-            </div>
+            {!skuID && (
+              <div className="select-size" style={{ textAlign: 'center' }}>
+                <span>Select Size</span>
+              </div>
             )}
             {isInStock ? (
               <span>
@@ -117,7 +92,6 @@ export default function Cart() {
           {sizeShow && (
           <div
             className="dropdown-list"
-            onMouseEnter={() => setSizeShow(true)}
             onMouseLeave={() => {
               setSizeShow(false);
             }}
@@ -150,12 +124,11 @@ export default function Cart() {
                 disabled={!size}
                 type="button"
                 label="quantity"
-                className="quantity-dropdown"
+                className="quantity-dropdown-button"
                 onClick={(e) => {
                   e.preventDefault();
                   res();
                   setQuantityShow(!quantityShow);
-                  console.log('is button clicked?');
                 }}
               >
                 {size ? (
@@ -195,7 +168,9 @@ export default function Cart() {
             </div>
           </div>
         </div>
-
+      </div>
+      <div className="addToCart-button-container">
+        <button onClick={handleAddToCartClick} disabled={!isInStock} type="button" label="Add to Cart" className="add-to-cart-button"> Add to Cart</button>
       </div>
 
     </div>

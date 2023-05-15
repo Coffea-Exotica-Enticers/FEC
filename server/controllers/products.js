@@ -16,7 +16,7 @@ module.exports = {
         res.sendStatus(404);
       });
   },
-
+  
   getStyles(req, res) {
     axios.get(`${ATELIER_API}/products/${req.params.product_id}/styles`, {
       headers: {
@@ -29,6 +29,7 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
   getRelated: (req, res) => {
     const productId = req.params.product_id;
     axios.get(`${ATELIER_API}/products/${productId}/related`, { headers: { authorization: API_TOKEN } })
