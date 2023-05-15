@@ -24,14 +24,6 @@ function ClosetList({ product }) {
     });
     setCloset(outfitArr);
   }
-  useEffect(() => {
-    setCloset(JSON.parse(window.localStorage.getItem('userCloset')));
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem('userCloset', JSON.stringify(closet));
-  }, [closet]);
-
   function moveRight() {
     if (index <= listLength - 3) {
       setIndex(index + 1);
@@ -44,6 +36,14 @@ function ClosetList({ product }) {
       setWidth((width + 300));
     }
   }
+
+  useEffect(() => {
+    setCloset(JSON.parse(window.localStorage.getItem('userCloset')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('userCloset', JSON.stringify(closet));
+  }, [closet]);
 
   return (
     <div className="outfit">
