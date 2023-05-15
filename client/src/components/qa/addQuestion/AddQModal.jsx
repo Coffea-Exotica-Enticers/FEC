@@ -39,8 +39,8 @@ export default function AddQModal({ show, setShow, product }) {
             }}
           >
             <textarea className="modalText" placeholder="Write Your Question Here..." onChange={(e) => setQEntry(e.target.value)} required minLength="1" maxLength="1000" />
-            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="12" />
-            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required />
+            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="60" />
+            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required minLength="1" maxLength="60" />
             <button type="submit">Submit</button>
           </form>
         )}

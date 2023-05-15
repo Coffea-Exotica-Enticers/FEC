@@ -15,7 +15,7 @@ export default function AnswerList({ id }) {
       axios.get('/qa/answers', {
         params: {
           // eventually put id here. for now just use this for testing purposes
-          id: 645139,
+          id,
           count: 10,
           page: currentPage,
         },
@@ -73,7 +73,7 @@ export default function AnswerList({ id }) {
             </div>
           </>
         )
-        : 'Answers Loading'}
+        : <div className="answer-buttons"><AddAnswer id={id} /></div>}
     </>
   );
 }

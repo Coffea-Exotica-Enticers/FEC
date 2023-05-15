@@ -6,6 +6,7 @@ export default function AddAnsModal({ show, setShow, id }) {
   const [ansEntry, setAnsEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');
   const [emailEntry, setEmailEntry] = useState('');
+  const [imageURL, setImageURL] = useState('');
 
   function postAnswer() {
     axios.post('/qa/answers', {
@@ -40,9 +41,21 @@ export default function AddAnsModal({ show, setShow, id }) {
             }}
           >
             <textarea className="modalText" placeholder="Write Your Answer Here..." onChange={(e) => setAnsEntry(e.target.value)} required minLength="1" maxLength="1000" />
-            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="12" />
-            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required />
-            <div>PUT UPLOAD PHOTOS HERE LATER!</div>
+            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="60" />
+            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required minLength="1" maxLength="60" />
+            {/* <form onSubmit={(e) => {
+              e.preventDefault();
+            }}
+            >
+              <input
+                type="file"
+                onChange={(e) => {
+                  console.log(e.target.files);
+                  console.log(URL.createObjectURL(e.target.files));
+                }}
+              />
+              <button type="submit">Submit Image</button>
+            </form> */}
             <button type="submit">Submit</button>
           </form>
           )}
