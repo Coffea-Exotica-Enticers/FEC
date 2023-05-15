@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-// eslint-disable-next-line react/prop-types
-export default function SearchBar({ qList, setShowQs, qLen, setSort }) {
+export default function SearchBar({
+  qList, setShowQs, qLen, setSort,
+}) {
   const [entry, setEntry] = useState('');
 
   useEffect(() => {
     if (entry.length >= 3) {
       const tempArray = [];
-      // eslint-disable-next-line no-restricted-syntax
       for (const question of qList) {
         if (question.question_body.toLowerCase().includes(entry.toLowerCase())) {
           tempArray.push(question);
@@ -22,6 +22,6 @@ export default function SearchBar({ qList, setShowQs, qLen, setSort }) {
   }, [entry]);
 
   return (
-    <input className="searchBar" placeholder="Have a question? Search for answers..." onChange={(e) => setEntry(e.target.value)} />
+    <input className="searchBar" placeholder="Search your question..." onChange={(e) => setEntry(e.target.value)} />
   );
 }

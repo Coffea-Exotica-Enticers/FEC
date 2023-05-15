@@ -29,7 +29,6 @@ export default function AddQModal({ show, setShow, product }) {
         show={show}
         onClose={() => setShow(false)}
         title={`Ask About ${product.name}`}
-        // eslint-disable-next-line react/no-children-prop
         children={(
           <form
             className="modalInput"
@@ -47,7 +46,4 @@ export default function AddQModal({ show, setShow, product }) {
       />
     );
   }
-  return (
-    <div>Product Has Not Loaded Yet</div>
-  );
 }

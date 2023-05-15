@@ -4,7 +4,6 @@ import SearchBar from './SearchBar';
 import QuestionList from './questionList/QuestionList';
 import AddQuestion from './addQuestion/AddQuestion';
 
-// eslint-disable-next-line react/prop-types
 export default function QAModule({ product }) {
   const [questionList, setQuestionList] = useState([]);
   const [sortList, setSort] = useState([]);
@@ -33,7 +32,7 @@ export default function QAModule({ product }) {
           } else {
             setQuestionList(dataArray);
             setSort(dataArray);
-            setShow(dataArray.slice(0, 2));
+            setShow(dataArray.slice(0, qLength));
           }
         })
         .catch((err) => console.error('There was an error retrieving question data', err));

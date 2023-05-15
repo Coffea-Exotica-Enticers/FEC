@@ -14,7 +14,6 @@ export default function AnswerList({ id }) {
     function getAnswerLoop(currentPage) {
       axios.get('/qa/answers', {
         params: {
-          // eventually put id here. for now just use this for testing purposes
           id,
           count: 10,
           page: currentPage,
@@ -67,13 +66,13 @@ export default function AnswerList({ id }) {
                       <button type="submit">More Answers</button>
                     </form>
                   )
-                  : 'No More Answers'
+                  : ''
               }
-              <AddAnswer id={id} />
+              <AddAnswer id={id} getAllAnswers={getAllAnswers} />
             </div>
           </>
         )
-        : <div className="answer-buttons"><AddAnswer id={id} /></div>}
+        : <div className="answer-buttons"><AddAnswer id={id} getAllAnswers={getAllAnswers} /></div>}
     </>
   );
 }

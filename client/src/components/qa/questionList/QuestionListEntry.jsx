@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// eslint-disable-next-line react/prop-types
 export default function QuestionListEntry({ question }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(question.question_helpfulness);

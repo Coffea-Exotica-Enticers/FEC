@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageListEntry from './ImageListEntry';
 
 export default function ImageList({ photos }) {
-  console.log('photos is', photos);
+  const [validPhotos, setValidPhotos] = useState([]);
 
-  if (photos.length > 0) {
+  function filterPhotos(photoList) {
+    const validArray = [];
+    for (const photo of photoList) {
+      if (!photo.url.includes('blob')) {
+        validArray.push(photo);
+      }
+    }
+    setValidPhotos(validArray);
+  }
+
+  if (validPhotos.length > 0) {
+    filterPhotos(photos);
     return (
       <div className="imgList">
         {
-          photos.map((photo) => <ImageListEntry photo={photo} />)
+          validPhotos.map((photo) => <ImageListEntry photo={photo} />)
         }
       </div>
     );
