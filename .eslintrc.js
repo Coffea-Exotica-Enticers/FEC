@@ -16,6 +16,7 @@ module.exports = {
       extends: [
         'plugin:jest/recommended',
         'plugin:testing-library/react',
+        'plugin:jest-dom/recommended',
       ],
     },
   ],
@@ -27,6 +28,7 @@ module.exports = {
     'react',
     'jest',
     'testing-library',
+    'jest-dom',
   ],
   rules: {
     'react/prop-types': 0,
