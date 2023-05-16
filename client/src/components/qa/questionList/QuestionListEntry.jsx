@@ -35,7 +35,7 @@ export default function QuestionListEntry({ question }) {
   }
 
   return (
-    <div className="question-entry">
+    <div className="question-entry" data-testid="question-entry">
       <div className="qa-body-asker">
         <div>
           Q:
