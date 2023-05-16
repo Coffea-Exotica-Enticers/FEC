@@ -59,16 +59,13 @@ function RelatedProductsList({ product, updateProduct }) {
 
   return (
     <>
-      {compareItem && (
-        showModal
-      )}
-
-    <div className="related-products">
-      {index !== 1 && (
-        <div className="rp-Lbtn" onClick={() => moveLeft()}>
-          <button type="button">&#5176;</button>
-        </div>
-      )}
+      {compareItem && (showModal)}
+      <div className="related-products">
+        {index !== 1 && (
+          <div className="rp-Lbtn" onClick={() => moveLeft()}>
+            <button type="button">&#5176;</button>
+          </div>
+        )}
       <div className="rp-list">
         <h2>Related Products List</h2>
         <div className="rp-container" style={styles}>
@@ -78,13 +75,12 @@ function RelatedProductsList({ product, updateProduct }) {
             : 'Loading...'}
         </div>
       </div>
-
-      {index <= listLength - 3 && listLength >= 5 && (
-        <div className="rp-Rbtn" onClick={() => moveRight()}>
-          <button type="button">&#5171;</button>
-        </div>
-      )}
-    </div>
+        {index <= listLength - 3 && listLength >= 5 && (
+          <div className="rp-Rbtn" onClick={() => moveRight()}>
+            <button type="button">&#5171;</button>
+          </div>
+        )}
+      </div>
     </>
   );
 }

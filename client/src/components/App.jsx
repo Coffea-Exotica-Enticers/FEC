@@ -12,7 +12,7 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/41010')
+    axios.get('/products/40344')
       .then((products) => {
         setProduct(products.data);
         return products.data;
@@ -26,8 +26,8 @@ export default function App() {
 
   return (
     <div id="App">
-      {/* <Product product={product} setProduct={setProduct} /> */}
       <StarTemplate />
+      <Product product={product} setProduct={setProduct} />
       <QAModule product={product} />
       <RelatedProductsList product={product} updateProduct={updateProduct} />
       <ClosetList product={product} />

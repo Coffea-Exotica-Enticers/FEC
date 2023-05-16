@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ComparisonModal from './ComparisonModal';
 import StarRatings from '../../shared/StarRatings';
+import ThumbnailCarousel from './ThumbnailCarousel';
 
-function RelatedProductCard({ item, product, removeOutfit, updateProduct, openModal }) {
-  const [productStyles, setProductStyles] = useState({});
+function RelatedProductCard({
+  item, product, removeOutfit, updateProduct, openModal,
+}) {
   const [rating, setRating] = useState(null);
   const [numOfRatings, setNumOfRatings] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
-  const [defaultImg, setDefaultImg] = useState([]);
+  const [defaultImg, setDefaultImg] = useState(null);
+  const [thumbnails, setThumbnails] = useState(null);
+  const [showThumbnails, setShowThumbnails] = useState(false);
   const [salePrice, setSalePrice] = useState(null);
-  const [modalWindow, setModalWindow] = useState(false);
   const defaultImgURL = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
 
-  // ======================== HELPER FUNCTIONS ====================================
+  // console.log('productStyles: ', productStyles)
+
+  // ================= HELPER FUNCTIONS =====================
   // Function to find the average star rating
   function getAverageRating(ratings) {
     const starRatings = Object.values(ratings);
@@ -31,30 +35,36 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct, openMo
   // Function to set the default image
   function findDefault(prodStyles) {
     const styles = prodStyles.results;
-    const defaultImgs = [];
+    const defaultImage = [];
+    const thumbnailImgs = [];
     for (let i = 0; i < styles.length; i += 1) {
       if (styles[i]['default?']) {
         setSalePrice(styles[i].sale_price);
         styles[i].photos.forEach((img) => {
-          defaultImgs.push(img.thumbnail_url);
+          defaultImage.push(img.thumbnail_url);
         });
+      } else {
+        thumbnailImgs.push(styles[i].photos[0].thumbnail_url);
       }
     }
-    setDefaultImg(defaultImgs);
+    setDefaultImg(defaultImage[0]);
+    setThumbnails([defaultImage[0], ...thumbnailImgs]);
   }
 
   function modalToggle({ item, product }) {
-    setModalWindow(!modalWindow);
     openModal(item, product);
   }
+  function changeDefaultImg(url) {
+    setDefaultImg(url);
+  }
 
-  // ========================= GET REQUEST ON RENDER ==============================
-  // Define multiple endpoints
-  const styles = axios.get(`/products/${item.id}/styles`);
-  const starRating = axios.get('/reviews/meta', { params: { product_id: item.id } });
+  // =============== GET REQUEST ON RENDER ==================
 
   // Sends a GET request for item styles and star rating on render
   useEffect(() => {
+    const styles = axios.get(`/products/${item.id}/styles`);
+    const starRating = axios.get('/reviews/meta', { params: { product_id: item.id } });
+
     axios.all([styles, starRating]).then(axios.spread((prod, star) => {
       findDefault(prod.data);
       setProductStyles(prod.data);
@@ -63,15 +73,9 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct, openMo
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
   }, []);
 
-  // if (modalWindow) {
-  //   return (<ComparisonModal modalToggle={modalToggle} item={item} product={product} />);
-  // }
-
+  // console.log('Thumbnails', thumbnails)
   return (
     <div>
-      {/* {modalWindow && (
-        <ComparisonModal modalToggle={modalToggle} item={item} product={product} />
-      )} */}
       <div className="rp-card">
         {product ? (
           <div className="rp-modal">
@@ -88,12 +92,16 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct, openMo
             </div>
           )}
 
-        <div className="rp-preview">
-          {defaultImg.length ? <img src={defaultImg[0] || defaultImgURL} alt="default" /> : <img src={defaultImgURL} alt="No Img Found" />}
+        <div className="rp-preview" onMouseEnter={() => setShowThumbnails(true)} onMouseLeave={() => setShowThumbnails(false)}>
+          {defaultImg ? <img src={defaultImg || defaultImgURL} alt="default" /> : <img src={defaultImgURL} alt="No Img Found" />}
+          {showThumbnails && (
+          <ThumbnailCarousel changeDefaultImg={changeDefaultImg} thumbnails={thumbnails} />)}
         </div>
+
         <div className="rp-category" onClick={() => setShowDescription(!showDescription)}>
           {item.category}
         </div>
+
         <div className="rp-description">
           <div className="rp-desc-head">
             <p className="rp-name" onClick={() => updateProduct(item)}><strong>{item.name}</strong></p>
@@ -117,6 +125,7 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct, openMo
             )
             : <div />}
         </div>
+
         <div className="rp-rating">
           <div className="rp-star">
             Star Rating:
@@ -124,6 +133,7 @@ function RelatedProductCard({ item, product, removeOutfit, updateProduct, openMo
             <p>({numOfRatings})</p>
           </div>
         </div>
+
       </div>
     </div>
   );

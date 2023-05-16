@@ -495,6 +495,42 @@ p {
   transform: scale(1.5) perspective(1px);
 }
 
+/* THUMBNAIL LIST */
+.thumbnail-list {
+  display: flex;
+  min-width: 50px;
+  min-height: 20px;
+  max-height: 30px;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  background-color:rgba(255,255,255,0.6);
+  border-radius: 20px;
+  transition-duration: 4s;
+}
+.thumbnail-list button {
+  background-color:rgba(255,255,255,0.6);
+  border-radius: 20px;
+  border-width: thin;
+  padding: 5px;
+}
+.thumbnail-list button:hover {
+  transform: scale(1.2) perspective(1px);
+  cursor: pointer;
+}
+.thumbnail-list img {
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  object-fit: cover;
+  margin: auto;
+  padding: 5px;
+  cursor: pointer;
+}
+.thumbnail-list img:hover {
+  transform: scale(1.5) perspective(1px);
+}
 
 /* ================================ */
 
