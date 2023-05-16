@@ -4,7 +4,7 @@
   "description": "Front-End Capstone project for Hack Reactor, rfp2303.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest",
     "dev": "npx webpack --watch --mode development & npx nodemon --watch ./server ./server/index.js",
     "build": "npx webpack --mode production",
     "start": "node ./server/index.js"
@@ -51,5 +51,18 @@
     "style-loader": "^3.3.2",
     "webpack": "^5.82.0",
     "webpack-cli": "^5.0.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
   }
 }
