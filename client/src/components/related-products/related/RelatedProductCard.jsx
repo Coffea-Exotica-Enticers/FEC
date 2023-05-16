@@ -67,13 +67,11 @@ function RelatedProductCard({
 
     axios.all([styles, starRating]).then(axios.spread((prod, star) => {
       findDefault(prod.data);
-      setProductStyles(prod.data);
       setRating(getAverageRating(star.data.ratings));
     }))
       .catch((err) => console.error('There was an error retrieving styles or rating data: ', err));
-  }, []);
+  }, [item.id]);
 
-  // console.log('Thumbnails', thumbnails)
   return (
     <div data-testid="test-card">
       <div className="rp-card">
