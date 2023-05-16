@@ -27,10 +27,14 @@ const testProduct = {
 
 describe('Related Product Card', () => {
   test('should successfully render the related product list', () => {
-    render(<RelatedProductsList product={testProduct} />)
+    render(<RelatedProductsList product={testProduct} />);
+    const rpList = screen.getByText(/Related Products List/i);
+    expect(rpList).toBeTruthy();
   });
-  test('should successfully render a related product card', () =>{
-    render(<RelatedProductCard item={testProduct} />)
+  test('should successfully render a related product card', () => {
+    render(<RelatedProductCard item={testProduct} />);
+    const rpCard = screen.getByTestId(/test-card/i);
+    expect(rpCard).toBeTruthy();
   });
   test('related product card name should match test name', () => {
     render(<RelatedProductCard item={testProduct} />);
@@ -44,9 +48,9 @@ describe('Related Product Card', () => {
   });
   test('related product card should contain preview, category, description, and rating subcomponents', () => {
     const { container } = render(<RelatedProductCard item={testProduct} />);
-    expect(container.getElementsByClassName('preview').length).toBe(1);
-    expect(container.getElementsByClassName('category').length).toBe(1);
-    expect(container.getElementsByClassName('description').length).toBe(1);
-    expect(container.getElementsByClassName('rating').length).toBe(1);
+    expect(container.getElementsByClassName('rp-preview').length).toBe(1);
+    expect(container.getElementsByClassName('rp-category').length).toBe(1);
+    expect(container.getElementsByClassName('rp-description').length).toBe(1);
+    expect(container.getElementsByClassName('rp-rating').length).toBe(1);
   });
 });

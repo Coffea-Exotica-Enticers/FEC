@@ -70,8 +70,7 @@ function RelatedProductsList({ product, updateProduct }) {
         <h2>Related Products List</h2>
         <div className="rp-container" style={styles}>
           {listLength
-            ? relatedProducts.map((item) =>
-              <RelatedProductCard key={item.id} openModal={openModal} closeModal={closeModal} item={item} product={product} updateProduct={updateProduct}/>)
+            ? relatedProducts.map((item) => <RelatedProductCard key={item.id} openModal={openModal} closeModal={closeModal} item={item} product={product} updateProduct={updateProduct} />)
             : 'Loading...'}
         </div>
       </div>

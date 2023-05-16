@@ -75,7 +75,7 @@ function RelatedProductCard({
 
   // console.log('Thumbnails', thumbnails)
   return (
-    <div>
+    <div data-testid="test-card">
       <div className="rp-card">
         {product ? (
           <div className="rp-modal">
