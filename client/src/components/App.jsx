@@ -10,24 +10,31 @@ import StarTemplate from './shared/StarTemplate';
 // note: if App parent re-renders child components will render too
 export default function App() {
   const [product, setProduct] = useState(null);
+  const [metaData, setMetaData] = useState(null);
 
   useEffect(() => {
     axios.get('/products/40344')
-      .then((products) => {
-        setProduct(products.data);
-        return products.data;
+      .then(({ data }) => {
+        setProduct(data);
+        return data;
       })
+      .then((productData) => axios.get('/reviews/meta', {
+        params: {
+          product_id: productData.id,
+        },
+      }))
+      .then(({ data }) => setMetaData(data))
       .catch((err) => console.error('There was a problem retrieving product data: ', err));
   }, []);
 
   return (
     <div id="App">
-      <Product product={product} setProduct={setProduct} />
       <StarTemplate />
+      <Product product={product} setProduct={setProduct} metaData={metaData} />
       <QAModule product={product} />
       <RelatedProductsList product={product} />
       <ClosetList product={product} />
-      <RatingsAndReviews product={product} />
+      <RatingsAndReviews product={product} metaData={metaData} />
     </div>
   );
 }
