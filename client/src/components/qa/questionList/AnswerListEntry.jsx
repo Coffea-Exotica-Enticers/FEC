@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ImageList from '../imageList/ImageList';
 
-// eslint-disable-next-line react/prop-types
 export default function AnswerListEntry({ answer }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(answer.helpfulness);

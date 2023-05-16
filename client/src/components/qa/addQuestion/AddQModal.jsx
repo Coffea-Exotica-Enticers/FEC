@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../shared/Modal';
 
-export default function AddQModal({ show, setShow, product }) {
+export default function AddQModal({ show, setShow: revealModal, product }) {
   const [qEntry, setQEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');
   const [emailEntry, setEmailEntry] = useState('');
@@ -16,7 +16,7 @@ export default function AddQModal({ show, setShow, product }) {
     })
       .then(() => {
         console.log('Question post successful');
-        setShow(false);
+        revealModal(false);
       })
       .catch((err) => {
         console.log('Error in posting question: ', err);
@@ -27,9 +27,8 @@ export default function AddQModal({ show, setShow, product }) {
     return (
       <Modal
         show={show}
-        onClose={() => setShow(false)}
+        onClose={() => revealModal(false)}
         title={`Ask About ${product.name}`}
-        // eslint-disable-next-line react/no-children-prop
         children={(
           <form
             className="modalInput"
@@ -39,15 +38,12 @@ export default function AddQModal({ show, setShow, product }) {
             }}
           >
             <textarea className="modalText" placeholder="Write Your Question Here..." onChange={(e) => setQEntry(e.target.value)} required minLength="1" maxLength="1000" />
-            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="12" />
-            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required />
+            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="60" />
+            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required minLength="1" maxLength="60" />
             <button type="submit">Submit</button>
           </form>
         )}
       />
     );
   }
-  return (
-    <div>Product Has Not Loaded Yet</div>
-  );
 }

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../shared/Modal';
 
-export default function AddAnsModal({ show, setShow, id }) {
+export default function AddAnsModal({
+  show, setShow: revealModal, id, getAllAnswers,
+}) {
   const [ansEntry, setAnsEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');
   const [emailEntry, setEmailEntry] = useState('');
@@ -16,7 +18,8 @@ export default function AddAnsModal({ show, setShow, id }) {
     })
       .then(() => {
         console.log('Answer post successful');
-        setShow(false);
+        getAllAnswers();
+        revealModal(false);
       })
       .catch((err) => {
         console.log('Error in posting answer: ', err);
@@ -27,29 +30,24 @@ export default function AddAnsModal({ show, setShow, id }) {
     return (
       <Modal
         show={show}
-        onClose={() => setShow(false)}
+        onClose={() => revealModal(false)}
         title="Submit Your Answer"
-        // eslint-disable-next-line react/no-children-prop
         children={(
           <form
             className="modalInput"
             onSubmit={(e) => {
               e.preventDefault();
-              setShow(false);
+              revealModal(false);
               postAnswer();
             }}
           >
             <textarea className="modalText" placeholder="Write Your Answer Here..." onChange={(e) => setAnsEntry(e.target.value)} required minLength="1" maxLength="1000" />
-            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="12" />
-            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required />
-            <div>PUT UPLOAD PHOTOS HERE LATER!</div>
+            <input className="modalUserInfo" placeholder="Nickname..." onChange={(e) => setNameEntry(e.target.value)} required minLength="1" maxLength="60" />
+            <input type="email" className="modalUserInfo" placeholder="Email..." onChange={(e) => setEmailEntry(e.target.value)} required minLength="1" maxLength="60" />
             <button type="submit">Submit</button>
           </form>
           )}
       />
     );
   }
-  return (
-    <div>Product Has Not Loaded Yet</div>
-  );
 }

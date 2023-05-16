@@ -14,8 +14,7 @@ export default function AnswerList({ id }) {
     function getAnswerLoop(currentPage) {
       axios.get('/qa/answers', {
         params: {
-          // eventually put id here. for now just use this for testing purposes
-          id: 645139,
+          id,
           count: 10,
           page: currentPage,
         },
@@ -47,7 +46,6 @@ export default function AnswerList({ id }) {
   }, []);
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       { showAnswers.length > 0
         ? (
@@ -55,7 +53,7 @@ export default function AnswerList({ id }) {
             {
               showAnswers.map((a) => <AnswerListEntry answer={a} key={a.answer_id} />)
             }
-            <div className="answer-buttons">
+            <div className="answer-buttons" data-testid="answer-list">
               {
                 showAnswers.length < answers.length
                   ? (
@@ -67,13 +65,13 @@ export default function AnswerList({ id }) {
                       <button type="submit">More Answers</button>
                     </form>
                   )
-                  : 'No More Answers'
+                  : ''
               }
-              <AddAnswer id={id} />
+              <AddAnswer id={id} getAllAnswers={getAllAnswers} />
             </div>
           </>
         )
-        : 'Answers Loading'}
+        : <div className="answer-buttons" data-testid="answer-list"><AddAnswer id={id} getAllAnswers={getAllAnswers} /></div>}
     </>
   );
 }

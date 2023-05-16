@@ -4,7 +4,6 @@ import SearchBar from './SearchBar';
 import QuestionList from './questionList/QuestionList';
 import AddQuestion from './addQuestion/AddQuestion';
 
-// eslint-disable-next-line react/prop-types
 export default function QAModule({ product }) {
   const [questionList, setQuestionList] = useState([]);
   const [sortList, setSort] = useState([]);
@@ -33,7 +32,7 @@ export default function QAModule({ product }) {
           } else {
             setQuestionList(dataArray);
             setSort(dataArray);
-            setShow(dataArray.slice(0, 2));
+            setShow(dataArray.slice(0, qLength));
           }
         })
         .catch((err) => console.error('There was an error retrieving question data', err));
@@ -46,6 +45,14 @@ export default function QAModule({ product }) {
     setQLength(qLength + 2);
   }
 
+  function setQToShow(questions) {
+    setShow(questions);
+  }
+
+  function setSortedQ(questions) {
+    setSort(questions);
+  }
+
   useEffect(() => {
     if (product) {
       getAllQuestions();
@@ -55,7 +62,7 @@ export default function QAModule({ product }) {
   return (
     <div>
       <h2>Questions & Answers</h2>
-      <SearchBar qList={questionList} setShowQs={setShow} qLen={qLength} setSort={setSort} />
+      <SearchBar qList={questionList} setShowQ={setQToShow} qLen={qLength} setSort={setSortedQ} />
       <QuestionList qArray={showQuestions} />
       <div className="question-buttons">
         {
