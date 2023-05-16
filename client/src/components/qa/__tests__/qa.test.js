@@ -1,9 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import QAModule from '../QAModule';
+import QuestionList from '../questionList/QuestionList';
 import AnswerList from '../questionList/AnswerList';
 import QuestionListEntry from '../questionList/QuestionListEntry';
 import AnswerListEntry from '../questionList/AnswerListEntry';
+import ImageList from '../imageList/ImageList';
 import ImageListEntry from '../imageList/ImageListEntry';
 import AddQuestion from '../addQuestion/AddQuestion';
 import AddAnswer from '../addAnswer/AddAnswer';
@@ -16,6 +18,13 @@ describe('module renders its own components properly', () => {
   it('should render the Ask Your Question button', () => {
     render(<QAModule />);
     expect(screen.getByRole('button', { name: 'Ask Your Question' })).toBeTruthy();
+  });
+});
+
+describe('renders question list', () => {
+  test('question list is rendered properly', () => {
+    render(<QuestionList qArray={[]} />);
+    expect(screen.getByTestId('question-list')).toBeTruthy();
   });
 });
 
@@ -57,9 +66,9 @@ describe('properly renders a question list entry', () => {
 });
 
 describe('renders answer list', () => {
-  test('renders Add Answer button', () => {
+  test('answer list is rendered properly', () => {
     render(<AnswerList id={40349} />);
-    expect(screen.getByRole('button', { name: 'Add Your Answer' })).toBeTruthy();
+    expect(screen.getByTestId('answer-list')).toBeTruthy();
   });
 });
 
@@ -107,6 +116,28 @@ describe('properly renders an answer list entry', () => {
     render(<AnswerListEntry answer={testAnswer} />);
     const report = screen.getByRole('button', { name: 'Report' });
     expect(report).toBeTruthy();
+  });
+});
+
+const testPhotos = [
+  {
+    id: 5347675,
+    url: 'http://res.cloudinary.com/fec-cars/image/upload/v1676073715/eaokljdt8oimivi0rk1b.jpg',
+  },
+  {
+    id: 5347679,
+    url: 'http://res.cloudinary.com/fec-cars/image/upload/v1676074347/hz09yvlenfgf9s66tlsh.jpg',
+  },
+];
+
+describe('image list properly renders', () => {
+  test('image list should render', () => {
+    render(<ImageList photos={testPhotos} />);
+    expect(screen.getByTestId('image-list')).toBeTruthy();
+  });
+  test('image entry should have a length of 2 if given test array', () => {
+    render(<ImageList photos={testPhotos} />);
+    expect(screen.getAllByTestId('image-entry')).toHaveLength(2);
   });
 });
 

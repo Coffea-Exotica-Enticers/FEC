@@ -46,7 +46,6 @@ export default function AnswerList({ id }) {
   }, []);
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       { showAnswers.length > 0
         ? (
@@ -54,7 +53,7 @@ export default function AnswerList({ id }) {
             {
               showAnswers.map((a) => <AnswerListEntry answer={a} key={a.answer_id} />)
             }
-            <div className="answer-buttons">
+            <div className="answer-buttons" data-testid="answer-list">
               {
                 showAnswers.length < answers.length
                   ? (
@@ -72,7 +71,7 @@ export default function AnswerList({ id }) {
             </div>
           </>
         )
-        : <div className="answer-buttons"><AddAnswer id={id} getAllAnswers={getAllAnswers} /></div>}
+        : <div className="answer-buttons" data-testid="answer-list"><AddAnswer id={id} getAllAnswers={getAllAnswers} /></div>}
     </>
   );
 }
