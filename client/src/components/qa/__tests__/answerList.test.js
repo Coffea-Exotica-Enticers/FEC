@@ -22,13 +22,9 @@ describe('renders answer list', () => {
     expect(screen.getByTestId('answer-list')).toBeTruthy();
     jest.clearAllMocks();
   });
-});
-
-describe('answer list error', () => { // come back to this later. I'm on the right track
-  axios.get.mockRejectedValueOnce();
-  test('answer list should throw an error', () => {
+  test('should only have one entry when given only one answer object', () => {
     render(<AnswerList id={40349} />);
-    expect(screen).toThrow(Error);
+    expect(screen.getAllByTestId('answer-list')).toHaveLength(1);
     jest.clearAllMocks();
   });
 });

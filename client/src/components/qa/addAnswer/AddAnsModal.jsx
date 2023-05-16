@@ -3,7 +3,7 @@ import axios from 'axios';
 import Modal from '../../shared/Modal';
 
 export default function AddAnsModal({
-  show, setShow: revealModal, id, getAllAnswers,
+  show, revealModal, id, getAllAnswers,
 }) {
   const [ansEntry, setAnsEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');

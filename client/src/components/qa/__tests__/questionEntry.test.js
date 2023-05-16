@@ -66,7 +66,7 @@ describe('properly reports question', () => {
 
   axios.put.mockResolvedValue({
     data: {},
-    status: 500,
+    status: 200,
   });
 
   test('click event', () => {

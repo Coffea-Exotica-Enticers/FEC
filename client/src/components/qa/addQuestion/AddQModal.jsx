@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../shared/Modal';
 
-export default function AddQModal({ show, setShow: revealModal, product }) {
+export default function AddQModal({ show, revealModal, product }) {
   const [qEntry, setQEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');
   const [emailEntry, setEmailEntry] = useState('');
