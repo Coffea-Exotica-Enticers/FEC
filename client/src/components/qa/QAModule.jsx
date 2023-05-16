@@ -45,6 +45,14 @@ export default function QAModule({ product }) {
     setQLength(qLength + 2);
   }
 
+  function setQToShow(questions) {
+    setShow(questions);
+  }
+
+  function setSortedQ(questions) {
+    setSort(questions);
+  }
+
   useEffect(() => {
     if (product) {
       getAllQuestions();
@@ -54,7 +62,7 @@ export default function QAModule({ product }) {
   return (
     <div>
       <h2>Questions & Answers</h2>
-      <SearchBar qList={questionList} setShowQs={setShow} qLen={qLength} setSort={setSort} />
+      <SearchBar qList={questionList} setShowQ={setQToShow} qLen={qLength} setSort={setSortedQ} />
       <QuestionList qArray={showQuestions} />
       <div className="question-buttons">
         {

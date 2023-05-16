@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function SearchBar({
-  qList, setShowQs, qLen, setSort,
+  qList, setShowQ, qLen, setSort,
 }) {
   const [entry, setEntry] = useState('');
 
@@ -14,10 +14,10 @@ export default function SearchBar({
         }
       }
       setSort(tempArray);
-      setShowQs(tempArray.slice(0, qLen));
+      setShowQ(tempArray.slice(0, qLen));
     } else {
       setSort(qList);
-      setShowQs(qList.slice(0, qLen));
+      setShowQ(qList.slice(0, qLen));
     }
   }, [entry]);
 

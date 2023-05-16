@@ -3,7 +3,7 @@ import axios from 'axios';
 import Modal from '../../shared/Modal';
 
 export default function AddAnsModal({
-  show, setShow, id, getAllAnswers,
+  show, setShow: revealModal, id, getAllAnswers,
 }) {
   const [ansEntry, setAnsEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');
@@ -19,7 +19,7 @@ export default function AddAnsModal({
       .then(() => {
         console.log('Answer post successful');
         getAllAnswers();
-        setShow(false);
+        revealModal(false);
       })
       .catch((err) => {
         console.log('Error in posting answer: ', err);
@@ -30,14 +30,14 @@ export default function AddAnsModal({
     return (
       <Modal
         show={show}
-        onClose={() => setShow(false)}
+        onClose={() => revealModal(false)}
         title="Submit Your Answer"
         children={(
           <form
             className="modalInput"
             onSubmit={(e) => {
               e.preventDefault();
-              setShow(false);
+              revealModal(false);
               postAnswer();
             }}
           >

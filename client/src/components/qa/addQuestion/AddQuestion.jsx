@@ -4,10 +4,14 @@ import AddQModal from './AddQModal';
 export default function AddQuestion({ product }) {
   const [show, setShow] = useState(false);
 
+  function revealModal(value) {
+    setShow(value);
+  }
+
   return (
     <>
-      <button type="button" onClick={() => setShow(true)}>Ask Your Question</button>
-      <AddQModal show={show} setShow={setShow} product={product} />
+      <button type="button" onClick={() => revealModal(true)}>Ask Your Question</button>
+      <AddQModal show={show} revealModal={revealModal} product={product} />
     </>
   );
 }

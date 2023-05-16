@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from '../../shared/Modal';
 
-export default function AddQModal({ show, setShow, product }) {
+export default function AddQModal({ show, setShow: revealModal, product }) {
   const [qEntry, setQEntry] = useState('');
   const [nameEntry, setNameEntry] = useState('');
   const [emailEntry, setEmailEntry] = useState('');
@@ -16,7 +16,7 @@ export default function AddQModal({ show, setShow, product }) {
     })
       .then(() => {
         console.log('Question post successful');
-        setShow(false);
+        revealModal(false);
       })
       .catch((err) => {
         console.log('Error in posting question: ', err);
@@ -27,7 +27,7 @@ export default function AddQModal({ show, setShow, product }) {
     return (
       <Modal
         show={show}
-        onClose={() => setShow(false)}
+        onClose={() => revealModal(false)}
         title={`Ask About ${product.name}`}
         children={(
           <form
