@@ -10,8 +10,7 @@ import SortReviews from './reviews/SortReviews';
 
 const { useState, useEffect } = React;
 
-export default function RatingsAndReviews({ product }) {
-  const [metaData, setMetaData] = useState(null);
+export default function RatingsAndReviews({ product, metaData }) {
   const [showModal, setShowModal] = useState(false);
   const [ratingsFilter, setRatingsFilter] = useState([]);
   const [shownReviews, setShownReviews] = useState([]);
@@ -33,18 +32,6 @@ export default function RatingsAndReviews({ product }) {
         .catch((err) => console.error('ERROR GETTING REVIEWS', err));
     }
   }, [product, sort]);
-
-  useEffect(() => {
-    if (product) {
-      axios.get('/reviews/meta', {
-        params: {
-          product_id: product.id,
-        },
-      })
-        .then(({ data }) => setMetaData(data))
-        .catch((err) => console.error('PROBLEM GETTING METADATA', err));
-    }
-  }, [product]);
 
   useEffect(() => {
     const filtered = ratingsFilter.length

@@ -20,10 +20,19 @@ export default function StarRatings({ rating }) {
   // This will map across the array, creating new stars based on the star template
   // And will fill the stars according to their percentage
   return (
-    <span>
+    <span className="star-ratings" role="img" aria-label={`Rating: ${rating} out of 5 stars`}>
       {
-        starsArray.map((starPercentage) => (
-          <svg className="star" width="1.5em" height="1.5em">
+        starsArray.map((starPercentage, index) => (
+          <svg
+          // This is purely a visual element, so it should be fine to use index as key
+          // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            className="star"
+            width="1.5em"
+            height="1.5em"
+            role="img"
+            aria-label={`${starPercentage}% filled star`}
+          >
             <use href="#star-template" fill={`url(#fill-${starPercentage})`} stroke="#fece3c" />
           </svg>
         ))
