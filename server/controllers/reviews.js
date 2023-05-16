@@ -7,8 +7,8 @@ module.exports = {
     axios.get(`${ATELIER_API}/reviews`, {
       params: {
         page: req.query.page,
-        count: 2,
-        sort: 'newest',
+        count: req.query.count,
+        sort: req.query.sort,
         product_id: req.query.product_id,
       },
       headers: {
@@ -43,12 +43,9 @@ module.exports = {
         authorization: API_TOKEN,
       },
     })
-      .then((results) => {
-        console.log('SUCCESS', results);
-        res.sendStatus(201);
-      })
-      .catch(() => {
-        console.log('ERROR POSTING REVIEW');
+      .then(() => res.sendStatus(201))
+      .catch((err) => {
+        console.log('ERROR POSTING REVIEW', err);
         res.sendStatus(400);
       });
   },

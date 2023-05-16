@@ -4,7 +4,7 @@ const { useState, useEffect } = React;
 
 export default function RateProduct({ rating, setRating }) {
   const [starsArray, setStarsArray] = useState([0, 0, 0, 0, 0]);
-  const [ratingDescription, setRatingDescription] = useState('Please rate this item');
+  const [ratingDescription, setRatingDescription] = useState('Please rate this item*');
   useEffect(() => {
     if (rating === 5) {
       setRatingDescription('Great');
