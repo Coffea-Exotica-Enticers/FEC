@@ -5,7 +5,7 @@ const { ATELIER_API, API_TOKEN } = process.env;
 
 module.exports = {
   get: (req, res) => {
-    axios.get(`${ATELIER_API}/products`, {
+    axios.get(`${ATELIER_API}/products/40344`, {
       headers: {
         authorization: API_TOKEN,
       },
@@ -13,19 +13,6 @@ module.exports = {
       .then(({ data }) => res.json(data))
       .catch((err) => {
         console.log('There was a problem in the server retrieving product data: ', err);
-        res.sendStatus(404);
-      });
-  },
-
-  getSpecificProduct(req, res) {
-    axios.get(`${ATELIER_API}/products/${req.params.product_id}`, {
-      headers: {
-        authorization: API_TOKEN,
-      },
-    })
-      .then(({ data }) => res.json(data))
-      .catch((err) => {
-        console.log('There was a problem in the server retrieving specific product data: ', err);
         res.sendStatus(404);
       });
   },
@@ -41,6 +28,7 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
   getRelated: (req, res) => {
     const productId = req.params.product_id;
     axios.get(`${ATELIER_API}/products/${productId}/related`, { headers: { authorization: API_TOKEN } })
@@ -53,5 +41,5 @@ module.exports = {
         console.error('Unable to retrieve Item data: ', err);
         res.sendStatus(404);
       });
-  }
-}
+  },
+};

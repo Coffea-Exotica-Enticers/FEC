@@ -1,26 +1,38 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable import/no-cycle */
+import React, { useContext, useState } from 'react';
 import ImageGrid from './ImageGrid';
+import ImageThumbnail from './ImageThumbnail';
+import { ProductContext } from './Product';
 
-function Image({ styleList }) {
-  // const [images, setImages] = useState([]);
-  const [image, setImage] = useState('');
+function Image() {
+  const {
+    selectedStyle, setSelectedStyle,
+    setIsExpandedActive,
+    index, setIndex,
+  } = useContext(ProductContext);
 
-  function createImage() {
-    if (styleList.length > 0) {
-      setImage(styleList[0].photos[1]);
-    }
-  }
-
-  useEffect(() => {
-    createImage();
-  }, [styleList]);
-
-  return image ? (
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  return (
     <div className="main-image-pane">
-      <ImageGrid image={image} />
+      <ImageThumbnail
+        selectedStyle={selectedStyle}
+        setSelectedStyle={setSelectedStyle}
+        selectedPhoto={selectedPhoto}
+        setSelectedPhoto={setSelectedPhoto}
+        // setIsSelectorActive={setIsSelectorActive}
+        setIndex={setIndex}
+      />
+      <ImageGrid
+        selectedPhoto={selectedPhoto}
+        selectedStyle={selectedStyle}
+        thumbnails={selectedStyle.photos}
+        setIsExpandedActive={setIsExpandedActive}
+        index={index}
+        setSelectedPhoto={setSelectedPhoto}
+        setIndex={setIndex}
+      />
     </div>
-  )
-    : <div> Image loading</div>;
+  );
 }
 
 export default Image;
