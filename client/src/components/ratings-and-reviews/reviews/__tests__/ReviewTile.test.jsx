@@ -1,5 +1,10 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import {
+  render,
+  fireEvent,
+  screen,
+  within,
+} from '@testing-library/react';
 import ReviewTile from '../ReviewTile';
 
 const testReview = {
@@ -14,52 +19,126 @@ const testReview = {
   helpfulness: 6,
   photos: [],
 };
+const anotherReview = {
+  review_id: 111,
+  rating: 2,
+  summary: 'This summary title is longer than 60 characters and will be cut off at the end',
+  recommend: false,
+  response: '',
+  body: 'Nunc faucibus a pellentesque sit amet porttitor eget. Id aliquet risus feugiat in ante metus. In arcu cursus euismod quis. Ut tortor pretium viverra suspendisse potenti nullam. Pellentesque dignissim enim sit amet venenatis urna cursus eget nunc.',
+  date: '2011-10-25T14:48:00.000Z',
+  reviewer_name: 'fake-user2',
+  helpfulness: 0,
+  photos: [
+    {
+      id: 2458844,
+      url: 'https://res.cloudinary.com/dlbnwlpoq/image/upload/v1684061481/p8ws58xsyzuqptegnt8a.jpg',
+    },
+    {
+      id: 2458846,
+      url: 'https://res.cloudinary.com/dlbnwlpoq/image/upload/v1684061486/woj1rgsqzdinhgflhc48.jpg',
+    },
+    {
+      id: 2458847,
+      url: 'https://res.cloudinary.com/dlbnwlpoq/image/upload/v1684061490/bpiys5nrvxm9w8awawp8.jpg',
+    },
+    {
+      id: 2458845,
+      url: 'https://res.cloudinary.com/dlbnwlpoq/image/upload/v1684061484/xnhhcccgigf6s6r2n6ku.jpg',
+    },
+  ],
+};
+const testSearch = '';
 
-describe('Properly render a review tile', () => {
-  test('loads and displays a review tile', () => {
-    render(<ReviewTile review={testReview} />);
+const setup = () => render(<ReviewTile review={testReview} search={testSearch} />);
+const anotherSetup = () => render(<ReviewTile review={anotherReview} search={testSearch} />);
+
+describe('ReviewTile', () => {
+  test('Renders star ratings', () => {
+    setup();
+    const starsContainer = screen.queryByLabelText('Rating: 3 out of 5 stars');
+    const stars = within(starsContainer).queryAllByRole('presentation', { hidden: true });
+    expect(stars.length).toBe(5);
   });
-  test('renders review summary', () => {
-    render(<ReviewTile review={testReview} />);
-    const summary = screen.getByText(/summary title/i);
-    expect(summary).toBeTruthy();
-  });
-  test('renders review body', () => {
-    render(<ReviewTile review={testReview} />);
-    const body = screen.getByText(/lorem ipsum/i);
-    expect(body).toBeTruthy();
-  });
-  test('renders recommend label', () => {
-    render(<ReviewTile review={testReview} />);
-    const recommendLabel = screen.getByText(/recommend/i);
-    expect(recommendLabel).toBeTruthy();
-  });
-  test('renders username', () => {
-    render(<ReviewTile review={testReview} />);
-    const username = screen.getByText(/test-user/i);
+  test('Renders reviewer name', () => {
+    setup();
+    const username = screen.queryByText('test-user,');
     expect(username).toBeTruthy();
   });
-  test('renders date', () => {
-    render(<ReviewTile review={testReview} />);
-    const year = screen.getByText(/2011/i);
-    const month = screen.getByText(/October/i);
-    const day = screen.getByText(/25/i);
-    expect(year).toBeTruthy();
-    expect(month).toBeTruthy();
-    expect(day).toBeTruthy();
+  test('Renders date', () => {
+    setup();
+    const date = screen.queryByText('October 25, 2011');
+    expect(date).toBeTruthy();
   });
-  test('renders star rating', () => {
-    const { container } = render(<ReviewTile review={testReview} />);
-    expect(container.querySelectorAll('svg').length).toBe(5);
+  test('Renders summary', () => {
+    setup();
+    const summary = screen.queryByText('This is the summary title it should be a max of 60 character');
+    expect(summary).toBeTruthy();
   });
-  test('renders helpfulness component', () => {
-    render(<ReviewTile review={testReview} />);
-    const helpfulness = screen.getByText(/Helpful?/i);
-    expect(helpfulness).toBeTruthy();
+  test('Only shows first 60 characters of summary for long summary titles', () => {
+    anotherSetup();
+    const summary = screen.queryByText(/This summary title/);
+    expect(summary).toBeTruthy();
+    expect(summary.textContent.length).toBe(63);
+  });
+  test('Renders body', () => {
+    setup();
+    const body = screen.queryByText(/At imperdiet dui/);
+    expect(body).toBeTruthy();
+  });
+  test('Renders whole body for reviews under 250 characters', () => {
+    anotherSetup();
+    const body = screen.queryByText(/Nunc faucibus/);
+    expect(body).toBeTruthy();
+    expect(body.textContent.length).toBe(246);
+  });
+  test('Only shows first 250 characters of body for long reviews', () => {
+    setup();
+    const body = screen.queryByText(/Lorem ipsum/);
+    expect(body).toBeTruthy();
+    expect(body.textContent.length).toBe(253);
+  });
+  test('Renders show more button for long reviews', () => {
+    setup();
+    const showMoreButton = screen.queryByRole('button', { name: 'Show more' });
+    expect(showMoreButton).toBeTruthy();
+  });
+  test('Does not render show more button for short reviews', () => {
+    anotherSetup();
+    const showMoreButton = screen.queryByRole('button', { name: 'Show more' });
+    expect(showMoreButton).toBe(null);
+  });
+  test('Clicking show more button reveals whole body', () => {
+    setup();
+    const shortenedBodyText = screen.queryByText(/Lorem ipsum/);
+    expect(shortenedBodyText.textContent.length).toBe(253);
+    const showMoreButton = screen.queryByRole('button', { name: 'Show more' });
+    expect(showMoreButton).toBeTruthy();
+    fireEvent.click(showMoreButton);
+    const fullBodyText = screen.queryByText(/Lorem ipsum/);
+    expect(fullBodyText).toBeTruthy();
+    expect(fullBodyText.textContent.length).toBe(319);
+    const showMoreButtonGone = screen.queryByRole('button', { name: 'Show more' });
+    expect(showMoreButtonGone).toBe(null);
+  });
+  test('Render recommend label if reviewer recommends product', () => {
+    setup();
+    const checkmark = screen.queryByText(/I recommend this product/);
+    expect(checkmark).toBeTruthy();
+  });
+  test('Does not render recommend label if reviewer does not recommend product', () => {
+    anotherSetup();
+    const checkmark = screen.queryByText(/I recommend this product/);
+    expect(checkmark).toBe(null);
+  });
+  test('Renders review photos', () => {
+    anotherSetup();
+    const photos = screen.queryAllByRole('img', { name: 'thumbnail' });
+    expect(photos.length).toBe(4);
   });
   test('renders seller reponse', () => {
-    render(<ReviewTile review={testReview} />);
-    const sellerResponse = screen.getByText(/response from the seller/i);
+    setup();
+    const sellerResponse = screen.queryByText(/response from the seller/i);
     expect(sellerResponse).toBeTruthy();
   });
 });

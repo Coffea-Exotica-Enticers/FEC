@@ -19,7 +19,7 @@ export default function ReviewTile({ review, search }) {
 
   useEffect(() => {
     if (review.body.length > 250) {
-      setBody(`${review.body.slice(0, 251)}...`);
+      setBody(`${review.body.slice(0, 250)}...`);
       setShowMore(true);
     } else {
       setBody(review.body);
@@ -37,12 +37,12 @@ export default function ReviewTile({ review, search }) {
   };
 
   return (
-    <div className="review-tile">
+    <div className="review-tile" aria-label="review">
       <div className="top-row">
         <div className="top-row-left"><StarRatings rating={review.rating} /></div>
         <div className="top-row-right">
-          {`${review.reviewer_name}, `}
-          {new Date(review.date).toLocaleDateString('en-us', dateOptions)}
+          <span>{`${review.reviewer_name}, `}</span>
+          <span>{new Date(review.date).toLocaleDateString('en-us', dateOptions)}</span>
         </div>
       </div>
       <div className="review-summary"><TextHighlight text={summary} search={search} /></div>

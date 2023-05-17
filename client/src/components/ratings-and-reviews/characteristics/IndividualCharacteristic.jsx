@@ -1,7 +1,5 @@
 import React from 'react';
 
-const { useState } = React;
-
 export default function IndividualCharacteristic({ charName, characteristic }) {
   const percentage = Math.floor((characteristic.value / 5) * 100);
   let descriptors;
@@ -21,13 +19,11 @@ export default function IndividualCharacteristic({ charName, characteristic }) {
   return (
     <div className="characteristic">
       <div className="label">{charName}</div>
-      <div className="characteristic-meter">
+      <div className="characteristic-meter" role="img" aria-label={`${charName} characteristic meter`}>
         <div className="characteristic-meter-pointer" style={{ left: `${percentage}%` }} />
       </div>
       <div className="scale">
-        <span>{descriptors[0]}</span>
-        <span>{descriptors[1]}</span>
-        <span>{descriptors[2]}</span>
+        {descriptors.map((char) => <span key={char}>{char}</span>)}
       </div>
     </div>
   );

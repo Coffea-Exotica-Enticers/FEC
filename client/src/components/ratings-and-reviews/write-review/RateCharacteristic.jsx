@@ -3,7 +3,7 @@ import React from 'react';
 export default function RateCharacteristics({ charName, charId, rateChar }) {
   let descriptors;
   if (charName === 'Size') {
-    descriptors = ['A size too small', '1/2 a size too small ', 'Perfect', '1/2 a size too big', 'A size too big'];
+    descriptors = ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too big'];
   } else if (charName === 'Width') {
     descriptors = ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'];
   } else if (charName === 'Comfort') {
@@ -28,6 +28,7 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
             type="radio"
             id={`${descriptors[0]}-${charName}`}
             name={charName}
+            aria-label={`${descriptors[0]}`}
             value="1"
             onClick={(e) => rateChar(charId, e.target.value)}
             required
@@ -41,6 +42,7 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
             type="radio"
             id={`${descriptors[1]}-${charName}`}
             name={charName}
+            aria-label={`${descriptors[1]}`}
             value="2"
             onClick={(e) => rateChar(charId, e.target.value)}
           />
@@ -53,6 +55,7 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
             type="radio"
             id={`${descriptors[2]}-${charName}`}
             name={charName}
+            aria-label={`${descriptors[2]}`}
             value="3"
             onClick={(e) => rateChar(charId, e.target.value)}
           />
@@ -65,6 +68,7 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
             type="radio"
             id={`${descriptors[3]}-${charName}`}
             name={charName}
+            aria-label={`${descriptors[3]}`}
             value="4"
             onClick={(e) => rateChar(charId, e.target.value)}
           />
@@ -77,6 +81,7 @@ export default function RateCharacteristics({ charName, charId, rateChar }) {
             type="radio"
             id={`${descriptors[4]}-${charName}`}
             name={charName}
+            aria-label={`${descriptors[4]}`}
             value="5"
             onClick={(e) => rateChar(charId, e.target.value)}
           />

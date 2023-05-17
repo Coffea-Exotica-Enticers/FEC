@@ -29,10 +29,18 @@ export default function RateProduct({ rating, setRating }) {
 
   return (
     <div className="write-review-rating">
-      <span className="write-review-stars">
+      <span className="write-review-stars" role="img" aria-label="rate product out of 5">
         {
           starsArray.map((percent, index) => (
-            <svg className="write-review-star" width="2em" height="2em" onClick={() => setRating(index + 1)}>
+            <svg
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              className="write-review-star"
+              width="2em"
+              height="2em"
+              onClick={() => setRating(index + 1)}
+              aria-label={`${index + 1} star`}
+            >
               <use href="#star-template" fill={`url(#fill-${percent})`} stroke="#fece3c" />
             </svg>
           ))

@@ -67,7 +67,7 @@ export default function PhotoUpload({ photos, setPhotos }) {
         {
           uploadCount <= 5
             ? (
-              <button className="photo-upload-button" type="button" onClick={handleButtonClick}>
+              <button className="photo-upload-button" aria-label="photo upload button" type="button" onClick={handleButtonClick}>
                 +
               </button>
             )
