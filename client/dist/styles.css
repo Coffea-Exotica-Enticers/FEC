@@ -9,6 +9,10 @@ width: 60%;
   display: flex;
 
 } */
+#App{
+  margin: 0 auto;
+  max-width: 50%;
+}
 body {
   background-color: #fdfcfa;
 }
@@ -45,7 +49,7 @@ body {
 .qa-container {
   max-height: 600px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .searchBar {
   width: 99%;
@@ -141,7 +145,8 @@ height: 25px;
 
 .ProductPage{
   margin: 1.5rem auto;
-  width: 90rem;
+  /* width: 90rem; */
+  width: 90%;
 }
 .RightPane{
   width: 34%;
@@ -338,12 +343,12 @@ cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
 }
 
 
-svg {
+/* svg {
   height: 12px;
   width: 12px;
   fill: rgb(0, 0, 0);
   align-items: center;
-}
+} */
 
 
 .thumbnail-button{
@@ -509,11 +514,6 @@ color: red;
     font-weight: bold;
 }
 /**  PRODUCT DETAILS CSS END ****/
-
-#App{
-  margin: 0 auto;
-  max-width: 75%;
-}
 
 /* ==================== RELATED PRODUCTS ==================== */
 

@@ -13,7 +13,7 @@ export default function App() {
   const [metaData, setMetaData] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/41010')
+    axios.get('/products/40344')
       .then(({ data }) => {
         setProduct(data);
         return data;
