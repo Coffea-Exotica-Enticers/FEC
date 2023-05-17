@@ -13,7 +13,7 @@ export default function App() {
   const [metaData, setMetaData] = useState(null);
 
   useEffect(() => {
-    axios.get('/products/41010')
+    axios.get('/products/40344')
       .then(({ data }) => {
         setProduct(data);
         return data;
@@ -34,7 +34,7 @@ export default function App() {
   return (
     <div id="App">
       <StarTemplate />
-      {/* <Product product={product} setProduct={setProduct} metaData={metaData} /> */}
+      <Product product={product} setProduct={setProduct} metaData={metaData} />
       <QAModule product={product} />
       <RelatedProductsList product={product} updateProduct={updateProduct} />
       <ClosetList product={product} />
