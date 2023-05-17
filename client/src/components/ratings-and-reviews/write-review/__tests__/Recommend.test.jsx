@@ -21,8 +21,8 @@ describe('Recommend', () => {
   test('Clicking radio buttons updates Recommend', () => {
     setup();
     expect(mockRecommend).toBe(false);
-    const yesRadio = screen.queryByRole('radio', { name: 'Yes' });
-    const noRadio = screen.queryByRole('radio', { name: 'No' });
+    const yesRadio = screen.getByRole('radio', { name: 'Yes' });
+    const noRadio = screen.getByRole('radio', { name: 'No' });
     fireEvent.click(yesRadio);
     expect(mockRecommend).toBe(true);
     fireEvent.click(noRadio);

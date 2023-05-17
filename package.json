@@ -4,7 +4,7 @@
   "description": "Front-End Capstone project for Hack Reactor, rfp2303.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jsdom --coverage --verbose --collectCoverageFrom=client/src/components/ratings-and-reviews/**/*.jsx",
+    "test": "jest --env=jsdom --coverage --verbose --collectCoverageFrom=**/*.jsx",
     "dev": "npx webpack --watch --mode development & npx nodemon --watch ./server ./server/index.js",
     "build": "npx webpack --mode production",
     "start": "node ./server/index.js"
