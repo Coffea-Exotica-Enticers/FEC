@@ -8,9 +8,12 @@ export default function TextHighlight({ text, search }) {
     return split.map((section, index) => (
       <span key={section}>
         {section}
-        {index !== split.length - 1 ? <mark>{highlighted[index]}</mark> : null}
+        {index !== split.length - 1 ? <mark data-testid="highlighted">{highlighted[index]}</mark> : null}
       </span>
     ));
   }
   return text;
 }
+// data-testid is for testing purposes.
+// For some reason 'mark' isn't considered a role by the React Testing Library.
+// Will have to figure out how to get rid of it in production.

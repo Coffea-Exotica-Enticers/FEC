@@ -121,13 +121,14 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
             <div className="rate-characteristics">
               {relevantChars.map((char) => (
                 <RateCharacteristic
+                  key={char}
                   charName={char}
                   charId={characteristics[char].id}
                   rateChar={rateChar}
                 />
               ))}
             </div>
-            <button type="submit" id="write-review-submit">Submit Review</button>
+            <button type="submit" id="write-review-submit" aria-label="submit">Submit Review</button>
           </form>
           {
             showErrors

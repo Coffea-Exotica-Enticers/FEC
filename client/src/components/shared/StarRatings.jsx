@@ -27,11 +27,11 @@ export default function StarRatings({ rating }) {
           // This is purely a visual element, so it should be fine to use index as key
           // eslint-disable-next-line react/no-array-index-key
             key={index}
+            aria-hidden="true"
+            role="presentation"
             className="star"
             width="1.5em"
             height="1.5em"
-            role="img"
-            aria-label={`${starPercentage}% filled star`}
           >
             <use href="#star-template" fill={`url(#fill-${starPercentage})`} stroke="#fece3c" />
           </svg>

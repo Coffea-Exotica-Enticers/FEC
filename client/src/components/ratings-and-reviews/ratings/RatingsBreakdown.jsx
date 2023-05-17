@@ -54,7 +54,7 @@ export default function RatingsBreakdown(props) {
               <button type="button" onClick={() => clearFilter()}>Clear All</button>
               {
                 ratingsFilter.map((num) => (
-                  <button type="button" onClick={() => clearFilter(num)}>{num}</button>
+                  <button key={num} type="button" onClick={() => clearFilter(num)}>{num}</button>
                 ))
               }
             </div>
