@@ -9,10 +9,12 @@ width: 60%;
   display: flex;
 
 } */
+
 #App{
   margin: 0 auto;
   max-width: 50%;
 }
+
 body {
   background-color: #fdfcfa;
 }
@@ -126,6 +128,8 @@ body {
 .svg-socialmedia{
 width: 25px;
 height: 25px;
+align-items: center;
+fill: rgb(192, 35, 35);
 }
 
 
@@ -145,12 +149,11 @@ height: 25px;
 
 .ProductPage{
   margin: 1.5rem auto;
-  /* width: 90rem; */
-  width: 90%;
+  width: 100%;
 }
 .RightPane{
   width: 34%;
-  margin-left: 6%;
+  margin-left: 4%;
 }
 
   .AddToCart-Container{
@@ -271,7 +274,7 @@ height: 25px;
 
   }
   .add-to-cart-button{
-    width: 350px;
+    width: 100%;
     min-height: 58px;
     border-radius: 30px;
     color: #FFFFFF;
@@ -306,7 +309,7 @@ cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
     top: 40px;
     padding-left: 48px;
     margin-left: 8px;
-    max-height: 669px;
+    /* max-height: 669px; */
     min-height: 455px;
     display: flex;
     flex-direction: row;
