@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import QuestionList from './questionList/QuestionList';
-import AddQuestion from './AddQuestion';
+import AddQuestion from './addQuestion/AddQuestion';
 
-// eslint-disable-next-line react/prop-types
 export default function QAModule({ product }) {
   const [questionList, setQuestionList] = useState([]);
   const [sortList, setSort] = useState([]);
@@ -33,7 +32,7 @@ export default function QAModule({ product }) {
           } else {
             setQuestionList(dataArray);
             setSort(dataArray);
-            setShow(dataArray.slice(0, 2));
+            setShow(dataArray.slice(0, qLength));
           }
         })
         .catch((err) => console.error('There was an error retrieving question data', err));
@@ -46,6 +45,14 @@ export default function QAModule({ product }) {
     setQLength(qLength + 2);
   }
 
+  function setQToShow(questions) {
+    setShow(questions);
+  }
+
+  function setSortedQ(questions) {
+    setSort(questions);
+  }
+
   useEffect(() => {
     if (product) {
       getAllQuestions();
@@ -53,25 +60,26 @@ export default function QAModule({ product }) {
   }, [product]);
 
   return (
-    <div className="qa list">
-
-      <SearchBar qList={questionList} setShowQs={setShow} qLen={qLength} setSort={setSort} />
+    <div>
+      <h2>Questions & Answers</h2>
+      <SearchBar qList={questionList} setShowQ={setQToShow} qLen={qLength} setSort={setSortedQ} />
       <QuestionList qArray={showQuestions} />
-      {
-      showQuestions.length < sortList.length
-        ? (
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            showMoreQuestions();
-          }}
-          >
-            <button type="submit">More Questions</button>
-          </form>
-        )
-        : 'No More Questions'
-      }
-      <AddQuestion />
-
+      <div className="question-buttons">
+        {
+        showQuestions.length < sortList.length
+          ? (
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              showMoreQuestions();
+            }}
+            >
+              <button type="submit">More Questions</button>
+            </form>
+          )
+          : 'No More Questions'
+        }
+        <AddQuestion product={product} />
+      </div>
     </div>
   );
 }

@@ -2,19 +2,17 @@ import React from 'react';
 import QuestionListEntry from './QuestionListEntry';
 import AnswerList from './AnswerList';
 
-// eslint-disable-next-line react/prop-types
 export default function QuestionList({ qArray }) {
   return (
-    <>
+    <div className="qa-container" data-testid="question-list">
       {
-        // eslint-disable-next-line react/prop-types
         qArray.map((q) => (
-          <div key={q.question_id}>
+          <div className="qa-entry" key={q.question_id}>
             <QuestionListEntry question={q} />
             <AnswerList id={q.question_id} />
           </div>
         ))
       }
-    </>
+    </div>
   );
 }

@@ -1,4 +1,104 @@
 /**  PRODUCT DETAILS CSS START ****/
+/* .Top_left-pane{
+
+display: flex;
+width: 60%;
+
+} */
+/* .ProductPage{
+  display: flex;
+
+} */
+body {
+  background-color: #fdfcfa;
+}
+
+/*****************************************/
+/*********  Fox's Stuff Below  ***********/
+/*****************************************/
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  width: 500px;
+  background-color: #fff;
+}
+.modal-header, .modal-footer {
+  padding: 10px;
+}
+.modal-title {
+  margin: 0;
+}
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.qa-container {
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.searchBar {
+  width: 99%;
+}
+.question-entry, .answer-entry {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  margin: 5px 0px;
+}
+.answer-entry {
+  padding-left: 2%;
+}
+.qa-body-asker {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.helpful-report, .answer-buttons, .question-buttons, .imgList {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.imgList {
+  height: 100px;
+  margin: 5px 0px;
+}
+.answerImg {
+  max-height: 100%;
+  width: auto;
+}
+.modalInput {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.modalUserInfo {
+  width: 33%;
+}
+.modalText {
+  width: 99%;
+  height: 250px;
+}
+.modalUserInfo:invalid, .modalText:invalid {
+  border: 2px dashed red;
+}
+.modalUserInfo:valid, .modalText:valid {
+  border: 2px solid black;
+}
+
+/*****************************************/
+/*********  Fox's Stuff Above  ***********/
+/*****************************************/
+
 
 .product-images-grid{
   display: flex;
@@ -40,11 +140,9 @@ height: 25px;
 }
 
 .ProductPage{
-
   margin: 1.5rem auto;
   width: 90rem;
 }
-
 .RightPane{
   width: 34%;
   margin-left: 6%;
@@ -185,10 +283,8 @@ height: 25px;
 
   /** PRODUCT DETAILS IMAGE COMPONENT*/
 .main-image{
-
   width: 60%;
   list-style-type: none;
-
 }
 
 img.default-image {
@@ -308,9 +404,7 @@ img.default-image {
 }
 
 .titles-container{
-
   display: flex;
-
 }
 
 .thumb-gallery{
@@ -377,12 +471,9 @@ img.default-image {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-
 }
-
 .sales-price{
 color: red;
-
 }
 .style-thumbnails{
   height: 60px;
@@ -404,14 +495,10 @@ color: red;
   grid-row-gap: 10px;
   width: fit-content;
   column-gap: 1em;
-
 }
-
 .TopContent{
-
   display: flex;
 }
-
 .product-Name-Header{
     display: block;
     font-size: 2em;
@@ -427,17 +514,407 @@ color: red;
   margin: 0 auto;
   max-width: 75%;
 }
-.reviews-list{
-  max-width: 66%;
-  margin: 0 auto;
+
+/* ==================== RELATED PRODUCTS ==================== */
+
+/* RELATED PRODUCTS LIST */
+.related-products {
+  display: flex;
+}
+.rp-list {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+}
+.rp-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) );
+  grid-auto-flow: column;
+  transition-duration: 1s;
+}
+.rp-Lbtn {
+  position: relative;
+  border: none;
+  background: none;
+  z-index: 10;
+  margin: auto;
+}
+.rp-Lbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.rp-Lbtn button:hover {
+  transform: scale(1.5) perspective(1px);
+}
+.rp-Rbtn {
+  position: relative;
+  border: none;
+  background: none;
+  z-index: 10;
+  margin: auto;
+}
+.rp-Rbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.rp-Rbtn button:hover {
+  transform: scale(1.5) perspective(1px);
+}
+
+/* RELATED PRODUCT CARD */
+.rp-card {
+  min-width: 250px;
+  min-height: 300px;
+  border-radius: 8px;
+  margin: 25px;
+}
+.rp-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+.rp-modal button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+.rp-modal svg {
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.rp-preview {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.rp-preview img{
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 200px;
+  max-height: 200px;
+  /* border-radius: 5px; */
+  object-fit: scale-down;
+}
+.rp-category {
+}
+.rp-defaultPrice {
+  text-decoration: line-through;
+  margin: 0;
+}
+.rp-salePrice {
+  color: red;
+  margin: 0;
+}
+.rp-description {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.rp-desc-head {
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: end;
+}
+.rp-name {
+  cursor: pointer;
+}
+.rp-desc-content {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.rp-rating {
+}
+.rp-star {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: pre;
+}
+
+/* COMPARISON MODAL */
+.compare-modal h3, h4{
+  width: 200px;
+  padding: 20px;
+  margin: 0;
+}
+.compare-modal, .rp-overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.compare-modal {
+  z-index: 100;
+}
+.rp-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+.cm-header {
+  text-align: center;
+}
+.cm-header p {
+  margin: 0;
+  font-size: 12px;
+}
+.cm-products {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  white-space: pre-line;
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+}
+.cm-body {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+.cm-body h4 {
+  font-style: italic;
+  width: 200px;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.cm-diff {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border-bottom: 1px solid #d8d8d8;
+}
+.cm-diff p {
+  width: 20px;
+  height: 20px;
+}
+.cm-same {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border-bottom: 1px solid #d8d8d8;
+}
+.cm-same p {
+  width: 20px;
+  height: 20px;
+}
+.cm-same div {
+  width: 200px;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.cm-btn {
+  display: flex;
+  justify-content: end;
+}
+.cm-close {
+  border: none;
+  cursor: pointer;
+}
+
+/* YOUR OUTFIT */
+.outfit {
+  display: flex;
+}
+.closet-container {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+}
+.closet-list {
+  padding: 26px;
+  transition-duration: 1s;
+}
+.closet-container {
+  display: flex;
+}
+.closet-add {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+.closet-add button {
+  width: 50px;
+  height: 50px;
+  border: solid;
+  background: none;
+  cursor: pointer;
+}
+.closet-add svg {
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+.closet-close {
+  display: flex;
+  justify-content: end;
+}
+.closet-close button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+.closet-Lbtn {
+  position: relative;
+  border: none;
+  background: none;
+  z-index: 10;
+  margin: auto;
+}
+.closet-Lbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closet-Lbtn button:hover {
+  transform: scale(1.5) perspective(1px);
+}
+.closet-Rbtn {
+  position: relative;
+  border: none;
+  background: none;
+  z-index: 10;
+  margin: auto;
+}
+.closet-Rbtn button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.closet-Rbtn button:hover {
+  transform: scale(1.5) perspective(1px);
+}
+
+/* THUMBNAIL LIST */
+.thumbnail-list {
+  display: flex;
+  min-width: 50px;
+  min-height: 20px;
+  max-height: 30px;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  background-color:rgba(255,255,255,0.6);
+  border-radius: 20px;
+  transition-duration: 4s;
+}
+.thumbnail-list button {
+  background-color:rgba(255,255,255,0.6);
+  border-radius: 20px;
+  border-width: thin;
+  padding: 5px;
+}
+.thumbnail-list button:hover {
+  transform: scale(1.2) perspective(1px);
+  cursor: pointer;
+}
+.thumbnail-list img {
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  object-fit: cover;
+  margin: auto;
+  padding: 5px;
+  cursor: pointer;
+}
+.thumbnail-list img:hover {
+  transform: scale(1.5) perspective(1px);
+}
+
+/* ============================== RATINGS & REVIEWS =========================================== */
+.ratings-and-reviews {
+  display: flex;
+  justify-content: space-around;
+  max-height: 95vh;
+}
+.breakdowns {
+  flex-grow: 1;
+}
+
+
+/* =================================== RATINGS ================================================ */
+.rating-meter {
+  height: 10px;
+  width: 100px;
+  background: #aaa;
+}
+.rating-meter-fill {
+  display: block;
+  height: 100%;
+  background-color: rgb(43,194,83);
+}
+.average-rating-display {
+  font-size: 4rem;
+  font-weight: bold;
+}
+.star-rating-meter {
+  display: flex;
+}
+
+
+/* =============================== CHARACTERISTICS ============================================ */
+.characteristic {
+  width: 300px;
+}
+.characteristic-meter {
+  height: 15px;
+  width: 100%;
+  background: #aaa;
+}
+.characteristic-meter-pointer {
+  position: relative;
+  display: block;
+  width: 5%;
+  height: 100%;
+  background: black;
+}
+.characteristic > .scale {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* =================================== REVIEWS ================================================ */
+.reviews {
+  max-width: 75%;
+  margin-left: 10px;
+  flex-grow: 3;
+}
+.reviews-list {
+  max-height: 90%;
+  overflow: auto;
 }
 .review-tile {
   border-bottom: 1px solid black;
   margin-bottom: 2rem;
+  word-wrap: break-word;
 }
 .top-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .review-summary {
   font-weight: bold;
@@ -472,10 +949,155 @@ button.more-reviews, button.add-review {
 button.more-reviews {
   margin-right: 20px;
 }
-p {
-  word-wrap: break-word;
+.reviews-filters{
+  display: flex;
+  justify-content: space-between;
 }
-.reviews-container {
-  max-height: 700px;
+
+/* ============================= REVIEW PHOTO MODAL ========================================== */
+.review-photo-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+button.review-photo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 10px 10px 0;
+  padding: 0;
+}
+button.close-photo-modal {
+  color: #ffffff;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.review-photo-expanded {
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+/* ============================= WRITE REVIEWS MODAL ========================================== */
+.write-review-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.write-review-modal-content {
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+  position: relative;
+}
+.write-review-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.close-write-review-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.title-container > .title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 5px;
+}
+.write-review-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.write-review-stars {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.write-review-star {
+  cursor: pointer;
+}
+.write-review-errors {
+  margin: 10px;
+  border: 1px dashed red;
+  color: red;
+  width: 50%;
+}
+.write-review-errors > .error-header {
+  text-decoration: underline;
+  margin: 5px;
+}
+.upload-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.photo-upload-button {
+  background-color: #fff;
+  border: 1px dashed black;
+  border-radius: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  margin: 10px;
+}
+.upload-error {
+  color: red;
+}
+.thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+.thumbnail-photo {
+  max-width:100%;
+  max-height:100%;
+}
+button.remove-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border: none;
+  font-size: 3rem;
+  opacity: 0;
+  padding: 0;
+}
+button.remove-photo:hover {
+  color: white;
+  opacity: 100%;
 }

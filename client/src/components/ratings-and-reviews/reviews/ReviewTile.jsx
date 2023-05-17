@@ -3,10 +3,12 @@ import StarRatings from '../../shared/StarRatings';
 import HelpfulnessDisplay from './HelpfulnessDisplay';
 import ReportButton from './ReportButton';
 import ReviewPhoto from './ReviewPhoto';
+import TextHighlight from '../../shared/TextHighlight';
 
 const { useState, useEffect } = React;
 
-export default function ReviewTile({ review }) {
+export default function ReviewTile({ review, search }) {
+  const [summary, setSummary] = useState('');
   const [body, setBody] = useState('');
   const [showMore, setShowMore] = useState(false);
   const dateOptions = {
@@ -14,32 +16,37 @@ export default function ReviewTile({ review }) {
     month: 'long',
     day: 'numeric',
   };
+
   useEffect(() => {
     if (review.body.length > 250) {
-      setBody(`${review.body.slice(0, 251)}...`);
+      setBody(`${review.body.slice(0, 250)}...`);
       setShowMore(true);
     } else {
       setBody(review.body);
     }
-  }, [review.body]);
+    if (review.summary.length > 60) {
+      setSummary(`${review.summary.slice(0, 60)}...`);
+    } else {
+      setSummary(review.summary);
+    }
+  }, [review]);
+
   const handleShowMore = () => {
     setShowMore(false);
     setBody(review.body);
   };
 
   return (
-    <div className="review-tile">
+    <div className="review-tile" aria-label="review">
       <div className="top-row">
         <div className="top-row-left"><StarRatings rating={review.rating} /></div>
         <div className="top-row-right">
-          {`${review.reviewer_name}, `}
-          {new Date(review.date).toLocaleDateString('en-us', dateOptions)}
+          <span>{`${review.reviewer_name}, `}</span>
+          <span>{new Date(review.date).toLocaleDateString('en-us', dateOptions)}</span>
         </div>
       </div>
-      <div className="review-summary">{review.summary}</div>
-      <div className="review-body">
-        <p>{body}</p>
-      </div>
+      <div className="review-summary"><TextHighlight text={summary} search={search} /></div>
+      <div className="review-body"><TextHighlight text={body} search={search} /></div>
       {showMore
         ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
         : null}

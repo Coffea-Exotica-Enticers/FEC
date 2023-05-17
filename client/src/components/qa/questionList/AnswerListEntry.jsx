@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import ImageList from '../imageList/ImageList';
 
-// eslint-disable-next-line react/prop-types
 export default function AnswerListEntry({ answer }) {
   const [marked, setMarked] = useState(false);
   const [helpful, setHelpful] = useState(answer.helpfulness);
   const [reported, setReported] = useState(answer.reported);
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
 
   function markAnswerHelpful() {
     axios.put('/qa/answers/helpful', { id: answer.answer_id })
@@ -32,50 +37,60 @@ export default function AnswerListEntry({ answer }) {
 
   return (
     <>
-      <div>
-        A:
-        {' '}
-        {answer.body}
-      </div>
-      <div>
-        by
-        {' '}
-        {answer.answerer_name}
-      </div>
-      <div>
-        {answer.date}
-      </div>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        markAnswerHelpful();
-      }}
-      >
-        <div>
-          {helpful}
-          {' '}
-          people found this answer helpful.
+      <div className="answer-entry">
+        <div className="qa-body-asker">
+          <div>
+            A:
+            {' '}
+            {answer.body}
+          </div>
+          <div>
+            {answer.answerer_name}
+            {', '}
+            {new Date(answer.date).toLocaleDateString('en-us', dateOptions)}
+          </div>
         </div>
-        {
-          marked
-            ? (
-              <div>You marked this answer as helpful.</div>
-            )
-            : <button type="submit">Mark This Answer as Helpful</button>
-        }
-      </form>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        reportAnswer();
-      }}
-      >
-        {
-          reported
-            ? (
-              <div>Reported</div>
-            )
-            : <button type="submit">Report</button>
-        }
-      </form>
+        <div className="helpful-report">
+          <div>
+            Helpful?
+            {' '}
+          </div>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            markAnswerHelpful();
+          }}
+          >
+            {
+              marked
+                ? (
+                  <div>Thanks!</div>
+                )
+                : <button type="submit">Yes</button>
+            }
+          </form>
+          <div>
+            {' '}
+            {helpful}
+            {' '}
+          </div>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            reportAnswer();
+          }}
+          >
+            {
+              reported
+                ? (
+                  <div>Reported</div>
+                )
+                : <button type="submit">Report</button>
+            }
+          </form>
+        </div>
+      </div>
+      <div>
+        <ImageList photos={answer.photos} />
+      </div>
     </>
   );
 }
