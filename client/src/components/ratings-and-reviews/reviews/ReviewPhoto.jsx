@@ -2,7 +2,7 @@ import React from 'react';
 
 const { useState } = React;
 
-export default function ReviewPhotos({ url }) {
+export default function ReviewPhoto({ url }) {
   const [showModal, setShowModal] = useState(false);
   return (
     <span className="review-photo-container">

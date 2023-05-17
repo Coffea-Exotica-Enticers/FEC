@@ -15,8 +15,6 @@ function RelatedProductCard({
   const [salePrice, setSalePrice] = useState(null);
   const defaultImgURL = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
 
-  // console.log('productStyles: ', productStyles)
-
   // ================= HELPER FUNCTIONS =====================
   // Function to find the average star rating
   function getAverageRating(ratings) {
@@ -90,7 +88,7 @@ function RelatedProductCard({
             </div>
           )}
 
-        <div className="rp-preview" onMouseEnter={() => setShowThumbnails(true)} onMouseLeave={() => setShowThumbnails(false)}>
+        <div className="rp-preview" data-testid="rpc-preview" onMouseEnter={() => setShowThumbnails(true)} onMouseLeave={() => setShowThumbnails(false)}>
           {defaultImg ? <img src={defaultImg || defaultImgURL} alt="default" /> : <img src={defaultImgURL} alt="No Img Found" />}
           {showThumbnails && (
           <ThumbnailCarousel changeDefaultImg={changeDefaultImg} thumbnails={thumbnails} />)}
