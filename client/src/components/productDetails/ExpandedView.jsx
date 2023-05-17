@@ -73,7 +73,7 @@ export default function ExpandedView({
           src={photos[index].url}
           style={{ display: 'block' }}
           onClick={(e) => handleZoom(e)}
-          onMouseMove={isZoomed && ((e) => handleZoom(e))}
+          onMouseMove={(e) => (isZoomed ? handleZoom(e) : null)}
         />
       </div>
 
