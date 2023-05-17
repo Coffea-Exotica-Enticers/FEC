@@ -18,26 +18,3 @@ describe('buttons for modal windows properly render', () => {
     expect(button).toBeTruthy();
   });
 });
-
-// describe('modals properly send post requests', () => {
-//   afterEach(() => {
-//     jest.clearAllMocks();
-//   });
-
-//   axios.post.mockResolvedValue({
-//     data: {},
-//     status: 200,
-//   });
-
-//   test('Add question posts properly', () => {
-//     render(<AddQModal product={40349} />);
-//     const modalText = screen.getByPlaceholderText('Write Your Question Here...');
-//     const modalUser = screen.getByPlaceholderText('Nickname...');
-//     const modalEmail = screen.getByPlaceholderText('Email...');
-//     fireEvent.change(modalText, { target: { value: 'Tis I, the Frenchiest Fry' } });
-//     fireEvent.change(modalUser, { target: { value: 'SharkNado' } });
-//     fireEvent.change(modalEmail, { target: { value: 'SharkNado@gmail.com' } });
-//     fireEvent.click(screen.getByText(/Report/));
-//     expect(axios.post).toHaveBeenCalledTimes(1);
-//   });
-// });
