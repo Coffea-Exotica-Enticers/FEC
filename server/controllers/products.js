@@ -5,7 +5,7 @@ const { ATELIER_API, API_TOKEN } = process.env;
 
 module.exports = {
   get: (req, res) => {
-    axios.get(`${ATELIER_API}/products/40344`, {
+    axios.get(`${ATELIER_API}/products/${req.params.product_id}`, {
       headers: {
         authorization: API_TOKEN,
       },
