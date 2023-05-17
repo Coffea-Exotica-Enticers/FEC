@@ -39,13 +39,13 @@ function RelatedProductsList({ product, updateProduct }) {
   function moveRight() {
     if (index <= listLength - 3) {
       setIndex(index + 1);
-      setWidth(-((index) * 300));
+      setWidth(-((index) * 350));
     }
   }
   function moveLeft() {
     if (index > 1) {
       setIndex(index - 1);
-      setWidth((width + 300));
+      setWidth((width + 350));
     }
   }
   function closeModal() {
