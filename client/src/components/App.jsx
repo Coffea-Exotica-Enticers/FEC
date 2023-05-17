@@ -34,7 +34,7 @@ export default function App() {
   return (
     <div id="App">
       <StarTemplate />
-      {/* <Product product={product} setProduct={setProduct} metaData={metaData} /> */}
+      <Product product={product} setProduct={setProduct} metaData={metaData} />
       <QAModule product={product} />
       <RelatedProductsList product={product} updateProduct={updateProduct} />
       <ClosetList product={product} />
