@@ -8,8 +8,7 @@ module.exports = {
 
     axios.get(`${ATELIER_API}/qa/questions`, {
       params: {
-        // product_id: req.query.id,
-        product_id: 40320,
+        product_id: req.query.id,
         page: req.query.page,
         count: req.query.count,
       },
