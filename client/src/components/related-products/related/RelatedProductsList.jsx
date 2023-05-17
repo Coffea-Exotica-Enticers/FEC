@@ -56,26 +56,25 @@ function RelatedProductsList({ product, updateProduct }) {
     setCompareItem(!compareItem);
     setShowModal(<ComparisonModal closeModal={closeModal} item={item} product={product} />);
   }
-
   return (
     <>
       {compareItem && (showModal)}
-      <div className="related-products">
+      <div className="related-products" data-testid="rp-component">
         {index !== 1 && (
           <div className="rp-Lbtn" onClick={() => moveLeft()}>
             <button type="button">&#5176;</button>
           </div>
         )}
-      <div className="rp-list">
-        <h2>Related Products List</h2>
-        <div className="rp-container" style={styles}>
-          {listLength
-            ? relatedProducts.map((item) => <RelatedProductCard key={item.id} openModal={openModal} closeModal={closeModal} item={item} product={product} updateProduct={updateProduct} />)
-            : 'Loading...'}
+        <div className="rp-list">
+          <h2>Related Products List</h2>
+          <div className="rp-container" style={styles}>
+            {listLength
+              ? relatedProducts.map((item) => <RelatedProductCard key={item.id} openModal={openModal} closeModal={closeModal} item={item} product={product} updateProduct={updateProduct} />)
+              : 'Loading...'}
+          </div>
         </div>
-      </div>
         {index <= listLength - 3 && listLength >= 5 && (
-          <div className="rp-Rbtn" onClick={() => moveRight()}>
+          <div className="rp-Rbtn" data-testid="rpl-right" onClick={() => moveRight()}>
             <button type="button">&#5171;</button>
           </div>
         )}
