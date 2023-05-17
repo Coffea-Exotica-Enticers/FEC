@@ -51,6 +51,7 @@ table {
    background-color: #f8f8f8;
   }
   #App{
+    /* background-color: #EDE9E6; */
     margin: 0 auto;
     max-width: 50%;
   }
@@ -81,6 +82,7 @@ table {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 }
 .modal-content {
   width: 500px;
@@ -103,6 +105,7 @@ table {
   overflow-y: auto;
 }
 .searchBar {
+  margin-bottom: 15px;
   width: 99%;
 }
 .question-entry, .answer-entry {
@@ -122,6 +125,12 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: end;
+}
+.helpful-report {
+  align-items: center;
+}
+.helpful-report-container {
+
 }
 .imgList {
   height: 100px;
@@ -148,6 +157,20 @@ table {
 }
 .modalUserInfo:valid, .modalText:valid {
   border: 2px solid black;
+}
+.qa-header {
+  color: #7F7C61;
+  font-family: 'Noto Serif', serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+button.qa-helpful, button.qa-report {
+  text-decoration: underline;
+  font-family: inherit;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
 }
 
 /*****************************************/

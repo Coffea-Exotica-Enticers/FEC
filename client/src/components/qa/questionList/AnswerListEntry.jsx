@@ -50,42 +50,44 @@ export default function AnswerListEntry({ answer }) {
             {new Date(answer.date).toLocaleDateString('en-us', dateOptions)}
           </div>
         </div>
-        <div className="helpful-report">
-          <div>
-            Helpful?
-            {' '}
+        <div className="helpful-report-container">
+          <div className="helpful-report">
+            <div>
+              Helpful?
+              {' '}
+            </div>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              markAnswerHelpful();
+            }}
+            >
+              {
+                marked
+                  ? (
+                    <div>Thanks!</div>
+                  )
+                  : <button type="submit" className="qa-helpful">Yes</button>
+              }
+            </form>
+            <div>
+              (
+              {helpful}
+              )
+            </div>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              reportAnswer();
+            }}
+            >
+              {
+                reported
+                  ? (
+                    <div>Reported</div>
+                  )
+                  : <button type="submit" className="qa-report">Report</button>
+              }
+            </form>
           </div>
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            markAnswerHelpful();
-          }}
-          >
-            {
-              marked
-                ? (
-                  <div>Thanks!</div>
-                )
-                : <button type="submit">Yes</button>
-            }
-          </form>
-          <div>
-            {' '}
-            {helpful}
-            {' '}
-          </div>
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            reportAnswer();
-          }}
-          >
-            {
-              reported
-                ? (
-                  <div>Reported</div>
-                )
-                : <button type="submit">Report</button>
-            }
-          </form>
         </div>
       </div>
       <div>

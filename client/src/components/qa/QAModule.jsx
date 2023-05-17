@@ -62,7 +62,7 @@ export default function QAModule({ product }) {
 
   return (
     <div>
-      <h2>Questions & Answers</h2>
+      <h2 className="qa-header">Questions & Answers</h2>
       <SearchBar qList={questionList} setShowQ={setQToShow} qLen={qLength} setSort={setSortedQ} />
       <QuestionList qArray={showQuestions} />
       <div className="question-buttons">
