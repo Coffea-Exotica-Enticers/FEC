@@ -9,8 +9,6 @@ width: 60%;
   display: flex;
 
 } */
-/*
-*{outline: 1px solid red;} */
 
 #App{
   margin: 0 auto;
@@ -53,7 +51,7 @@ body {
 .qa-container {
   max-height: 600px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .searchBar {
   width: 99%;
