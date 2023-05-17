@@ -44,3 +44,29 @@ const mockProduct2 = {
       value: 'Skinny',
     }],
 };
+
+describe('Comparison Modal', () => {
+  it('Should successfully render the header', () => {
+    render(<ComparisonModal item={mockProduct1} product={mockProduct2} />);
+    expect(screen.getByText(/comparing/i)).toBeTruthy();
+  });
+  it('Should successfully render the product name', () => {
+    render(<ComparisonModal item={mockProduct1} product={mockProduct2} />);
+    expect(screen.getByText(/morning joggers/i)).toBeTruthy();
+  });
+  it('Should successfully render the item name', () => {
+    render(<ComparisonModal item={mockProduct1} product={mockProduct2} />);
+    expect(screen.getByText(/camo onesie/i)).toBeTruthy();
+  });
+  it('Should successfully render feature characteristics', () => {
+    render(<ComparisonModal item={mockProduct1} product={mockProduct2} />);
+    expect(screen.getByText(/fabric/i)).toBeTruthy();
+    expect(screen.getByText(/cut/i)).toBeTruthy();
+    expect(screen.getByText(/buttons/i)).toBeTruthy();
+  });
+  it('Should successfully render the close button', () => {
+    render(<ComparisonModal item={mockProduct1} product={mockProduct2} />);
+    const closeBtn = screen.getByText(/x/i);
+    expect(closeBtn).toBeTruthy();
+  });
+});

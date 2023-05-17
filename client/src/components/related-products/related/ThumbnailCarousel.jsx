@@ -25,7 +25,7 @@ function ThumbnailCarousel({ changeDefaultImg, thumbnails }) {
   return (
     <div className="thumbnail-list">
       {index !== 1 && (
-        <button type="button" className="thumbnail-left" onClick={() => moveLeft()}>
+        <button type="button" data-testid="tl-left" className="thumbnail-left" onClick={() => moveLeft()}>
           &#5176;
         </button>
       )}
@@ -46,7 +46,7 @@ function ThumbnailCarousel({ changeDefaultImg, thumbnails }) {
       )}
 
       {index !== maxWidth && (
-        <button type="button" className="thumbnail-right" onClick={() => moveRight()}>
+        <button type="button" data-testid="tl-right" className="thumbnail-right" onClick={() => moveRight()}>
           &#5171;
         </button>
       )}
