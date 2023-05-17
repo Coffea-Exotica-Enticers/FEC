@@ -55,6 +55,7 @@ export default function QAModule({ product }) {
 
   useEffect(() => {
     if (product) {
+      console.log('I happened!');
       getAllQuestions();
     }
   }, [product]);
