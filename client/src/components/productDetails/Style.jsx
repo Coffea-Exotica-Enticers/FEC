@@ -7,8 +7,9 @@ import { ProductContext } from './Product';
 export default function Style() {
   const {
     styleList, selectedStyle, setSelectedStyle, isExpandedActive,
-    setSelectedPhoto,
   } = useContext(ProductContext);
+
+  console.log('selectedStyle', selectedStyle);
 
   return (
     <>
@@ -37,7 +38,7 @@ export default function Style() {
           <h2>Select Style</h2>
         </i>
         {styleList ? (
-          <div>
+          <div data-testid="stylename">
             {selectedStyle.name ? (
               <div>
                 <p>{selectedStyle.name}</p>

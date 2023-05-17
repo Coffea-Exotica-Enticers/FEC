@@ -6,6 +6,26 @@
 
 }
 
+.social-media-list{
+
+  list-style-type: none;
+  display: inline;
+  padding: inherit;
+
+}
+
+.social-media-list li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.svg-socialmedia{
+width: 25px;
+height: 25px;
+}
+
+
+
 .checkmark{
   background-color: #25fcff;
   height: 15px;

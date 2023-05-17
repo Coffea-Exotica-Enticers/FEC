@@ -46,6 +46,7 @@ export default function ImageGrid({
           <img
             className="default-image"
             alt="Default gallery"
+            aria-label="main Image"
             src={selectedStyle.photos[index].thumbnail_url}
             onClick={() => {
               setIsExpandedActive(true);

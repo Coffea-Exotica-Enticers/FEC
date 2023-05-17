@@ -4,12 +4,10 @@ const { ATELIER_API, API_TOKEN } = process.env;
 
 module.exports = {
   addToCart(req, res) {
-    axios.post(`${ATELIER_API}/cart/`, {
+    console.log('Req body', req.body);
+    axios.post(`${ATELIER_API}/cart`, req.body, {
       headers: {
         authorization: API_TOKEN,
-      },
-      params: {
-        sku_id: req.body.sku_id,
       },
     }).then(({ data }) => res.status(201).json(data))
       .catch((err) => {
@@ -19,7 +17,7 @@ module.exports = {
   },
 
   getCart(req, res) {
-    axios.get(`${ATELIER_API}/cart/`, {
+    axios.get(`${ATELIER_API}/cart`, {
       headers: {
         authorization: API_TOKEN,
       },

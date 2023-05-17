@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function ImageThumbnail({
   selectedStyle, setSelectedPhoto, setIndex,
@@ -20,7 +20,7 @@ export default function ImageThumbnail({
                 }}
               >
                 <div className="image withPlaceholder">
-                  <img className="isLoaded" src={thumbnail.thumbnail_url} alt="thumbnails" />
+                  <img className="isLoaded" src={thumbnail.thumbnail_url} alt="thumbnails" aria-label="small image" />
                 </div>
               </button>
             </li>

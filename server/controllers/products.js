@@ -16,7 +16,6 @@ module.exports = {
         res.sendStatus(404);
       });
   },
-  
   getStyles(req, res) {
     axios.get(`${ATELIER_API}/products/${req.params.product_id}/styles`, {
       headers: {

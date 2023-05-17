@@ -7,20 +7,8 @@ import React, { useState } from 'react';
 export default function ExpandedView({
   photos, index, show, onClose, setSelectedPhoto, setIndex,
 }) {
-  /**
-   * clicking on the main image will zoom the image by 2.5 times. Instead of displaying a magnifying glass on hover
-   */
-
-  /**
- * <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="40" height="40" fill="white"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19 21V30.001H21V21H30V19H21V10H19V19H10V21H19Z" fill="black"/>
-</svg>
- *
- *
- */
-
   const [isZoomed, setIsZoomed] = useState(false);
+  // const [offsets, setOffsets] = useState({ x: '', y: '' });
 
   function goToPrevious(e) {
     e.preventDefault();
@@ -38,25 +26,37 @@ export default function ExpandedView({
     }
   }
 
-  // function zoomIn(pageX, pageY) {
-  //   setIsZoomed(true);
-  //   currentMoveType === 'drag' ? initialDrag(pageX, pageY) : initialMove(pageX, pageY);
-  //   afterZoomIn && afterZoomIn();
-  // }
+  function handleZoom(e) {
+    e.preventDefault();
+    // returns a DOMRect object providing information about the size of an element
+    // and its position relative to the viewport.
+    const zoomer = e.currentTarget.getBoundingClientRect();
+    console.log(e.currentTarget, 'current Target');
+    if (!isZoomed) {
+      setIsZoomed(true);
+      // returns the X (horizontal) coordinate (in pixels) at which the mouse was clicked
+      const posX = e.pageX;
+      // returns the Y (vertical) coordinate (in pixels) at which the mouse was clicked
+      const posY = e.pageY;
 
-  // function handleClick(event) {
-  //   // if (isZoomed) {
-  //   // }
-  //   const positions = event.currentTarget.getBoundingClientRect();
+      let x = posX - zoomer.left;
+      let y = posY - zoomer.top;
 
-  // }
+      x -= window.scrollX;
+      y -= window.scrollY;
+      e.target.style.transformOrigin = `${x}px ${y}px`;
+      e.target.style.transform = `translate(${x}px, ${y}px) scale(2.5)`;
+      e.target.style.transform = '0.5s';
+      // e.target.style.transform = 'translate(-691.875px, 76.125px) scale(2.5)';
+    } else {
+      setIsZoomed(false);
+      e.target.style.transform = 'scale(2)';
+    }
+  }
+
   if (!show) {
     return null;
   }
-
-  // While the image is zoomed, no arrow buttons or thumbnail selection icons
-  // The mouse should display as a “-” symbol
-  //  for my div element ->  style="transition: transform 0.4s ease-out 0s; transform: translate(-691.875px, 76.125px) scale(2.5)
   return (
     <div className="Expanded-View-Modal" onClick={onClose}>
       <div className="expanded-image-container" onClick={(e) => e.stopPropagation()}>
@@ -72,7 +72,8 @@ export default function ExpandedView({
           alt="Expanded gallery"
           src={photos[index].url}
           style={{ display: 'block' }}
-          // onClick={setZoom}
+          onClick={(e) => handleZoom(e)}
+          onMouseMove={isZoomed && ((e) => handleZoom(e))}
         />
       </div>
 

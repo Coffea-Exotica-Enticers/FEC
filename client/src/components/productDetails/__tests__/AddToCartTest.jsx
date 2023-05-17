@@ -1,7 +1,10 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
-import ImageGrid from '../ImageGrid';
-import ImageThumbnail from '../ImageThumbnail';
+import { render, screen, fireEvent } from '@testing-library/react';
+import axios from 'axios';
+import AddToCart from '../AddToCart';
+import { ProductContext } from '../Product';
+
+jest.mock('axios');
 
 const selectedStyle = {
   style_id: 240500,
@@ -63,16 +66,31 @@ const selectedStyle = {
   },
 };
 
-describe('Render image', () => {
-  test('Image Grid component should render aria label', async () => {
-    const index = 0;
-    render(<ImageGrid selectedStyle={selectedStyle} index={index} />);
-    const testImage = screen.getByRole('img', { name: 'main Image' });
-    expect(testImage).toBeTruthy();
+axios.post.mockImplementation((url) => {
+  if (url === 'cart') {
+    return Promise.resolve();
+  }
+  return Promise.reject(new Error('Error in Axios mock call for Add to Cart Post request'));
+});
+
+describe('Should render size dropdown button', () => {
+  test('Add to Cart component should render size dropdown button', async () => {
+    render(
+      <ProductContext.Provider value={{ selectedStyle }}>
+        <AddToCart />
+      </ProductContext.Provider>,
+    );
+    const name = screen.getByRole('button', { name: 'size-button' });
+    expect(name).toBeTruthy();
   });
-  test('Image Thumbnail component should render image', () => {
-    render(<ImageThumbnail selectedStyle={selectedStyle} />);
-    const testImage = screen.getAllByRole('img', { name: 'small image' });
-    expect(testImage.length).toBe(6);
+
+  test('Add to Cart component should render quantity dropdown button', async () => {
+    render(
+      <ProductContext.Provider value={{ selectedStyle }}>
+        <AddToCart />
+      </ProductContext.Provider>,
+    );
+    const qName = screen.getByRole('button', { name: 'quantity-button' });
+    expect(qName).toBeTruthy();
   });
 });
