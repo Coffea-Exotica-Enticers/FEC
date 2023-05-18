@@ -57,7 +57,7 @@ function RelatedProductsList({ product, updateProduct }) {
     setShowModal(<ComparisonModal closeModal={closeModal} item={item} product={product} />);
   }
   return (
-    <div>
+    <div className="rp-all">
       {compareItem && (showModal)}
       <div className="related-products" data-testid="rp-component">
         {index !== 1 && (

@@ -47,33 +47,35 @@ function ClosetList({ product }) {
   }, [closet]);
 
   return (
-    <div className="outfit">
-      {index !== 1 && (
-        <div className="closet-Lbtn" onClick={() => moveLeft()}>
-          <button type="button">&#5176;</button>
-        </div>
-      )}
-      <div className="closet-container">
-        <div className="closet-list" style={styles}>
-          <h2>Your Outfit</h2>
-          <div className="closet-container">
-            {closet.length ? (
-            <PlaceholderCard addOutfit={addOutfit} />
-            ) : <></> }
-            {closet.length
-              ? closet.map(
-                (item) => <RelatedProductCard key={item.id} item={item} removeOutfit={removeOutfit} />,
-              )
-              : <PlaceholderCard addOutfit={addOutfit} />}
+    <div className="outfit-container">
+      <div className="outfit">
+        {index !== 1 && (
+          <div className="closet-Lbtn" onClick={() => moveLeft()}>
+            <button type="button">&#5176;</button>
+          </div>
+        )}
+        <div className="closet-container">
+          <div className="closet-list" style={styles}>
+            <h2>Your Outfit</h2>
+            <div className="closet-container">
+              {closet.length ? (
+              <PlaceholderCard addOutfit={addOutfit} />
+              ) : <></> }
+              {closet.length
+                ? closet.map(
+                  (item) => <RelatedProductCard key={item.id} item={item} removeOutfit={removeOutfit} />,
+                )
+                : <PlaceholderCard addOutfit={addOutfit} />}
+            </div>
           </div>
         </div>
-      </div>
 
-      {index <= listLength && index <= listLength - 1 && (
-        <div className="closet-Rbtn" onClick={() => moveRight()}>
-          <button type="button">&#5171;</button>
-        </div>
-      )}
+        {index <= listLength && index <= listLength - 1 && (
+          <div className="closet-Rbtn" onClick={() => moveRight()}>
+            <button type="button">&#5171;</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
