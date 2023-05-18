@@ -4,7 +4,7 @@ export default function StarTemplate() {
   // This determines how much of the star is filled in increments of 10%.
   const percentFillGradients = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((percent) => (
     <linearGradient key={`linear-gradient${percent}`} id={`fill-${percent}`}>
-      <stop offset={`${percent}%`} stopColor="#fece3c" />
+      <stop offset={`${percent}%`} stopColor="#38423b" />
       <stop stopOpacity="0" />
     </linearGradient>
   ));

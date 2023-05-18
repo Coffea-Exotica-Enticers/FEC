@@ -19,7 +19,8 @@ export default function IndividualCharacteristic({ charName, characteristic }) {
   return (
     <div className="characteristic">
       <div className="label">{charName}</div>
-      <div className="characteristic-meter" role="img" aria-label={`${charName} characteristic meter`}>
+      <div className="characteristic-meter-container">
+        <div className="characteristic-meter" role="img" aria-label={`${charName} characteristic meter`} />
         <div className="characteristic-meter-pointer" style={{ left: `${percentage}%` }} />
       </div>
       <div className="scale">

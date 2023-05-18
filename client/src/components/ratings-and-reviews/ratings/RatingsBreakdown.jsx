@@ -28,25 +28,30 @@ export default function RatingsBreakdown(props) {
 
   return (
     <div className="ratings-breakdown">
-      <span className="average-rating">
+      <span className="average-rating-container">
         <span className="average-rating-display">{averageRatings}</span>
-        <StarRatings rating={averageRatings} />
+        <span className="average-rating-right">
+          <StarRatings rating={averageRatings} />
+          <div className="total-ratings-label">{`${totalRatings} Ratings`}</div>
+        </span>
       </span>
       <div className="recommend-percentage">
         {`${percentRecommended}% of reviews recommend this product`}
       </div>
-      {ratingsValues.map(
-        (star) => (
-          <IndividualRating
-            key={star}
-            rating={star}
-            ratingCount={ratings[star]}
-            totalRatings={totalRatings}
-            ratingsFilter={ratingsFilter}
-            setRatingsFilter={setRatingsFilter}
-          />
-        ),
-      )}
+      <div className="star-ratings-meters-container">
+        {ratingsValues.map(
+          (star) => (
+            <IndividualRating
+              key={star}
+              rating={star}
+              ratingCount={ratings[star]}
+              totalRatings={totalRatings}
+              ratingsFilter={ratingsFilter}
+              setRatingsFilter={setRatingsFilter}
+            />
+          ),
+        )}
+      </div>
       {
         ratingsFilter.length
           ? (

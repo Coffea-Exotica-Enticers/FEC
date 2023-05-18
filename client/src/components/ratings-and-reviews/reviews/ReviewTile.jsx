@@ -38,18 +38,20 @@ export default function ReviewTile({ review, search }) {
 
   return (
     <div className="review-tile" aria-label="review">
-      <div className="top-row">
-        <div className="top-row-left"><StarRatings rating={review.rating} /></div>
-        <div className="top-row-right">
+      <div className="review-top-row">
+        <div className="review-top-row-left"><StarRatings rating={review.rating} /></div>
+        <div className="review-top-row-right">
           <span>{`${review.reviewer_name}, `}</span>
           <span>{new Date(review.date).toLocaleDateString('en-us', dateOptions)}</span>
         </div>
       </div>
       <div className="review-summary"><TextHighlight text={summary} search={search} /></div>
-      <div className="review-body"><TextHighlight text={body} search={search} /></div>
-      {showMore
-        ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
-        : null}
+      <div className="review-body">
+        <TextHighlight text={body} search={search} />
+        {showMore
+          ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
+          : null}
+      </div>
       {review.recommend
         ? <div className="recommend-label">&#x2713; I recommend this product</div>
         : null}

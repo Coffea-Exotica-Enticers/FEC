@@ -33,7 +33,7 @@ export default function StarRatings({ rating }) {
             width="1.5em"
             height="1.5em"
           >
-            <use href="#star-template" fill={`url(#fill-${starPercentage})`} stroke="#fece3c" />
+            <use href="#star-template" fill={`url(#fill-${starPercentage})`} stroke="#38423b" />
           </svg>
         ))
       }

@@ -4,7 +4,7 @@ import IndividualCharacteristic from './IndividualCharacteristic';
 export default function CharacteristicsBreakdown({ characteristics }) {
   const characteristicsObjects = Object.keys(characteristics);
   return (
-    <div>
+    <div className="characteristics-breakdowns">
       {characteristicsObjects.map(
         (char) => (
           <IndividualCharacteristic
