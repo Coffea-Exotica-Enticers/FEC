@@ -34,14 +34,14 @@ export default function Style() {
         </div>
       </div>
       <div>
-        <i>
+        <i className="selectStyle">
           <h2>Select Style</h2>
         </i>
         {styleList ? (
-          <div data-testid="stylename">
+          <div className="stylename" data-testid="stylename">
             {selectedStyle.name ? (
               <div>
-                <p>{selectedStyle.name}</p>
+                <p className="stName">{selectedStyle.name}</p>
               </div>
             ) : styleList[0].name}
             <div className="thumbnail-container">
