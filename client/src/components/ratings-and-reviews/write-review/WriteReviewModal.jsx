@@ -63,21 +63,19 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
   return (
     <div className="write-review-modal">
       <div className="write-review-modal-content">
-        <div className="write-review-modal-header">
-          <div className="title-container">
-            <div className="title">Write Your Review</div>
-            <div className="subtitle">
-              About the
-              <span className="product-name">{` ${product.name}`}</span>
-            </div>
+        <button type="button" className="close-write-review-modal" onClick={() => setShowModal(false)}>
+          &times;
+        </button>
+        <div className="title-container">
+          <div className="title">Write Your Review</div>
+          <div className="subtitle">
+            About the
+            <span className="product-name">{` ${product.name}`}</span>
           </div>
-          <button type="button" className="close-write-review-modal" onClick={() => setShowModal(false)}>
-            &times;
-          </button>
         </div>
 
         <div className="write-review-modal-body">
-          <div>Mandatory fields are marked with an asterisk (*)</div>
+          <div className="mandatory-fields-notice">Mandatory fields are marked with an asterisk (*)</div>
           <form onSubmit={handleSubmit}>
             <RateProduct rating={rating} setRating={setRating} />
             <Recommend setRecommend={setRecommend} />

@@ -39,8 +39,7 @@ export default function PhotoUpload({ photos, setPhotos }) {
           setPhotos([...photos, data.secure_url]);
           setThumbnails({ ...thumbnails, [blob]: data.secure_url });
         })
-        .catch((err) => {
-          console.error('PROBLEM GETTING IMAGE URLS', err);
+        .catch(() => {
           setShowError(true);
           setUploadCount(uploadCount - 1);
           removePhoto(blob);

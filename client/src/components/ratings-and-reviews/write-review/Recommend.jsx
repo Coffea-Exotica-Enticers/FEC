@@ -4,7 +4,7 @@ export default function Recommend({ setRecommend }) {
   return (
     <div className="write-review-recommend">
       Do you recommend this product?*
-      <label htmlFor="recommend-yes">
+      <label htmlFor="recommend-yes" className="recommend-yes">
         <input
           type="radio"
           id="recommend-yes"
@@ -15,7 +15,7 @@ export default function Recommend({ setRecommend }) {
         />
         Yes
       </label>
-      <label htmlFor="recommend-no">
+      <label htmlFor="recommend-no" className="recommend-no">
         <input
           type="radio"
           id="recommend-no"

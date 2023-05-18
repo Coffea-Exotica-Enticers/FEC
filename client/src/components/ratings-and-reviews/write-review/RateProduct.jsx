@@ -41,7 +41,7 @@ export default function RateProduct({ rating, setRating }) {
               onClick={() => setRating(index + 1)}
               aria-label={`${index + 1} star`}
             >
-              <use href="#star-template" fill={`url(#fill-${percent})`} stroke="#fece3c" />
+              <use href="#star-template" fill={`url(#fill-${percent})`} stroke="#38423b" />
             </svg>
           ))
         }
