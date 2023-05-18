@@ -45,7 +45,7 @@ function ThumbnailCarousel({ changeDefaultImg, thumbnails }) {
         <img onClick={() => changeDefaultImg(thumbnails[move + 3])} src={thumbnails[move + 3]} alt="img 4" />
       )}
 
-      {index !== maxWidth && (
+      {index !== maxWidth && maxWidth > 1 && (
         <button type="button" data-testid="tl-right" className="thumbnail-right" onClick={() => moveRight()}>
           &#5171;
         </button>

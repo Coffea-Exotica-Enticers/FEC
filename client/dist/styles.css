@@ -572,11 +572,19 @@ color: red;
 /* RELATED PRODUCTS LIST */
 .related-products {
   display: flex;
+  padding-top: 50px;
 }
 .rp-list {
   position: relative;
   overflow: hidden;
-  padding: 26px;
+  background-color: rgb(237, 233, 230);
+}
+.rp-list h2 {
+  color: #7c7b5d;
+  font-size: 30px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 300;
+  padding: 30px 0 10px 30px;
 }
 .rp-container {
   display: grid;
@@ -590,11 +598,20 @@ color: red;
   background: none;
   z-index: 10;
   margin: auto;
+  margin-right: -12px;
 }
 .rp-Lbtn button {
-  background: none;
-  border: none;
   cursor: pointer;
+  border-radius: 20px;
+  border: solid;
+  border-color: #7c7b5d;
+  padding: 0 8px 0 8px;
+  background-color: #f8f8f8;
+  color: #7c7b5d;
+  font-weight: 600;
+  width: 40px;
+  height: 40px;
+  transition-duration: .3s;
 }
 .rp-Lbtn button:hover {
   transform: scale(1.5) perspective(1px);
@@ -605,45 +622,77 @@ color: red;
   background: none;
   z-index: 10;
   margin: auto;
+  margin-left: -12px;
 }
 .rp-Rbtn button {
-  background: none;
-  border: none;
   cursor: pointer;
+  border-radius: 20px;
+  border: solid;
+  border-color: #7c7b5d;
+  padding: 0 8px 0 8px;
+  background-color: #f8f8f8;
+  color: #7c7b5d;
+  font-weight: 600;
+  transition-duration: .3s;
+  width: 40px;
+  height: 40px;
 }
 .rp-Rbtn button:hover {
   transform: scale(1.5) perspective(1px);
 }
 
 /* RELATED PRODUCT CARD */
-.rp-card {
-  min-width: 250px;
+.rp-cardcontainer {
+  /* min-width: 200px;
   min-height: 300px;
-  border-radius: 8px;
+  max-height: 300px; */
+  max-width: 350px;
+  min-width: 350px;
+  padding-top: 15px;
+}
+.rp-card {
+  min-width: 300px;
+  max-width: 300px;
+  min-height: auto;
+  border-radius: 3px;
   margin: 25px;
+  background-color: #f8f8f8;
+  color: #82807F;
+  border: solid;
+  border-color: #7c7b5d;
+  border-width: 1px;
 }
 .rp-modal {
   position: absolute;
-  padding-right: 5px;
-  padding-top: 5px;
+  padding-right: 12px;
+  padding-top: 12px;
   z-index: 40;
 }
 .rp-modal button {
-  border: none;
-  /* background: none; */
+  border: solid;
+  border-color: #7c7b5d;
+  border-width: 1px;
   cursor: pointer;
   padding: 0;
-  border-radius: 10px;
+  border-radius: 20px;
+  background-color: rgb(237, 233, 230);
+  width: 25px;
+  height: 25px;
+}
+.rp-modal button:hover {
+  transform: scale(1.3) perspective(1px);
 }
 .rp-modal svg {
   width: 20px;
   height: 20px;
   border: none;
+  font-weight: 100;
 }
 .rp-preview {
   display: flex;
   justify-content: flex-end;
-  /* margin: 10px; */
+  padding: 15px;
+  padding-bottom: 0;
 }
 .rp-preview img {
   /* border-radius: 5px; */
@@ -651,8 +700,13 @@ color: red;
   aspect-ratio: 0.9;
   margin-bottom: 8px;
   position: relative;
+  width: 100%;
+  height: auto;
 }
 .rp-category {
+  font-size: 14px;
+  padding: 5px 0 5px 15px;
+  cursor: pointer;
 }
 .rp-defaultPrice {
   text-decoration: line-through;
@@ -665,7 +719,7 @@ color: red;
 .rp-description {
   display: flex;
   flex-direction: column;
-  /* margin: 10px; */
+  padding: 10px 15px 10px 15px;
 }
 .rp-desc-head {
   display: grid;
@@ -676,20 +730,25 @@ color: red;
 }
 .rp-name {
   cursor: pointer;
+  color: #7c7b5d;
+  font-weight: bold;
+}
+.rp-name:hover {
+  transform: scale(1.2) perspective(1px);
+  transition-duration: .3s;
 }
 .rp-desc-content {
   display: flex;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 15px;
+  margin: 20px 15px 15px 15px;
+  flex-wrap: wrap;
 }
 .rp-rating {
+  padding: 10px 15px 10px 15px;
 }
 .rp-star {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  white-space: pre;
+  justify-content: flex-start;
 }
 
 /* COMPARISON MODAL */
@@ -715,6 +774,16 @@ color: red;
 }
 .cm-header {
   text-align: center;
+  color: #7c7b5d;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 300;
+}
+.cm-header h2 {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+.cm-header h3 {
+  font-size: 24px;
 }
 .cm-header p {
   margin: 0;
@@ -741,7 +810,8 @@ color: red;
   max-width: 600px;
   min-width: 300px;
   max-height: 600px;
-  overflow-y: scroll;
+  overflow-y: auto;
+  color: #82807F;
 }
 .cm-body h4 {
   font-style: italic;
@@ -766,6 +836,7 @@ color: red;
   flex-direction: row;
   text-align: center;
   border-bottom: 1px solid #d8d8d8;
+  color: #7c7b5d;
 }
 .cm-same p {
   width: 20px;
@@ -786,19 +857,30 @@ color: red;
   border: none;
   cursor: pointer;
 }
+.cm-close:hover {
+  transform: scale(1.3) perspective(1px);
+}
 
 /* YOUR OUTFIT */
 .outfit {
   display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .closet-container {
   position: relative;
   overflow: hidden;
-  padding: 26px;
 }
 .closet-list {
-  padding: 26px;
   transition-duration: 1s;
+  background-color: rgb(237, 233, 230);
+}
+.closet-list h2 {
+  color: #7c7b5d;
+  font-size: 30px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 300;
+  padding: 30px 0 10px 30px;
 }
 .closet-container {
   display: flex;
@@ -814,6 +896,12 @@ color: red;
   border: solid;
   background: none;
   cursor: pointer;
+  color: #7c7b5d;
+  border-width: medium;
+}
+.closet-add button:hover {
+  transform: scale(1.3) perspective(1px);
+  transition-duration: .3s;
 }
 .closet-add svg {
   width: 20px;
@@ -821,14 +909,24 @@ color: red;
   border: none;
 }
 .closet-close {
-  display: flex;
-  justify-content: end;
+  position: absolute;
+  top: 6.6%;
+  z-index: 50;
+  color: #7c7b5d;
+  font-weight: bold;
 }
 .closet-close button {
   border: none;
   cursor: pointer;
   background: none;
   padding: 0;
+  font-size: x-large;
+  color: #7c7b5d;
+  font-weight: bold;
+}
+.closet-close button:hover {
+  transform: scale(1.5) perspective(1px);
+  transition-duration: .3s;
 }
 .closet-Lbtn {
   position: relative;
@@ -836,11 +934,20 @@ color: red;
   background: none;
   z-index: 10;
   margin: auto;
+  margin-right: -12px;
 }
 .closet-Lbtn button {
-  background: none;
-  border: none;
   cursor: pointer;
+  border-radius: 20px;
+  border: solid;
+  border-color: #7c7b5d;
+  padding: 0 8px 0 8px;
+  background-color: #f8f8f8;
+  color: #7c7b5d;
+  font-weight: 600;
+  width: 40px;
+  height: 40px;
+  transition-duration: .3s;
 }
 .closet-Lbtn button:hover {
   transform: scale(1.5) perspective(1px);
@@ -851,17 +958,30 @@ color: red;
   background: none;
   z-index: 10;
   margin: auto;
+  margin-left: -12px;
 }
 .closet-Rbtn button {
-  background: none;
-  border: none;
   cursor: pointer;
+  border-radius: 20px;
+  border: solid;
+  border-color: #7c7b5d;
+  padding: 0 8px 0 8px;
+  background-color: #f8f8f8;
+  color: #7c7b5d;
+  font-weight: 600;
+  width: 40px;
+  height: 40px;
+  transition-duration: .3s;
 }
 .closet-Rbtn button:hover {
   transform: scale(1.5) perspective(1px);
 }
 
 /* THUMBNAIL LIST */
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+}
 .thumbnail-list {
   display: flex;
   min-width: 50px;
@@ -869,18 +989,20 @@ color: red;
   max-height: 30px;
   justify-content: space-evenly;
   position: absolute;
-  top: 65%;
-  background-color:rgba(255,255,255,0.6);
-  border-radius: 10px;
-  transition-duration: 4s;
+  bottom: 30%;
+  background-color: inherit;
+  border-radius: 4px;
 }
 .thumbnail-list button {
-  /* background-color:rgba(255,255,255,0.6); */
-  /* border-radius: 20px;
-  border-width: thin; */
-  border: none;
-  background: none;
-  padding: 5px;
+  border-radius: 20px;
+  border: solid;
+  border-color: #7c7b5d;
+  padding: 0 8px 0 8px;
+  background-color: rgb(237, 233, 230);
+  color: #7c7b5d;
+  font-weight: 600;
+  transition-duration: .3s;
+  z-index: 40;
 }
 .thumbnail-list button:hover {
   transform: scale(1.7) perspective(1px);
@@ -892,9 +1014,13 @@ color: red;
   max-width: 20px;
   max-height: 20px;
   object-fit: cover;
-  margin: auto;
-  padding: 5px;
+  margin-right: 4px;
+  padding: 3px;
   cursor: pointer;
+  border: solid;
+  border-color: #7c7b5d;
+  background-color: rgb(237, 233, 230);
+  transition-duration: .3s;
 }
 .thumbnail-list img:hover {
   transform: scale(1.5) perspective(1px);
