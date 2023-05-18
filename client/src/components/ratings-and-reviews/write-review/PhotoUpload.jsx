@@ -55,8 +55,8 @@ export default function PhotoUpload({ photos, setPhotos }) {
       <div className="upload-row">
         {
           Object.keys(thumbnails).map((thumbnailBlob) => (
-            <span className="thumbnail">
-              <img className="thumbnail-photo" key={thumbnailBlob} src={thumbnailBlob} alt="thumbnail" />
+            <span className="write-review-thumbnail">
+              <img className="write-review-thumbnail-photo" key={thumbnailBlob} src={thumbnailBlob} alt="thumbnail" />
               <button type="button" className="remove-photo" onClick={() => removePhoto(thumbnailBlob)}>
                 &times;
               </button>

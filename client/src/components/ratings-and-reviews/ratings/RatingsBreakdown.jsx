@@ -36,7 +36,7 @@ export default function RatingsBreakdown(props) {
         </span>
       </span>
       <div className="recommend-percentage">
-        {`${percentRecommended}% of reviews recommend this product`}
+        {`${percentRecommended}% Recommended`}
       </div>
       <div className="star-ratings-meters-container">
         {ratingsValues.map(

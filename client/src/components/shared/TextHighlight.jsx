@@ -6,7 +6,8 @@ export default function TextHighlight({ text, search }) {
     const split = text.split(pattern);
     const highlighted = text.match(pattern);
     return split.map((section, index) => (
-      <span key={section}>
+      // eslint-disable-next-line react/no-array-index-key
+      <span key={index}>
         {section}
         {index !== split.length - 1 ? <mark data-testid="highlighted">{highlighted[index]}</mark> : null}
       </span>

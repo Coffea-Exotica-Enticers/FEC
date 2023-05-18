@@ -113,10 +113,11 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
                 For authentication reasons, you will not be emailed.
               </div>
             </div>
-            <PhotoUpload photos={photos} setPhotos={setPhotos} />
             <SummaryInput setSummary={setSummary} />
             <BodyInput setBody={setBody} />
+            <PhotoUpload photos={photos} setPhotos={setPhotos} />
             <div className="rate-characteristics">
+              <div className="label">Rate Characteristics*</div>
               {relevantChars.map((char) => (
                 <RateCharacteristic
                   key={char}
