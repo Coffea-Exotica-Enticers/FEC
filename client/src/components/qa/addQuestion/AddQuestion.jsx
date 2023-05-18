@@ -10,7 +10,7 @@ export default function AddQuestion({ product }) {
 
   return (
     <>
-      <button type="button" onClick={() => revealModal(true)}>Ask Your Question</button>
+      <button type="button" className="addQuestion" onClick={() => revealModal(true)}>Ask Your Question</button>
       <AddQModal show={show} revealModal={revealModal} product={product} />
     </>
   );

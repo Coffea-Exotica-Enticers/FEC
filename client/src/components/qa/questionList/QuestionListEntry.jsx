@@ -36,10 +36,9 @@ export default function QuestionListEntry({ question }) {
 
   return (
     <div className="question-entry" data-testid="question-entry">
+      <div className="q-symbol">Q</div>
       <div className="qa-body-asker">
         <div>
-          Q:
-          {' '}
           {question.question_body}
         </div>
         <div className="name-and-date">
@@ -62,7 +61,11 @@ export default function QuestionListEntry({ question }) {
             {
               marked
                 ? (
-                  <div>Thanks!</div>
+                  <div>
+                    {' '}
+                    Thanks!
+                    {' '}
+                  </div>
                 )
                 : <button type="submit" className="qa-helpful">Yes</button>
             }
@@ -79,7 +82,7 @@ export default function QuestionListEntry({ question }) {
             {
               reported
                 ? (
-                  <div>Reported</div>
+                  <div> Reported</div>
                 )
                 : <button type="submit" className="qa-report">Report</button>
             }

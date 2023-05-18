@@ -74,7 +74,7 @@ export default function QAModule({ product }) {
               showMoreQuestions();
             }}
             >
-              <button type="submit">More Questions</button>
+              <button type="submit" className="moreQuestions">More Questions</button>
             </form>
           )
           : ''

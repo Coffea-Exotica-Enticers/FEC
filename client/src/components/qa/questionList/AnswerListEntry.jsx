@@ -38,10 +38,9 @@ export default function AnswerListEntry({ answer }) {
   return (
     <>
       <div className="answer-entry">
+        <div className="a-symbol">A</div>
         <div className="qa-body-asker">
           <div>
-            A:
-            {' '}
             {answer.body}
           </div>
           <div className="name-and-date">
@@ -64,7 +63,7 @@ export default function AnswerListEntry({ answer }) {
               {
                 marked
                   ? (
-                    <div>Thanks!</div>
+                    <div> Thanks! </div>
                   )
                   : <button type="submit" className="qa-helpful">Yes</button>
               }
@@ -81,7 +80,7 @@ export default function AnswerListEntry({ answer }) {
               {
                 reported
                   ? (
-                    <div>Reported</div>
+                    <div> Reported</div>
                   )
                   : <button type="submit" className="qa-report">Report</button>
               }

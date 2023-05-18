@@ -62,7 +62,7 @@ export default function AnswerList({ id }) {
                       showMoreAnswers();
                     }}
                     >
-                      <button type="submit">More Answers</button>
+                      <button type="submit" className="moreAnswers">More Answers</button>
                     </form>
                   )
                   : ''
