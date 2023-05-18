@@ -59,17 +59,25 @@ table {
     max-width: 60%;
   }
 
-  /**  PRODUCT DETAILS CSS START ****/
-  /* .Top_left-pane{
-
-  display: flex;
-  width: 60%;
-
-  } */
-  /* .ProductPage{
+  .topnav{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(127, 124, 97);
+    color: #fff;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30px;
+    font-style: italic;
+  }
+  .compName{
 
-  } */
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-family: 'NOTO SERIF';
+    color: white;
+    font-size: 2em;
+  }
 
 /* =========================GLOBAL CSS ABOVE================================= */
 /*****************************************/
@@ -262,6 +270,7 @@ fill: #38423B;
 .ProductPage{
   margin: 1.5rem auto;
   width: 100%;
+  padding-bottom: 60px;
 }
 .RightPane{
   width: 34%;
@@ -293,6 +302,10 @@ fill: #38423B;
 
   font-style: italic;
   font-size: 1.5rem;
+}
+.selectSize-text{
+
+  color: #e6e2de;
 
 }
   .size-dropdown{
@@ -324,7 +337,7 @@ fill: #38423B;
   .dropdown-list{
     position: relative;
     width: 100%;
-    background-color: #e6e2de;
+    background-color: #F8F8F8;
     border: 1px solid slategray;
     display: inline-block;
   }
@@ -369,7 +382,6 @@ fill: #38423B;
   font-size: 0.75rem;
   color: #000;
   letter-spacing: 0.1rem;
-  display: inline-block;
   height: 40px;
 }
 
@@ -437,13 +449,13 @@ cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
     gap: 16px;
 }
 
-.left-button-image{
+.product-left-button-image{
     position: absolute;
     overflow: auto;
     height: 40px;
     width: 40px;
     bottom: 300px;
-    left: 185px;
+    left: 145px;
     display: inline-table;
     background-color: rgb(255, 255, 255);
     cursor: pointer;
@@ -452,13 +464,13 @@ cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
 }
 
 
-.right-button-image{
+.product-right-button-image{
     position: absolute;
     overflow: auto;
     height: 40px;
     width: 40px;
     bottom: 300px;
-    right: 24px;
+    right: 20px;
     display: inline-table;
     background-color: rgb(255, 255, 255);
     cursor: pointer;
@@ -475,13 +487,24 @@ cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
 } */
 
 
-.thumbnail-button{
+.product-thumbnail-button{
   border: none;
+
+}
+
+.product-thumbnail-button.focus{
+  background:olive;
+}
+
+.product-thumbnail-button:hover{
+
+  background-color: #c1bbb8;
+  transition: 0.4s;
 }
 
 img.default-image {
   width: 467px;
-  height: fit-content;
+  height: 669px;
 }
 
 .image.withPlaceholder {
@@ -503,7 +526,7 @@ img.default-image {
   cursor: pointer;
 }
 
-.ThumbnailContainer{
+.Product-ThumbnailContainer{
     display: flex;
     position: relative;
     flex-direction: column;
@@ -526,7 +549,7 @@ img.default-image {
 
 }
 
-.Thumbnail{
+.Product-Thumbnail{
   position: relative;
     height: 60px;
     width: 60px;
@@ -536,7 +559,7 @@ img.default-image {
   display: flex;
 }
 
-.thumb-gallery{
+.product-thumb-gallery{
   list-style-type: none;
 }
 
@@ -559,6 +582,15 @@ img.default-image {
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
   animation-duration: 0.6s;
+}
+
+.exp-closebutton{
+    position:relative;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+    border:none;
 }
 
 .left-button-expanded{
@@ -600,10 +632,13 @@ img.default-image {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  display: flex;
 }
 
 .product-price {
   margin-bottom: 15px;
+  margin-right: 15px;
+
 }
 .sales-price{
 color: red;
@@ -624,7 +659,7 @@ color: red;
   margin-top: 15px;
 }
 /**Thumbnail container for Style Selector*/
-.thumbnail-container{
+.product-thumbnail-container{
   padding: 1px;
   --num-cols: 4;
   display: grid;
@@ -661,7 +696,13 @@ span.product-category {
   font-size: 1.1rem;
 }
 
+.span-salesprice{
+color: red;
+}
 
+.sizetext-button{
+  color: #e6e2de;
+}
 /******************  PRODUCT DETAILS CSS END  ******************/
 
 

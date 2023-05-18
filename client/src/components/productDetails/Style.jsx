@@ -28,7 +28,7 @@ export default function Style() {
           )}
         </div>
         <div className="sales-price">
-          <span>
+          <span className="span-salesprice">
             {selectedStyle.sale_price ? `$${selectedStyle.sale_price}` : null}
           </span>
         </div>
@@ -44,7 +44,7 @@ export default function Style() {
                 <p className="stName">{selectedStyle.name}</p>
               </div>
             ) : styleList[0].name}
-            <div className="thumbnail-container">
+            <div className="product-thumbnail-container">
               {styleList.map((style) => (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <div key={style.style_id}>

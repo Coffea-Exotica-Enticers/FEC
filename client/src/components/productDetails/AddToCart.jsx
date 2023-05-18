@@ -87,11 +87,11 @@ export default function Cart() {
           >
             {!skuID && (
               <div className="select-size" style={{ textAlign: 'center' }}>
-                <span>Select Size</span>
+                <span className="selectSize-text">Select Size</span>
               </div>
             )}
             {isInStock ? (
-              <span>
+              <span className="sizetext-button">
                 {size || null}
               </span>
             ) : 'OUT OF STOCK'}
@@ -100,14 +100,14 @@ export default function Cart() {
             </span>
           </button>
           {sizeShow && (
-          <div // select
+          <div
             className="dropdown-list"
             onMouseLeave={() => {
               setSizeShow(false);
             }}
           >
             {skus.map((sku) => (
-              <a // option
+              <a
                 href="#"
                 className="dropdown-item"
                 key={sku.sku_id}

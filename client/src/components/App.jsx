@@ -33,6 +33,9 @@ export default function App() {
 
   return (
     <div id="App">
+      <div className="topnav">
+        <div className="compName">Moda</div>
+      </div>
       <StarTemplate />
       <Product product={product} setProduct={setProduct} metaData={metaData} />
       <RelatedProductsList product={product} updateProduct={updateProduct} />

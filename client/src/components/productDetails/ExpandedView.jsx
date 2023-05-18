@@ -42,9 +42,13 @@ export default function ExpandedView({
       let x = posX - zoomer.left;
       let y = posY - zoomer.top;
 
-      x -= window.scrollX;
-      y -= window.scrollY;
-      e.target.style.transformOrigin = `${x}px ${y}px`;
+      const { clientWidth, clientHeight } = e.target;
+      // x -= clientWidth;
+      // y -= clientHeight;
+      console.log('e target', e.target);
+      console.log('x', x, 'y', y);
+      console.log('clientWidth', clientWidth, 'clientHeight', clientHeight);
+      e.target.style.transformOrigin = `${(x / clientWidth) * 100}% ${(y / clientHeight) * 100}%`;
       e.target.style.transform = `translate(${x}px, ${y}px) scale(2.5)`;
       e.target.style.transform = '0.5s';
       // e.target.style.transform = 'translate(-691.875px, 76.125px) scale(2.5)';
@@ -66,7 +70,9 @@ export default function ExpandedView({
           </svg>
         </button>
         <button type="button" className="right-button-expanded" onClick={(e) => goToNext(e)}><svg height="12px" width="12px" fill="#000" viewBox="0 0 185.4 300"><path d="M7.3 292.7c-9.8-9.8-9.8-25.6 0-35.4L114.6 150 7.3 42.7c-9.8-9.8-9.8-25.6 0-35.4s25.6-9.8 35.4 0L185.4 150 42.7 292.7c-4.9 4.8-11.3 7.3-17.7 7.3-6.4 0-12.7-2.5-17.7-7.3z" /></svg></button>
-        <button onClick={onClose} type="button">Close</button>
+        <button className="exp-closebutton" onClick={onClose} type="button">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.71 10l4.65-4.66a.495.495 0 10-.7-.7L10 9.29 5.34 4.64a.495.495 0 00-.7.7L9.29 10l-4.65 4.66a.48.48 0 000 .7.481.481 0 00.7 0L10 10.71l4.66 4.65a.482.482 0 00.7 0 .48.48 0 000-.7L10.71 10z" fill="currentColor" /></svg>
+        </button>
         <img
           className="expanded-image"
           alt="Expanded gallery"

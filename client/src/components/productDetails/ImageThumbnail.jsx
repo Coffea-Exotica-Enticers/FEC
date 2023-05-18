@@ -6,14 +6,14 @@ export default function ImageThumbnail({
   const thumbnails = selectedStyle.photos;
 
   return (
-    <div className="ThumbnailContainer">
-      <div className="Thumbnail">
+    <div className="Product-ThumbnailContainer">
+      <div className="Product-Thumbnail">
         {thumbnails.map((thumbnail, index) => (
           <ul key={thumbnail.thumbnail_url} className="VerticalSlider">
-            <li className="thumb-gallery">
+            <li className="product-thumb-gallery">
               <button
                 type="button"
-                className="thumbnail-button"
+                className="product-thumbnail-button"
                 onClick={() => {
                   setSelectedPhoto(thumbnail.thumbnail_url);
                   setIndex(index);
