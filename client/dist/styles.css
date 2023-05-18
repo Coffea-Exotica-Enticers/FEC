@@ -50,6 +50,8 @@ table {
  }
  body {
    background-color: #f8f8f8;
+   color: #82807F;
+
   }
   #App{
     /* background-color: #EDE9E6; */
@@ -212,6 +214,8 @@ button.addAnswer, button.moreAnswers, button.addQuestion, button.moreQuestions, 
 /*****************************************/
 /*********  Fox's Stuff Above  ***********/
 /*****************************************/
+
+
 /* =========================SEGUY============================ */
 
 .product-images-grid{
@@ -234,12 +238,11 @@ button.addAnswer, button.moreAnswers, button.addQuestion, button.moreQuestions, 
 }
 
 .svg-socialmedia{
-width: 25px;
-height: 25px;
+width: 20px;
+height: 20px;
 align-items: center;
-fill: rgb(192, 35, 35);
+fill: #38423B;
 }
-
 
 
 .checkmark{
@@ -285,17 +288,22 @@ fill: rgb(192, 35, 35);
     margin:0;
     width: 220px;
   }
+.selectStyle{
 
+  font-style: italic;
+  font-size: 1.5rem;
+
+}
   .size-dropdown{
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     /* justify-content: space-around; */
-    background-color: rgb(44, 172, 237);
-    border: 1px solid salmon;
+    background-color: rgb(127, 124, 97);
+    /* border: 1px solid salmon; */
     border-radius: 3px;
-    color: antiquewhite;
+    color: #e6e2de;
     transition: 0.5 ease;
     padding-left: 10px;
     font-size: 20px;
@@ -305,13 +313,17 @@ fill: rgb(192, 35, 35);
   }
   .size-dropdown:hover{
 
-    background-color: palevioletred;
+    background-color: #82807F;
+  }
+
+  .stName{
+    margin-bottom: 20px;
   }
 
   .dropdown-list{
     position: relative;
     width: 100%;
-    background-color: #fff;
+    background-color: #e6e2de;
     border: 1px solid slategray;
     display: inline-block;
   }
@@ -588,6 +600,10 @@ img.default-image {
   font: inherit;
   vertical-align: baseline;
 }
+
+.product-price {
+  margin-bottom: 15px;
+}
 .sales-price{
 color: red;
 }
@@ -601,6 +617,10 @@ color: red;
   margin: initial;
   width: 60px;
   cursor: pointer;
+}
+
+.stylename{
+  margin-top: 15px;
 }
 /**Thumbnail container for Style Selector*/
 .thumbnail-container{
@@ -624,7 +644,27 @@ color: red;
     margin-inline-end: 0px;
     font-weight: bold;
 }
-/**  PRODUCT DETAILS CSS END ****/
+
+.product-details{
+
+  margin-bottom: 20px;
+}
+.product-feature{
+  margin: revert;
+  font-size: 1.1rem;
+  font-style: italic;
+
+}
+
+span.product-category {
+  font-size: 1.1rem;
+}
+
+
+/******************  PRODUCT DETAILS CSS END  ******************/
+
+
+
 
 /* ==================== RELATED PRODUCTS ==================== */
 

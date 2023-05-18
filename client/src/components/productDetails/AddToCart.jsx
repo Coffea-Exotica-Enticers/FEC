@@ -100,14 +100,14 @@ export default function Cart() {
             </span>
           </button>
           {sizeShow && (
-          <div
+          <div // select
             className="dropdown-list"
             onMouseLeave={() => {
               setSizeShow(false);
             }}
           >
             {skus.map((sku) => (
-              <a
+              <a // option
                 href="#"
                 className="dropdown-item"
                 key={sku.sku_id}
