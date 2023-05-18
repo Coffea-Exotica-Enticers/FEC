@@ -39,13 +39,13 @@ function RelatedProductsList({ product, updateProduct }) {
   function moveRight() {
     if (index <= listLength - 3) {
       setIndex(index + 1);
-      setWidth(-((index) * 350));
+      setWidth(-((index) * 410));
     }
   }
   function moveLeft() {
     if (index > 1) {
       setIndex(index - 1);
-      setWidth((width + 350));
+      setWidth((width + 410));
     }
   }
   function closeModal() {
@@ -57,7 +57,7 @@ function RelatedProductsList({ product, updateProduct }) {
     setShowModal(<ComparisonModal closeModal={closeModal} item={item} product={product} />);
   }
   return (
-    <>
+    <div>
       {compareItem && (showModal)}
       <div className="related-products" data-testid="rp-component">
         {index !== 1 && (
@@ -73,13 +73,13 @@ function RelatedProductsList({ product, updateProduct }) {
               : 'Loading...'}
           </div>
         </div>
-        {index <= listLength - 3 && listLength >= 5 && (
+        {index <= listLength - 3 && listLength >= 3 && (
           <div className="rp-Rbtn" data-testid="rpl-right" onClick={() => moveRight()}>
             <button type="button">&#5171;</button>
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
