@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 function ThumbnailCarousel({ changeDefaultImg, thumbnails }) {
   const [index, setIndex] = useState(1);
   const [move, setMove] = useState(0);
-  const maxWidth = Math.floor(thumbnails.length / 4);
+  const maxWidth = Math.floor(thumbnails.length / 4) || 1;
 
   function moveRight() {
     setMove(4 * index);
@@ -23,9 +23,9 @@ function ThumbnailCarousel({ changeDefaultImg, thumbnails }) {
   }
 
   return (
-    <div className="thumbnail-list">
+    <div className="rpthumbnail-list">
       {index !== 1 && (
-        <button type="button" data-testid="tl-left" className="thumbnail-left" onClick={() => moveLeft()}>
+        <button type="button" data-testid="tl-left" className="rpthumbnail-left" onClick={() => moveLeft()}>
           &#5176;
         </button>
       )}
@@ -46,7 +46,7 @@ function ThumbnailCarousel({ changeDefaultImg, thumbnails }) {
       )}
 
       {index !== maxWidth && maxWidth > 1 && (
-        <button type="button" data-testid="tl-right" className="thumbnail-right" onClick={() => moveRight()}>
+        <button type="button" data-testid="tl-right" className="rpthumbnail-right" onClick={() => moveRight()}>
           &#5171;
         </button>
       )}

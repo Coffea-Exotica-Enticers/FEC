@@ -10,7 +10,7 @@ function RelatedProductCard({
   const [numOfRatings, setNumOfRatings] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
   const [defaultImg, setDefaultImg] = useState(null);
-  const [thumbnails, setThumbnails] = useState(null);
+  const [thumbnails, setThumbnails] = useState([]);
   const [showThumbnails, setShowThumbnails] = useState(false);
   const [salePrice, setSalePrice] = useState(null);
   const defaultImgURL = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
@@ -87,8 +87,10 @@ function RelatedProductCard({
                 <button type="button" onClick={() => removeOutfit(item.id)}>&times;</button>
               </div>
             )}
-          <div className="thumbnail-container">
-            {defaultImg ? <img src={defaultImg} alt="default" /> : <img src={defaultImgURL} alt="No Img Found" />}
+          <div className="rpcthumbnail-container">
+            <div>
+              {defaultImg ? <img src={defaultImg} alt="default" /> : <img src={defaultImgURL} alt="No Img Found" />}
+            </div>
             {showThumbnails && (
             <ThumbnailCarousel changeDefaultImg={changeDefaultImg} thumbnails={thumbnails} />
             )}

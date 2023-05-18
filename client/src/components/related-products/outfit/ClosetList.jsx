@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RelatedProductCard from '../related/RelatedProductCard';
+import PlaceholderCard from './PlaceholderCard';
 
 function ClosetList({ product }) {
   const [closet, setCloset] = useState([]);
@@ -10,11 +11,11 @@ function ClosetList({ product }) {
     transform: `translate(${width}px)`,
   };
 
-  function addOutfit() {
+  const addOutfit = () => {
     if (closet.filter((obj) => obj.id === product.id).length < 1) {
       setCloset([...closet, ...[product]]);
     }
-  }
+  };
   function removeOutfit(itemID) {
     const outfitArr = JSON.parse(window.localStorage.getItem('userCloset'));
     outfitArr.forEach((obj, i) => {
@@ -56,18 +57,14 @@ function ClosetList({ product }) {
         <div className="closet-list" style={styles}>
           <h2>Your Outfit</h2>
           <div className="closet-container">
-            <div className="closet-add">
-              <button type="button" data-testid="closet-addbtn" onClick={() => addOutfit()}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path fill="#7c7b5d" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-                </svg>
-              </button>
-            </div>
+            {closet.length ? (
+            <PlaceholderCard addOutfit={addOutfit} />
+            ) : <></> }
             {closet.length
               ? closet.map(
                 (item) => <RelatedProductCard key={item.id} item={item} removeOutfit={removeOutfit} />,
               )
-              : 'add an outfit!'}
+              : <PlaceholderCard addOutfit={addOutfit} />}
           </div>
         </div>
       </div>
