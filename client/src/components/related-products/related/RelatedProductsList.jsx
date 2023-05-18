@@ -37,7 +37,7 @@ function RelatedProductsList({ product, updateProduct }) {
   }, [product]);
 
   function moveRight() {
-    if (index <= listLength - 3) {
+    if (index <= listLength - 2) {
       setIndex(index + 1);
       setWidth(-((index) * 410));
     }
@@ -73,7 +73,7 @@ function RelatedProductsList({ product, updateProduct }) {
               : 'Loading...'}
           </div>
         </div>
-        {index <= listLength - 3 && listLength >= 3 && (
+        {index <= listLength - 2 && listLength >= 3 && (
           <div className="rp-Rbtn" data-testid="rpl-right" onClick={() => moveRight()}>
             <button type="button">&#5171;</button>
           </div>

@@ -25,7 +25,7 @@ function ClosetList({ product }) {
     setCloset(outfitArr);
   }
   function moveRight() {
-    if (index <= listLength) {
+    if (index <= listLength - 1) {
       setIndex(index + 1);
       setWidth(-((index) * 300));
     }
@@ -72,7 +72,7 @@ function ClosetList({ product }) {
         </div>
       </div>
 
-      {index <= listLength && (
+      {index <= listLength && index <= listLength - 1 && (
         <div className="closet-Rbtn" onClick={() => moveRight()}>
           <button type="button">&#5171;</button>
         </div>
