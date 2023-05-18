@@ -42,7 +42,7 @@ export default function QuestionListEntry({ question }) {
           {' '}
           {question.question_body}
         </div>
-        <div>
+        <div className="name-and-date">
           {question.asker_name}
           {', '}
           {new Date(question.question_date).toLocaleDateString('en-us', dateOptions)}
@@ -67,12 +67,10 @@ export default function QuestionListEntry({ question }) {
                 : <button type="submit" className="qa-helpful">Yes</button>
             }
           </form>
-          <div>
-            (
-            {helpful}
-            )
-            {/* {' | '} */}
-          </div>
+          (
+          {helpful}
+          )
+          {' |'}
           <form onSubmit={(e) => {
             e.preventDefault();
             reportQuestion();

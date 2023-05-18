@@ -72,6 +72,9 @@ table {
 /*****************************************/
 /*********  Fox's Stuff Below  ***********/
 /*****************************************/
+.qa {
+  color: #82807f;
+}
 .modal {
   position: fixed;
   left: 0;
@@ -105,7 +108,7 @@ table {
   overflow-y: auto;
 }
 .searchBar {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   width: 99%;
 }
 .question-entry, .answer-entry {
@@ -130,7 +133,10 @@ table {
   align-items: center;
 }
 .helpful-report-container {
-
+  min-width: max-content;
+}
+.question-buttons {
+  margin-top: 15px;
 }
 .imgList {
   height: 100px;
@@ -171,6 +177,9 @@ button.qa-helpful, button.qa-report {
 	background: none;
 	border: none;
 	cursor: pointer;
+}
+.name-and-date {
+  font-style: italic;
 }
 
 /*****************************************/

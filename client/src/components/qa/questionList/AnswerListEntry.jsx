@@ -44,7 +44,7 @@ export default function AnswerListEntry({ answer }) {
             {' '}
             {answer.body}
           </div>
-          <div>
+          <div className="name-and-date">
             {answer.answerer_name}
             {', '}
             {new Date(answer.date).toLocaleDateString('en-us', dateOptions)}
@@ -69,11 +69,10 @@ export default function AnswerListEntry({ answer }) {
                   : <button type="submit" className="qa-helpful">Yes</button>
               }
             </form>
-            <div>
-              (
-              {helpful}
-              )
-            </div>
+            (
+            {helpful}
+            )
+            {' |'}
             <form onSubmit={(e) => {
               e.preventDefault();
               reportAnswer();
