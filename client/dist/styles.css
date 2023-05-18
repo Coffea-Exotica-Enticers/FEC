@@ -669,9 +669,14 @@ span.product-category {
 /* ==================== RELATED PRODUCTS ==================== */
 
 /* RELATED PRODUCTS LIST */
+.rp-all {
+  background-color: rgb(237, 233, 230);
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .related-products {
   display: flex;
-  padding-top: 50px;
+  margin-top: 50px;
 }
 .rp-list {
   position: relative;
@@ -681,7 +686,7 @@ span.product-category {
 .rp-list h2 {
   color: #7c7b5d;
   font-size: 30px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
   padding: 30px 0 10px 30px;
 }
@@ -742,9 +747,6 @@ span.product-category {
 
 /* RELATED PRODUCT CARD */
 .rp-cardcontainer {
-  /* min-width: 200px;
-  min-height: 300px;
-  max-height: 300px; */
   max-width: 350px;
   min-width: 350px;
   padding-top: 15px;
@@ -760,12 +762,16 @@ span.product-category {
   border: solid;
   border-color: #7c7b5d;
   border-width: 1px;
+  position: relative;
+  box-shadow: 3px 3px 3px;
 }
 .rp-modal {
   position: absolute;
-  padding-right: 12px;
-  padding-top: 12px;
+  padding-right: 20px;
+  padding-top: 20px;
   z-index: 40;
+  right: 0;
+  top: 0;
 }
 .rp-modal button {
   border: solid;
@@ -774,27 +780,25 @@ span.product-category {
   cursor: pointer;
   padding: 0;
   border-radius: 20px;
-  background-color: rgb(237, 233, 230);
+  background-color: #f8f8f8;
   width: 25px;
   height: 25px;
 }
 .rp-modal button:hover {
   transform: scale(1.3) perspective(1px);
+  transition-duration: .3s;
 }
 .rp-modal svg {
   width: 20px;
   height: 20px;
   border: none;
-  font-weight: 100;
+  font-weight: 400;
 }
 .rp-preview {
-  display: flex;
-  justify-content: flex-end;
   padding: 15px;
   padding-bottom: 0;
 }
 .rp-preview img {
-  /* border-radius: 5px; */
   object-fit: cover;
   aspect-ratio: 0.9;
   margin-bottom: 8px;
@@ -874,8 +878,8 @@ span.product-category {
 .cm-header {
   text-align: center;
   color: #7c7b5d;
-  font-family: 'Noto Sans', sans-serif;
-  font-weight: 300;
+  font-family: 'Noto Serif', sans-serif;
+  font-weight: 400;
 }
 .cm-header h2 {
   font-size: 30px;
@@ -961,28 +965,33 @@ span.product-category {
 }
 
 /* YOUR OUTFIT */
+.outfit-container {
+  background-color: rgb(237, 233, 230);
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
 .outfit {
   display: flex;
-  padding-top: 50px;
   padding-bottom: 50px;
 }
 .closet-container {
   position: relative;
   overflow: hidden;
+  background-color: rgb(237, 233, 230);
 }
 .closet-list {
   transition-duration: 1s;
-  background-color: rgb(237, 233, 230);
 }
 .closet-list h2 {
   color: #7c7b5d;
   font-size: 30px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
   padding: 30px 0 10px 30px;
 }
 .closet-container {
   display: flex;
+  width: 100%;
 }
 .closet-add {
   display: flex;
@@ -1009,10 +1018,11 @@ span.product-category {
 }
 .closet-close {
   position: absolute;
-  top: 6.6%;
   z-index: 50;
   color: #7c7b5d;
   font-weight: bold;
+  right: 0;
+  top: -1.9%;
 }
 .closet-close button {
   border: none;
@@ -1076,12 +1086,48 @@ span.product-category {
   transform: scale(1.5) perspective(1px);
 }
 
+/* PLACEHOLDER CARD */
+.placeholder-card {
+  background: inherit;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 400px;
+  border-radius: 3px;
+  margin: 25px;
+  border: dotted;
+  border-color: #7c7b5d;
+  border-width: 3px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 3px 3px 3px;
+}
+.pc-desc {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+.pc-img {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  height: 200px;
+  border: dotted;
+  border-width: 3px;
+  margin-left: 20px;
+  font-size: 20px;
+  font-family: 'Noto Serif', sans-serif;
+  color: #7c7b5d
+}
+
 /* THUMBNAIL LIST */
-.thumbnail-container {
+.rpcthumbnail-container {
   display: flex;
   justify-content: center;
 }
-.thumbnail-list {
+.rpthumbnail-list {
   display: flex;
   min-width: 50px;
   min-height: 20px;
@@ -1092,7 +1138,7 @@ span.product-category {
   background-color: inherit;
   border-radius: 4px;
 }
-.thumbnail-list button {
+.rpthumbnail-list button {
   border-radius: 20px;
   border: solid;
   border-color: #7c7b5d;
@@ -1103,11 +1149,11 @@ span.product-category {
   transition-duration: .3s;
   z-index: 40;
 }
-.thumbnail-list button:hover {
+.rpthumbnail-list button:hover {
   transform: scale(1.7) perspective(1px);
   cursor: pointer;
 }
-.thumbnail-list img {
+.rpthumbnail-list img {
   min-width: 20px;
   min-height: 20px;
   max-width: 20px;
@@ -1121,7 +1167,7 @@ span.product-category {
   background-color: rgb(237, 233, 230);
   transition-duration: .3s;
 }
-.thumbnail-list img:hover {
+.rpthumbnail-list img:hover {
   transform: scale(1.5) perspective(1px);
 }
 
