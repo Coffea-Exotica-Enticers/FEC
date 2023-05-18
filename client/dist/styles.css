@@ -56,7 +56,7 @@ table {
   #App{
     /* background-color: #EDE9E6; */
     margin: 0 auto;
-    max-width: 50%;
+    max-width: 60%;
   }
 
   /**  PRODUCT DETAILS CSS START ****/
@@ -1172,18 +1172,25 @@ span.product-category {
 }
 
 /* ============================== RATINGS & REVIEWS =========================================== */
+.ratings-and-reviews {
+  background-color: #ede9e6;
+}
 .ratings-and-reviews-header {
+  display: block;
   font-family: 'Noto Serif', serif;
   font-size: 2em;
   color: #7f7c61;
+  padding: 10px;
 }
-.ratings-and-reviews {
+.reviews-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   max-height: 95vh;
   padding: 1em;
 }
-
+.breakdowns {
+  width: 25%;
+}
 .reviews-filters{
   display: flex;
   justify-content: space-between;
@@ -1229,6 +1236,7 @@ span.product-category {
 
 .recommend-percentage {
   margin-bottom: 1em;
+  text-align: center;
 }
 
 .star-ratings-meters-container {
@@ -1250,6 +1258,7 @@ button.rating-label {
   border: none;
   cursor: pointer;
   padding: 0;
+  min-width: 60px;
 }
 button.rating-label:hover {
   color: #a8a7a6;
@@ -1268,7 +1277,19 @@ button.rating-label:hover {
   background-color: #38423b;
   border-radius: 5px;
 }
-
+.ratings-filter-display {
+  margin-top: 10px;
+}
+.ratings-filter-display > button {
+  background: none;
+  border: 1px solid;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.ratings-filter-display > button:first-child {
+  border-radius: 32px;
+}
 
 /* =============================== CHARACTERISTICS ============================================ */
 .characteristics-breakdowns {
@@ -1362,7 +1383,6 @@ button.rating-label:hover {
 }
 .recommend-label {
   font-weight: bold;
-
   margin-bottom: 10px;
 }
 button.review-helpful, button.report-review, button.show-more {
@@ -1392,6 +1412,10 @@ button.more-reviews:hover, button.add-review:hover {
 }
 
 /* ============================= REVIEW PHOTO MODAL ========================================== */
+.review-photos {
+  display: flex;
+  align-items: center;
+}
 .review-photo-thumbnail {
  max-height: 100%;
  max-width: 100%;
@@ -1440,6 +1464,11 @@ button.close-photo-modal {
 }
 
 /* ============================= WRITE REVIEWS MODAL ========================================== */
+body.write-review-modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+}
 .write-review-modal {
   position: fixed;
   left: 0;
@@ -1457,6 +1486,7 @@ button.close-photo-modal {
   background-color: #fff;
   padding: 20px;
   position: relative;
+  overflow: auto;
 }
 .close-write-review-modal {
   position: absolute;
@@ -1507,22 +1537,26 @@ label.recommend-yes, label.recommend-no {
 label.recommend-no {
   margin-left: 0;
 }
-.write-review-name-input, .write-review-email-input {
+.write-review-name-input, .write-review-email-input, .write-review-summary, .write-review-body {
   margin-bottom: 10px;
+  width: 50%;
+}
+input#name, input#email, .write-review-summary > label > input, .write-review-body > label > textarea {
+  width: 100%;
 }
 .write-review-name-input > .disclaimer, .write-review-email-input > .disclaimer {
   font-style: italic;
 }
-.write-review-errors {
-  margin: 10px;
-  border: 1px dashed red;
-  color: red;
-  width: 50%;
+.write-review-summary > p {
+  text-align: end;
 }
-.write-review-errors > .error-header {
-  text-decoration: underline;
-  margin: 5px;
+.write-review-body > label > textarea {
+  height: 100px;
 }
+.write-review-body {
+  position: relative;
+}
+
 .upload-row {
   position: relative;
   display: flex;
@@ -1542,7 +1576,7 @@ label.recommend-no {
 .upload-error {
   color: red;
 }
-.thumbnail {
+.write-review-thumbnail {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1552,7 +1586,7 @@ label.recommend-no {
   border: 1px solid black;
   margin-right: 10px;
 }
-.thumbnail-photo {
+.write-review-thumbnail-photo {
   max-width:100%;
   max-height:100%;
 }
@@ -1572,4 +1606,37 @@ button.remove-photo {
 button.remove-photo:hover {
   color: white;
   opacity: 100%;
+}
+.rate-characteristics > .label {
+  margin-bottom: 5px;
+}
+.rate-characteristic-container {
+  border: 1px solid;
+  display: flex;
+  margin-bottom: 10px;
+}
+.characteristic-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  border-right: 1px solid;
+}
+.characteristic-selector {
+  padding: 10px 0;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.write-review-errors {
+  margin: 10px;
+  border: 1px dashed red;
+  color: red;
+  width: 50%;
+}
+.write-review-errors > .error-header {
+  text-decoration: underline;
+  margin: 5px;
 }

@@ -50,42 +50,46 @@ export default function RatingsAndReviews({ product, metaData }) {
   if (product && metaData) {
     return (
       <div className="ratings-and-reviews">
-        <div className="breakdowns">
-          <RatingsBreakdown
-            ratings={metaData.ratings}
-            recommended={metaData.recommended}
-            ratingsFilter={ratingsFilter}
-            setRatingsFilter={setRatingsFilter}
-          />
-          <CharacteristicsBreakdown characteristics={metaData.characteristics} />
-        </div>
-        <div className="reviews">
-          <div className="reviews-filters">
-            <SortReviews reviewsCache={reviewsCache} setSort={setSort} />
-            <SearchReviews setSearch={setSearch} />
+        <h2 className="ratings-and-reviews-header">Ratings & Reviews</h2>
+        <div className="reviews-container">
+          <div className="breakdowns">
+            <RatingsBreakdown
+              ratings={metaData.ratings}
+              recommended={metaData.recommended}
+              ratingsFilter={ratingsFilter}
+              setRatingsFilter={setRatingsFilter}
+            />
+            <CharacteristicsBreakdown characteristics={metaData.characteristics} />
           </div>
-          <ReviewsList
-            shownReviews={shownReviews}
-            search={search}
-          />
-          <ReviewsButtons
-            shownReviews={shownReviews}
-            reviewsCache={reviewsCache}
-            showCount={showCount}
-            setShowCount={setShowCount}
-            setShowModal={setShowModal}
-          />
-          {
-          showModal
-            ? (
-              <WriteReviewModal
-                product={product}
-                characteristics={metaData.characteristics}
-                setShowModal={setShowModal}
-              />
-            )
-            : null
-          }
+          <div className="reviews">
+            <div className="reviews-filters">
+              <SortReviews reviewsCache={reviewsCache} setSort={setSort} />
+              <SearchReviews setSearch={setSearch} />
+            </div>
+            <ReviewsList
+              shownReviews={shownReviews}
+              search={search}
+            />
+            <ReviewsButtons
+              shownReviews={shownReviews}
+              reviewsCache={reviewsCache}
+              showCount={showCount}
+              setShowCount={setShowCount}
+              setShowModal={setShowModal}
+            />
+            {
+            showModal
+              ? (
+                <WriteReviewModal
+                  product={product}
+                  characteristics={metaData.characteristics}
+                  setShowModal={setShowModal}
+                />
+              )
+              : null
+            }
+          </div>
+
         </div>
       </div>
     );
