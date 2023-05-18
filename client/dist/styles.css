@@ -51,6 +51,7 @@ table {
    background-color: #f8f8f8;
   }
   #App{
+    /* background-color: #EDE9E6; */
     margin: 0 auto;
     max-width: 50%;
   }
@@ -71,6 +72,9 @@ table {
 /*****************************************/
 /*********  Fox's Stuff Below  ***********/
 /*****************************************/
+.qa {
+  color: #82807f;
+}
 .modal {
   position: fixed;
   left: 0;
@@ -81,21 +85,26 @@ table {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 }
 .modal-content {
   width: 500px;
   background-color: #fff;
 }
-.modal-header, .modal-footer {
+.modal-header {
   padding: 10px;
 }
 .modal-title {
+  color: #7F7C61;
+  font-family: 'Noto Serif', serif;
+  font-size: 28px;
   margin: 0;
+  width: 100%;
 }
 .modal-body {
-  padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  padding: 10px;
 }
 .qa-container {
   max-height: 600px;
@@ -107,11 +116,11 @@ table {
 }
 .question-entry, .answer-entry {
   display: grid;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 1fr 11fr 3fr;
   margin: 5px 0px;
 }
 .answer-entry {
-  padding-left: 2%;
+  padding-left: 6%;
 }
 .qa-body-asker {
   display: flex;
@@ -122,6 +131,19 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: end;
+}
+.answer-buttons {
+  margin-bottom: 10px;
+}
+.helpful-report {
+  align-items: center;
+  margin-left: 10px;
+}
+.helpful-report-container {
+  min-width: max-content;
+}
+.question-buttons {
+  margin-top: 5px;
 }
 .imgList {
   height: 100px;
@@ -136,18 +158,54 @@ table {
   flex-direction: column;
   align-items: end;
 }
-.modalUserInfo {
-  width: 33%;
+.modalUserInfo, .modalEmail {
+  width: 32%;
 }
 .modalText {
   width: 99%;
   height: 250px;
 }
-.modalUserInfo:invalid, .modalText:invalid {
-  border: 2px dashed red;
+.modalText, .modalUserInfo, .modalEmail {
+  margin: 2px 0px;
 }
-.modalUserInfo:valid, .modalText:valid {
-  border: 2px solid black;
+.modalUserInfo:invalid, .modalText:invalid, .modalEmail:invalid {
+  border: 2px dashed #82807F;
+}
+.modalUserInfo:valid, .modalText:valid, .modalEmail:valid {
+  border: 2px solid #38423B;
+}
+.qa-header {
+  color: #7F7C61;
+  font-family: 'Noto Serif', serif;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+button.qa-helpful, button.qa-report {
+  text-decoration: underline;
+  font-family: inherit;
+	text-align: left;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+.name-and-date {
+  font-style: italic;
+}
+.q-symbol, .a-symbol {
+  font-size: 28px;
+}
+.qa-entry {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #82807f;
+}
+button.addAnswer, button.moreAnswers, button.addQuestion, button.moreQuestions, button.modalButton {
+  border-radius: 30px;
+  background-color: #7F7C61;
+  color: #f8f8f8;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 160px;
 }
 
 /*****************************************/

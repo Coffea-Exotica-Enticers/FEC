@@ -61,8 +61,8 @@ export default function QAModule({ product }) {
   }, [product]);
 
   return (
-    <div>
-      <h2>Questions & Answers</h2>
+    <div className="qa">
+      <h2 className="qa-header">Questions & Answers</h2>
       <SearchBar qList={questionList} setShowQ={setQToShow} qLen={qLength} setSort={setSortedQ} />
       <QuestionList qArray={showQuestions} />
       <div className="question-buttons">
@@ -74,7 +74,7 @@ export default function QAModule({ product }) {
               showMoreQuestions();
             }}
             >
-              <button type="submit">More Questions</button>
+              <button type="submit" className="moreQuestions">More Questions</button>
             </form>
           )
           : ''

@@ -10,7 +10,7 @@ export default function AddAnswer({ id, getAllAnswers }) {
 
   return (
     <>
-      <button type="button" onClick={() => revealModal(true)}>Add Your Answer</button>
+      <button type="button" className="addAnswer" onClick={() => revealModal(true)}>Add Your Answer</button>
       <AddAnsModal show={show} revealModal={revealModal} id={id} getAllAnswers={getAllAnswers} />
     </>
   );

@@ -12,9 +12,6 @@ function Modal({ show, onClose, title, children }) {
           <h4 className="modal-title">{title}</h4>
         </div>
         <div className="modal-body">{children}</div>
-        <div className="modal-footer">
-          <button onClick={onClose} className="button">Close</button>
-        </div>
       </div>
     </div>
   );
