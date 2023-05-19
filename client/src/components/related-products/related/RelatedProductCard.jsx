@@ -33,21 +33,31 @@ function RelatedProductCard({
   // Function to set the default image
   function findDefault(prodStyles) {
     const styles = prodStyles.results;
-    const defaultImage = [];
     const thumbnailImgs = [];
     for (let i = 0; i < styles.length; i += 1) {
-      if (styles[i]['default?']) {
-        setSalePrice(styles[i].sale_price);
-        styles[i].photos.forEach((img) => {
-          defaultImage.push(img.thumbnail_url);
-        });
-      } else if (thumbnailImgs !== null) {
-        thumbnailImgs.push(styles[i].photos[0].thumbnail_url);
-      }
+      thumbnailImgs.push(styles[i].photos[0].thumbnail_url);
     }
-    setDefaultImg(defaultImage[0]);
-    setThumbnails([defaultImage[0], ...thumbnailImgs]);
+    setSalePrice(styles[0].sale_price);
+    setDefaultImg(thumbnailImgs[0]);
+    setThumbnails(thumbnailImgs);
   }
+  // function findDefault(prodStyles) {
+  //   const styles = prodStyles.results;
+  //   const defaultImage = [];
+  //   const thumbnailImgs = [];
+  //   for (let i = 0; i < styles.length; i += 1) {
+  //     if (styles[i]['default?']) {
+  //       setSalePrice(styles[i].sale_price);
+  //       styles[i].photos.forEach((img) => {
+  //         defaultImage.push(img.thumbnail_url);
+  //       });
+  //     } else if (thumbnailImgs !== null) {
+  //       thumbnailImgs.push(styles[i].photos[0].thumbnail_url);
+  //     }
+  //   }
+  //   setDefaultImg(defaultImage[0]);
+  //   setThumbnails([defaultImage[0], ...thumbnailImgs]);
+  // }
 
   function modalToggle({ item, product }) {
     openModal(item, product);

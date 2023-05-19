@@ -715,6 +715,7 @@ color: red;
   background-color: rgb(237, 233, 230);
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 40px;
 }
 .related-products {
   display: flex;
@@ -731,6 +732,7 @@ color: red;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
   padding: 30px 0 10px 30px;
+  border-bottom: 1px solid #7c7b5d;
 }
 .rp-container {
   display: grid;
@@ -805,7 +807,11 @@ color: red;
   border-color: #7c7b5d;
   border-width: 1px;
   position: relative;
-  box-shadow: 3px 3px 3px;
+  box-shadow: 10px 10px 10px darkgray;
+}
+.rp-card:hover {
+  transform: scale(1.1) perspective(1px);
+  cursor: pointer;
 }
 .rp-modal {
   position: absolute;
@@ -835,6 +841,8 @@ color: red;
   height: 20px;
   border: none;
   font-weight: 400;
+  padding: 1px;
+  padding-right: 1.4px;
 }
 .rp-preview {
   padding: 15px;
@@ -1017,9 +1025,12 @@ color: red;
   padding-bottom: 50px;
 }
 .closet-container {
+  display: flex;
+  width: 100%;
   position: relative;
   overflow: hidden;
   background-color: rgb(237, 233, 230);
+  margin-left: 25px;
 }
 .closet-list {
   transition-duration: 1s;
@@ -1029,11 +1040,14 @@ color: red;
   font-size: 30px;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
-  padding: 30px 0 10px 30px;
+  padding: 30px 0 10px 32px;
+  border-bottom: 1px solid #7c7b5d;
+  margin-left: 20px;
 }
-.closet-container {
+.stackcards {
   display: flex;
-  width: 100%;
+  overflow-x: hidden;
+  transition-duration: 1s;
 }
 .closet-add {
   display: flex;
@@ -1142,7 +1156,10 @@ color: red;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 3px 3px 3px;
+  box-shadow: 10px 10px 10px darkgray;
+  background-color: #f8f8f8;
+  z-index: 30;
+  margin-left: 0;
 }
 .pc-desc {
   display: flex;
