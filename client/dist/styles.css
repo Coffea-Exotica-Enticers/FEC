@@ -271,6 +271,8 @@ fill: #38423B;
   margin: 1.5rem auto;
   width: 100%;
   padding-bottom: 60px;
+  z-index:400;
+  position: relative;
 }
 .RightPane{
   width: 34%;
@@ -313,9 +315,7 @@ fill: #38423B;
     height: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: space-around; */
     background-color: rgb(127, 124, 97);
-    /* border: 1px solid salmon; */
     border-radius: 3px;
     color: #e6e2de;
     transition: 0.5 ease;
@@ -339,10 +339,9 @@ fill: #38423B;
     width: 100%;
     background-color: #F8F8F8;
     border: 1px solid slategray;
-    display: inline-block;
+    display: inline-grid;
   }
 
-  /**/
   .quantity-dropdown-list{
    position: relative;
     width: 100%;
@@ -356,10 +355,6 @@ fill: #38423B;
     display: block;
   }
 
-  /* .dropdown-item{
-    display: none;
-
-  } */
 .quantity-container{
   margin:auto;
   padding-bottom: 8%;
@@ -372,7 +367,6 @@ fill: #38423B;
 }
 
 .quantity-dropdown-item{
-
      display: block;
      font-size: 15px;
 }
@@ -386,10 +380,14 @@ fill: #38423B;
 }
 
 .select-quantity{
-
   display: inline-block;
-  /* width: 75px; */
-  /* float: left; */
+}
+
+a.dropdown-item{
+  height: 1.5rem;
+  padding: 0.5rem;
+  color: #38423B;
+  text-decoration: none;
 }
 
 .quantity-dropdown-button{
@@ -401,11 +399,18 @@ fill: #38423B;
   border: 0.0625rem solid #757575;
   cursor: pointer;
   }
-  .product-quantity{
 
-    overflow: visible;
-
+  a.quantity-dropdown-item{
+    height: 1.5rem;
+    padding: 0.3rem;
+    color: #38423B;
+    text-decoration: none;
   }
+
+  .product-quantity{
+    overflow: visible;
+  }
+
   .add-to-cart-button{
     width: 100%;
     min-height: 58px;
@@ -434,6 +439,8 @@ img.default-image {
 
 img.expanded-image {
 cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
+width: 100%;
+height: 100%;
 }
 
 .main-image-pane{
@@ -477,15 +484,6 @@ cursor: url('./assets/icon-cursor-plus.svg') 22 22, zoom-in;
     border-radius: 999px;
     border: none;
 }
-
-
-/* svg {
-  height: 12px;
-  width: 12px;
-  fill: rgb(0, 0, 0);
-  align-items: center;
-} */
-
 
 .product-thumbnail-button{
   border: none;

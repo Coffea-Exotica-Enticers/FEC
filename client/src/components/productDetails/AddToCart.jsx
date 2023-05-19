@@ -33,9 +33,6 @@ export default function Cart() {
     });
   };
 
-  console.log('sizeShow', sizeShow);
-  console.log('Data', cartData);
-
   function handleAddToCartClick() {
     if (skuID.length === 0) {
       setSizeTitle('Please select size');
@@ -57,8 +54,6 @@ export default function Cart() {
       });
     }
   }
-
-  console.log('skus', skus);
 
   useEffect(() => {
     skus.forEach((sku) => {
