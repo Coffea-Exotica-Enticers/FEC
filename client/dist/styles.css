@@ -722,7 +722,7 @@ color: red;
   margin-top: 50px;
 }
 .rp-list {
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   background-color: rgb(237, 233, 230);
 }
