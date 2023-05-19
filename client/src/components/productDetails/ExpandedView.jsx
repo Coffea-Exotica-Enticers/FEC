@@ -8,7 +8,6 @@ export default function ExpandedView({
   photos, index, show, onClose, setSelectedPhoto, setIndex,
 }) {
   const [isZoomed, setIsZoomed] = useState(false);
-  // const [offsets, setOffsets] = useState({ x: '', y: '' });
 
   function goToPrevious(e) {
     e.preventDefault();
@@ -31,7 +30,6 @@ export default function ExpandedView({
     // returns a DOMRect object providing information about the size of an element
     // and its position relative to the viewport.
     const zoomer = e.currentTarget.getBoundingClientRect();
-    console.log(e.currentTarget, 'current Target');
     if (!isZoomed) {
       setIsZoomed(true);
       // returns the X (horizontal) coordinate (in pixels) at which the mouse was clicked
@@ -39,19 +37,15 @@ export default function ExpandedView({
       // returns the Y (vertical) coordinate (in pixels) at which the mouse was clicked
       const posY = e.pageY;
 
-      let x = posX - zoomer.left;
-      let y = posY - zoomer.top;
+      const x = posX - zoomer.left;
+      const y = posY - zoomer.top;
 
       const { clientWidth, clientHeight } = e.target;
       // x -= clientWidth;
       // y -= clientHeight;
-      console.log('e target', e.target);
-      console.log('x', x, 'y', y);
-      console.log('clientWidth', clientWidth, 'clientHeight', clientHeight);
       e.target.style.transformOrigin = `${(x / clientWidth) * 100}% ${(y / clientHeight) * 100}%`;
       e.target.style.transform = `translate(${x}px, ${y}px) scale(2.5)`;
       e.target.style.transform = '0.5s';
-      // e.target.style.transform = 'translate(-691.875px, 76.125px) scale(2.5)';
     } else {
       setIsZoomed(false);
       e.target.style.transform = 'scale(2)';

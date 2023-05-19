@@ -39,7 +39,7 @@ function Product({ product }) {
       axios.get(`/products/${product.id}/styles`, {
       })
         .then(({ data }) => {
-          console.log('Product Styles available', data.results);
+          // console.log('Product Styles available', data.results);
           setStyleList(data.results);
           setSelectedStyle(data.results[0]);
         })
@@ -53,7 +53,7 @@ function Product({ product }) {
     getProductStyles();
   }, [product]);
 
-  console.log('styleList', styleList);
+  // console.log('styleList', styleList);
   return product && styleList ? (
     <div className="ProductPage">
       <div className="TopContent">

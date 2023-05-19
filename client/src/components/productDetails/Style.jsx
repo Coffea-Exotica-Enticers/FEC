@@ -9,8 +9,6 @@ export default function Style() {
     styleList, selectedStyle, setSelectedStyle, isExpandedActive,
   } = useContext(ProductContext);
 
-  console.log('selectedStyle', selectedStyle);
-
   return (
     <>
       <div className="product-price-container">
