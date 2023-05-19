@@ -18,18 +18,22 @@ export default function App() {
         setProduct(data);
         return data;
       })
-      .then((productData) => axios.get('/reviews/meta', {
-        params: {
-          product_id: productData.id,
-        },
-      }))
-      .then(({ data }) => setMetaData(data))
       .catch((err) => console.error('There was a problem retrieving product data: ', err));
   }, []);
 
-  function updateProduct(newProd) {
-    setProduct(newProd);
-  }
+  useEffect(() => {
+    if (product) {
+      axios.get('/reviews/meta', {
+        params: {
+          product_id: product.id,
+        },
+      })
+        .then(({ data }) => setMetaData(data))
+        .catch((err) => console.error('There was a problem retrieving product metadata', err));
+    }
+  }, [product]);
+
+  const updateProduct = (newProd) => setProduct(newProd);
 
   return (
     <div id="App">
