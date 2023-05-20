@@ -16,7 +16,6 @@ app.use('/products', router.products);
 app.use('/qa', router.qa);
 app.use('/reviews', router.reviews);
 app.use('/cart', router.cart);
-app.use('/interactions', router.interactions);
 
 // Serving static files
 app.use(express.static(path.join(__dirname, '../client/dist')));
