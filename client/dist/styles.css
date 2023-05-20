@@ -187,7 +187,7 @@ table {
   border: 2px solid #38423B;
 }
 .qa-header {
-  color: #7F7C61;
+  color: #747259;
   font-family: 'Noto Serif', serif;
   font-size: 28px;
   margin-bottom: 15px;
@@ -213,7 +213,7 @@ button.qa-helpful, button.qa-report {
 }
 button.addAnswer, button.moreAnswers, button.addQuestion, button.moreQuestions, button.modalButton {
   border-radius: 30px;
-  background-color: #7F7C61;
+  background-color: #747259;
   color: #f8f8f8;
   cursor: pointer;
   margin-left: 10px;
