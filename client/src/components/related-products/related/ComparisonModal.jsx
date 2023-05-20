@@ -13,27 +13,22 @@ function ComparisonModal({ closeModal, item, product }) {
     const view = {};
     const compare = {};
     const feature = [];
-
     const featureArr = [...product.features, ...item.features];
-
     featureArr.forEach((featObj) => {
       if (!feature.includes(featObj.feature)) {
         feature.push(featObj.feature);
       }
     });
-
     product.features.forEach((featObj) => {
       if (view[featObj.feature] === undefined) {
         view[featObj.feature] = featObj.value;
       }
     });
-
     item.features.forEach((featObj) => {
       if (compare[featObj.feature] === undefined) {
         compare[featObj.feature] = featObj.value;
       }
     });
-
     setViewItem(view);
     setCompareItem(compare);
     setFeatures(feature);
@@ -85,12 +80,20 @@ function ComparisonModal({ closeModal, item, product }) {
           <div className="cm-products">
             <h3>
               <strong>{product.name}</strong>
-              <p>({product.category})</p>
+              <p>
+                (
+                {product.category}
+                )
+              </p>
             </h3>
-            <h4 />
+            <h4 aria-hidden="true" />
             <h3>
               <strong>{item.name}</strong>
-              <p>({item.category})</p>
+              <p>
+                (
+                {item.category}
+                )
+              </p>
             </h3>
           </div>
         </div>

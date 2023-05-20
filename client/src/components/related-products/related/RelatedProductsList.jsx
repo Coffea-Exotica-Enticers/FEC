@@ -36,46 +36,57 @@ function RelatedProductsList({ product, updateProduct }) {
     }
   }, [product]);
 
-  function moveRight() {
+  function slideRight() {
     if (index <= listLength - 2) {
       setIndex(index + 1);
       setWidth(-((index) * 410));
     }
   }
-  function moveLeft() {
+  function slideLeft() {
     if (index > 1) {
       setIndex(index - 1);
       setWidth((width + 410));
     }
   }
-  function closeModal() {
-    setCompareItem(false);
-  }
+  const closeModal = (() => setCompareItem(false));
 
-  function openModal(item, product) {
+  const openModal = ((relatedItem, overviewProd) => {
     setCompareItem(!compareItem);
-    setShowModal(<ComparisonModal closeModal={closeModal} item={item} product={product} />);
-  }
+    setShowModal(<ComparisonModal
+      closeModal={closeModal}
+      item={relatedItem}
+      product={overviewProd}
+    />);
+  });
+
   return (
     <div className="rp-all">
       {compareItem && (showModal)}
       <div className="related-products" data-testid="rp-component">
         {index !== 1 && (
-          <div className="rp-Lbtn" onClick={() => moveLeft()}>
-            <button type="button">&#5176;</button>
+          <div className="rp-Lbtn">
+            <button type="button" onClick={() => slideLeft()}>&#5176;</button>
           </div>
         )}
         <div className="rp-list">
           <h2>Related Products List</h2>
           <div className="rp-container" style={styles}>
-            {listLength
-              ? relatedProducts.map((item) => <RelatedProductCard key={item.id} openModal={openModal} closeModal={closeModal} item={item} product={product} updateProduct={updateProduct} />)
+            {listLength ? relatedProducts.map((item) => (
+              <RelatedProductCard
+                key={item.id}
+                openModal={openModal}
+                closeModal={closeModal}
+                item={item}
+                product={product}
+                updateProduct={updateProduct}
+              />
+            ))
               : 'Loading...'}
           </div>
         </div>
         {index <= listLength - 2 && listLength >= 3 && (
-          <div className="rp-Rbtn" data-testid="rpl-right" onClick={() => moveRight()}>
-            <button type="button">&#5171;</button>
+          <div className="rp-Rbtn" data-testid="rpl-right">
+            <button type="button" onClick={() => slideRight()}>&#5171;</button>
           </div>
         )}
       </div>
