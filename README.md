@@ -1,6 +1,6 @@
 # Project Moda E-Commerce 
 
-## Tech Stack: 
+## Tech Stack 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -9,18 +9,18 @@
 ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
 ![Axios](https://img.shields.io/badge/-Axios-671ddf?logo=axios&amp;logoColor=black&amp;style=for-the-badge)
 
-## Overview:
+## Overview
 (some description)
 
-## Table of Contents:
+## Table of Contents
 * [Team](#team)
-* Requirements: Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-* Set-up Instructions (Usage)
-  * run npm install in terminal 
-  * create a .env file (SS)
-  * api token
-  * api url
-
+* [Requirements](#requirements)
+* [Usage](#usage)
+* [Project Components](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#product-components)
+  * [Product Detail Page](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#product-detail-page)
+  * [Related Products Section](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#related-products-section)
+  * [Questions And Answers](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#questions-and-answers)
+  * [Ratings And Reviews](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#ratings-and-reviews)
 
 ## Team
 | Name | Component | Github Handle |
@@ -33,22 +33,41 @@
   <img src="https://contrib.rocks/image?repo=Coffea-Exotica-Enticers/FEC" />
 </a>
 
+## Requirements
+* Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## Usage
+* run `npm install` in terminal
+  * Create a .env file 
+  * The .env file should include:
+    * PORT directory
+    * API url
+    * Your own unique API token
+
+![Screenshot 2023-05-20 at 3 29 17 PM](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/75c9688a-9bad-4535-9df8-64513da450a3)
+* run `npm run build` to build webpack
+* run `npm run dev` to start up the server
 
 
-======================================================
-Include:
-  -brief summary of your component
+## Product Components
+
+
+## Product Detail Page
+-brief summary of your component
   -key features
   -gif of component
 
+## Related Products Section
+-brief summary of your component
+  -key features
+  -gif of component
 
-Product Detail Page:
+## Questions And Answers
+-brief summary of your component
+  -key features
+  -gif of component
 
-
-Related Products:
-
-
-Questions and Answers:
-
-
-Ratings and Reviews:
+## Ratings And Reviews
+-brief summary of your component
+  -key features
+  -gif of component
