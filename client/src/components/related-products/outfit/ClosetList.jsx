@@ -16,7 +16,7 @@ function ClosetList({ product }) {
       setCloset([...closet, ...[product]]);
     }
   };
-  function removeOutfit(itemID) {
+  const removeOutfit = (itemID) => {
     const outfitArr = JSON.parse(window.localStorage.getItem('userCloset'));
     outfitArr.forEach((obj, i) => {
       if (obj.id === itemID) {
@@ -24,14 +24,14 @@ function ClosetList({ product }) {
       }
     });
     setCloset(outfitArr);
-  }
-  function moveRight() {
+  };
+  function slideRight() {
     if (index <= listLength - 1) {
       setIndex(index + 1);
       setWidth(-((index) * 300));
     }
   }
-  function moveLeft() {
+  function slideLeft() {
     if (index > 1) {
       setIndex(index - 1);
       setWidth((width + 300));
@@ -50,29 +50,33 @@ function ClosetList({ product }) {
     <div className="outfit-container">
       <div className="outfit">
         {index !== 1 && (
-          <div className="closet-Lbtn" onClick={() => moveLeft()}>
-            <button type="button">&#5176;</button>
+          <div className="closet-Lbtn">
+            <button type="button" onClick={() => slideLeft()}>&#5176;</button>
           </div>
         )}
         <div className="closet-container">
-          <div className="closet-list" style={styles}>
+          <div className="closet-list">
             <h2>Your Outfit</h2>
             <div className="closet-container">
               {closet.length ? (
-              <PlaceholderCard addOutfit={addOutfit} />
-              ) : <></> }
-              {closet.length
-                ? closet.map(
-                  (item) => <RelatedProductCard key={item.id} item={item} removeOutfit={removeOutfit} />,
-                )
-                : <PlaceholderCard addOutfit={addOutfit} />}
+                <PlaceholderCard addOutfit={addOutfit} />
+              ) : <div /> }
+              <div style={styles} className="stackcards">
+                {closet.length
+                  ? closet.map((item) => (
+                    <RelatedProductCard
+                      key={item.id}
+                      item={item}
+                      removeOutfit={removeOutfit}
+                    />
+                  )) : <PlaceholderCard addOutfit={addOutfit} />}
+              </div>
             </div>
           </div>
         </div>
-
         {index <= listLength && index <= listLength - 1 && (
-          <div className="closet-Rbtn" onClick={() => moveRight()}>
-            <button type="button">&#5171;</button>
+          <div className="closet-Rbtn">
+            <button type="button" onClick={() => slideRight()}>&#5171;</button>
           </div>
         )}
       </div>

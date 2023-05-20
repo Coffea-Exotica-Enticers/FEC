@@ -46,11 +46,11 @@ table {
  * {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
-  color: #82807f;
+  color: #6c6869;
  }
  body {
    background-color: #f8f8f8;
-   color: #82807F;
+   color: #6c6869;
 
   }
   #App{
@@ -84,7 +84,7 @@ table {
 /*********  Fox's Stuff Below  ***********/
 /*****************************************/
 .qa {
-  color: #82807f;
+  color: #757172 ;
 }
 .modal {
   position: fixed;
@@ -187,7 +187,7 @@ table {
   border: 2px solid #38423B;
 }
 .qa-header {
-  color: #7F7C61;
+  color: #747259;
   font-family: 'Noto Serif', serif;
   font-size: 28px;
   margin-bottom: 15px;
@@ -213,7 +213,7 @@ button.qa-helpful, button.qa-report {
 }
 button.addAnswer, button.moreAnswers, button.addQuestion, button.moreQuestions, button.modalButton {
   border-radius: 30px;
-  background-color: #7F7C61;
+  background-color: #747259;
   color: #f8f8f8;
   cursor: pointer;
   margin-left: 10px;
@@ -714,6 +714,7 @@ color: red;
   background-color: rgb(237, 233, 230);
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 40px;
 }
 .related-products {
   display: flex;
@@ -725,11 +726,12 @@ color: red;
   background-color: rgb(237, 233, 230);
 }
 .rp-list h2 {
-  color: #7c7b5d;
+  color: #747259;
   font-size: 30px;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
   padding: 30px 0 10px 30px;
+  border-bottom: 1px solid #747259;
 }
 .rp-container {
   display: grid;
@@ -749,10 +751,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -773,10 +775,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   transition-duration: .3s;
   width: 40px;
@@ -799,12 +801,16 @@ color: red;
   border-radius: 3px;
   margin: 25px;
   background-color: #f8f8f8;
-  color: #82807F;
+  color: #757172 ;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   border-width: 1px;
   position: relative;
-  box-shadow: 3px 3px 3px;
+  box-shadow: 10px 10px 10px darkgray;
+}
+.rp-card:hover {
+  transform: scale(1.1) perspective(1px);
+  cursor: pointer;
 }
 .rp-modal {
   position: absolute;
@@ -816,7 +822,7 @@ color: red;
 }
 .rp-modal button {
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   border-width: 1px;
   cursor: pointer;
   padding: 0;
@@ -834,6 +840,8 @@ color: red;
   height: 20px;
   border: none;
   font-weight: 400;
+  padding: 1px;
+  padding-right: 1.4px;
 }
 .rp-preview {
   padding: 15px;
@@ -874,7 +882,7 @@ color: red;
 }
 .rp-name {
   cursor: pointer;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: bold;
 }
 .rp-name:hover {
@@ -918,7 +926,7 @@ color: red;
 }
 .cm-header {
   text-align: center;
-  color: #7c7b5d;
+  color: #747259;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 400;
 }
@@ -955,7 +963,7 @@ color: red;
   min-width: 300px;
   max-height: 600px;
   overflow-y: auto;
-  color: #82807F;
+  color: #757172 ;
 }
 .cm-body h4 {
   font-style: italic;
@@ -980,7 +988,7 @@ color: red;
   flex-direction: row;
   text-align: center;
   border-bottom: 1px solid #d8d8d8;
-  color: #7c7b5d;
+  color: #747259;
 }
 .cm-same p {
   width: 20px;
@@ -1016,23 +1024,29 @@ color: red;
   padding-bottom: 50px;
 }
 .closet-container {
+  display: flex;
+  width: 100%;
   position: relative;
   overflow: hidden;
   background-color: rgb(237, 233, 230);
+  margin-left: 25px;
 }
 .closet-list {
   transition-duration: 1s;
 }
 .closet-list h2 {
-  color: #7c7b5d;
+  color: #747259;
   font-size: 30px;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
-  padding: 30px 0 10px 30px;
+  padding: 30px 0 10px 32px;
+  border-bottom: 1px solid #747259;
+  margin-left: 20px;
 }
-.closet-container {
+.stackcards {
   display: flex;
-  width: 100%;
+  overflow-x: hidden;
+  transition-duration: 1s;
 }
 .closet-add {
   display: flex;
@@ -1045,7 +1059,7 @@ color: red;
   border: solid;
   background: none;
   cursor: pointer;
-  color: #7c7b5d;
+  color: #747259;
   border-width: medium;
 }
 .closet-add button:hover {
@@ -1060,7 +1074,7 @@ color: red;
 .closet-close {
   position: absolute;
   z-index: 50;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: bold;
   right: 0;
   top: -1.9%;
@@ -1071,7 +1085,7 @@ color: red;
   background: none;
   padding: 0;
   font-size: x-large;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: bold;
 }
 .closet-close button:hover {
@@ -1090,10 +1104,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -1114,10 +1128,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -1136,12 +1150,15 @@ color: red;
   border-radius: 3px;
   margin: 25px;
   border: dotted;
-  border-color: #7c7b5d;
+  border-color: #747259;
   border-width: 3px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 3px 3px 3px;
+  box-shadow: 10px 10px 10px darkgray;
+  background-color: #f8f8f8;
+  z-index: 30;
+  margin-left: 0;
 }
 .pc-desc {
   display: flex;
@@ -1160,7 +1177,7 @@ color: red;
   margin-left: 20px;
   font-size: 20px;
   font-family: 'Noto Serif', sans-serif;
-  color: #7c7b5d
+  color: #747259
 }
 
 /* THUMBNAIL LIST */
@@ -1182,10 +1199,10 @@ color: red;
 .rpthumbnail-list button {
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: rgb(237, 233, 230);
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   transition-duration: .3s;
   z-index: 40;
@@ -1204,7 +1221,7 @@ color: red;
   padding: 3px;
   cursor: pointer;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   background-color: rgb(237, 233, 230);
   transition-duration: .3s;
 }
@@ -1220,7 +1237,7 @@ color: red;
   display: block;
   font-family: 'Noto Serif', serif;
   font-size: 2em;
-  color: #7f7c61;
+  color: #747259;
   padding: 10px;
 }
 .reviews-container {
@@ -1441,7 +1458,7 @@ button.more-reviews, button.add-review {
   padding: 10px 10px;
   border: none;
   border-radius: 32px;
-  background-color: #7f7c61;
+  background-color: #747259;
   color: #f8f8f8;
   margin: 10px 0;
 }
@@ -1546,7 +1563,7 @@ body.write-review-modal-open {
   font-family: 'Noto Serif';
   font-size: 3em;
   margin: 5px;
-  color: #7f7c61;
+  color: #747259;
 }
 .title-container > .subtitle {
   margin-left: 2em;

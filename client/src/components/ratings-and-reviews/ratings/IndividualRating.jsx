@@ -20,7 +20,7 @@ export default function IndividualRating(props) {
 
   return (
     <div className="star-rating-meter">
-      <button type="button" className="rating-label" onClick={toggleFilter}>
+      <button type="button" className="rating-label" aria-label={`Toggle ${rating} star filter`} onClick={toggleFilter}>
         {`${rating} stars`}
       </button>
       <div className="rating-meter" role="img" aria-label={`${percentage}% of reviews are ${rating} stars`}>

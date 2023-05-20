@@ -11,14 +11,13 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// compress all responses
 app.use(compression());
+
 // Routes
 app.use('/products', router.products);
 app.use('/qa', router.qa);
 app.use('/reviews', router.reviews);
 app.use('/cart', router.cart);
-app.use('/interactions', router.interactions);
 
 // Serving static files
 app.use(express.static(path.join(__dirname, '../client/dist')));

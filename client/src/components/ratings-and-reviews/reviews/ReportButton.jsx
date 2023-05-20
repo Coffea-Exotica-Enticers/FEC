@@ -12,7 +12,7 @@ export default function ReportButton({ id }) {
     }
   };
   return (
-    <button type="button" className="report-review" onClick={handleReport}>
+    <button type="button" className="report-review" aria-label="report review" onClick={handleReport}>
       {reported ? 'Reported' : 'Report'}
     </button>
   );
