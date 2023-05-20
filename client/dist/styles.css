@@ -46,11 +46,11 @@ table {
  * {
   font-family: 'Noto Sans', sans-serif;
   font-size: 16px;
-  color: #82807f;
+  color: #757172;
  }
  body {
    background-color: #f8f8f8;
-   color: #82807F;
+   color: #757172;
 
   }
   #App{
@@ -84,7 +84,7 @@ table {
 /*********  Fox's Stuff Below  ***********/
 /*****************************************/
 .qa {
-  color: #82807f;
+  color: #757172 ;
 }
 .modal {
   position: fixed;
@@ -725,12 +725,12 @@ color: red;
   background-color: rgb(237, 233, 230);
 }
 .rp-list h2 {
-  color: #7c7b5d;
+  color: #747259;
   font-size: 30px;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
   padding: 30px 0 10px 30px;
-  border-bottom: 1px solid #7c7b5d;
+  border-bottom: 1px solid #747259;
 }
 .rp-container {
   display: grid;
@@ -750,10 +750,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -774,10 +774,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   transition-duration: .3s;
   width: 40px;
@@ -800,9 +800,9 @@ color: red;
   border-radius: 3px;
   margin: 25px;
   background-color: #f8f8f8;
-  color: #82807F;
+  color: #757172 ;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   border-width: 1px;
   position: relative;
   box-shadow: 10px 10px 10px darkgray;
@@ -821,7 +821,7 @@ color: red;
 }
 .rp-modal button {
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   border-width: 1px;
   cursor: pointer;
   padding: 0;
@@ -881,7 +881,7 @@ color: red;
 }
 .rp-name {
   cursor: pointer;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: bold;
 }
 .rp-name:hover {
@@ -925,7 +925,7 @@ color: red;
 }
 .cm-header {
   text-align: center;
-  color: #7c7b5d;
+  color: #747259;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 400;
 }
@@ -962,7 +962,7 @@ color: red;
   min-width: 300px;
   max-height: 600px;
   overflow-y: auto;
-  color: #82807F;
+  color: #757172 ;
 }
 .cm-body h4 {
   font-style: italic;
@@ -987,7 +987,7 @@ color: red;
   flex-direction: row;
   text-align: center;
   border-bottom: 1px solid #d8d8d8;
-  color: #7c7b5d;
+  color: #747259;
 }
 .cm-same p {
   width: 20px;
@@ -1034,12 +1034,12 @@ color: red;
   transition-duration: 1s;
 }
 .closet-list h2 {
-  color: #7c7b5d;
+  color: #747259;
   font-size: 30px;
   font-family: 'Noto Serif', sans-serif;
   font-weight: 300;
   padding: 30px 0 10px 32px;
-  border-bottom: 1px solid #7c7b5d;
+  border-bottom: 1px solid #747259;
   margin-left: 20px;
 }
 .stackcards {
@@ -1058,7 +1058,7 @@ color: red;
   border: solid;
   background: none;
   cursor: pointer;
-  color: #7c7b5d;
+  color: #747259;
   border-width: medium;
 }
 .closet-add button:hover {
@@ -1073,7 +1073,7 @@ color: red;
 .closet-close {
   position: absolute;
   z-index: 50;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: bold;
   right: 0;
   top: -1.9%;
@@ -1084,7 +1084,7 @@ color: red;
   background: none;
   padding: 0;
   font-size: x-large;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: bold;
 }
 .closet-close button:hover {
@@ -1103,10 +1103,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -1127,10 +1127,10 @@ color: red;
   cursor: pointer;
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: #f8f8f8;
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   width: 40px;
   height: 40px;
@@ -1149,7 +1149,7 @@ color: red;
   border-radius: 3px;
   margin: 25px;
   border: dotted;
-  border-color: #7c7b5d;
+  border-color: #747259;
   border-width: 3px;
   display: flex;
   justify-content: center;
@@ -1176,7 +1176,7 @@ color: red;
   margin-left: 20px;
   font-size: 20px;
   font-family: 'Noto Serif', sans-serif;
-  color: #7c7b5d
+  color: #747259
 }
 
 /* THUMBNAIL LIST */
@@ -1198,10 +1198,10 @@ color: red;
 .rpthumbnail-list button {
   border-radius: 20px;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   padding: 0 8px 0 8px;
   background-color: rgb(237, 233, 230);
-  color: #7c7b5d;
+  color: #747259;
   font-weight: 600;
   transition-duration: .3s;
   z-index: 40;
@@ -1220,7 +1220,7 @@ color: red;
   padding: 3px;
   cursor: pointer;
   border: solid;
-  border-color: #7c7b5d;
+  border-color: #747259;
   background-color: rgb(237, 233, 230);
   transition-duration: .3s;
 }
