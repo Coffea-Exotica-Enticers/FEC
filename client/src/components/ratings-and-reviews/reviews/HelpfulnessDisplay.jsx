@@ -16,7 +16,7 @@ export default function HelpfulnessDisplay({ id, helpfulness }) {
   return (
     <span className="helpfulness">
       Helpful?
-      <button type="button" className="review-helpful" onClick={handleHelpful}>Yes</button>
+      <button type="button" className="review-helpful" aria-label="rate review as helpful" onClick={handleHelpful}>Yes</button>
       <span className="review-helpfulness-display">
         (
         {currentHelpfulness}
