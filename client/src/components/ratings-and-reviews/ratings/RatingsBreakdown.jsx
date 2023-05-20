@@ -56,10 +56,10 @@ export default function RatingsBreakdown(props) {
         ratingsFilter.length
           ? (
             <div className="ratings-filter-display">
-              <button type="button" onClick={() => clearFilter()}>Clear All</button>
+              <button type="button" aria-label="clear all ratings filters" onClick={() => clearFilter()}>Clear All</button>
               {
                 ratingsFilter.map((num) => (
-                  <button key={num} type="button" onClick={() => clearFilter(num)}>{num}</button>
+                  <button key={num} type="button" aria-label={`Remove ${num} star filter`} onClick={() => clearFilter(num)}>{num}</button>
                 ))
               }
             </div>

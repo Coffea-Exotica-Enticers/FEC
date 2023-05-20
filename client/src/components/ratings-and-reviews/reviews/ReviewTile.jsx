@@ -49,7 +49,7 @@ export default function ReviewTile({ review, search }) {
       <div className="review-body">
         <TextHighlight text={body} search={search} />
         {showMore
-          ? <button type="button" className="show-more" onClick={handleShowMore}>Show more</button>
+          ? <button type="button" className="show-more" aria-label="show rest of review body" onClick={handleShowMore}>Show more</button>
           : null}
       </div>
       {review.recommend

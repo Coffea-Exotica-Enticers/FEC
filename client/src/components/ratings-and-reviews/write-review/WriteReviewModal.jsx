@@ -83,7 +83,7 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
   return (
     <div className="write-review-modal">
       <div className="write-review-modal-content">
-        <button type="button" className="close-write-review-modal" onClick={() => setShowModal(false)}>
+        <button type="button" className="close-write-review-modal" aria-label="close modal" onClick={() => setShowModal(false)}>
           &times;
         </button>
         <div className="title-container">

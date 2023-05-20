@@ -41,7 +41,7 @@ export default function PhotoUpload({ photos, setPhotos }) {
           Object.keys(thumbnails).map((thumbnailBlob) => (
             <span className="write-review-thumbnail" key={thumbnailBlob}>
               <img className="write-review-thumbnail-photo" src={thumbnailBlob} alt="thumbnail" />
-              <button type="button" className="remove-photo" onClick={() => removePhoto(thumbnailBlob)}>
+              <button type="button" className="remove-photo" aria-label="remove photo" onClick={() => removePhoto(thumbnailBlob)}>
                 &times;
               </button>
             </span>
@@ -50,7 +50,7 @@ export default function PhotoUpload({ photos, setPhotos }) {
         {
           uploadCount <= 5
             ? (
-              <button className="photo-upload-button" aria-label="photo upload button" type="button" onClick={handleButtonClick}>
+              <button className="photo-upload-button" aria-label="upload photo" type="button" onClick={handleButtonClick}>
                 +
               </button>
             )
