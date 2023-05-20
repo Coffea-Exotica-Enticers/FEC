@@ -443,6 +443,9 @@ width: 100%;
 height: 100%;
 }
 
+img.expanded-image:hover{
+/* cursor: url('./assets/icon-cursor-minus.svg') 22 22, zoom-out; */
+}
 .main-image-pane{
 
     position: sticky;
@@ -592,7 +595,6 @@ img.default-image {
 }
 
 .left-button-expanded{
-
   position: absolute;
   overflow: auto;
   height: 40px;
@@ -604,10 +606,9 @@ img.default-image {
   cursor: pointer;
   border: none;
   border-radius: 999px;
-
-
-
+  z-index: 100;
 }
+
 .right-button-expanded{
   position: absolute;
     overflow: auto;
@@ -620,7 +621,7 @@ img.default-image {
     cursor: pointer;
     border-radius: 999px;
     border: none;
-
+    z-index: 100;
 }
 
 .product-price-container{

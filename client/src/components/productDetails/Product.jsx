@@ -64,6 +64,7 @@ function Product({ product }) {
               <ul className="social-media-list">
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="youtube-share-button"
                     href="https://youtu.be"
@@ -73,6 +74,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="whatsapp-share-button"
                     href=" https://api.whatsapp.com/send/?text=product"
@@ -84,6 +86,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="twitter-share-button"
                     href="https://twitter.com/intent/tweet"
@@ -93,6 +96,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="instagram-share-button"
                     href="https://www.instagram.com/"
@@ -104,6 +108,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="pinterest-share-button"
                     href="https://www.pinterest.com/pin/create/button/"
