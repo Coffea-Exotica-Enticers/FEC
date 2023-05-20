@@ -57,14 +57,18 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
             params: {
               upload_preset: 'ulaqsdpl',
             },
-          });
+          })
+            .catch((err) => {
+              console.error('PROBLEM UPLOADING PHOTOS TO CLOUDINARY', err);
+              return err;
+            });
         });
 
         Promise.all(promises)
           .then((results) => {
             const photoURLs = results.map(({ data }) => data.secure_url);
             newReview.photos = photoURLs;
-            axios.post('/reviews', newReview);
+            return axios.post('/reviews', newReview);
           })
           .then(() => setShowModal(false))
           .catch((err) => console.error('ERROR SUBMITTING REVIEW', err));
