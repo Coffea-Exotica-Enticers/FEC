@@ -49,14 +49,30 @@ export default function WriteReviewModal({ product, characteristics, setShowModa
         photos,
         characteristics: charRatings,
       };
-      axios.post('/reviews', newReview)
-        .then((results) => {
-          console.log('SUCCESS', results);
-          setShowModal(false);
-        })
-        .catch((err) => {
-          console.error('ERROR SUBMITTING REVIEW', err);
+      if (photos.length) {
+        const promises = photos.map((photoFile) => {
+          const form = new FormData();
+          form.append('file', photoFile);
+          return axios.post('https://api.cloudinary.com/v1_1/dlbnwlpoq/image/upload', form, {
+            params: {
+              upload_preset: 'ulaqsdpl',
+            },
+          });
         });
+
+        Promise.all(promises)
+          .then((results) => {
+            const photoURLs = results.map(({ data }) => data.secure_url);
+            newReview.photos = photoURLs;
+            axios.post('/reviews', newReview);
+          })
+          .then(() => setShowModal(false))
+          .catch((err) => console.error('ERROR SUBMITTING REVIEW', err));
+      } else {
+        axios.post('/reviews', newReview)
+          .then(() => setShowModal(false))
+          .catch((err) => console.error('ERROR SUBMITTING REVIEW', err));
+      }
     }
   };
 

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 
 const { useState } = React;
@@ -26,24 +25,9 @@ export default function PhotoUpload({ photos, setPhotos }) {
     if (/([^\s]+(\.(jpe?g|png)))/.test(fileToUpload.name) && fileToUpload.size < 10485760) {
       setShowError(false);
       const blob = URL.createObjectURL(fileToUpload);
-      setThumbnails({ ...thumbnails, [blob]: null });
+      setThumbnails({ ...thumbnails, [blob]: fileToUpload });
       setUploadCount(uploadCount + 1);
-      const form = new FormData();
-      form.append('file', fileToUpload);
-      axios.post('https://api.cloudinary.com/v1_1/dlbnwlpoq/image/upload', form, {
-        params: {
-          upload_preset: 'ulaqsdpl',
-        },
-      })
-        .then(({ data }) => {
-          setPhotos([...photos, data.secure_url]);
-          setThumbnails({ ...thumbnails, [blob]: data.secure_url });
-        })
-        .catch(() => {
-          setShowError(true);
-          setUploadCount(uploadCount - 1);
-          removePhoto(blob);
-        });
+      setPhotos([...photos, fileToUpload]);
     } else {
       setShowError(true);
     }
@@ -55,8 +39,8 @@ export default function PhotoUpload({ photos, setPhotos }) {
       <div className="upload-row">
         {
           Object.keys(thumbnails).map((thumbnailBlob) => (
-            <span className="write-review-thumbnail">
-              <img className="write-review-thumbnail-photo" key={thumbnailBlob} src={thumbnailBlob} alt="thumbnail" />
+            <span className="write-review-thumbnail" key={thumbnailBlob}>
+              <img className="write-review-thumbnail-photo" src={thumbnailBlob} alt="thumbnail" />
               <button type="button" className="remove-photo" onClick={() => removePhoto(thumbnailBlob)}>
                 &times;
               </button>
