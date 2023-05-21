@@ -20,7 +20,7 @@
   * [Product Detail Page](#product-detail-page)
   * [Related Products Section](#related-products-section)
   * [Questions And Answers](#questions-and-answers)
-  * [Ratings And Reviews](#ratings-&-reviews)
+  * [Ratings And Reviews](#ratings-and-reviews)
 
 ## Team
 | Name | Component | Github Handle |
@@ -67,7 +67,7 @@
   -key features
   -gif of component
 
-## Ratings & Reviews
+## Ratings And Reviews
 ![review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/e7dc278a-fbac-48ca-a720-5d5c0a60c1cb)
 - Display all of the reviews for a product
   - Sort reviews by relevance, newest, helpful
