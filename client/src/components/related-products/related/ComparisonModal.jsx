@@ -66,6 +66,8 @@ function ComparisonModal({ closeModal, item, product }) {
     );
   }
 
+  console.log('product', product)
+
   return (
     <div className="compare-modal">
       <div className="rp-overlay" />

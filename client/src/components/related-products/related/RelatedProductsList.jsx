@@ -50,12 +50,12 @@ function RelatedProductsList({ product, updateProduct }) {
   }
   const closeModal = (() => setCompareItem(false));
 
-  const openModal = ((relatedItem, overviewProd) => {
+  const openModal = ((item, product) => {
     setCompareItem(!compareItem);
     setShowModal(<ComparisonModal
       closeModal={closeModal}
-      item={relatedItem}
-      product={overviewProd}
+      item={item}
+      product={product}
     />);
   });
 
