@@ -48,12 +48,12 @@ Color Palette:
 * Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Usage
-* Run `npm install` in terminal
-* Create a copy of example.env file & rename copy as `.env`
-* Enter GitHub Token on `API_TOKEN` field
-* Run `npm run build` to build webpack
-* Run `npm run dev` to start up the server
-* Go to `localhost:3000` in browser
+1) Run `npm install` in terminal
+2) Create a copy of example.env file & rename copy as `.env`
+3) Enter GitHub Token on `API_TOKEN` field
+4) Run `npm run build` to build webpack
+5) Run `npm run dev` to start up the server
+6) Go to `localhost:3000` in browser
 
 
 # Product Components
