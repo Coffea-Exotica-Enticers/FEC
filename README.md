@@ -74,6 +74,8 @@ Product detail section allows users to scroll through images, select a specific 
 ![ProductDetail2](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8) ![ProductDetail3](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/d70939d3-a20b-4ed5-bb04-b3696373b8c8)
 
 ## Related Products Section
+![Related Products Section](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/410f3553-4cc4-4e4d-a2ca-bb1a075d8ce9)
+
 -brief summary of your component
   -key features
   -gif of component
