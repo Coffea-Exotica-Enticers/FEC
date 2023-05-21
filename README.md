@@ -67,7 +67,18 @@
   -key features
   -gif of component
 
-## Ratings And Reviews
--brief summary of your component
-  -key features
-  -gif of component
+## Ratings & Reviews
+![review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/e7dc278a-fbac-48ca-a720-5d5c0a60c1cb)
+- Display all of the reviews for a product
+  - Sort reviews by relevance, newest, helpful
+  - Search for specific reviews
+  - Mark reviews as helpful
+  - Report reviews to stop them from being displayed
+  - Click 'More Reviews' to display additional reviews
+- Display a breakdown of ratings by number of stars
+  - Filter reviews by star ratings
+- Display a breakdown of each characteristic for a product
+
+![write-review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/64f25d20-e0a7-4fec-838d-a07e4074121b)
+- Click 'Add A Review' to display a modal to submit a review
+  - Upload photos along with your review
