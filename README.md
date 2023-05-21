@@ -53,9 +53,25 @@
 
 
 ## Product Detail Page
--brief summary of your component
-  -key features
-  -gif of component
+Product detail section allows users to scroll through images, select a specific style, size and quantity of a product to add to their cart. This module consists of four main components: 
+* Image Gallery
+* Product Information
+* Style Selector
+* Add to Cart 
+
+![ProductDetail1](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/4391fb90-4004-4e0c-825a-42cbe3e4f316)
+**Functionalities:**
+* Image gallery with interactive thumbnails and an expanded view
+* The gallery updates based on each new style and thumbnail selection
+* Users can change to the next or previous image in the gallery
+* Clicking on a main image opens up an expanded view
+* Detailed zoom in with mouse movements and zoom out of an image
+* Users can toggle between different styles
+* Dynamic rendering of prices and styles
+* Ability to select a quantity of a style and size to add to cart
+* Sharing the product through social media accounts
+
+![ProductDetail2](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8) ![ProductDetail3](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/d70939d3-a20b-4ed5-bb04-b3696373b8c8)
 
 ## Related Products Section
 -brief summary of your component
