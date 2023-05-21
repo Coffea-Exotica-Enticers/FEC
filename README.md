@@ -110,6 +110,11 @@ Product detail section allows users to scroll through images, select a specific 
 |---|---|
 |![QAcomponent](https://github.com/Coffea-Exotica-Enticers/FEC/assets/106457612/1d4c7d44-8e25-43a0-9b50-9a08a556f546)|![QAmodal](https://github.com/Coffea-Exotica-Enticers/FEC/assets/106457612/06dc11c3-e3d0-4e6d-b8e8-efe690cc1f9d)|
 
+<details>
+  <summary>View QA Demo (gif)</summary>
+  <img src="/client/dist/assets/qaDemo.gif" width=50% />
+</details>
+ 
 ### Questions
 * Utilized React’s to create a **real-time responsive Search Bar** as text is typed into field
 * More Questions functionality built with overflow to provide good UX with more control over visible page content
