@@ -77,6 +77,7 @@ Product detail section allows users to scroll through images, select a specific 
 The Related Products Section is composed of two main components:
  1. The Related Products List
  2. Your Outfit List
+
 ![Related Products Section](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/410f3553-4cc4-4e4d-a2ca-bb1a075d8ce9)
 
 **Functionalities**
