@@ -18,8 +18,6 @@ function Product({ product }) {
   const [isExpandedActive, setIsExpandedActive] = useState(false);
   const [index, setIndex] = useState(0);
 
-  // console.log("metaData", metaData);
-
   const productMemo = useMemo(() => ({
 
     styleList,
@@ -39,7 +37,6 @@ function Product({ product }) {
       axios.get(`/products/${product.id}/styles`, {
       })
         .then(({ data }) => {
-          // console.log('Product Styles available', data.results);
           setStyleList(data.results);
           setSelectedStyle(data.results[0]);
         })
@@ -53,7 +50,6 @@ function Product({ product }) {
     getProductStyles();
   }, [product]);
 
-  // console.log('styleList', styleList);
   return product && styleList ? (
     <div className="ProductPage">
       <div className="TopContent">
@@ -64,6 +60,7 @@ function Product({ product }) {
               <ul className="social-media-list">
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="youtube-share-button"
                     href="https://youtu.be"
@@ -73,6 +70,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="whatsapp-share-button"
                     href=" https://api.whatsapp.com/send/?text=product"
@@ -84,6 +82,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="twitter-share-button"
                     href="https://twitter.com/intent/tweet"
@@ -93,6 +92,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="instagram-share-button"
                     href="https://www.instagram.com/"
@@ -104,6 +104,7 @@ function Product({ product }) {
                 </li>
                 <li>
                   <a
+                    aria-label="share"
                     label="share"
                     className="pinterest-share-button"
                     href="https://www.pinterest.com/pin/create/button/"

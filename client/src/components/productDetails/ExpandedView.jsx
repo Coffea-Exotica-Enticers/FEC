@@ -8,6 +8,7 @@ export default function ExpandedView({
   photos, index, show, onClose, setSelectedPhoto, setIndex,
 }) {
   const [isZoomed, setIsZoomed] = useState(false);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   function goToPrevious(e) {
     e.preventDefault();
@@ -26,29 +27,17 @@ export default function ExpandedView({
   }
 
   function handleZoom(e) {
-    e.preventDefault();
-    // returns a DOMRect object providing information about the size of an element
-    // and its position relative to the viewport.
-    const zoomer = e.currentTarget.getBoundingClientRect();
+    const { clientX } = e;
+    const { clientY } = e;
+    const x = e.target.offsetLeft;
+    const y = e.target.offsetTop;
+    setOffset({ x: clientX - x, y: clientY - y });
+    e.target.style.transformOrigin = `${offset.x}px ${offset.y}px`;
+    e.target.style.transform = `translate(${x}px, ${y}px) scale(2.5)`;
+    e.target.style.transform = '0.5s';
     if (!isZoomed) {
-      setIsZoomed(true);
-      // returns the X (horizontal) coordinate (in pixels) at which the mouse was clicked
-      const posX = e.pageX;
-      // returns the Y (vertical) coordinate (in pixels) at which the mouse was clicked
-      const posY = e.pageY;
-
-      const x = posX - zoomer.left;
-      const y = posY - zoomer.top;
-
-      const { clientWidth, clientHeight } = e.target;
-      // x -= clientWidth;
-      // y -= clientHeight;
-      e.target.style.transformOrigin = `${(x / clientWidth) * 100}% ${(y / clientHeight) * 100}%`;
-      e.target.style.transform = `translate(${x}px, ${y}px) scale(2.5)`;
-      e.target.style.transform = '0.5s';
-    } else {
-      setIsZoomed(false);
-      e.target.style.transform = 'scale(2)';
+      e.target.style.transformOrigin = `${offset.x}px ${offset.y}px`;
+      e.target.style.transform = 'scale(1)';
     }
   }
 
@@ -72,8 +61,11 @@ export default function ExpandedView({
           alt="Expanded gallery"
           src={photos[index].url}
           style={{ display: 'block' }}
-          onClick={(e) => handleZoom(e)}
-          onMouseMove={(e) => (isZoomed ? handleZoom(e) : null)}
+          onClick={(e) => {
+            setIsZoomed(!isZoomed);
+            handleZoom(e);
+          }}
+          onMouseMove={(e) => handleZoom(e)}
         />
       </div>
 

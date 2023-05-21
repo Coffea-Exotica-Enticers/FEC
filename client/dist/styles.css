@@ -225,7 +225,7 @@ button.addAnswer, button.moreAnswers, button.addQuestion, button.moreQuestions, 
 /*****************************************/
 
 
-/* =========================SEGUY============================ */
+/******************* PRODUCT DETAILS PAGE CSS START *******************/
 
 .product-images-grid{
   display: flex;
@@ -307,7 +307,7 @@ fill: #38423B;
 }
 .selectSize-text{
 
-  color: #e6e2de;
+  color: #000000;
 
 }
   .size-dropdown{
@@ -392,7 +392,6 @@ a.dropdown-item{
 
 .quantity-dropdown-button{
   box-sizing:border-box;
-  /* position: relative; */
   display: flex;
   height: 3.5em;
   width: 7em;
@@ -422,9 +421,10 @@ a.dropdown-item{
   }
 
   .please-select-size{
-    color:red;
+    color:#e30a0a;
     font-family: "Helvetica Now Text", Helvetica, Arial, sans-serif;
     padding-bottom: 10px;
+    font-size:20px;
   }
 
   /** PRODUCT DETAILS IMAGE COMPONENT*/
@@ -449,7 +449,6 @@ height: 100%;
     top: 40px;
     padding-left: 48px;
     margin-left: 8px;
-    /* max-height: 669px; */
     min-height: 455px;
     display: flex;
     flex-direction: row;
@@ -534,8 +533,6 @@ img.default-image {
     min-width: 60px;
     max-width: 60px;
     height: 100%;
-    /* overflow-y: scroll; */
-
 }
 
 .VerticalSlider{
@@ -592,7 +589,6 @@ img.default-image {
 }
 
 .left-button-expanded{
-
   position: absolute;
   overflow: auto;
   height: 40px;
@@ -604,10 +600,9 @@ img.default-image {
   cursor: pointer;
   border: none;
   border-radius: 999px;
-
-
-
+  z-index: 100;
 }
+
 .right-button-expanded{
   position: absolute;
     overflow: auto;
@@ -620,7 +615,7 @@ img.default-image {
     cursor: pointer;
     border-radius: 999px;
     border: none;
-
+    z-index: 100;
 }
 
 .product-price-container{
@@ -647,7 +642,6 @@ color: red;
   min-width: 50px;
   border-radius: 50%;
   border: 1px solid #888888;
-  /* position: relative; fixing issue regarding thumbnail appearing on the expanded view */
   margin: initial;
   width: 60px;
   cursor: pointer;

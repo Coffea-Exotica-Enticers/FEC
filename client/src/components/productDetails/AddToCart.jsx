@@ -37,9 +37,7 @@ export default function Cart() {
     if (skuID.length === 0) {
       setSizeTitle('Please select size');
     } else {
-      console.log('I AM SENDING POST REQUEST FOR ADD TO CART');
       axios.post('/cart', { sku_id: skuID }).then(({ data }) => {
-        console.log('Cart post data', data);
         axios.get('/cart', {
         })
           .then((response) => {

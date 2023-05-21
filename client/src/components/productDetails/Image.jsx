@@ -19,7 +19,6 @@ function Image() {
         setSelectedStyle={setSelectedStyle}
         selectedPhoto={selectedPhoto}
         setSelectedPhoto={setSelectedPhoto}
-        // setIsSelectorActive={setIsSelectorActive}
         setIndex={setIndex}
       />
       <ImageGrid
