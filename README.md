@@ -25,13 +25,13 @@ Color Palette:
 
 ## Table of Contents
 * [Team](#team)
-* [Requirements](#requirements)
-* [Usage](#usage)
 * [Product Components](#product-components)
   * [Product Detail Page](#product-detail-page)
   * [Related Products Section](#related-products-section)
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
+* [Requirements](#requirements)
+* [Usage](#usage)
 
 ## Team
 | Name | Component | Github Handle |
@@ -43,18 +43,6 @@ Color Palette:
 <a href="https://github.com/Coffea-Exotica-Enticers/FEC/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Coffea-Exotica-Enticers/FEC" />
 </a>
-
-## Requirements
-* Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-
-## Usage
-1) Run `npm install` in terminal
-2) Create a copy of example.env file & rename copy as `.env`
-3) Enter GitHub Token on `API_TOKEN` field
-4) Run `npm run build` to build webpack
-5) Run `npm run dev` to start up the server
-6) Go to `localhost:3000` in browser
-
 
 # Product Components
 
@@ -140,3 +128,14 @@ Product detail section allows users to scroll through images, select a specific 
 - Display a breakdown of each characteristic for a product
 - Click 'Add A Review' to display a form inside a modal window to submit a review
   - Upload photos along with your review
+
+## Requirements
+* Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## Usage
+1) Run `npm install` in terminal
+2) Create a copy of example.env file & rename copy as `.env`
+3) Enter GitHub Token on `API_TOKEN` field
+4) Run `npm run build` to build webpack
+5) Run `npm run dev` to start up the server
+6) Go to `localhost:3000` in browser
