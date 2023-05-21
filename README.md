@@ -38,15 +38,14 @@
 
 ## Usage
 * run `npm install` in terminal
-  * Create a .env file 
-  * The .env file should include:
+  * Create a .env file with:
     * PORT directory
     * API url
     * Your own unique API token
 
 ![Screenshot 2023-05-20 at 3 29 17 PM](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/75c9688a-9bad-4535-9df8-64513da450a3)
 * run `npm run build` to build webpack
-* run `npm run dev` to start up the server
+* run `npm run dev` to start the server
 
 
 ## Product Components
@@ -99,9 +98,19 @@ Your Outfit List:
  * Users can remove a product card by clicking the 'X' button on the top right corner
 
 ## Questions And Answers
--brief summary of your component
-  -key features
-  -gif of component
+Questions:
+* Utilized React’s to create a real-time responsive Search Bar as text is typed into field
+* More Questions functionality built with overflow to provide good UX with more control over visible page content
+* Displays metadata of each question
+
+Answers:
+* Implemented conditional rendering to limit user’s reported/helpful response to each Q&A 
+* More Answers functionality built to conditionally render additional customer responses to provide user control of page content
+* Displays metadata of each answer
+
+Modals & Posting Questions/Answers:
+* Modal Forms to Add Your Answer or Ask Your Question to API
+* Modal Forms dynamically respond to user input to reinforce valid vs. invalid actions
 
 ## Ratings And Reviews
 ![review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/e7dc278a-fbac-48ca-a720-5d5c0a60c1cb)
