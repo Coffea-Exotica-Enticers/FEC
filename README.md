@@ -125,7 +125,9 @@ Modals & Posting Questions/Answers:
 * Modal Forms dynamically respond to user input to reinforce valid vs. invalid actions
 
 # Ratings And Reviews
-![review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/e7dc278a-fbac-48ca-a720-5d5c0a60c1cb)
+| Review Component | Modal Window |
+|---|---|
+| ![review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/e7dc278a-fbac-48ca-a720-5d5c0a60c1cb) | ![write-review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/64f25d20-e0a7-4fec-838d-a07e4074121b) |
 - Display all of the reviews for a product
   - Sort reviews by relevance, newest, helpful
   - Search for specific reviews
@@ -135,7 +137,5 @@ Modals & Posting Questions/Answers:
 - Display a breakdown of ratings by number of stars
   - Filter reviews by star ratings
 - Display a breakdown of each characteristic for a product
-
-![write-review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/64f25d20-e0a7-4fec-838d-a07e4074121b)
-- Click 'Add A Review' to display a modal to submit a review
+- Click 'Add A Review' to display a form inside a modal window to submit a review
   - Upload photos along with your review
