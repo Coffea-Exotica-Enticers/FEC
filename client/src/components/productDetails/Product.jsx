@@ -18,8 +18,6 @@ function Product({ product }) {
   const [isExpandedActive, setIsExpandedActive] = useState(false);
   const [index, setIndex] = useState(0);
 
-  // console.log("metaData", metaData);
-
   const productMemo = useMemo(() => ({
 
     styleList,
@@ -39,7 +37,6 @@ function Product({ product }) {
       axios.get(`/products/${product.id}/styles`, {
       })
         .then(({ data }) => {
-          // console.log('Product Styles available', data.results);
           setStyleList(data.results);
           setSelectedStyle(data.results[0]);
         })
@@ -53,7 +50,6 @@ function Product({ product }) {
     getProductStyles();
   }, [product]);
 
-  // console.log('styleList', styleList);
   return product && styleList ? (
     <div className="ProductPage">
       <div className="TopContent">
