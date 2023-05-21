@@ -59,7 +59,7 @@ Color Palette:
 # Product Components
 
 ## Product Detail Page
-Product detail section allows users to scroll through images, select a specific style, size and quantity of a product to add to their cart. This module consists of four main components: 
+Product detail section allows users to scroll through images, select a specific style, size and quantity of a product, and then add it to their cart. This module consists of four main components: 
 * Image Gallery
 * Product Information
 * Style Selector
@@ -107,7 +107,7 @@ Product detail section allows users to scroll through images, select a specific 
 |![QAcomponent](https://github.com/Coffea-Exotica-Enticers/FEC/assets/106457612/1d4c7d44-8e25-43a0-9b50-9a08a556f546)|![QAmodal](https://github.com/Coffea-Exotica-Enticers/FEC/assets/106457612/06dc11c3-e3d0-4e6d-b8e8-efe690cc1f9d)|
 
 <details>
-  <summary>View QA Demo (gif)</summary>
+  <summary>View QA Dynamic Search Demo (gif)</summary>
   <img src="/client/dist/assets/qaDemo.gif" width=50% />
 </details>
  
