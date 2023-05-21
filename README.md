@@ -48,15 +48,12 @@ Color Palette:
 * Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 # Usage
-* run `npm install` in terminal
-  * Create a .env file with:
-    * PORT directory
-    * API url
-    * Github API token
-
-![Screenshot 2023-05-20 at 3 29 17 PM](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/75c9688a-9bad-4535-9df8-64513da450a3)
-* run `npm run build` to build webpack
-* run `npm run dev` to start up the server
+* Run `npm install` in terminal
+* Create a copy of example.env file & rename copy as `.env`
+* Enter GitHub Token on `API_TOKEN` field
+* Run `npm run build` to build webpack
+* Run `npm run dev` to start up the server
+* Go to `localhost:3000` in browser
 
 
 # Product Components
