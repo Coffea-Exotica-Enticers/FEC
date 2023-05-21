@@ -74,11 +74,27 @@ Product detail section allows users to scroll through images, select a specific 
 ![ProductDetail2](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8) ![ProductDetail3](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/d70939d3-a20b-4ed5-bb04-b3696373b8c8)
 
 ## Related Products Section
+The Related Products Section is composed of two main components:
+ 1. The Related Products List
+ 2. Your Outfit List
 ![Related Products Section](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/410f3553-4cc4-4e4d-a2ca-bb1a075d8ce9)
 
--brief summary of your component
-  -key features
-  -gif of component
+**Functionalities**
+The Related Products List:
+ * Contains a list of product cards that is dynamically rendered
+ * Utilizes a Carousel slider
+  * The left and right buttons on the carousel are displayed conditionally
+ * Each product card contains a 'comparison modal' button on the top right corner
+  * Upon click, a pop-up modal is displayed comparing the features and values of the main product and the related product
+ * If available, each product card displays a list of small thumbnail images (4 max) upon hover
+  * The left and right arrow buttons are displayed conditionally 
+ * Upon clicking the title of the product card, the main page is updated to the target product, and a new list of related products is rendered
+Your Outfit List:
+ * Contains a list of products cards that is unique to each user
+ * Also utilizes a Carousel slider
+ * Clicking the 'Add an Oufit' button utilizes local storage to store and render user-specific product cards
+  * Product cards that are added to this list persist upon page navigation, refresh, and exit.
+ * Users can remove a product card by clicking the 'X' button on the top right corner
 
 ## Questions And Answers
 -brief summary of your component
