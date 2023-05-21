@@ -1,6 +1,6 @@
 # Project Moda E-Commerce 
 
-## Tech Stack 
+# Tech Stack 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -9,10 +9,10 @@
 ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
 ![Axios](https://img.shields.io/badge/-Axios-671ddf?logo=axios&amp;logoColor=black&amp;style=for-the-badge)
 
-## Overview
+# Overview
 (some description)
 
-## Table of Contents
+# Table of Contents
 * [Team](#team)
 * [Requirements](#requirements)
 * [Usage](#usage)
@@ -22,7 +22,7 @@
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
 
-## Team
+# Team
 | Name | Component | Github Handle |
 |---|---|---|
 | Seguy | Product Detail | [seguyy](https://github.com/seguyy) |
@@ -33,10 +33,10 @@
   <img src="https://contrib.rocks/image?repo=Coffea-Exotica-Enticers/FEC" />
 </a>
 
-## Requirements
+# Requirements
 * Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-## Usage
+# Usage
 * run `npm install` in terminal
   * Create a .env file 
   * The .env file should include:
@@ -49,7 +49,7 @@
 * run `npm run dev` to start up the server
 
 
-## Product Components
+# Product Components
 
 
 ## Product Detail Page
@@ -73,16 +73,16 @@ Product detail section allows users to scroll through images, select a specific 
 
 ![ProductDetail2](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8) ![ProductDetail3](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/d70939d3-a20b-4ed5-bb04-b3696373b8c8)
 
-## Related Products Section
-The Related Products Section is composed of two main components:
+# Related Products Section
+## The Related Products Section is composed of two main components:
  1. The Related Products List
  2. Your Outfit List
 
 ![Related Products Section](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/410f3553-4cc4-4e4d-a2ca-bb1a075d8ce9)
 
-**Functionalities**
 
-The Related Products List:
+## Functionalities
+### The Related Products List:
  * Contains a list of product cards that is dynamically rendered
  * Utilizes a Carousel slider
   * The left and right buttons on the carousel are displayed conditionally
@@ -91,19 +91,19 @@ The Related Products List:
  * If available, each product card displays a list of small thumbnail images (4 max) upon hover
   * The left and right arrow buttons are displayed conditionally 
  * Upon clicking the title of the product card, the main page is updated to the target product, and a new list of related products is rendered
-Your Outfit List:
+### Your Outfit List:
  * Contains a list of products cards that is unique to each user
  * Also utilizes a Carousel slider
  * Clicking the 'Add an Oufit' button utilizes local storage to store and render user-specific product cards
   * Product cards that are added to this list persist upon page navigation, refresh, and exit.
  * Users can remove a product card by clicking the 'X' button on the top right corner
 
-## Questions And Answers
+# Questions And Answers
 -brief summary of your component
   -key features
   -gif of component
 
-## Ratings And Reviews
+# Ratings And Reviews
 ![review](https://github.com/Coffea-Exotica-Enticers/FEC/assets/112038666/e7dc278a-fbac-48ca-a720-5d5c0a60c1cb)
 - Display all of the reviews for a product
   - Sort reviews by relevance, newest, helpful
