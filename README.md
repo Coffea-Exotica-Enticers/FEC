@@ -22,6 +22,8 @@
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
 
+Color Palette: `#757172`, `#F8F8F8`, `#ffffff`
+
 # Team
 | Name | Component | Github Handle |
 |---|---|---|
