@@ -89,7 +89,7 @@ Product detail section allows users to scroll through images, select a specific 
 ![RelatedProductsSection](https://github.com/Coffea-Exotica-Enticers/FEC/assets/114632224/9269cd77-a3b9-4905-a00f-a2baf5dcc36a)
 
 
-### The Related Products List:
+### The Related Products List
  * Contains a list of product cards that is dynamically rendered
  * Utilizes a Carousel slider
    * The left and right buttons on the carousel are displayed conditionally
@@ -98,7 +98,7 @@ Product detail section allows users to scroll through images, select a specific 
  * If available, each product card displays a list of small thumbnail images (4 max) upon hover
    * The left and right arrow buttons are displayed conditionally 
  * Upon clicking the title of the product card, the main page is updated to the target product, and a new list of related products is rendered
-### Your Outfit List:
+### Your Outfit List
  * Contains a list of products cards that is unique to each user
  * Also utilizes a Carousel slider
  * Clicking the 'Add an Oufit' button utilizes local storage to store and render user-specific product cards
@@ -110,17 +110,17 @@ Product detail section allows users to scroll through images, select a specific 
 |---|---|
 |![QAcomponent](https://github.com/Coffea-Exotica-Enticers/FEC/assets/106457612/1d4c7d44-8e25-43a0-9b50-9a08a556f546)|![QAmodal](https://github.com/Coffea-Exotica-Enticers/FEC/assets/106457612/06dc11c3-e3d0-4e6d-b8e8-efe690cc1f9d)|
 
-Questions:
+### Questions
 * Utilized React’s to create a **real-time responsive Search Bar** as text is typed into field
 * More Questions functionality built with overflow to provide good UX with more control over visible page content
 * Displays metadata of each question
 
-Answers:
+### Answers
 * Implemented conditional rendering to limit user’s reported/helpful response to each Q&A 
 * More Answers functionality built to conditionally render additional customer responses to provide user control of page content
 * Displays metadata of each answer
 
-Modals & Posting Questions/Answers:
+### Modals & Posting Questions/Answers
 * Modal Forms to Add Your Answer or Ask Your Question to API
 * Modal Forms dynamically respond to user input to reinforce valid vs. invalid actions
 
