@@ -12,6 +12,17 @@
 # Overview
 **_Moda_** is a front-end focused, fully functional e-commerce application. Our project was constructed by a team of 4 engineers following the guidelines and specifications of a strict Business Requirement Document (BRD) for each component. 
 
+
+Color Palette: 
+
+![#757172](https://placehold.co/15x15/757172/757172.png) `#757172` 
+
+![#747259](https://placehold.co/15x15/747259/747259.png) `#747259` 
+
+![#F8F8F8](https://placehold.co/15x15/F8F8F8/F8F8F8.png) `#F8F8F8` 
+
+![#EDE9E6](https://placehold.co/15x15/EDE9E6/EDE9E6.png) `#EDE9E6`
+
 # Table of Contents
 * [Team](#team)
 * [Requirements](#requirements)
@@ -21,8 +32,6 @@
   * [Related Products Section](#related-products-section)
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
-
-Color Palette: `#757172`, `#F8F8F8`, `#ffffff`
 
 # Team
 | Name | Component | Github Handle |
