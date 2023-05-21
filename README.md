@@ -10,7 +10,7 @@
 ![Axios](https://img.shields.io/badge/-Axios-671ddf?logo=axios&amp;logoColor=black&amp;style=for-the-badge)
 
 # Overview
-(some description)
+**_Moda_** is a front-end focused, fully functional e-commerce application. Our project was constructed by a team of 4 engineers following the guidelines and specifications of a strict Business Requirement Document (BRD) for each component. 
 
 # Table of Contents
 * [Team](#team)
