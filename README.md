@@ -1,6 +1,6 @@
 # Project Moda
 
-# Tech Stack 
+## Tech Stack 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -9,7 +9,7 @@
 ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
 ![Axios](https://img.shields.io/badge/-Axios-671ddf?logo=axios&amp;logoColor=black&amp;style=for-the-badge)
 
-# Overview
+## Overview
 **_Moda_** is a front-end focused, fully functional e-commerce application. Our project was constructed by a team of 4 engineers following the guidelines and specifications of a strict Business Requirement Document (BRD) for each component. 
 
 
@@ -23,7 +23,7 @@ Color Palette:
 
 ![#EDE9E6](https://placehold.co/15x15/EDE9E6/EDE9E6.png) `#EDE9E6`
 
-# Table of Contents
+## Table of Contents
 * [Team](#team)
 * [Requirements](#requirements)
 * [Usage](#usage)
@@ -33,7 +33,7 @@ Color Palette:
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
 
-# Team
+## Team
 | Name | Component | Github Handle |
 |---|---|---|
 | Seguy | Product Detail | [seguyy](https://github.com/seguyy) |
@@ -44,10 +44,10 @@ Color Palette:
   <img src="https://contrib.rocks/image?repo=Coffea-Exotica-Enticers/FEC" />
 </a>
 
-# Requirements
+## Requirements
 * Install [node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-# Usage
+## Usage
 * Run `npm install` in terminal
 * Create a copy of example.env file & rename copy as `.env`
 * Enter GitHub Token on `API_TOKEN` field
@@ -57,7 +57,6 @@ Color Palette:
 
 
 # Product Components
-
 
 ## Product Detail Page
 Product detail section allows users to scroll through images, select a specific style, size and quantity of a product to add to their cart. This module consists of four main components: 
