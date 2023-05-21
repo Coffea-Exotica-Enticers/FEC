@@ -94,17 +94,17 @@ Product detail section allows users to scroll through images, select a specific 
 ### The Related Products List:
  * Contains a list of product cards that is dynamically rendered
  * Utilizes a Carousel slider
-  * The left and right buttons on the carousel are displayed conditionally
+   * The left and right buttons on the carousel are displayed conditionally
  * Each product card contains a 'comparison modal' button on the top right corner
-  * Upon click, a pop-up modal is displayed comparing the features and values of the main product and the related product
+   * Upon click, a pop-up modal is displayed comparing the features and values of the main product and the related product
  * If available, each product card displays a list of small thumbnail images (4 max) upon hover
-  * The left and right arrow buttons are displayed conditionally 
+   * The left and right arrow buttons are displayed conditionally 
  * Upon clicking the title of the product card, the main page is updated to the target product, and a new list of related products is rendered
 ### Your Outfit List:
  * Contains a list of products cards that is unique to each user
  * Also utilizes a Carousel slider
  * Clicking the 'Add an Oufit' button utilizes local storage to store and render user-specific product cards
-  * Product cards that are added to this list persist upon page navigation, refresh, and exit.
+   * Product cards that are added to this list persist upon page navigation, refresh, and exit.
  * Users can remove a product card by clicking the 'X' button on the top right corner
 
 # Questions And Answers
