@@ -16,11 +16,11 @@
 * [Team](#team)
 * [Requirements](#requirements)
 * [Usage](#usage)
-* [Project Components](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#product-components)
-  * [Product Detail Page](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#product-detail-page)
-  * [Related Products Section](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#related-products-section)
-  * [Questions And Answers](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#questions-and-answers)
-  * [Ratings And Reviews](https://github.com/Coffea-Exotica-Enticers/FEC/edit/main/README.md#ratings-and-reviews)
+* [Product Components](#product-components)
+  * [Product Detail Page](#product-detail-page)
+  * [Related Products Section](#related-products-section)
+  * [Questions And Answers](#questions-and-answers)
+  * [Ratings And Reviews](#ratings-&-reviews)
 
 ## Team
 | Name | Component | Github Handle |
