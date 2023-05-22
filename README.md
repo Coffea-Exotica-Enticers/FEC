@@ -111,7 +111,7 @@ Product detail section allows users to scroll through images, select a specific 
 
 <details>
   <summary>View QA Dynamic Search Demo (gif)</summary>
-  <img src="/client/dist/assets/qaDemo.gif" width=50% />
+  <img src="/client/dist/assets/qaDemo.gif" width="800" height="600" />
 </details>
  
 ### Questions
