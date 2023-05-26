@@ -59,8 +59,8 @@ function RelatedProductCard({
   //   setThumbnails([defaultImage[0], ...thumbnailImgs]);
   // }
 
-  function modalToggle({ relatedItem, overviewProd }) {
-    openModal(relatedItem, overviewProd);
+  function modalToggle({ item, product }) {
+    openModal(item, product);
   }
   const changeDefaultImg = ((url) => setDefaultImg(url));
 
