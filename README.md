@@ -61,14 +61,13 @@ Product detail section allows users to scroll through images, select a specific 
 * Image gallery with interactive thumbnails and an expanded view
 * The gallery updates based on each new style and thumbnail selection
 * Users can change to the next or previous image in the gallery
-* Clicking on a main image opens up an expanded view
-* Detailed zoom in with mouse movements and zoom out of an image
+* Clicking on a main image opens up an expanded view with detailed zoom
 * Users can toggle between different styles
 * Dynamic rendering of prices and styles
 * Ability to select a quantity of a style and size to add to cart
 * Sharing the product through social media accounts
 
-![ProductDetail2](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8) ![ProductDetail3](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/d70939d3-a20b-4ed5-bb04-b3696373b8c8)
+![ProductDetail2](https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
