@@ -21,7 +21,6 @@
   * [Related Products Section](#related-products-section)
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
-* [Color Palette](#color-palette) 
 
 ## Team
 | Name | Component | Github Handle |
@@ -144,10 +143,3 @@ Product detail section allows users to scroll through images, select a specific 
 - Display a breakdown of each characteristic for a product
 - Click 'Add A Review' to display a form inside a modal window to submit a review
   - Upload photos along with your review
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-# Color Palette: 
-| ![#757172](https://placehold.co/15x15/757172/757172.png) | ![#747259](https://placehold.co/15x15/747259/747259.png) | ![#F8F8F8](https://placehold.co/15x15/F8F8F8/F8F8F8.png) | ![#EDE9E6](https://placehold.co/15x15/EDE9E6/EDE9E6.png) |
-|---|---|---|---|
-| `#757172` | `#747259` | `#F8F8F8` | `#EDE9E6` |
