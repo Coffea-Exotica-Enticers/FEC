@@ -67,8 +67,8 @@ Product detail section allows users to scroll through images, select a specific 
 * Ability to select a quantity of a style and size to add to cart
 * Sharing the product through social media accounts
 
-<img src="https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8" width="800" height="600"/>
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/33603288/239720097-d70939d3-a20b-4ed5-bb04-b3696373b8c8.png" width="800" height="600"/>
+<img src="https://github.com/Coffea-Exotica-Enticers/FEC/assets/33603288/b361f857-42bd-4ebd-b310-c08d53916da8"/>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/33603288/239720097-d70939d3-a20b-4ed5-bb04-b3696373b8c8.png"/>
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
