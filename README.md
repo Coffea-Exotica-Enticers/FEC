@@ -17,7 +17,7 @@
 * [Requirements](#requirements)
 * [Usage](#usage)
 * [Product Components](#product-components)
-  * [Product Detail Page](#product-detail-page)
+  * [Product Details](#product-details)
   * [Related Products Section](#related-products-section)
   * [Questions And Answers](#questions-and-answers)
   * [Ratings And Reviews](#ratings-and-reviews)
@@ -25,7 +25,7 @@
 ## Team
 | Name | Component | Github Handle |
 |---|---|---|
-| Seguy | Product Detail | [seguyy](https://github.com/seguyy) |
+| Seguy | Product Details | [seguyy](https://github.com/seguyy) |
 | Ben | Related Items | [beanjermin](https://github.com/beanjermin) |
 | Jin | Questions and Answers | [yoko-8](https://github.com/yoko-8) |
 | David | Ratings and Reviews | [davidguy3237](https://github.com/davidguy3237) |
@@ -48,8 +48,8 @@
 
 # Product Components
 
-# Product Detail Page
-Product detail section allows users to scroll through images, select a specific style, size and quantity of a product, and then add it to their cart. This module consists of four main components: 
+# Product Details
+Product details section allows users to scroll through images, select a specific style, size and quantity of a product, and then add it to their cart. This module consists of four main components: 
 * Image Gallery
 * Product Information
 * Style Selector
